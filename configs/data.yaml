@@ -64,3 +64,25 @@ split:
   families_scope: corpus_only
   stratify_domain_scope: corpus_docs
   # Không đặt ngưỡng cắt họ; chỉ báo phân phối kích thước họ trước khi split.
+
+# SPEC 3.4, 3.6, 7.3. Tokenizer lấy từ đúng checkpoint e5, ghim revision.
+tokenizer:
+  name: intfloat/multilingual-e5-base
+  revision: d128750597153bb5987e10b1c3493a34e5a4502a
+  local_dir: data/raw/e5_tokenizer
+  files: [tokenizer.json, tokenizer_config.json, sentencepiece.bpe.model, special_tokens_map.json, config.json]
+  max_length: 512  # SPEC 7.3: passage sau khi thêm "passage: " phải <= 512 token
+
+chunk:
+  max_tokens: 450      # gồm tiền tố, không gồm "passage: " (SPEC 3.4)
+  token_overlap: 50    # chồng lấn khi cắt một câu > max_tokens theo token
+  sentence_overlap: 1  # chồng lấn khi tách Khoản dài theo câu
+  table_cell_sep: " | "
+
+processed:
+  dir: data/processed
+  rejected_log: logs/rejected.jsonl
+  filtered_out_log: logs/filtered_out.tsv  # từng văn bản bị loại ở bước lọc 1-3 (SPEC 3.2, 3.7)
+  long_sentence_log: logs/long_sentence.jsonl
+  filter_counts_log: logs/filter_counts.json
+  after_filter_dir: reports/data_stats/after_filter

@@ -19,6 +19,9 @@ def main() -> None:
         path = hf_hub_download(ds["name"], rel, repo_type="dataset", revision=ds["revision"],
                                local_dir=cfg["paths"]["raw_dir"])
         print(key, path)
+    tk = cfg["tokenizer"]  # tokenizer E5 ghim revision (SPEC 7.3)
+    for rel in tk["files"]:
+        print("tokenizer", hf_hub_download(tk["name"], rel, revision=tk["revision"], local_dir=tk["local_dir"]))
 
 
 if __name__ == "__main__":
