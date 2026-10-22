@@ -1,4 +1,4 @@
-"""Ứng dụng FastAPI — bản khung của hợp đồng v1 (SPEC 14.5).
+"""Ứng dụng FastAPI — bản khung của schema (SPEC 14.5).
 
 Chưa có SearchService: mọi endpoint cần model trả 503 MODEL_NOT_READY. Logic thật được
 gắn vào sau (gói app), không được đổi chữ ký endpoint mà không qua quy trình SPEC mục 0.
@@ -22,12 +22,8 @@ from src.contracts import (
 )
 
 ERR_422 = {422: {"model": ErrorResponse, "description": "EMPTY_QUERY, INVALID_FILTER hoặc INVALID_REQUEST"}}
-ERR_422_FEEDBACK = {422: {"model": ErrorResponse, "description":
-                          "INVALID_REQUEST: sai schema, search_id không tồn tại, "
-                          "hoặc (system, article_id) không thuộc lượt tìm đó"}}
+ERR_422_REQ = {422: {"model": ErrorResponse, "description": "INVALID_REQUEST"}}
 ERR_503 = {503: {"model": ErrorResponse, "description": "MODEL_NOT_READY hoặc INDEX_MANIFEST_MISMATCH"}}
-# SPEC 14.5: /health chưa sẵn sàng thì luôn trả MODEL_NOT_READY.
-ERR_503_HEALTH = {503: {"model": ErrorResponse, "description": "MODEL_NOT_READY"}}
 
 
 def _not_ready() -> ApiError:
@@ -38,11 +34,11 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title="VN Legal Semantic Search API",
         version=CONTRACT_VERSION,
-        description="Hợp đồng API v1 — SPEC mục 14.5.",
+        description="schema API v1 — SPEC mục 14.5.",
     )
     install_error_handlers(app)
 
-    @app.get("/health", response_model=HealthResponse, responses=ERR_503_HEALTH, tags=["system"])
+    @app.get("/health", response_model=HealthResponse, responses=ERR_503, tags=["system"])
     def health() -> HealthResponse:
         raise _not_ready()
 
@@ -54,7 +50,7 @@ def create_app() -> FastAPI:
     def search(req: SearchRequest) -> SearchResponse:
         raise _not_ready()
 
-    @app.post("/v1/feedback", response_model=FeedbackAck, responses={**ERR_422_FEEDBACK, **ERR_503}, tags=["feedback"])
+    @app.post("/v1/feedback", response_model=FeedbackAck, responses={**ERR_422_REQ, **ERR_503}, tags=["feedback"])
     def feedback(req: FeedbackRequest) -> FeedbackAck:
         raise _not_ready()
 

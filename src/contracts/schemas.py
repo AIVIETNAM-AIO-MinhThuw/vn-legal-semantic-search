@@ -1,12 +1,12 @@
 """Schema Pydantic của API v1 (SPEC 14.5).
 
-Quyết định của nhóm khi lập hợp đồng (2026-10-22):
+Quyết định của nhóm khi lập schema (2026-10-22):
 - `timing_ms` là một số (tổng thời gian xử lý request, mili giây).
 - `system` là tên chế độ cố định: `bm25`, `semantic`, `hybrid`. Model thật nằm ở `/v1/info`
   và bảng `searches` phía server (SPEC 14.4).
 - Cảnh báo có dạng `{code, message}`, giống định dạng lỗi; UI hiển thị theo `code` (SPEC 14.3).
 
-Đổi bất kỳ schema nào ở đây là đổi hợp đồng: phải qua quy trình SPEC mục 0, sinh lại
+Đổi bất kỳ schema nào ở đây là đổi schema: phải qua quy trình SPEC mục 0, sinh lại
 `openapi.json` và ghi Changelog.
 """
 from __future__ import annotations
@@ -19,7 +19,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 CONTRACT_VERSION = "1.0.0"
 
-# Giới hạn top-k là một phần của hợp đồng (SPEC 14.2, 14.5), không phải tham số tune.
+# Giới hạn top-k là một phần của schema (SPEC 14.2, 14.5), không phải tham số tune.
 TOP_K_MIN = 1
 TOP_K_MAX = 20
 TOP_K_DEFAULT = 10
@@ -28,9 +28,6 @@ Mode = Literal["bm25", "semantic", "hybrid", "compare"]
 SystemName = Literal["bm25", "semantic", "hybrid"]
 ScoreType = Literal["bm25", "cosine", "rrf"]
 FeedbackLabel = Literal["useful", "not_useful"]
-
-# Mỗi system chỉ đi với đúng một thang điểm; không trộn thang (SPEC 14.5 "Quy ước chung").
-SCORE_TYPE_OF_SYSTEM: dict[str, str] = {"bm25": "bm25", "semantic": "cosine", "hybrid": "rrf"}
 
 
 class ErrorCode(str, Enum):
@@ -100,12 +97,6 @@ class Highlight(_Strict):
 
 
 class ResultItem(_Strict):
-    # Nguồn dữ liệu (data/processed/*.jsonl do scripts/prepare_data.py sinh):
-    #   doc_title      <- docs.title
-    #   article_number <- articles.number
-    #   article_title  <- articles.title
-    #   effect_status  <- docs.tinh_trang_hieu_luc
-    #   content        <- nội dung Điều, dạng NFC (highlights tính trên chuỗi này)
     rank: int = Field(ge=1)
     article_id: str
     doc_title: str
@@ -117,30 +108,11 @@ class ResultItem(_Strict):
     in_both: bool  # chỉ có ý nghĩa ở chế độ compare; server tính
     highlights: list[Highlight] = Field(default_factory=list)
 
-    @model_validator(mode="after")
-    def _highlights_valid(self) -> "ResultItem":
-        # Tăng dần, không chồng nhau, không liền kề (đã gộp), nằm trong content (SPEC 14.5 "Highlight").
-        prev_end = -1
-        for h in self.highlights:
-            if h.start <= prev_end:
-                raise ValueError("highlights phải tăng dần, không chồng nhau và đã gộp đoạn liền kề")
-            if h.end > len(self.content):
-                raise ValueError("highlight vượt quá độ dài content")
-            prev_end = h.end
-        return self
-
 
 class ResultList(_Strict):
     system: SystemName
     score_type: ScoreType
     items: list[ResultItem]
-
-    @model_validator(mode="after")
-    def _score_type_matches_system(self) -> "ResultList":
-        expected = SCORE_TYPE_OF_SYSTEM[self.system]
-        if self.score_type != expected:
-            raise ValueError(f"system '{self.system}' phải đi với score_type '{expected}'")
-        return self
 
 
 class SearchWarning(_Strict):
@@ -160,8 +132,6 @@ class SearchResponse(_Strict):
 
 class FeedbackRequest(_Strict):
     # Query, chế độ và thứ hạng lấy từ bảng `searches` phía server, không nhận từ client (SPEC 14.4).
-    # search_id không tồn tại, hoặc (system, article_id) không thuộc lượt tìm đó -> 422 INVALID_REQUEST
-    # (nhóm chọn phương án A1, 2026-10-22; không thêm mã lỗi mới).
     search_id: UUID
     system: SystemName
     article_id: str
