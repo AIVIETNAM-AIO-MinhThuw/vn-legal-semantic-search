@@ -425,6 +425,8 @@ Mỗi hệ thống:
 - lấy top-200 chunk;
 - gộp về Điều theo MaxP;
 - trả về top-k Điều.
+- **Thứ tự khi hòa điểm** là cố định ở cả hai cấp. Cấp chunk (top-200): điểm giảm dần, rồi `article_id` tăng dần, rồi chỉ số chunk trong Điều tăng dần. Cấp Điều (sau MaxP): điểm giảm dần, rồi `article_id` tăng dần. `article_id` so sánh dưới dạng chuỗi theo thứ tự từ điển. Mọi retriever dùng chung một hàm sắp xếp này.
+- **Kiểu số khi suy luận:** mọi lần encode phục vụ đánh giá, pooling, API và highlight dùng **fp32**, kể cả khi checkpoint được huấn luyện bằng fp16 (mục 8.1).
 
 Đánh giá chạy **không có filter**.
 
@@ -455,6 +457,7 @@ Quy tắc:
 - nếu vượt thì báo lỗi, không được cắt âm thầm;
 - pooling: mean pooling theo attention mask;
 - embedding chuẩn hóa L2.
+- **Chuẩn hóa query** nằm trong một hàm duy nhất `normalize_query`: Unicode NFC, gộp khoảng trắng liên tiếp, bỏ khoảng trắng đầu cuối. Không hạ chữ thường, không bỏ dấu. Hàm này chạy **trước** khi gắn prefix `query: ` và được dùng chung cho đánh giá, API và highlight. Không được gọi `normalize_query` hai lần trên cùng một query.
 
 Unit test bắt buộc:
 
@@ -468,6 +471,7 @@ Mỗi index BM25 và dense có `manifest.json` bên cạnh, gồm ít nhất:
 
 - tên và revision model/checkpoint;
 - tên tokenizer;
+- phiên bản các thư viện `transformers`, `tokenizers`, `sentence-transformers`, `torch`;
 - `max_length`;
 - prefix query và passage;
 - kiểu pooling;
@@ -484,6 +488,8 @@ Khi nạp index, code so manifest với config đang chạy.
 Bất kỳ trường nào không khớp thì **dừng với lỗi**.
 
 Đánh giá và app dùng chung hàm nạp index và kiểm tra manifest.
+
+Khi nạp index, phiên bản `transformers`, `tokenizers`, `sentence-transformers` đang chạy phải **trùng chính xác** với manifest. Với `torch`, so phần phiên bản chính và bỏ hậu tố biến thể (`+cpu`, `+cu121`). Lệch thì dừng với lỗi. File requirements của huấn luyện và của `api` phải ghim **cùng** phiên bản cho bốn thư viện này.
 
 ## 7.5 Chọn tham số BM25
 
@@ -835,6 +841,7 @@ Báo cáo:
 - Không tính thời gian load model.
 - Báo cáo p50 và p95 trên query gốc của test.
 - Ghi cấu hình máy.
+- **Latency đầu-cuối qua API:** khi có app, đo thêm thời gian của `POST /v1/search` (từ lúc gửi đến lúc nhận đủ response, cùng máy, `highlight=false`), báo cáo p50 và p95 trong một bảng riêng, ghi rõ đây là số đo khác loại. Không dùng số này thay cho số đo của `search()`.
 
 ### Index size
 
@@ -987,8 +994,6 @@ Không chép số từ notebook.
   - nhập nhãn;
   - xuất report;
   - tải artifact.
-- `requirements.txt` ghim version.
-- Torch CPU cho máy demo.
 - Environment/version training trên Kaggle ghi riêng.
 - `README.md`:
   - cách cài;
@@ -1002,6 +1007,10 @@ Không chép số từ notebook.
   - manifest.
 - `data/FROZEN.md`: hash của split, query test, query OOD, qrels và thời điểm freeze.
 - Changelog methodology.
+- `Dockerfile.api`, `Dockerfile.ui`, `docker-compose.yml`, `.dockerignore`.
+- Ba file requirements riêng: `requirements-api.txt` (torch bản CPU), `requirements-ui.txt` (không có torch), `requirements-train.txt`. Phiên bản ghim cứng.
+- `openapi.json`: hợp đồng API đã đóng băng (mục 14.5, 15).
+- `Makefile` với các lệnh: `fetch-artifacts` (tải artifact về `./artifacts` trước buổi bảo vệ), `up` (`docker compose up`), `smoke` (khởi động, gọi `/health`, chạy một query rồi dừng), `demo-local` (chạy `api` và `ui` bằng Python, không Docker).
 
 ## 13.2 Artifact
 
@@ -1013,7 +1022,12 @@ Không chép số từ notebook.
 
 Không commit model hoặc binary lớn vào GitHub.
 
-## 13.3 Hai mức tái lập
+**Quy tắc đóng gói:**
+- Image `api` và `ui` **không chứa** artifact, `qrels`, file query test, query OOD hay `runs/` (loại bằng `.dockerignore`).
+- Thư mục `./artifacts` (index BM25, index dense, file chunk, bảng Điều, manifest, model và checkpoint) được mount vào container `api` ở chế độ **chỉ đọc**.
+- File SQLite của feedback nằm trên một volume riêng, ghi được.
+
+## 13.3 Các mức tái lập và cách chạy app
 
 ### 1. Tái lập đánh giá
 
@@ -1030,21 +1044,24 @@ Từ dataset gốc đến checkpoint.
 - Query generation bằng LLM không tái lập bit-by-bit.
 - File query đã lưu là điểm xuất phát chính thức cho nhánh reproducibility.
 
+3. **Chạy app:** `docker compose up` là cách chạy chính. `make demo-local` là cách dự phòng khi Docker không dùng được. Cả hai cách phải dùng cùng artifact và cùng config, và README mô tả cả hai.
+
 ---
 
 # 14. App architecture
 
 ## 14.1 Ranh giới
 
-- Streamlit chỉ là UI.
-- Toàn bộ retrieval logic ở `src/retrieval/`.
-- App dùng đúng retriever, index và manifest loader mà evaluation dùng.
-- App không có implementation riêng cho:
-  - retrieval;
-  - tokenization;
-  - prefix.
-- Semantic model trong app = checkpoint có NDCG@10 trên val cao hơn giữa S3 và S4.
-- Không chọn model app dựa trên test.
+- Luồng gọi: **UI → API → `SearchService` → `retrieval/`**.
+  - `src/retrieval/`: retriever, index, manifest, MaxP. Không import lớp nào phía trên.
+  - `src/service/`: `SearchService`, chứa logic ứng dụng (chế độ BM25 / Semantic / Hybrid / So sánh, cờ `in_both`, highlight, ghi và xuất feedback).
+  - `src/api/`: FastAPI, chỉ làm việc kiểm tra request, gọi `SearchService`, ánh xạ lỗi.
+  - `src/contracts/`: schema Pydantic dùng chung cho API và UI.
+  - `src/ui/`: Streamlit, chỉ hiển thị và gọi API bằng HTTP.
+- `ui/` chỉ được import `contracts/` và thư viện bên thứ ba. Không được import `service/` hay `retrieval/`.
+- Các script đánh giá gọi thẳng `retrieval/`, không đi qua HTTP.
+- App không được có bản cài đặt truy hồi, token hóa, prefix hay chuẩn hóa query riêng. `SearchService` gọi đúng retriever, index và hàm nạp có kiểm tra manifest mà phần đánh giá dùng.
+- Mô hình semantic trong app được chọn bằng một khóa trong config (`app.semantic_system`). Khi phát triển, khóa này trỏ tới S2. Khi demo cuối, khóa phải trỏ tới checkpoint có NDCG@10 trên val cao hơn giữa S3 và S4. Lựa chọn dựa trên val, không dựa trên test. Chỉ con người được đổi giá trị này.
 
 ## 14.2 Chức năng tối thiểu
 
@@ -1052,10 +1069,10 @@ Từ dataset gốc đến checkpoint.
 |---|---|
 | Nhập query | Ô văn bản tiếng Việt |
 | Top-k | Chọn 1–20, mặc định 10 |
-| Chế độ | BM25; Semantic; Hybrid S5; So sánh hai cột BM25 và Semantic, đánh dấu Điều xuất hiện ở cả hai |
-| Filter | Loại văn bản, lĩnh vực, cơ quan ban hành, năm ban hành; áp dụng mask trước ranking |
-| Điểm | Hiển thị raw score kèm tên thang: `BM25` hoặc `cosine`; không đặt hai thang lên cùng một trục |
-| Highlight | BM25: tô âm tiết query xuất hiện trong Điều. Semantic: tô câu trong Điều có cosine cao nhất với query, chỉ tính cho kết quả đang hiển thị, có cache |
+| Chế độ | BM25; Semantic; Hybrid; So sánh hai cột BM25 và Semantic, đánh dấu Điều xuất hiện ở cả hai |
+| Filter | Loại văn bản, lĩnh vực, cơ quan ban hành, năm ban hành; áp dụng mask trước ranking. Danh sách giá trị lọc lấy từ `GET /v1/info`, UI không hard-code. |
+| Điểm | Hiển thị điểm kèm tên thang: `BM25`, `cosine` hoặc `RRF`; không đặt hai thang lên cùng một trục |
+| Highlight | BM25: các âm tiết của query xuất hiện trong Điều. Semantic: câu trong Điều có cosine cao nhất với query. API trả về **danh sách vị trí ký tự**, không trả HTML (mục 14.5). Chỉ tính cho kết quả đang hiển thị, có cache. Quy tắc tách câu là xác định và ghi trong config. Hybrid: dùng highlight kiểu Semantic. |
 | Thông tin kết quả | Tên văn bản, số và tiêu đề Điều, tình trạng hiệu lực, nội dung Điều |
 | Feedback | Nút `Hữu ích` / `Không hữu ích` trên từng kết quả |
 | Xuất feedback | Tải CSV |
@@ -1067,20 +1084,76 @@ Từ dataset gốc đến checkpoint.
 - Query vượt giới hạn token: cắt theo tokenizer và hiển thị cảnh báo.
 - Filter không còn Điều: thông báo, không crash.
 - Model load lỗi hoặc manifest mismatch: dừng app, thông báo rõ ràng; không chạy index sai.
+- Mỗi tình huống ở trên tương ứng một mã lỗi của API (mục 14.5). UI hiển thị thông báo dựa trên **mã lỗi**, không dựa trên nội dung chuỗi thông báo.
+- Query vượt giới hạn token được cắt ở API theo tokenizer E5, kèm cảnh báo `QUERY_TRUNCATED` trong response. Cắt cùng một query cho mọi chế độ.
+- Nếu API không phản hồi (không kết nối được), UI hiển thị thông báo "Dịch vụ tìm kiếm chưa sẵn sàng" và không báo lỗi kỹ thuật thô.
 
 ## 14.4 Lưu feedback
 
-SQLite, mỗi lượt một dòng:
+- **Chỉ API được ghi SQLite.** UI không truy cập database.
+- Bảng `searches`: một dòng cho mỗi lượt tìm kiếm, gồm `search_id`, thời điểm (UTC), query đã chuẩn hóa, chế độ, model hoặc revision, và danh sách (`system`, `article_id`, thứ hạng) đã trả về.
+- Bảng `feedback`: `search_id`, `system`, `article_id`, nhãn (`useful` hoặc `not_useful`), thời điểm (UTC). Khóa duy nhất (`search_id`, `system`, `article_id`). Gửi lại thì **cập nhật** (upsert), không thêm dòng.
+- Query, chế độ và thứ hạng lấy từ bảng `searches` phía server. API không tin các giá trị này từ client.
+- File xuất CSV mã hóa UTF-8 có BOM.
+- Feedback **không** được dùng trong bất kỳ metric nào của MVP.
 
-- thời điểm;
-- query;
-- mode;
-- model/revision;
-- `article_id`;
-- rank;
-- label.
+## 14.5 Hợp đồng API
 
-Feedback không được dùng trong metric của MVP.
+**Quy ước chung.** Tiền tố `/v1`. Dữ liệu JSON. `article_id` luôn là **chuỗi**. Điểm luôn đi kèm `score_type` (`bm25`, `cosine` hoặc `rrf`), và điểm của hai thang không bao giờ được gộp hay so sánh trực tiếp.
+
+**Endpoint**
+
+| Endpoint | Chức năng |
+|---|---|
+| `GET /health` | Trả 200 chỉ khi model và index đã nạp và manifest đã khớp. Ngược lại trả 503 `MODEL_NOT_READY`. |
+| `GET /v1/info` | Revision model, hash manifest, git commit, giới hạn (top-k từ 1 đến 20, độ dài query), danh sách giá trị filter, danh sách chế độ khả dụng. |
+| `POST /v1/search` | Tìm kiếm (mô tả bên dưới). |
+| `POST /v1/feedback` | Body: `search_id`, `system`, `article_id`, `label`. |
+| `GET /v1/feedback/export` | Tải CSV feedback. |
+
+**`POST /v1/search`**
+- Request: `query`, `mode` (`bm25`, `semantic`, `hybrid`, `compare`), `top_k` (1 đến 20, mặc định 10), `filters` (`doc_types`, `domains`, `issuers`, `year_min`, `year_max`), `highlight` (mặc định `true`).
+- Response: `search_id` (UUID do server sinh), `query_normalized`, `warnings`, `timing_ms`, và `lists`.
+- `lists` là mảng các danh sách kết quả. Chế độ `bm25`, `semantic` và `hybrid` trả một danh sách, `compare` trả hai danh sách (BM25 và Semantic). Mỗi danh sách có `system`, `score_type` và `items`.
+- Mỗi item gồm: `rank`, `article_id`, tên văn bản, số và tiêu đề Điều, tình trạng hiệu lực, `content`, `score`, `in_both`, `highlights`.
+- `in_both` do server tính. Giá trị này chỉ có ý nghĩa ở chế độ `compare`.
+
+**Highlight.** `highlights` là danh sách `{start, end}` trên chuỗi `content`. Vị trí tính theo **code point Unicode** (chỉ số chuỗi Python) trên `content` đã ở dạng NFC, khoảng nửa mở: `content[start:end]`. Các đoạn liền kề được gộp. API không trả HTML.
+
+**Lỗi.** Mọi lỗi dùng dạng `{"error": {"code": "...", "message": "..."}}`.
+
+| Mã | HTTP | Khi nào |
+|---|---|---|
+| `EMPTY_QUERY` | 422 | Query rỗng, chỉ khoảng trắng hoặc ký tự đặc biệt |
+| `INVALID_FILTER` | 422 | Giá trị filter không có trong `/v1/info` |
+| `INVALID_REQUEST` | 422 | Request sai schema |
+| `MODEL_NOT_READY` | 503 | Model hoặc index chưa nạp xong |
+| `INDEX_MANIFEST_MISMATCH` | 503 | Manifest không khớp |
+
+Cảnh báo (không phải lỗi, nằm trong `warnings`): `QUERY_TRUNCATED`. Filter hợp lệ nhưng không còn Điều nào thì trả danh sách rỗng, không báo lỗi.
+
+**Đóng băng hợp đồng.** File `openapi.json` được sinh từ code và commit vào repo. Có test so `openapi.json` với schema sinh ra từ code. Đổi hợp đồng phải qua quy trình ở mục 0 và cập nhật cả `openapi.json` lẫn Changelog.
+
+## 14.6 Chạy và đóng gói
+
+- API chạy **một worker**. Model và index nạp **một lần** lúc khởi động. Nếu manifest không khớp, tiến trình thoát với mã khác 0, không phục vụ index sai.
+- Số lượt tìm kiếm chạy song song bị giới hạn bởi `api.max_concurrent_search` (mặc định 1).
+- App chạy **offline**: đặt `HF_HUB_OFFLINE=1` và `TRANSFORMERS_OFFLINE=1`. App không được tải dữ liệu hay model từ mạng khi đang chạy.
+- Địa chỉ API mà UI gọi lấy từ biến môi trường `API_BASE_URL`, mặc định `http://api:8000`. Không dùng `localhost` trong container.
+- `docker-compose.yml`: `api` có healthcheck gọi `/health`; `ui` chỉ khởi động khi `api` đã khỏe mạnh. Cổng bind vào `127.0.0.1`. Container chạy bằng user không phải root.
+- Huấn luyện và pipeline dữ liệu **không** nằm trong Docker.
+
+## 14.7 Test bắt buộc cho phần app
+
+1. Snapshot `openapi.json` khớp với schema sinh từ code.
+2. **Tương đương:** trên một tập query cố định, `retrieval.search` và `POST /v1/search` trả cùng thứ tự `article_id` và cùng điểm (trong sai số số học ghi trong config).
+3. Luật import: test đọc import xác nhận `ui/` không import `service/` hay `retrieval/`; image `ui` không chứa `torch`.
+4. Filter: khi có ít nhất k Điều hợp lệ thì trả đủ k.
+5. `normalize_query`: NFC đúng, không gọi hai lần; query nhập ở dạng NFD cho cùng kết quả với dạng NFC.
+6. Highlight: `content[start:end]` đúng đoạn mong đợi trên các câu tiếng Việt có dấu.
+7. Feedback: gửi lại cùng một (`search_id`, `system`, `article_id`) không sinh dòng mới; đổi nhãn thì cập nhật.
+8. Thứ tự khi hòa điểm: kết quả không đổi giữa các lần chạy.
+9. Smoke test cho compose (`make smoke`).
 
 ---
 
@@ -1101,6 +1174,7 @@ Sau freeze, artifact chỉ được đổi qua change procedure ở mục 0.
 9. **Cấu hình S5, gồm dense component:** trước pool v4.
 10. **Ranh giới nhóm phân tích, ngưỡng thắng và phương pháp kiểm định thống kê:** trước final evaluation.
 11. **Qrels:** khi mọi cặp trong final pool có human label.
+12. **`openapi.json` phiên bản đầu:** trước khi viết UI. Mốc này độc lập với chuỗi 1 đến 11, có thể thực hiện bất cứ lúc nào trước khi bắt đầu phần UI.
 
 ---
 
@@ -1132,6 +1206,13 @@ Không được:
 - tự chọn ánh xạ relation labels;
 - dùng LLM draft label để sắp thứ tự, chọn cặp cần chấm hoặc làm final label;
 - diễn giải canonical duplicate representative như một kết luận pháp lý.
+- `ui/` import `retrieval/` hoặc `service/`.
+- Đổi API mà không cập nhật `openapi.json` và Changelog.
+- Encode query hoặc passage bằng đường khác ngoài hàm chung ở mục 7.3, kể cả trong highlight.
+- Đưa `qrels`, query test, query OOD hay `runs/` vào image Docker.
+- Chạy API với nhiều worker.
+- App tải dữ liệu hoặc model từ mạng khi đang chạy.
+- Để UI ghi trực tiếp vào SQLite.
 
 ---
 
@@ -1140,6 +1221,7 @@ Không được:
 | ID | Vấn đề | Chặn phần nào | Quyết định của nhóm |
 |---|---|---|---|
 | OI-10 | Danh sách 5–8 lĩnh vực đưa vào corpus. Claude Code xuất EDA theo lĩnh vực; **nhóm chọn**, ghi vào config và Changelog, sau đó freeze. Claude Code không được tự chọn. | Lọc dữ liệu, split, mọi bước sau | **Đã chốt 2026-10-22.** Loại văn bản: `Luật`, `Nghị định`, `Thông tư`; hiệu lực: `Còn hiệu lực`. 8 lĩnh vực, khớp **nguyên chuỗi** `linh_vuc` (không tách dấu phẩy/chấm phẩy, không khớp chuỗi con, không gộp tên gần nghĩa; `Chưa phân loại` và null bị loại; không dùng `nganh`): `Quản lý ngân sách`; `Quản lý thuế, phí và lệ phí`; `Lao động, tiền lương, tiền công`; `Chính sách thuế`; `Ngân sách nhà nước`; `Tài chính hành chính sự nghiệp`; `TCNH và thị trường TC, trái phiếu, khác`; `Quản lý dịch vụ tài chính và các quỹ tài chính`. Lĩnh vực thứ 8 đồng hạng 69 văn bản với `Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước`; nhóm chọn theo thứ tự sắp xếp của `scripts/eda.py` (số văn bản giảm dần, hòa thì tên tăng dần theo mã Unicode). |
+| OI-11 | Máy demo (hệ điều hành, RAM, Docker chạy được chưa) và đường chạy chính. Phương án: (a) Docker là đường chính, `demo-local` dự phòng; (b) `demo-local` là đường chính, Docker là phần phụ. | Không chặn code. Ảnh hưởng thứ tự kiểm thử trước buổi bảo vệ và nội dung README. | |
 
 Cùng thời điểm đó, nhóm xác nhận ánh xạ từ tên loại quan hệ gốc trong `relationships` sang ba loại:
 
@@ -1242,6 +1324,11 @@ OI-1 đến OI-9 đã chốt; xem Changelog.
 - Error-analysis win threshold = `ΔNDCG@10 ≥ 0,3`.
 - Duplicate representative = `article_id` nhỏ nhất theo thứ tự chuỗi; lưu `duplicate_article_ids`; không mang ý nghĩa pháp lý.
 - App dùng chung retriever, index và manifest loader với evaluation.
+- App có kiến trúc UI → API (FastAPI) → `SearchService` → `retrieval/`. UI chỉ gọi API qua HTTP và dùng `contracts/`; phần đánh giá gọi thẳng `retrieval/`.
+- Hợp đồng API gồm 5 endpoint (`/health` và bốn endpoint tiền tố `/v1`), mã lỗi cố định, `article_id` là chuỗi, highlight là vị trí code point, `openapi.json` được commit và đóng băng.
+- Thứ tự khi hòa điểm cố định; encode luôn fp32; `normalize_query` là hàm duy nhất cho query.
+- Docker có hai image (`api`, `ui`), artifact mount chỉ đọc và không nằm trong image, chạy offline, một worker; `make demo-local` là đường dự phòng.
+- Feedback chỉ API ghi, khóa duy nhất (`search_id`, `system`, `article_id`), ghi dạng upsert.
 
 ---
 
@@ -1272,3 +1359,4 @@ OI-1 đến OI-9 đã chốt; xem Changelog.
 | 2026-10-22 | Mục 3.6: cạnh có ID không có trong metadata không làm `validate_data` thất bại; ID giữ làm nút trung gian, không tính vào corpus; báo tỷ lệ cạnh không ánh xạ trên toàn bộ cạnh và riêng nhãn thuộc ánh xạ | SPEC trước đó chưa quy định cách xử lý; chọn cách bảo thủ về leakage | Mục 3.6, 4.1 | Nhóm |
 | 2026-10-22 | Mục 4.1: chỉ chia các họ có văn bản trong corpus cuối cùng; lĩnh vực chủ đạo đếm trên văn bản trong corpus của họ; chỉ báo kích thước họ, không tự đặt ngưỡng | SPEC trước đó chưa rõ tập họ và phạm vi đếm lĩnh vực | Mục 4.1 | Nhóm |
 | 2026-10-22 | Làm rõ ngoại lệ ID thiếu metadata: chỉ áp dụng cho `other_doc_id` khác null/rỗng; `doc_id` nguồn thiếu và ID null/rỗng vẫn là lỗi; mỗi ID là một nút riêng | Tránh code vô tình cho phép cả hai đầu hoặc gộp ID null thành một nút | Mục 3.6, 4.1 | Nhóm |
+| 2026-10-22 | Thêm API (FastAPI) và Docker cho phần app; sửa mục 7.2, 7.3, 7.4, 11.2, 13.1 đến 13.3, 14.1 đến 14.4, 15, 16, 17; thêm mục 14.5 đến 14.7 (gồm chế độ `hybrid` và `score_type` `rrf`); thêm OI-11 | Tách lớp rõ ràng, chống lệch âm thầm giữa app và đánh giá, ổn định khi demo | Chỉ phần app và đóng gói. Không ảnh hưởng split, query, pooling, qrels, huấn luyện hay số liệu đánh giá | Thành Vũ |
