@@ -1,0 +1,761 @@
+{
+  "components": {
+    "schemas": {
+      "ErrorBody": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/ErrorCode"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ErrorBody",
+        "type": "object"
+      },
+      "ErrorCode": {
+        "enum": [
+          "EMPTY_QUERY",
+          "INVALID_FILTER",
+          "INVALID_REQUEST",
+          "MODEL_NOT_READY",
+          "INDEX_MANIFEST_MISMATCH"
+        ],
+        "title": "ErrorCode",
+        "type": "string"
+      },
+      "ErrorResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorBody"
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "title": "ErrorResponse",
+        "type": "object"
+      },
+      "FeedbackAck": {
+        "additionalProperties": false,
+        "properties": {
+          "article_id": {
+            "title": "Article Id",
+            "type": "string"
+          },
+          "label": {
+            "enum": [
+              "useful",
+              "not_useful"
+            ],
+            "title": "Label",
+            "type": "string"
+          },
+          "search_id": {
+            "format": "uuid",
+            "title": "Search Id",
+            "type": "string"
+          },
+          "system": {
+            "enum": [
+              "bm25",
+              "semantic",
+              "hybrid"
+            ],
+            "title": "System",
+            "type": "string"
+          }
+        },
+        "required": [
+          "search_id",
+          "system",
+          "article_id",
+          "label"
+        ],
+        "title": "FeedbackAck",
+        "type": "object"
+      },
+      "FeedbackRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "article_id": {
+            "title": "Article Id",
+            "type": "string"
+          },
+          "label": {
+            "enum": [
+              "useful",
+              "not_useful"
+            ],
+            "title": "Label",
+            "type": "string"
+          },
+          "search_id": {
+            "format": "uuid",
+            "title": "Search Id",
+            "type": "string"
+          },
+          "system": {
+            "enum": [
+              "bm25",
+              "semantic",
+              "hybrid"
+            ],
+            "title": "System",
+            "type": "string"
+          }
+        },
+        "required": [
+          "search_id",
+          "system",
+          "article_id",
+          "label"
+        ],
+        "title": "FeedbackRequest",
+        "type": "object"
+      },
+      "FilterValues": {
+        "additionalProperties": false,
+        "properties": {
+          "doc_types": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Doc Types",
+            "type": "array"
+          },
+          "domains": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Domains",
+            "type": "array"
+          },
+          "issuers": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Issuers",
+            "type": "array"
+          },
+          "year_max": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Max"
+          },
+          "year_min": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Min"
+          }
+        },
+        "required": [
+          "doc_types",
+          "domains",
+          "issuers",
+          "year_min",
+          "year_max"
+        ],
+        "title": "FilterValues",
+        "type": "object"
+      },
+      "HealthResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "const": "ok",
+            "default": "ok",
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "title": "HealthResponse",
+        "type": "object"
+      },
+      "Highlight": {
+        "additionalProperties": false,
+        "description": "Khoảng nửa mở `content[start:end]`, chỉ số code point Unicode trên `content` dạng NFC.",
+        "properties": {
+          "end": {
+            "minimum": 0.0,
+            "title": "End",
+            "type": "integer"
+          },
+          "start": {
+            "minimum": 0.0,
+            "title": "Start",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "start",
+          "end"
+        ],
+        "title": "Highlight",
+        "type": "object"
+      },
+      "InfoLimits": {
+        "additionalProperties": false,
+        "properties": {
+          "query_max_tokens": {
+            "title": "Query Max Tokens",
+            "type": "integer"
+          },
+          "top_k_max": {
+            "default": 20,
+            "title": "Top K Max",
+            "type": "integer"
+          },
+          "top_k_min": {
+            "default": 1,
+            "title": "Top K Min",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query_max_tokens"
+        ],
+        "title": "InfoLimits",
+        "type": "object"
+      },
+      "InfoResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "contract_version": {
+            "default": "1.0.0",
+            "title": "Contract Version",
+            "type": "string"
+          },
+          "filter_values": {
+            "$ref": "#/components/schemas/FilterValues"
+          },
+          "git_commit": {
+            "title": "Git Commit",
+            "type": "string"
+          },
+          "limits": {
+            "$ref": "#/components/schemas/InfoLimits"
+          },
+          "manifest_hashes": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Manifest Hashes",
+            "type": "object"
+          },
+          "model_name": {
+            "title": "Model Name",
+            "type": "string"
+          },
+          "model_revision": {
+            "title": "Model Revision",
+            "type": "string"
+          },
+          "modes": {
+            "items": {
+              "enum": [
+                "bm25",
+                "semantic",
+                "hybrid",
+                "compare"
+              ],
+              "type": "string"
+            },
+            "title": "Modes",
+            "type": "array"
+          },
+          "semantic_system": {
+            "title": "Semantic System",
+            "type": "string"
+          }
+        },
+        "required": [
+          "semantic_system",
+          "model_name",
+          "model_revision",
+          "manifest_hashes",
+          "git_commit",
+          "limits",
+          "filter_values",
+          "modes"
+        ],
+        "title": "InfoResponse",
+        "type": "object"
+      },
+      "ResultItem": {
+        "additionalProperties": false,
+        "properties": {
+          "article_id": {
+            "title": "Article Id",
+            "type": "string"
+          },
+          "article_number": {
+            "title": "Article Number",
+            "type": "string"
+          },
+          "article_title": {
+            "title": "Article Title",
+            "type": "string"
+          },
+          "content": {
+            "title": "Content",
+            "type": "string"
+          },
+          "doc_title": {
+            "title": "Doc Title",
+            "type": "string"
+          },
+          "effect_status": {
+            "title": "Effect Status",
+            "type": "string"
+          },
+          "highlights": {
+            "items": {
+              "$ref": "#/components/schemas/Highlight"
+            },
+            "title": "Highlights",
+            "type": "array"
+          },
+          "in_both": {
+            "title": "In Both",
+            "type": "boolean"
+          },
+          "rank": {
+            "minimum": 1.0,
+            "title": "Rank",
+            "type": "integer"
+          },
+          "score": {
+            "title": "Score",
+            "type": "number"
+          }
+        },
+        "required": [
+          "rank",
+          "article_id",
+          "doc_title",
+          "article_number",
+          "article_title",
+          "effect_status",
+          "content",
+          "score",
+          "in_both"
+        ],
+        "title": "ResultItem",
+        "type": "object"
+      },
+      "ResultList": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ResultItem"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "score_type": {
+            "enum": [
+              "bm25",
+              "cosine",
+              "rrf"
+            ],
+            "title": "Score Type",
+            "type": "string"
+          },
+          "system": {
+            "enum": [
+              "bm25",
+              "semantic",
+              "hybrid"
+            ],
+            "title": "System",
+            "type": "string"
+          }
+        },
+        "required": [
+          "system",
+          "score_type",
+          "items"
+        ],
+        "title": "ResultList",
+        "type": "object"
+      },
+      "SearchFilters": {
+        "additionalProperties": false,
+        "description": "Giá trị hợp lệ lấy từ `GET /v1/info`; danh sách rỗng = không lọc theo trường đó.",
+        "properties": {
+          "doc_types": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Doc Types",
+            "type": "array"
+          },
+          "domains": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Domains",
+            "type": "array"
+          },
+          "issuers": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Issuers",
+            "type": "array"
+          },
+          "year_max": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Max"
+          },
+          "year_min": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Min"
+          }
+        },
+        "title": "SearchFilters",
+        "type": "object"
+      },
+      "SearchRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "filters": {
+            "$ref": "#/components/schemas/SearchFilters"
+          },
+          "highlight": {
+            "default": true,
+            "title": "Highlight",
+            "type": "boolean"
+          },
+          "mode": {
+            "enum": [
+              "bm25",
+              "semantic",
+              "hybrid",
+              "compare"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "query": {
+            "title": "Query",
+            "type": "string"
+          },
+          "top_k": {
+            "default": 10,
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Top K",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query",
+          "mode"
+        ],
+        "title": "SearchRequest",
+        "type": "object"
+      },
+      "SearchResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "lists": {
+            "items": {
+              "$ref": "#/components/schemas/ResultList"
+            },
+            "title": "Lists",
+            "type": "array"
+          },
+          "query_normalized": {
+            "title": "Query Normalized",
+            "type": "string"
+          },
+          "search_id": {
+            "format": "uuid",
+            "title": "Search Id",
+            "type": "string"
+          },
+          "timing_ms": {
+            "minimum": 0.0,
+            "title": "Timing Ms",
+            "type": "number"
+          },
+          "warnings": {
+            "items": {
+              "$ref": "#/components/schemas/SearchWarning"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "search_id",
+          "query_normalized",
+          "timing_ms",
+          "lists"
+        ],
+        "title": "SearchResponse",
+        "type": "object"
+      },
+      "SearchWarning": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/WarningCode"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "SearchWarning",
+        "type": "object"
+      },
+      "WarningCode": {
+        "enum": [
+          "QUERY_TRUNCATED"
+        ],
+        "title": "WarningCode",
+        "type": "string"
+      }
+    }
+  },
+  "info": {
+    "description": "Hợp đồng API v1 — SPEC mục 14.5.",
+    "title": "VN Legal Semantic Search API",
+    "version": "1.0.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "MODEL_NOT_READY"
+          }
+        },
+        "summary": "Health",
+        "tags": [
+          "system"
+        ]
+      }
+    },
+    "/v1/feedback": {
+      "post": {
+        "operationId": "feedback_v1_feedback_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeedbackRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeedbackAck"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "INVALID_REQUEST: sai schema, search_id không tồn tại, hoặc (system, article_id) không thuộc lượt tìm đó"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "MODEL_NOT_READY hoặc INDEX_MANIFEST_MISMATCH"
+          }
+        },
+        "summary": "Feedback",
+        "tags": [
+          "feedback"
+        ]
+      }
+    },
+    "/v1/feedback/export": {
+      "get": {
+        "operationId": "feedback_export_v1_feedback_export_get",
+        "responses": {
+          "200": {
+            "content": {
+              "text/csv": {}
+            },
+            "description": "CSV UTF-8 có BOM"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "MODEL_NOT_READY hoặc INDEX_MANIFEST_MISMATCH"
+          }
+        },
+        "summary": "Feedback Export",
+        "tags": [
+          "feedback"
+        ]
+      }
+    },
+    "/v1/info": {
+      "get": {
+        "operationId": "info_v1_info_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InfoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "MODEL_NOT_READY hoặc INDEX_MANIFEST_MISMATCH"
+          }
+        },
+        "summary": "Info",
+        "tags": [
+          "system"
+        ]
+      }
+    },
+    "/v1/search": {
+      "post": {
+        "operationId": "search_v1_search_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "EMPTY_QUERY, INVALID_FILTER hoặc INVALID_REQUEST"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "MODEL_NOT_READY hoặc INDEX_MANIFEST_MISMATCH"
+          }
+        },
+        "summary": "Search",
+        "tags": [
+          "search"
+        ]
+      }
+    }
+  }
+}
