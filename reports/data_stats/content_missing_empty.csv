@@ -1,0 +1,7 @@
+﻿scope,content_state,n_docs,pct
+all,ok,158774,92.549
+all,empty_text,12050,7.024
+all,missing_row,732,0.427
+core_effective,ok,10147,98.371
+core_effective,empty_text,150,1.454
+core_effective,missing_row,18,0.175

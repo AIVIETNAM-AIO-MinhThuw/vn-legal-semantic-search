@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Dữ liệu thô / đã xử lý (tải lại bằng script)
+data/raw/
+data/processed/
+data/interim/
+*.parquet
+*.arrow
+
+# Bản sao HTML thô dùng xem mẫu trong EDA
+reports/data_stats/samples/*.html
+
+# Model, index, file lớn
+models/
+checkpoints/
+indexes/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.npy
+*.npz
+*.faiss
+*.index
+
+# Cache HF
+.cache/
+data/raw/.cache/
+
+# Log tạm
+logs/*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

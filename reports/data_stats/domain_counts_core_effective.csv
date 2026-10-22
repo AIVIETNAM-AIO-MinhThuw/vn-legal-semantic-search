@@ -1,0 +1,670 @@
+﻿linh_vuc,n_docs,n_luat,n_nghi_dinh,n_thong_tu,n_with_text,est_articles_line_start,est_articles_any_mention,is_multi_value_candidate
+Chưa phân loại,5125,80,1428,3617,5056,42214,77501,False
+<NULL>,354,29,138,187,319,4627,13641,False
+Quản lý ngân sách,309,0,0,309,298,1381,2257,False
+"Quản lý thuế, phí và lệ phí",234,0,0,234,225,868,1732,True
+"Lao động, tiền lương, tiền công",168,1,27,140,168,2419,5283,True
+Chính sách thuế,100,0,13,87,100,301,787,False
+Ngân sách nhà nước,92,0,16,76,90,1032,2439,False
+Tài chính hành chính sự nghiệp,84,0,0,84,83,326,789,False
+"TCNH và thị trường TC, trái phiếu, khác",77,0,0,77,75,767,1488,True
+Quản lý dịch vụ tài chính và các quỹ tài chính,69,0,0,69,66,528,721,False
+"Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",69,1,13,55,68,380,1093,True
+Hàng hải,67,0,10,57,65,710,1656,False
+Quản lý tài chính doanh nghiệp,64,0,0,64,63,418,786,False
+An ninh quốc gia,63,0,14,49,63,1578,3323,False
+Tài chính khác,58,0,2,56,55,178,360,False
+Thanh tra,55,2,9,44,55,999,1866,False
+Tổ chức cán bộ,47,0,2,45,47,456,754,False
+Xuất nhập khẩu,44,0,5,39,44,441,724,False
+Đường bộ,42,1,6,35,37,738,1652,False
+An toàn lao động,39,0,1,38,39,278,466,False
+Hoạt động khoa học và công nghệ,38,0,8,30,38,833,1642,False
+Đo đạc và bản đồ,38,0,1,37,38,260,416,False
+Lĩnh vực giá,35,1,2,32,35,358,627,False
+Tài chính doanh nghiệp,35,0,4,31,35,339,916,False
+Tài chính đối ngoại,35,0,0,35,35,263,349,False
+Chính sách tiền tệ,34,0,0,34,34,299,574,False
+Môi trường,33,0,2,31,33,412,1393,False
+"Quản lý Khám, chữa bệnh",33,1,0,32,33,427,697,True
+Hàng không,32,1,7,24,32,470,727,False
+Quản lý ngoại hối,32,0,3,29,32,416,996,False
+"Công chức, viên chức",31,0,6,25,31,258,526,True
+Diêm nghiệp,31,0,2,29,31,304,680,False
+Chính quyền địa phương,30,1,21,8,29,310,551,False
+Quản lý ngân sách; Tài chính khác,30,0,0,30,28,24,74,False
+Đường sắt,30,0,7,23,28,489,778,False
+Giáo dục,29,1,6,22,29,441,736,False
+Quản lý dược,29,0,1,28,29,346,870,False
+"An toàn, vệ sinh lao động",28,0,0,28,28,151,266,True
+Khác,28,1,6,21,28,359,812,False
+Thú y,28,0,1,27,28,277,971,False
+Đăng kiểm,28,0,1,27,26,157,329,False
+Đường thủy nội địa,28,0,6,22,27,255,517,False
+Hải quan,27,0,5,22,27,409,1375,False
+Khoa học và công nghệ,27,0,0,27,27,139,170,False
+"Kế toán, kiểm toán",27,0,2,25,26,257,408,True
+Giáo dục nghề nghiệp,26,0,3,23,26,392,794,False
+"Thanh tra, giám sát ngân hàng",26,0,3,23,26,299,628,True
+An toàn thực phẩm,25,0,1,24,25,180,417,False
+Bưu chính,25,0,1,24,25,285,446,False
+Tài chính,25,0,0,25,25,91,146,False
+Cục An toàn hệ thống các tổ chức tín dụng,24,0,0,24,24,596,1431,False
+Thủy sản,24,0,4,20,24,260,716,False
+Xây dựng,24,1,10,13,24,545,1141,False
+Nông nghiệp,23,0,6,17,23,300,462,False
+Thủy lợi,23,0,5,18,23,341,577,False
+Bảo hiểm xã hội,22,0,9,13,22,392,1373,False
+Chứng khoán,22,0,6,16,22,339,1066,False
+Quản lý công sản,22,0,4,18,22,196,434,False
+Quản lý thuế,22,1,8,13,22,493,1501,False
+Vận tải,22,0,0,22,22,145,230,False
+Giáo dục đào tạo thuộc hệ thống giáo dục quốc dân và các cơ sở khác,21,0,2,19,21,273,478,False
+Quản lý tài sản công,21,0,0,21,21,207,526,False
+Y tế dự phòng,21,0,3,18,21,194,313,False
+Khám chữa bệnh,20,0,1,19,20,304,513,False
+Ngân hàng Nhà nước Việt Nam,20,0,3,17,20,234,627,False
+Bảo vệ thực vật,19,0,2,17,19,178,328,False
+"Công nghệ thông tin,điện tử",19,0,2,17,19,161,262,True
+"Thi đua, khen thưởng",19,1,2,16,19,423,583,True
+"Thể dục, thể thao",19,0,1,18,19,195,253,True
+Tín dụng,19,0,4,15,19,269,574,False
+An toàn bức xạ và hạt nhân,18,0,3,15,18,408,799,False
+Bảo hiểm y tế,18,1,3,14,18,250,1100,False
+Lâm nghiệp,18,0,7,11,18,329,839,False
+Việc làm,18,1,4,13,18,344,746,False
+"Khoa học và công nghệ, Tần số-vô tuyến điện",17,0,0,17,17,54,62,True
+Tiêu chuẩn đo lường chất lượng,17,0,3,14,17,218,764,False
+Tài nguyên nước,17,0,1,16,17,224,649,False
+Đất đai,17,0,7,10,17,190,654,False
+Công nghiệp,15,1,2,12,15,206,404,False
+Hợp tác quốc tế,15,0,14,1,15,130,184,False
+Quản lý chung,15,0,0,15,15,117,174,False
+Quản lý ngân sách nhà nước,15,0,1,14,15,28,39,False
+Đầu tư,15,1,8,6,14,560,1739,False
+Lĩnh vực khác,14,0,2,12,14,253,378,False
+Ngân hàng và tổ chức tài chính,14,0,3,11,14,244,471,False
+Phát hành và kho quỹ,14,0,0,14,14,201,351,False
+"Vận tải, Tần số-vô tuyến điện",14,0,0,14,14,51,73,True
+"Tài nguyên khoáng sản, địa chất",13,0,0,13,13,123,144,True
+Điều tiết điện lực,13,0,3,10,13,196,413,False
+Đấu thầu,13,0,3,10,13,173,386,False
+"Địa chất, khoáng sản",13,0,1,12,13,227,764,True
+Chất lượng Nông Lâm sản và Thủy sản,12,0,1,11,12,206,575,False
+Công chức,12,0,8,4,12,269,427,False
+Giáo dục đào tạo,12,0,1,11,12,129,258,False
+Khoa học công nghệ,12,0,0,12,12,179,418,False
+Phí và lệ phí,12,0,3,9,12,166,425,False
+Tần số-vô tuyến điện,12,0,1,11,11,73,87,False
+Xử lý vi phạm hành chính,12,0,4,8,12,295,834,False
+Phát triển tiềm lực khoa học và công nghệ,11,0,2,9,11,163,266,False
+"Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng",11,0,1,10,11,256,361,True
+"Quản lý, sử dụng tài sản công",11,0,4,7,11,373,1796,True
+Thi hành án,11,0,0,11,11,117,164,False
+Thi hành án dân sự,11,0,4,7,11,398,851,False
+Bảo hiểm,10,1,2,7,9,91,258,False
+Dân quân tự vệ,10,0,2,8,10,129,177,False
+Dự trữ nhà nước,10,0,2,8,10,38,93,False
+Giao thông vận tải,10,0,1,9,10,263,449,False
+Lưu trữ,10,1,1,8,10,255,402,False
+Nhà giáo và Cán bộ quản lý cơ sở giáo dục,10,0,0,10,10,84,221,False
+Trồng trọt,10,0,0,10,10,32,38,False
+"Tư pháp, pháp chế",10,0,0,10,10,130,173,True
+Viễn thông và Internet;,10,0,1,9,10,186,425,False
+Xử lý vi phạm hành chính và theo dõi thi hành pháp luật,10,1,6,3,10,155,966,False
+Điện,10,1,2,7,10,190,466,False
+Công tác dân tộc,9,0,1,8,9,81,176,False
+Kho bạc,9,0,1,8,9,102,294,False
+Kế hoạch tài chính,9,0,0,9,9,50,71,False
+Quản lý giá,9,0,0,9,9,33,49,False
+Quản lý nợ và tài chính đối ngoại,9,0,0,9,9,84,99,False
+"Quản lý vay nợ, trả nợ trong nước, ngoài nước của Chính phủ, nợ của khu vực công, nợ quốc gia và nguồn viện trợ quốc tế",9,0,1,8,9,78,101,True
+"Tài chính, kế toán",9,0,0,9,9,172,253,True
+Cơ cấu tổ chức,8,0,2,6,8,52,102,False
+Giám định tư pháp,8,0,1,7,8,155,350,False
+Giáo dục đại học,8,1,0,7,8,75,205,False
+Khoa học và Công nghệ các ngành kinh tế - kỹ thuật,8,0,0,8,8,162,225,False
+"Khí hậu , thủy văn",8,0,0,8,8,51,72,True
+Kinh tế hợp tác và Phát triển nông thôn,8,0,0,8,8,57,93,False
+Nông nghiệp và Môi trường,8,0,1,7,8,146,433,False
+Pháp chế,8,0,0,8,8,52,139,False
+"Phòng, chống HIV/AIDS",8,0,0,8,8,59,74,True
+"Tiêu chuẩn, quy chuẩn",8,0,0,8,8,49,90,True
+Viên chức,8,2,5,1,8,213,336,False
+An toàn thông tin,7,0,1,6,7,109,198,False
+Chính sách,7,0,2,5,7,49,102,False
+"Hàng hải, Kết cấu hạ tầng giao thông",7,0,1,6,7,60,70,True
+Kỹ thuật an toàn và Môi trường công nghiệp,7,0,0,7,7,64,105,False
+"Lương, phụ cấp",7,0,0,7,7,43,64,True
+"Quản lý quỹ ngân sách, quỹ dự trữ nhà nước, và các quỹ tài chính khác của nhà nước",7,0,1,6,7,71,134,True
+Sở hữu trí tuệ,7,1,3,3,7,287,1259,False
+Thông tin khoa học và công nghệ quốc gia,7,0,2,5,7,163,251,False
+Trợ giúp pháp lý,7,0,0,7,7,45,67,False
+"Vận tải, Khoa học và công nghệ",7,0,0,7,7,23,30,True
+"Đánh giá, thẩm định và giám định công nghệ",7,1,1,5,7,142,231,True
+"An ninh và trật tự, an toàn xã hội",6,0,0,6,5,36,133,True
+Báo chí,6,0,5,1,6,114,262,False
+"Chất lượng sản phẩm, hàng hóa",6,0,0,6,6,71,186,True
+"Cán bộ, công chức",6,1,2,3,6,149,224,True
+"Công nghệ cao, chuyển giao công nghệ",6,0,1,5,6,122,308,True
+Công nghệ tin học ngân hàng,6,0,0,6,6,84,157,False
+Công tác lãnh sự,6,0,0,6,6,68,186,False
+Công tác thanh niên,6,0,3,3,6,98,191,False
+Dược - Mỹ phẩm,6,0,1,5,6,88,161,False
+Lao động ngoài nước,6,0,1,5,6,59,131,False
+Lâm nghiệp và Kiểm lâm,6,0,1,5,6,154,351,False
+Người có công,6,0,1,5,6,28,53,False
+Phát triển công nghiệp và thương mại địa phương,6,0,1,5,6,68,174,False
+Phát triển nông thôn,6,0,1,5,6,56,89,False
+"Phòng, chống tham nhũng",6,0,3,3,6,118,191,True
+Quân y,6,0,0,6,6,98,145,False
+"Thanh tra, kiểm tra tài chính",6,0,0,6,6,70,108,True
+"Thuế xuất khẩu, thuế nhập khẩu",6,0,3,3,6,13,56,True
+Thương mại,6,0,4,2,6,145,301,False
+Thống kê,6,0,2,4,6,33,139,False
+"Thủy lợi, đề điều và phòng chống bão lụt",6,0,1,5,6,54,91,True
+Trang thiết bị y tế,6,0,0,6,6,33,72,False
+"Vận tải, Công nghệ thông tin,điện tử",6,0,0,6,6,34,48,True
+Ban hành văn bản quy phạm pháp luật,5,0,1,4,4,37,180,False
+Biển và hải đảo,5,0,1,4,5,152,209,False
+Bảo trợ xã hội,5,0,4,1,5,154,344,False
+"Chính sách thương mại biên giới, thương mại miền núi",5,0,1,4,5,46,73,True
+Dân số,5,1,1,3,5,65,140,False
+Dân sự - Kinh tế,5,1,4,0,5,251,371,False
+"Khoa học, công nghệ và môi trường",5,0,0,5,5,84,113,True
+"Khám bệnh, chữa bệnh",5,0,2,3,5,88,307,True
+Kinh doanh bảo hiểm,5,0,3,2,5,96,410,False
+"Kiểm tra, rà soát, hệ thống hóa, hợp nhất văn bản quy phạm pháp luật, pháp điển hệ thống quy phạm pháp luật",5,0,1,4,5,60,145,True
+Kế toán,5,0,0,5,5,39,153,False
+Nghĩa vụ quân sự,5,0,0,5,5,31,61,False
+Năng lượng,5,0,3,2,5,237,300,False
+"Năng lượng nguyên tử, an toàn bức xạ và hạt nhân",5,1,1,3,5,132,221,True
+Phòng không nhân dân,5,0,2,3,5,111,225,False
+Quy hoạch,5,1,2,2,5,181,557,False
+Quản lý môi trường y tế,5,0,0,5,5,33,34,False
+Quản lý nhà và thị trường bất động sản,5,0,2,3,5,91,141,False
+"Thanh tra, Tiếp công dân, Tài chính, Khiếu nại, Phòng, chống tham nhũng",5,0,1,4,5,53,83,True
+Tài chính khác; Quản lý ngân sách,5,0,0,5,5,0,2,False
+"Xây dựng pháp luật, pháp chế",5,0,1,4,5,108,183,True
+An toàn kỹ thuật công nghiệp,4,0,0,4,4,20,23,False
+Biến đổi khí hậu,4,0,1,3,4,82,196,False
+"Bảo hiểm xã hội, Bảo hiểm y tế",4,0,1,3,4,70,221,True
+Bảo vệ và chăm sóc trẻ em,4,0,0,4,4,31,40,False
+Chính sách hậu phương quân đội,4,0,2,2,4,48,111,False
+Chứng khoán và thị trường chứng khoán,4,0,1,3,4,36,134,False
+Các tổ chức tín dụng,4,0,0,4,4,127,302,False
+"Công nghiệp, Thủy sản",4,0,0,4,4,44,81,True
+Dân số - Kế hoạch hóa gia đình,4,0,2,2,4,17,28,False
+Giao thông đường thủy nội địa,4,0,0,4,4,127,192,False
+Hoạt động khác,4,0,0,4,4,28,34,False
+"Hàng hải, Khoa học - Công nghệ",4,0,0,4,4,21,23,True
+Hàng không dân dụng Việt Nam,4,0,2,2,4,141,271,False
+Hình sự - hành chính,4,1,2,1,4,228,623,False
+Hóa chất,4,0,0,4,4,18,46,False
+"Hóa chất, vật liệu nổ công nghiệp",4,0,2,2,4,157,208,True
+Kinh tế xây dựng,4,0,0,4,4,14,17,False
+Kiểm lâm,4,0,2,2,4,15,112,False
+Kế hoạch - Tài chính,4,0,1,3,4,39,50,False
+Lý lịch tư pháp,4,0,0,4,4,60,139,False
+"Nông nghiệp, Chính sách thuế",4,0,0,4,4,0,0,True
+Phát triển thị trường và doanh nghiệp khoa học và công nghệ,4,0,0,4,4,53,95,False
+Phát triển đô thị,4,0,2,2,4,89,173,False
+"Phòng cháy, chữa cháy",4,0,0,4,4,31,48,True
+Quy hoạch - Kiến trúc,4,0,0,4,4,69,113,False
+Quản lý trang thiết bị y tế,4,0,1,3,4,102,185,False
+Quản lý tài chính các tổ chức tài chính và dịch vụ tài chính,4,0,0,4,4,30,63,False
+Quản lý tài sản nhà nước,4,0,2,2,4,18,130,False
+Quản lý xuất nhập cảnh,4,0,0,4,4,36,60,False
+"TCNH và thị trường TC, trái phiếu, khác; Quản lý dịch vụ tài chính và các quỹ tài chính",4,0,0,4,4,14,28,True
+"TCNH và thị trường TC, trái phiếu, khác; Tài chính khác",4,0,0,4,4,0,3,True
+Thành lập và hoạt động của doanh nghiệp,4,0,1,3,4,48,70,False
+"Thủy sản, kiểm ngư",4,0,0,4,4,24,31,True
+Tiền lương,4,0,3,1,4,23,45,False
+Tài chính doanh nghiệp và quản lý vốn của nhà nước tại doanh nghiệp,4,0,2,2,4,90,183,False
+Tổ chức phi Chính phủ,4,0,1,3,4,146,293,False
+Tổng hợp,4,0,1,3,4,19,39,False
+Văn thư và Lưu trữ Nhà nước,4,0,0,4,4,22,22,False
+Vệ sinh an toàn và dinh dưỡng,4,0,1,3,4,27,44,False
+Xúc tiến thương mại,4,0,0,4,4,32,61,False
+Điện lực,4,0,3,1,4,216,497,False
+Đầu tư tại Việt Nam,4,0,1,3,4,6,19,False
+Biên giới quốc gia,3,0,1,2,3,94,392,False
+Bồi thường nhà nước,3,0,1,2,3,61,170,False
+Chế biến nông lâm thủy sản và Nghề muối,3,0,1,2,3,24,33,False
+Công nghiệp quốc phòng,3,1,1,1,3,137,194,False
+"Công nghiệp tiêu dùng, công nghiệp thực phẩm và công nghiệp chế biến khác;",3,0,0,3,3,18,24,True
+"Công trình quốc phòng, khu quân sự",3,0,1,2,3,32,59,True
+"Công tác học sinh, sinh viên",3,0,1,2,3,42,44,True
+Cơ khí - Luyện kim - Công nghiệp hỗ trợ,3,0,1,2,3,36,43,False
+Cơ yếu,3,0,1,2,3,39,214,False
+Cảnh sát biển,3,1,0,2,3,78,93,False
+Du lịch,3,1,1,1,3,114,177,False
+Dầu khí,3,0,2,1,3,45,102,False
+Dịch vụ thương mại,3,0,1,2,3,11,37,False
+Giá,3,0,2,1,3,50,171,False
+Giáo dục mầm non,3,0,0,3,3,9,40,False
+HIV/AIDS,3,1,0,2,3,27,83,False
+"Hoạt động khoa học và công nghệ, Phát triển tiềm lực khoa học và công nghệ",3,0,1,2,3,66,233,True
+Hạ tầng kỹ thuật,3,0,0,3,3,22,42,False
+"Hộ tịch, quốc tịch, chứng thực",3,1,0,2,3,114,162,True
+"Khoa học và công nghệ, Phát thanh truyền hình và thông tin điện tử",3,0,0,3,3,9,10,True
+Khí tượng thủy văn,3,0,0,3,3,29,33,False
+Kế hoạch tài chính Quản lý dược,3,0,0,3,3,69,253,False
+"Kế hoạch, Tài chính",3,0,0,3,3,12,77,True
+Một số hoạt động kinh doanh đặc thù,3,0,1,2,3,34,104,False
+Nhà ở và công sở,3,0,1,2,3,32,95,False
+"Phòng, chống bệnh truyền nhiễm",3,1,0,2,3,140,245,True
+"Phổ biến, giáo dục pháp luật",3,2,1,0,3,87,115,True
+"Quản lý thuế, phí và lệ phí; Quản lý tài chính doanh nghiệp",3,0,0,3,3,0,3,True
+Quản lý và đầu tư vốn nhà nước tại doanh nghiệp,3,1,1,1,3,175,367,False
+"Than, khoáng sản",3,0,0,3,3,37,62,True
+Thanh toán,3,0,0,3,3,62,130,False
+"Thực hành tiết kiệm, chống lãng phí",3,1,2,0,3,97,173,True
+Tiêu chuẩn và quy chuẩn kỹ thuật,3,0,0,3,3,49,83,False
+Trang thiết bị và công trình y tế,3,0,1,2,3,28,61,False
+"Trật tự an toàn, giao thông đường bộ",3,0,0,3,3,30,117,True
+Tôn giáo,3,0,1,2,3,89,197,False
+Tổ chức- Biên chế,3,1,2,0,2,23,56,False
+"Xuất bản, in, phát hành",3,0,0,3,3,10,34,True
+Y dược cổ truyền,3,0,0,3,3,25,56,False
+"cán bộ, công chức",3,0,3,0,3,103,123,True
+"Đào tạo bồi dưỡng cán bộ, công chức, viên chức",3,0,0,3,3,51,62,True
+"Đăng kiểm, Khoa học - Công nghệ",3,0,0,3,3,9,10,True
+Đối ngoại,3,0,1,2,3,42,43,False
+"Bưu chính, Vận tải, Tần số-vô tuyến điện",2,0,0,2,2,10,10,True
+Bảo hiểm xã hội bắt buộc và bảo hiểm xã hội tự nguyện,2,0,0,2,2,8,20,False
+Bảo vệ bí mật nhà nước,2,1,0,1,2,47,82,False
+Bổ trợ tư pháp,2,1,0,1,2,117,226,False
+Chăn nuôi,2,0,0,2,2,6,19,False
+"Chăn nuôi, Thú y",2,0,0,2,2,18,35,True
+Chế độ báo cáo,2,0,0,2,2,12,16,False
+Các lĩnh vực khác,2,0,0,2,2,22,35,False
+Công an nhân dân,2,0,0,2,2,54,83,False
+"Công nghiệp, Khoa học công nghệ",2,0,0,2,2,14,17,True
+Công nghệ thông tin,2,0,1,1,2,63,93,False
+"Công nghệ thông tin,điện tử, Khoa học và công nghệ",2,0,0,2,2,6,6,True
+Cơ quan đại diện Việt Nam ở nước ngoài,2,1,1,0,2,20,39,False
+Cơ quan đại diện nước Cộng hòa Xã hội Chủ nghĩa Việt Nam ở nước ngoài,2,1,0,1,2,20,44,False
+Cơ sở vật chất và thiết bị trường học,2,0,0,2,2,7,7,False
+Cải cách hành chính,2,0,2,0,2,39,43,False
+Doanh nghiệp,2,0,0,2,2,34,67,False
+Dược,2,0,0,2,2,7,10,False
+Dạy nghề,2,0,0,2,2,5,11,False
+Dự trữ quốc gia,2,1,0,1,2,54,74,False
+Giáo dục chuyên nghiệp,2,0,0,2,2,6,6,False
+Giáo dục dân tộc,2,0,1,1,2,26,58,False
+Giáo dục thường xuyên,2,0,0,2,2,54,59,False
+Hoạt động của các tổ chức phi chính phủ nước ngoài tại VN,2,0,1,1,2,40,52,False
+"Hàm, cấp ngoại giao",2,0,1,1,2,24,39,True
+Hành chính,2,0,1,1,2,5,5,False
+Hình sự,2,0,0,2,2,8,8,False
+"Hạ tầng kỹ thuật đô thị, khu công nghiệp, khu kinh tế, khu công nghệ cao",2,0,1,1,2,26,30,True
+"Hải quan Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",2,0,0,2,1,10,38,True
+Hộ tịch,2,0,1,1,2,5,9,False
+Khiếu nại,2,0,1,1,2,48,72,False
+"Khoa học, công nghệ và đổi mới sáng tạo",2,0,0,2,2,72,161,True
+Khí tượng thủy văn và biến đổi khí hậu,2,0,1,1,2,41,127,False
+Khảo thí và Kiểm định chất lượng,2,0,0,2,2,23,34,False
+Kinh tế đối ngoại,2,0,1,1,2,44,144,False
+"Kiến trúc, quy hoạch xây dựng",2,0,0,2,2,15,15,True
+Kính tế hợp tác và Phát triển nông thôn,2,0,0,2,1,4,11,False
+"Ký kết điều ước quốc tế, thỏa thuận quốc tế",2,1,1,0,2,22,121,True
+Kỹ thuật,2,0,0,2,2,38,47,False
+"Lưu thông hàng hóa trong nước và xuất khẩu, nhập khẩu",2,0,0,2,2,2,3,True
+Nuôi con nuôi,2,1,0,1,2,56,90,False
+"Nông nghiệp, Thủy sản",2,0,0,2,2,26,55,True
+Phát thanh truyền hình và thông tin điện tử,2,0,0,2,2,11,25,False
+Phòng thủ dân sự,2,0,1,1,2,63,107,False
+"Phòng, chống rửa tiền",2,0,1,1,2,27,57,True
+"Phòng, chống tệ nạn xã hội",2,0,0,2,2,16,22,True
+Quy hoạch đô thị và nông thôn,2,0,0,2,2,23,34,False
+Quản lý biên giới,2,0,2,0,2,62,71,False
+Quản lý cạnh tranh,2,1,1,0,2,170,292,False
+Quản lý dịch vụ tài chính và các quỹ tài chính; Quản lý ngân sách,2,0,0,2,2,2,3,False
+Quản lý dự trữ nhà nước,2,0,0,2,2,3,3,False
+Quản lý ngoại thương,2,0,1,1,2,25,94,False
+Quản lý ngân sách; Quản lý tài chính doanh nghiệp,2,0,0,2,2,0,1,False
+Quản lý nhà,2,0,0,2,2,5,20,False
+Quản lý nợ công,2,0,0,2,2,10,15,False
+"Quản lý thuế, phí và lệ phí; Quản lý ngân sách",2,0,0,2,1,0,0,True
+Quản lý thị trường,2,0,0,2,2,11,48,False
+Quản lý và sử dụng nguồn vốn hỗ trợ phát triển chính thức (ODA) và vốn vay ưu đãi của các nhà tài trợ nước ngoài,2,0,2,0,2,31,382,False
+Quản lý vùng trời,2,0,1,1,2,25,28,False
+Quốc phòng,2,0,1,1,2,52,92,False
+Sĩ quan,2,1,1,0,2,15,51,False
+"TCNH và thị trường TC, trái phiếu, khác; Quản lý ngân sách",2,0,0,2,2,0,0,True
+"Thanh tra, kiểm tra tài chính; Quản lý ngân sách",2,0,0,2,2,11,13,True
+Thi hành án hình sự và hỗ trợ tư pháp,2,0,0,2,2,16,19,False
+Thuế thu nhập cá nhân,2,0,1,1,2,77,210,False
+Thuế thu nhập doanh nghiệp,2,0,1,1,2,15,86,False
+Thông tin tín dụng,2,0,0,2,2,27,36,False
+Tiêu chuẩn vật chất hậu cần cho quân nhân tại ngũ,2,0,0,2,2,25,48,False
+Tiếp công dân,2,0,0,2,2,23,30,False
+Trọng tài thương mại,2,1,1,0,2,85,106,False
+Tuyển sinh quân sự,2,0,0,2,2,96,142,False
+"Tài chính khác; Quản lý thuế, phí và lệ phí",2,0,0,2,1,1,2,True
+Tổ chức Viện kiểm sát nhân dân,2,1,0,1,2,41,99,False
+Tổ chức chính quyền địa phương,2,0,2,0,2,46,75,False
+"Tổ chức, bộ máy",2,0,0,2,2,19,53,True
+Viễn thông,2,0,1,1,2,45,305,False
+Văn hóa,2,0,0,2,2,18,29,False
+"Văn phòng đại diện tổ chức hợp tác, nghiên cứu nước ngoài tại Việt Nam",2,0,1,1,2,35,49,True
+Văn thư - Lưu trữ,2,0,2,0,2,60,186,False
+"Vận tải, Hàng hải",2,0,2,0,2,30,37,True
+giảm nghèo,2,0,2,0,2,11,18,False
+Đa dạng sinh học,2,0,1,1,2,51,232,False
+Điện ảnh,2,0,0,2,2,16,19,False
+Đo đạc bản đồ,2,0,0,2,2,37,39,False
+Đào tạo và nghiên cứu y dược,2,0,0,2,2,42,53,False
+Đăng ký giao dịch bảo đảm,2,0,0,2,2,10,11,False
+Đấu giá tài sản,2,1,0,1,2,8,207,False
+Địa chất và khoáng sản,2,0,1,1,2,34,52,False
+Động viên,2,0,1,1,2,16,21,False
+"An ninh quốc gia, An ninh mạng",1,0,1,0,1,8,11,True
+"An toàn bức xạ và hạt nhân, Tiêu chuẩn đo lường chất lượng",1,0,0,1,1,3,3,True
+An toàn giao thông,1,0,0,1,1,14,194,False
+"An toàn giao thông, Tiêu chuẩn và quy chuẩn kỹ thuật, Đường sắt",1,0,0,1,1,3,5,True
+An toàn hệ thống các tổ chức tín dụng,1,0,0,1,1,3,7,False
+"An toàn lao động, Giáo dục nghề nghiệp",1,0,1,0,1,5,21,True
+"An toàn thông tin mạng, Tiêu chuẩn, quy chuẩn",1,0,0,1,1,3,3,True
+"An toàn thông tin, Công nghệ thông tin,điện tử",1,0,0,1,1,4,8,True
+"An toàn thông tin, Công nghệ thông tin,điện tử, Khoa học và công nghệ, Tần số-vô tuyến điện, Viễn thông và Internet;",1,0,0,1,1,3,3,True
+"An toàn thông tin, Ngân sách nhà nước",1,0,0,1,1,7,8,True
+"An toàn thông tin, Tin học hóa, Viễn thông và Internet;",1,0,0,1,1,10,11,True
+"An toàn thực phẩm Bảo hiểm y tế Quản lý Khám, chữa bệnh",1,0,0,1,1,3,10,True
+Ban hành văn bản QPPL,1,0,0,1,1,29,68,False
+Biên giới Quốc gia,1,0,0,1,1,15,37,False
+Biên phòng,1,0,0,1,1,15,18,False
+"Biên phòng Việt Nam, Biên giới quốc gia",1,0,0,1,1,40,94,True
+"Biên phòng, Quản lý biên giới",1,0,1,0,1,11,83,True
+Biển và Hải đảo,1,0,0,1,1,10,14,False
+"Báo chí Công nghệ thông tin,điện tử Viễn thông và Internet;",1,0,0,1,1,3,3,True
+Báo chí Phát thanh truyền hình và thông tin điện tử,1,0,0,1,1,13,15,False
+"Bưu chính, Công nghệ thông tin,điện tử, Phát thanh truyền hình và thông tin điện tử, Tần số-vô tuyến điện, Xuất bản, in, phát hành, Báo chí, Viễn thông",1,0,1,0,0,0,0,True
+"Bưu chính, Giáo dục đào tạo, An toàn thông tin, Chuyển đổi số, Cơ cấu tổ chức, Công nghệ thông tin,điện tử, Khoa học và công nghệ, Phát thanh truyền hình và thông tin điện tử, Tần số-vô tuyến điện, Viễn thông và Internet;",1,0,0,1,1,3,23,True
+"Bưu chính, Lĩnh vực khác",1,0,0,1,1,12,14,True
+"Bưu chính, Lĩnh vực khác, Phát thanh truyền hình và thông tin điện tử",1,0,0,1,1,10,10,True
+"Bưu chính, Phát thanh truyền hình và thông tin điện tử",1,0,0,1,1,3,4,True
+"Bưu chính, Vận tải",1,0,0,1,1,5,5,True
+"Bưu chính, Vận tải, An toàn thông tin, Công nghệ thông tin,điện tử, Tần số-vô tuyến điện, Xuất bản, in, phát hành",1,0,0,1,1,7,10,True
+"Bưu chính, Vận tải, Công nghệ thông tin,điện tử, Phát thanh truyền hình và thông tin điện tử, Tin học hóa",1,0,0,1,1,3,3,True
+"Bưu chính, Vận tải, Xuất bản, in, phát hành, Tần số-vô tuyến điện",1,0,0,1,1,4,16,True
+"Bưu chính, Xuất bản, in, phát hành",1,0,0,1,1,3,3,True
+Bản quyền tác giả,1,0,0,1,1,19,36,False
+Bảo hiểm tiền gửi,1,1,0,0,1,41,59,False
+"Bảo hiểm xã hội, Bảo hiểm thất nghiệp",1,0,0,1,1,20,42,True
+"Bảo hiểm xã hội, Thủy lợi",1,0,0,1,1,20,76,True
+"Bảo hiểm y tế, Bảo hiểm xã hội",1,0,0,1,1,48,92,True
+"Bảo hiểm y tế, Dược",1,0,0,1,1,8,13,True
+Bảo vệ quyền lợi người tiêu dùng,1,0,0,1,1,5,6,False
+Bảo vệ sức khỏe nhân dân,1,0,0,1,1,11,13,False
+Chuyển giao công nghệ,1,0,0,1,1,6,8,False
+Chuyển đổi số,1,0,0,1,1,7,11,False
+"Chuyển đổi số, Công nghệ thông tin,điện tử",1,0,1,0,1,4,129,True
+"Chính quyền địa phương, Tổ chức, bộ máy",1,0,1,0,1,3,3,True
+"Chính sách thuế Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",1,1,0,0,1,55,107,True
+"Chính sách thuế, Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",1,0,1,0,1,4,13,True
+"Chính sách tiền tệ, Quản lý ngoại hối",1,0,0,1,1,18,33,True
+"Chính sách, Ngân sách nhà nước",1,0,0,1,1,0,0,True
+"Chính sách, Sĩ quan",1,0,1,0,1,5,24,True
+"Chăn nuôi Chăn nuôi, Thú y",1,0,0,1,1,35,57,True
+"Chăn nuôi, thú y",1,0,0,1,1,2,2,True
+"Chưa phân loại, Chính sách",1,0,0,1,1,7,10,True
+"Chưa phân loại, Giáo dục",1,0,0,1,1,3,4,True
+"Chưa phân loại, Giáo dục nghề nghiệp",1,0,0,1,1,4,7,True
+"Chưa phân loại, Nông nghiệp",1,0,0,1,1,3,4,True
+"Chưa phân loại, Phòng cháy, chữa cháy",1,0,0,1,1,5,6,True
+"Chưa phân loại, Quản lý nợ công",1,0,0,1,1,0,0,True
+"Chưa phân loại, Thủy lợi, đề điều và phòng chống bão lụt, Quản lý quỹ ngân sách, quỹ dự trữ nhà nước, và các quỹ tài chính khác của nhà nước",1,0,0,1,1,0,0,True
+"Chưa phân loại, Tổ chức cán bộ",1,0,0,1,1,5,5,True
+"Chưa phân loại, Tổ chức, bộ máy",1,0,1,0,1,3,3,True
+"Chưa phân loại, Xây dựng",1,0,0,1,1,3,4,True
+"Chất lượng, Chế biến và Phát triển thị trường",1,0,0,1,1,38,100,True
+"Chứng khoán và thị trường chứng khoán, Kế toán, kiểm toán",1,0,0,1,1,9,22,True
+"Chứng khoán, Chứng khoán và thị trường chứng khoán",1,0,0,1,1,3,5,True
+"Cán bộ, công chức, Viên chức",1,0,0,1,1,2,2,True
+"Cán bộ, công chức, viên chức",1,0,0,1,1,7,10,True
+"Cán bộ, công chức, viên chức, Tổ chức, bộ máy",1,0,1,0,1,5,5,True
+"Công chức, viên chức, Dân số - Kế hoạch hóa gia đình",1,0,0,1,1,4,4,True
+"Công chức, viên chức, Viên chức",1,0,1,0,1,3,114,True
+Công nghiệp nhẹ,1,0,0,1,1,2,2,False
+"Công nghiệp, Bảo vệ thực vật",1,0,0,1,1,3,3,True
+"Công nghiệp, Bảo vệ thực vật, Lâm nghiệp, Thú y",1,0,1,0,1,14,407,True
+"Công nghiệp, Thương mại",1,0,0,1,1,37,179,True
+Công nghệ cao,1,1,0,0,1,27,75,False
+"Công nghệ cao, chuyển giao công nghệ, Đăng ký hoạt động khoa học và công nghệ",1,0,0,1,1,7,12,True
+"Công nghệ thông tin, An toàn thông tin",1,0,0,1,1,24,24,True
+"Công nghệ thông tin,điện tử Tin học hóa",1,0,0,1,1,14,26,True
+"Công nghệ thông tin,điện tử Viễn thông",1,0,0,1,1,7,7,True
+"Công nghệ thông tin,điện tử Viễn thông và Internet;",1,0,0,1,1,3,3,True
+"Công nghệ thông tin,điện tử, Tin học hóa",1,0,0,1,1,13,19,True
+Công tác người Việt Nam ở nước ngoài,1,0,0,1,1,3,6,False
+Công đoàn,1,0,1,0,1,17,66,False
+"Cơ cấu tổ chức, Lĩnh vực khác",1,0,0,1,1,6,6,True
+Cấp giấy chứng minh nhân dân,1,0,0,1,1,20,21,False
+Di sản văn hóa,1,0,0,1,1,6,8,False
+"Dân quân tự vệ, Giáo dục quốc phòng và an ninh",1,0,0,1,1,9,79,True
+"Dân quân tự vệ, Quản lý vùng trời",1,0,1,0,1,4,10,True
+"Dân tộc, Chính sách",1,0,0,1,1,8,11,True
+"Dân tộc, Tôn giáo",1,0,1,0,1,28,76,True
+"Dầu khí, Lĩnh vực giá",1,0,1,0,1,6,6,True
+"Dầu khí, Điện",1,0,0,1,1,0,0,True
+"Dịch vụ thương mại, Thị trường trong nước",1,0,1,0,1,10,12,True
+"Dự trữ nhà nước, Quản lý tài sản công",1,0,0,1,1,23,31,True
+Gia đình,1,0,1,0,1,27,31,False
+Giao dịch,1,0,0,1,1,0,0,False
+Giám định nhà nước về Chất lượng công trình xây dựng,1,0,0,1,1,5,6,False
+"Giám định y khoa, pháp y, pháp y tâm thần",1,0,0,1,1,26,34,True
+Giáo dục quốc phòng,1,0,0,1,1,3,3,False
+Giáo dục trung học,1,0,0,1,1,23,28,False
+Giáo dục đại học Khảo thí và Kiểm định chất lượng,1,0,0,1,1,59,65,False
+"Hoạt động khoa học và công nghệ, Biển Việt Nam",1,0,1,0,1,26,49,True
+"Hoạt động khoa học và công nghệ, Kế hoạch - Tổng hợp",1,0,0,1,1,8,42,True
+Hoạt động nghệ thuật biểu diễn,1,0,0,1,1,5,5,False
+"Hoạt động thông tin, báo chí nước ngoài tại VN",1,0,0,1,1,4,5,True
+Hoạt động văn hóa và kinh doanh dịch vụ văn hóa công cộng,1,0,0,1,1,2,2,False
+"Hàng hải, Hàng không, Khoa học - Công nghệ",1,0,0,1,1,2,2,True
+Hàng không dân dụng,1,0,0,1,1,37,57,False
+"Hàng không, Kết cấu hạ tầng giao thông",1,0,0,1,1,8,17,True
+Hợp nhất văn bản quy phạm pháp luật,1,0,1,0,1,4,6,False
+"Khiếu nại, tố cáo",1,0,1,0,1,26,35,True
+Kho bạc Ngân sách nhà nước,1,0,0,1,1,11,15,False
+Kho bạc Quản lý tài chính các tổ chức tài chính và dịch vụ tài chính,1,0,0,1,1,4,10,False
+"Kho bạc, Quản lý dự trữ nhà nước, Quản lý tài sản nhà nước",1,0,1,0,1,3,11,True
+Khoa học - Công nghệ,1,0,0,1,1,3,3,False
+Khoa học Công nghệ và Môi trường,1,0,0,1,1,3,3,False
+"Khoa học công nghệ, Bảo vệ thực vật",1,0,0,1,1,3,3,True
+"Khoa học công nghệ, Chất lượng Nông Lâm sản và Thủy sản",1,0,0,1,1,3,3,True
+"Khoa học công nghệ, Thủy sản",1,0,0,1,1,3,4,True
+Khoa học thanh tra,1,0,0,1,1,12,21,False
+"Khoa học và Công nghệ các ngành kinh tế - kỹ thuật, Phát triển thị trường và doanh nghiệp khoa học và công nghệ, Phát triển tiềm lực khoa học và công nghệ, Thông tin khoa học và công nghệ quốc gia, Ứng dụng và Phát triển công nghệ, Đăng ký hoạt động khoa học và công nghệ, Hoạt động khoa học và công nghệ",1,1,0,0,1,76,129,True
+Khoa học và công nghệ Viễn thông và Internet;,1,0,0,1,1,3,3,False
+"Khoa học và công nghệ, Tần số-vô tuyến điện, Viễn thông",1,0,0,1,0,0,0,True
+"Khoa học và công nghệ, Viễn thông và Internet;",1,0,0,1,1,3,3,True
+"Khám bệnh, chữa bệnh, Phòng, chống ma túy",1,0,0,1,1,8,21,True
+"Khám chữa bệnh, Bảo hiểm y tế",1,0,0,1,1,7,7,True
+Kinh doanh bất động sản,1,0,1,0,1,46,149,False
+"Kinh tế hợp tác và Phát triển nông thôn, Phát triển nông thôn",1,0,0,1,1,2,11,True
+Kiến trúc,1,0,0,1,1,12,17,False
+Kiểm soát thủ tục hành chính,1,0,0,1,1,16,48,False
+"Kiểm soát thủ tục hành chính, Lập và hoạt động của văn phòng đại diện của các tổ chức hợp tác, nghiên cứu của nước ngoài tại Việt Nam",1,0,0,1,1,15,41,True
+Kiểm toán Nhà nước,1,0,0,1,1,2,2,False
+Kiểm tra theo dõi thi hành văn bản QPPL,1,1,0,0,1,8,51,False
+Kế hoạch - Tổng hợp,1,0,0,1,1,3,3,False
+"Kế toán, Chứng khoán và thị trường chứng khoán",1,0,0,1,1,6,6,True
+"Kế toán, Kiểm toán độc lập",1,0,1,0,1,12,44,True
+"Kế toán, kiểm toán Kho bạc Quản lý ngân sách nhà nước",1,0,0,1,1,6,22,True
+"Kế toán, kiểm toán Tài chính doanh nghiệp",1,0,0,1,1,8,10,True
+Kết cấu hạ tầng giao thông,1,0,0,1,1,18,30,False
+"Kỹ thuật, Biển và hải đảo",1,0,0,1,1,3,3,True
+Lao động,1,0,0,1,1,0,9,False
+"Lao động, tiền lương, tiền công, Giáo dục nghề nghiệp",1,0,0,1,1,6,6,True
+"Lao động, tiền lương, tiền công, Tài chính hành chính sự nghiệp",1,0,0,1,1,0,0,True
+"Lâm nghiệp, Nông nghiệp",1,0,0,1,1,3,4,True
+"Lâm nghiệp, Nông nghiệp, Thủy sản",1,0,0,1,1,3,4,True
+"Lâm nghiệp, Thủy sản",1,0,0,1,1,9,11,True
+Lăng Chủ tịch Hồ Chí Minh,1,0,1,0,1,33,63,False
+"Lĩnh vực khác, Tần số-vô tuyến điện",1,0,0,1,1,3,3,True
+Lĩnh vực quản lý vũ khí – vật liệu nổ công nghiệp và công cụ hỗ trợ.,1,0,0,1,1,3,3,False
+Lĩnh vực thực hiện chính sách bảo hiểm y tế,1,0,0,1,1,4,14,False
+"Lưu trữ, Văn thư và Lưu trữ Nhà nước",1,0,0,1,1,14,15,True
+"Lương, phụ cấp, Chính sách",1,0,0,1,1,0,0,True
+"Lương, phụ cấp, Cán bộ, công chức, viên chức, Chính sách trợ giúp xã hội đối với đối tượng bảo trợ xã hội, Ưu đãi người có công với cách mạng, Lĩnh vực chi trả các chế độ bảo hiểm xã hội",1,0,1,0,1,32,32,True
+Lễ tân ngoại giao,1,0,1,0,1,44,50,False
+Môi trường y tế,1,0,0,1,1,3,3,False
+"Môi trường, Nông nghiệp, Khoa học công nghệ",1,0,0,1,1,8,11,True
+"Môi trường, Tài nguyên nước",1,0,0,1,1,4,4,True
+Mỹ phẩm,1,0,0,1,1,5,11,False
+"Nghĩa vụ quân sự, Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng, Cán bộ, công chức, viên chức, Dân quân tự vệ, Sĩ quan",1,0,0,1,1,59,63,True
+"Nghĩa vụ quân sự, Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng, Sĩ quan",1,0,0,1,1,15,23,True
+"Nghĩa vụ quân sự, Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng, Động viên",1,0,0,1,1,8,50,True
+Ngoại vụ địa phương,1,0,0,1,1,30,30,False
+"Ngân hàng Nhà nước Việt Nam, Đầu tư công",1,0,0,1,1,9,16,True
+"Ngân sách nhà nước, Quản lý quỹ ngân sách, quỹ dự trữ nhà nước, và các quỹ tài chính khác của nhà nước",1,0,1,0,1,4,38,True
+"Ngân sách nhà nước, Đầu tư công",1,0,0,1,1,9,22,True
+Người cao tuổi,1,0,0,1,1,2,2,False
+"Người có công, Ưu đãi người có công",1,0,0,1,1,0,0,True
+Người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng,1,0,0,1,1,12,58,False
+Nhà ở,1,0,0,1,1,7,15,False
+"Nhập cảnh, xuất cảnh, quá cảnh, cư trú của người nước ngoài tại Việt Nam",1,0,0,1,1,4,4,True
+Nông nghiệp Thủy sản,1,0,0,1,1,4,8,False
+"Nông nghiệp, Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",1,0,0,1,1,0,0,True
+Nông thôn mới,1,0,0,1,1,3,38,False
+"Pháp chế, Tài chính",1,0,0,1,1,15,17,True
+Pháp luật quốc tế,1,0,1,0,1,10,24,False
+"Phát triển nông thôn, Phát triển đô thị",1,0,0,1,1,7,11,True
+"Phòng, chống ma túy",1,0,1,0,1,11,29,True
+"Phổ biến, giáo dục pháp luật, hòa giải ở cơ sở",1,0,0,1,1,15,48,True
+"Phục hồi, phá sản",1,0,1,0,1,10,36,True
+"Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng Sĩ quan",1,0,1,0,1,19,44,True
+"Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng, Chính sách",1,0,1,0,1,11,47,True
+"Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng, Sĩ quan Quân đội nhân dân Việt Nam",1,0,0,1,1,14,16,True
+"Quân sự, Quốc phòng",1,0,1,0,1,6,55,True
+"Quản lý cho vay vốn tín dụng đầu tư, tín dụng xuất khẩu của Nhà nước",1,0,0,1,1,0,0,True
+Quản lý dịch vụ tài chính và các quỹ tài chính; Quản lý tài chính doanh nghiệp,1,0,0,1,1,0,1,False
+"Quản lý dịch vụ tài chính và các quỹ tài chính; TCNH và thị trường TC, trái phiếu, khác",1,0,0,1,1,0,0,True
+Quản lý dịch vụ tài chính và các quỹ tài chính; Tài chính khác,1,0,0,1,1,0,0,False
+"Quản lý dự trữ nhà nước, Quản lý tài chính các tổ chức tài chính và dịch vụ tài chính",1,0,0,1,1,4,5,True
+Quản lý giá; Tài chính khác,1,0,0,1,1,0,19,False
+Quản lý hoạt động thương mại của các tổ chức và cá nhân người Việt Nam ở nước ngoài và của người nước ngoài ở Việt Nam,1,0,0,1,1,0,9,False
+"Quản lý ngoại thương, Xuất nhập khẩu",1,0,0,1,1,5,7,True
+Quản lý ngân sách nhà nước Tài chính doanh nghiệp,1,0,0,1,1,8,24,False
+Quản lý ngân sách nhà nước Tài chính hành chính sự nghiệp,1,0,0,1,1,3,3,False
+"Quản lý ngân sách nhà nước, Quản lý nợ và tài chính đối ngoại",1,1,0,0,0,0,0,True
+"Quản lý ngân sách, Chính sách thuế, Phòng, chống thiên tai",1,0,0,1,1,0,1,True
+"Quản lý ngân sách; Quản lý thuế, phí và lệ phí",1,0,0,1,1,0,0,True
+Quản lý ngân sách; Quản lý tài chính doanh nghiệp; Quản lý giá,1,0,0,1,1,0,2,False
+Quản lý ngân sách; Quản lý tài sản công,1,0,0,1,1,0,0,False
+"Quản lý ngân sách; TCNH và thị trường TC, trái phiếu, khác; Tài chính khác",1,0,0,1,1,0,0,True
+"Quản lý ngân sách; Tài chính khác; Quản lý thuế, phí và lệ phí",1,0,0,1,1,0,6,True
+"Quản lý nợ công, Đầu tư công",1,0,1,0,1,74,158,True
+"Quản lý thuế, Thuế thu nhập doanh nghiệp, Thuế thu nhập cá nhân",1,0,1,0,1,5,12,True
+"Quản lý tài chính doanh nghiệp; Quản lý thuế, phí và lệ phí",1,0,0,1,1,0,0,True
+"Quản lý tài sản nhà nước, Quốc phòng, Doanh nghiệp",1,0,0,1,1,14,28,True
+"Quản lý và sử dụng viện trợ không hoàn lại không thuộc hỗ trợ phát triển chính thức của các cơ quản, tổ chức, cá nhân nước ngoài dành cho Việt Nam",1,0,0,1,1,2,2,True
+"Quản lý, sử dụng vũ khí, vật liệu nổ, công cụ hỗ trợ",1,0,0,1,1,3,12,True
+Quảng cáo,1,0,0,1,1,9,23,False
+"Quảng cáo, Thư viện, Điện ảnh, Di sản văn hóa, Xử lý vi phạm hành chính",1,0,1,0,1,95,270,True
+"Quốc phòng, An ninh quốc gia, Phòng, chống thiên tai",1,1,0,0,1,36,40,True
+"Quốc phòng, an ninh",1,0,0,1,1,8,11,True
+Quốc tịch,1,1,0,0,1,4,39,False
+"Sở hữu trí tuệ, Tiêu chuẩn đo lường chất lượng",1,0,1,0,1,8,60,True
+Sử dụng năng lượng tiết kiệm và hiệu quả,1,0,0,1,1,21,26,False
+"TCNH và thị trường TC, trái phiếu, khác; Quản lý thuế, phí và lệ phí",1,0,0,1,1,0,0,True
+"TCNH và thị trường TC, trái phiếu, khác; Tài chính đối ngoại",1,0,0,1,1,0,2,True
+Tham gia lực lượng gìn giữ hòa bình,1,1,0,0,1,27,28,False
+"Thanh tra, Công nghiệp, Lâm nghiệp, Thủy sản",1,0,0,1,1,10,16,True
+"Thanh tra, Khoa học công nghệ, Công nghiệp, Lâm nghiệp, Thủy sản",1,0,0,1,1,8,12,True
+"Thanh tra, Nông nghiệp",1,0,0,1,1,3,3,True
+Thi hành án hình sự,1,0,0,1,1,6,6,False
+Thi đua - Khen thưởng,1,0,0,1,1,27,59,False
+Thi đua - khen thưởng,1,0,0,1,1,26,49,False
+Thuế bảo vệ môi trường,1,0,0,1,1,6,11,False
+"Thông tin, báo chí nước ngoài",1,0,0,1,1,2,2,True
+"Thú y, Chăn nuôi",1,0,1,0,1,56,211,True
+Thư viện,1,0,0,1,1,16,17,False
+Thương mại điện tử,1,0,0,1,1,18,18,False
+"Thương mại, Chất lượng sản phẩm, hàng hóa, Bảo vệ quyền lợi người tiêu dùng, Giao dịch điện tử",1,0,0,1,1,19,30,True
+"Thương mại, Công nghiệp",1,0,0,1,1,6,18,True
+"Thể dục, thể thao, Thi đua, khen thưởng",1,0,0,1,1,12,13,True
+Thị trường trong nước,1,0,0,1,1,2,6,False
+Thủ đô,1,1,0,0,1,36,55,False
+"Thủy lợi, Thủy lợi, đề điều và phòng chống bão lụt",1,0,1,0,1,51,209,True
+"Thủy lợi, đề điều và phòng chống bão lụt, Đê điều và Phòng chống thiên tai",1,1,0,0,1,9,60,True
+"Thủy sản, Chính sách thuế",1,0,0,1,1,0,0,True
+"Thủy sản, Thủy sản, kiểm ngư",1,0,0,1,1,2,23,True
+Thừa phát lại,1,0,0,1,1,21,21,False
+"Thực hiện chế độ hưu trí đối với quân nhân trực tiếp tham gia kháng chiến chống Mỹ cứu nước từ ngày 30 tháng 4 năm 1975 trở về trước có 20 năm trở lên phục vụ quân đội đã phục viên, xuất ngũ",1,0,1,0,1,5,20,True
+"Tiêu chuẩn nhà giáo, cán bộ quản lý giáo dục",1,0,0,1,1,3,6,True
+"Tiêu chuẩn và quy chuẩn kỹ thuật, An toàn thông tin mạng",1,0,0,1,1,4,32,True
+"Tiêu chuẩn và quy chuẩn kỹ thuật, Chất lượng sản phẩm, hàng hóa, Đo lường",1,0,0,1,1,7,91,True
+"Tiêu chuẩn và quy chuẩn kỹ thuật, Giao thông đường thủy nội địa",1,0,0,1,1,3,3,True
+"Tiêu chuẩn và quy chuẩn kỹ thuật, Quản lý trang thiết bị y tế",1,0,0,1,1,11,22,True
+"Tiêu chuẩn, quy chuẩn, Tiêu chuẩn và quy chuẩn kỹ thuật",1,0,0,1,1,3,3,True
+Trẻ em,1,0,1,0,1,12,26,False
+Trồng trọt và Bảo vệ thực vật,1,0,0,1,1,3,3,False
+"Trồng trọt, Bảo vệ thực vật",1,0,0,1,1,4,7,True
+Tài chính doanh nghiệp Tài chính doanh nghiệp và quản lý vốn của nhà nước tại doanh nghiệp,1,0,0,1,1,2,2,False
+"Tài chính doanh nghiệp, Thể dục, thể thao",1,0,0,1,1,0,0,True
+Tài chính hành chính sự nghiệp Tổ chức cán bộ,1,0,0,1,1,3,9,False
+"Tài chính hành chính sự nghiệp, Thi đua, khen thưởng",1,0,0,1,1,0,0,True
+"Tài chính khác; TCNH và thị trường TC, trái phiếu, khác",1,0,0,1,1,0,0,True
+"Tài chính, Chính sách",1,0,0,1,1,7,9,True
+"Tài chính, Chức năng, nhiệm vụ quyền hạn, Cơ cấu tổ chức",1,0,1,0,1,3,9,True
+"Tài chính, Khiếu nại, Khiếu nại, tố cáo",1,0,0,1,1,32,42,True
+"Tài chính, Tiếp công dân, Khiếu nại",1,0,1,0,1,21,29,True
+"Tài nguyên khoáng sản, địa chất, Tài nguyên nước",1,0,1,0,1,50,65,True
+Tư vấn pháp luật,1,1,0,0,1,5,38,False
+Tố tụng hình sự,1,1,0,0,1,2,10,False
+Tổ chức Chính phủ,1,0,1,0,1,5,5,False
+"Tổ chức cán bộ, Đăng kiểm, Hàng hải",1,0,0,1,1,3,3,True
+"Việc làm, Lưu trữ, Tổng hợp, Thống kê",1,0,0,1,1,24,41,True
+Văn hóa cơ sở,1,0,0,1,1,4,10,False
+"Văn thư - Lưu trữ, Văn thư và Lưu trữ Nhà nước",1,0,0,1,0,0,0,True
+"Vận tải, Công nghệ thông tin,điện tử, Lĩnh vực khác",1,0,0,1,1,5,5,True
+"Vận tải, Công nghệ thông tin,điện tử, Tần số-vô tuyến điện",1,0,0,1,1,3,3,True
+"Vận tải, Hàng không",1,0,0,1,1,20,26,True
+"Vận tải, Khoa học và công nghệ, Tần số-vô tuyến điện",1,0,0,1,1,4,25,True
+"Vận tải, Lĩnh vực khác",1,0,0,1,1,75,126,True
+"Vận tải, Đăng kiểm",1,0,0,1,1,11,16,True
+"Vận tải, Đường sắt",1,0,0,1,1,3,3,True
+"Vận tải, Đường thủy nội địa",1,0,0,1,1,3,7,True
+Vật liệu xây dựng,1,0,0,1,1,6,8,False
+"Xuất cảnh, nhập cảnh của công dân Việt Nam",1,1,0,0,1,52,107,True
+Xây dựng nhà ở,1,0,0,1,1,17,46,False
+"chuyển đổi số Công nghệ thông tin,điện tử",1,0,0,1,1,6,13,True
+"chức năng, nhiệm vụ, quyền hạn, cơ cấu tổ chức của sở Thông tin và Truyền thông",1,0,0,1,1,9,14,True
+"cán bộ, công chức Viên chức",1,0,1,0,1,16,22,True
+giáo dục nghề nghiệp,1,0,0,1,1,23,35,False
+học phí,1,0,0,1,1,39,61,False
+"khám bệnh, chữa bệnh",1,0,0,1,1,17,30,True
+lao động ngoài nước,1,0,1,0,1,3,59,False
+nội vụ,1,0,1,0,1,56,161,False
+"phân cấp, phân quyền",1,0,0,1,1,11,24,True
+"phân cấp, phân quyền, Người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng, Chứng thực, Nhập cảnh, xuất cảnh, quá cảnh, cư trú của người nước ngoài tại Việt Nam, Quốc tịch, Điều ước quốc tế, Thỏa thuận quốc tế, Biên giới, lãnh thổ, Tổ chức phi Chính phủ nước ngoài tại Việt Nam, Tổ chức- Biên chế, Hộ tịch, Nuôi con nuôi, Tố tụng hình sự",1,0,0,1,1,19,73,True
+"phân cấp, phân quyền, Quy hoạch - Kiến trúc",1,0,1,0,1,13,55,True
+tiêu chí và định mức,1,0,0,1,1,3,3,False
+xây dựng lực lượng,1,0,0,1,1,16,30,False
+y tế khác,1,0,0,1,1,4,4,False
+"Điện ảnh, Nghệ thuật biểu diễn",1,0,1,0,1,14,24,True
+"Điện ảnh, Sở hữu trí tuệ, Ngân sách nhà nước",1,0,1,0,1,14,45,True
+"Đánh giá, thẩm định và giám định công nghệ Công nghệ thông tin,điện tử",1,0,0,1,1,7,12,True
+Đê điều và Phòng chống thiên tai,1,0,1,0,1,12,21,False
+"Đăng kiểm, Hàng hải, Khoa học - Công nghệ",1,0,0,1,1,3,4,True
+"Đăng kiểm, Đường thủy nội địa, Khoa học - Công nghệ",1,0,0,1,1,3,3,True
+Đăng ký hoạt động khoa học và công nghệ,1,0,0,1,1,9,34,False
+"Đăng ký, quản lý con dấu",1,0,1,0,1,28,51,True
+"Đăng ký, quản lý cư trú, Quản lý xuất nhập cảnh",1,0,1,0,1,16,21,True
+"Đăng ký, quản lý phương tiện giao thông",1,0,0,1,1,19,28,True
+"Đường bộ, Khoa học - Công nghệ",1,0,0,1,1,3,10,True
+"Đường bộ, Đường sắt, Đường thủy nội địa, Hàng hải, Hàng không",1,0,0,1,1,4,6,True
+"Đường thủy nội địa, Hàng hải, Hàng không",1,0,0,1,1,11,15,True
+"Đường thủy nội địa, Khoa học - Công nghệ",1,0,0,1,1,3,3,True
+Đầu tư Kho bạc Ngân sách nhà nước,1,0,1,0,1,56,106,False
+Đầu tư công,1,0,1,0,1,88,361,False
+Đầu tư theo phương thức đối tác công tư,1,0,0,1,1,3,5,False
+Đầu tư từ VN ra nước ngoài,1,0,0,1,1,11,20,False
+"Đầu tư, Tài chính doanh nghiệp",1,0,1,0,0,0,0,True
+"Động viên, Tuyển quân",1,0,0,1,1,26,29,True
+"Ưu đãi, miễn trừ ngoại giao",1,0,1,0,1,18,27,True
+Ứng dụng và Phát triển công nghệ,1,0,0,1,1,7,11,False

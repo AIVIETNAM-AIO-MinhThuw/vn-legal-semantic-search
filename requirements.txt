@@ -1,0 +1,5 @@
+# Phiên 1: tải dữ liệu + EDA. Các thư viện cho bước sau sẽ được thêm khi cần.
+huggingface_hub==0.36.0
+pandas==2.2.3
+pyarrow==18.1.0
+PyYAML==6.0.2

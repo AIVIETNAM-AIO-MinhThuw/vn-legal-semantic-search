@@ -1,0 +1,66 @@
+# Cấu hình dữ liệu — xem SPEC.md mục 3, 4.
+dataset:
+  name: th1nhng0/vietnamese-legal-documents
+  # Commit hash ghim (SPEC 3.1). Không dùng `main`.
+  revision: 8977887f17be2defae4c5171d55562e1cde7d695
+  # Các file parquet dùng (config không-legacy của dataset).
+  files:
+    metadata: data/metadata.parquet
+    content: data/content.parquet
+    relationships: data/relationships.parquet
+
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  stats_dir: reports/data_stats
+  samples_dir: reports/data_stats/samples
+  logs_dir: logs
+
+eda:
+  n_samples: 10
+  # Regex ước lượng số Điều (chỉ để ước lượng, không phải parser).
+  article_regex: 'Điều\s+\d+'
+
+filter:
+  # OI-10 đã chốt 2026-10-22 (SPEC 3.2, 17). Giá trị chính xác theo metadata.
+  doc_types: ["Luật", "Nghị định", "Thông tư"]
+  effective_statuses: ["Còn hiệu lực"]
+  # 8 lĩnh vực, khớp NGUYÊN CHUỖI `linh_vuc`: không tách dấu phẩy/chấm phẩy,
+  # không khớp chuỗi con, không gộp tên gần nghĩa. "Chưa phân loại" và null bị loại.
+  # Không dùng `nganh` thay thế. Vị trí thứ 8 đồng hạng 69 văn bản với
+  # "Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước"; nhóm chọn mục cuối.
+  domains:
+    - "Quản lý ngân sách"
+    - "Quản lý thuế, phí và lệ phí"
+    - "Lao động, tiền lương, tiền công"
+    - "Chính sách thuế"
+    - "Ngân sách nhà nước"
+    - "Tài chính hành chính sự nghiệp"
+    - "TCNH và thị trường TC, trái phiếu, khác"
+    - "Quản lý dịch vụ tài chính và các quỹ tài chính"
+
+relations:
+  # Ánh xạ nhãn gốc trong `relationships` -> {sua_doi, bo_sung, thay_the} (SPEC 17).
+  # 25 nhãn còn lại KHÔNG dùng để gom họ; không xóa khỏi dữ liệu gốc.
+  # "Sửa đổi, bổ sung" -> sua_doi là quy ước kỹ thuật (vẫn giữ nhãn gốc).
+  mapping:
+    "Văn bản sửa đổi": sua_doi
+    "Văn bản được sửa đổi": sua_doi
+    "Sửa đổi, bổ sung": sua_doi
+    "Văn bản bổ sung": bo_sung
+    "Văn bản được bổ sung": bo_sung
+    "Thay thế": thay_the
+  # SPEC 3.6, 4.1: cạnh có ID không có trong metadata được giữ, ID đó là nút trung gian
+  # trong union-find; không tính vào corpus, thống kê văn bản hay lĩnh vực chủ đạo.
+  # Chỉ áp dụng cho other_doc_id khác null/rỗng; doc_id nguồn thiếu hoặc ID null/rỗng vẫn là lỗi.
+  keep_unmapped_id_as_node: true
+
+split:
+  ratios: {train: 0.8, val: 0.1, test: 0.1}
+  output: data/splits.json
+  # SPEC 4.1: chỉ chia các họ có >= 1 văn bản trong corpus cuối cùng;
+  # lĩnh vực chủ đạo đếm trên các văn bản trong corpus của họ.
+  families_scope: corpus_only
+  stratify_domain_scope: corpus_docs
+  # Không đặt ngưỡng cắt họ; chỉ báo phân phối kích thước họ trước khi split.
