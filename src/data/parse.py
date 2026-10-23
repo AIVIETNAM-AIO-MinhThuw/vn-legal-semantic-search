@@ -128,7 +128,8 @@ def _split_next_form_lead_in(lines: list[str]) -> tuple[list[str], list[str]]:
 
 
 def form_evidence(own_lines: list[str], lead_lines: list[str]) -> dict:
-    """Bằng chứng biểu mẫu của một đoạn đính kèm. Dấu ba chấm đơn lẻ không phải bằng chứng."""
+    """Bằng chứng biểu mẫu của một đoạn đính kèm. `own_lines` (thân Điều) và `lead_lines` (preamble + lời dẫn rò)
+    không giao nhau: mỗi dòng chỉ được tính một lần. Dấu ba chấm đơn lẻ không phải bằng chứng."""
     strong = [l for l in own_lines + lead_lines if STRONG_BLANK_RE.search(l)]
     weak = [l for l in own_lines + lead_lines if WEAK_BLANK_RE.search(l) and not STRONG_BLANK_RE.search(l)]
     paren = [l for l in own_lines + lead_lines if PAREN_PLACEHOLDER_RE.search(l)]
@@ -162,7 +163,7 @@ def _mark_form_templates(arts: list[Article], stats: dict) -> None:
     leaked: list[list[str]] = [[] for _ in segs]  # lời dẫn của đoạn k bị rò vào cuối Điều cuối của đoạn k-1
     own: list[list[str]] = []
     for k, seg in enumerate(segs):
-        lines = list(seg[0].preamble)
+        lines: list[str] = []  # thân các Điều; preamble và lời dẫn rò được truyền riêng để mỗi dòng chỉ tính một lần
         for j, x in enumerate(seg):
             body, lead = _split_next_form_lead_in(x.lines)
             lines.append(x.title)
@@ -171,7 +172,7 @@ def _mark_form_templates(arts: list[Article], stats: dict) -> None:
                 leaked[k + 1] = lead
         own.append(lines)
     for k, seg in enumerate(segs):
-        ev = form_evidence(own[k] + leaked[k], list(seg[0].preamble) + leaked[k])
+        ev = form_evidence(own[k], list(seg[0].preamble) + leaked[k])
         for a in seg:
             a.form_evidence = ev
         if ev["clear"]:

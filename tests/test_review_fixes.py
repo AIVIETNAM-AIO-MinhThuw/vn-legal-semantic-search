@@ -300,6 +300,17 @@ def test_lead_in_with_single_weak_ellipsis_is_not_enough():
     assert len(att) == 2 and not any(a.form_template for a in att) and all(a.form_uncertain for a in att)
 
 
+def test_single_preamble_line_with_ellipsis_and_placeholder_is_counted_once():
+    lines = ["Điều 1. A", "nd", "Nơi nhận:", "- Như trên;", "Căn cứ Luật X và đề nghị của ... (tên đơn vị);", "QUYẾT ĐỊNH:",
+             "Điều 1. Phê duyệt", "Phê duyệt kế hoạch của đơn vị.", "Điều 2. Thi hành", "Có hiệu lực từ ngày ký."]
+    p = parse_articles(lines)
+    att = [a for a in p.articles if a.after_signature]
+    assert len(att) == 2 and not any(a.form_template for a in att) and all(a.form_uncertain for a in att)
+    ev = att[0].form_evidence
+    assert ev["weak_ellipsis_lines"] == 1 and ev["paren_placeholder_lines"] == 1 and not ev["clear"]
+    assert all(article_reject_reason(a) is None for a in att)
+
+
 def test_regular_quy_che_with_can_cu_in_preamble_and_ordinary_ellipsis_is_kept():
     lines = ["Điều 1. A", "nd", "Nơi nhận:", "- Như trên;", "Căn cứ Luật Tổ chức Chính phủ, Quy chế này quy định:",
              "Điều 1. Phạm vi", "Quy chế áp dụng cho các cơ quan ... và đơn vị.", "Điều 2. Thi hành", "x"]
