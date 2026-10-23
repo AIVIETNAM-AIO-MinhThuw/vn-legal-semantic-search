@@ -1,0 +1,32 @@
+﻿relationship,mapped_to,edges,dst_missing,dst_missing_pct,distinct_missing_ids,self_loops,duplicate_edges
+Căn cứ,,668173,888,0.133,114,156,0
+Dẫn chiếu,,72554,184,0.254,39,45,0
+Văn bản quy định hết hiệu lực,,50939,49,0.096,27,0,0
+"Quy định chi tiết, hướng dẫn thi hành",,39419,111,0.282,18,16,0
+Thay thế,thay_the,37146,78,0.21,76,3,0
+"Văn bản HD, QĐ chi tiết",,34392,50,0.145,22,2,0
+Bãi bỏ,,32479,93,0.286,89,7,0
+Văn bản căn cứ,,26515,25209,95.074,6099,0,0
+"Sửa đổi, bổ sung",sua_doi,17674,29,0.164,24,23,0
+Văn bản bổ sung,bo_sung,12853,12,0.093,12,0,0
+Văn bản hết hiệu lực,,12247,8395,68.547,8231,0,0
+Văn bản sửa đổi,sua_doi,7466,4,0.054,4,0,0
+Văn bản quy định hết hiệu lực 1 phần,,6100,11,0.18,8,0,0
+Văn bản dẫn chiếu,,5715,5517,96.535,3490,0,0
+Hợp nhất,,3930,4,0.102,4,0,0
+"Văn bản được HD, QĐ chi tiết",,1388,1137,81.916,650,2,0
+Hướng dẫn áp dụng,,1333,1,0.075,1,0,0
+Văn bản bị hết hiệu lực 1 phần,,1127,602,53.416,506,5,0
+Văn bản được bổ sung,bo_sung,532,493,92.669,470,0,0
+Văn bản liên quan khác,,387,86,22.222,50,0,0
+Văn bản được sửa đổi,sua_doi,284,166,58.451,155,0,0
+Đính chính,,209,0,0.0,0,0,0
+Tạm ngưng hiệu lực,,128,0,0.0,0,0,0
+Giải thích,,98,0,0.0,0,0,0
+Đình chỉ thi hành,,72,0,0.0,0,0,0
+Bản dịch,,55,1,1.818,1,0,0
+Văn bản đình chỉ 1 phần,,21,3,14.286,3,0,0
+Văn bản đình chỉ,,16,3,18.75,3,0,0
+Công bố,,1,0,0.0,0,0,0
+Văn bản bị đình chỉ,,1,1,100.0,1,0,0
+Văn bản bị đình chỉ 1 phần,,1,1,100.0,1,0,0

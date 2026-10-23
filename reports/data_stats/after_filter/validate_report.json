@@ -1,0 +1,142 @@
+{
+  "chunk_tokens": {
+    "min": 37,
+    "median": 308.0,
+    "p95": 442.0,
+    "max": 450
+  },
+  "dedup": {
+    "groups": 105,
+    "articles_removed": 119,
+    "groups_spanning_multiple_docs": 96,
+    "docs_losing_all_articles": 1
+  },
+  "relationships": {
+    "all_edges": {
+      "edges": 1033255,
+      "dst_missing": 43128,
+      "dst_missing_pct": 4.174,
+      "distinct_missing_ids": 17706,
+      "self_loops": 259,
+      "duplicate_edges": 0
+    },
+    "mapped_labels_edges": {
+      "edges": 75955,
+      "dst_missing": 782,
+      "dst_missing_pct": 1.03,
+      "distinct_missing_ids": 714,
+      "self_loops": 26,
+      "duplicate_edges": 0
+    },
+    "mapped_edges_touching_corpus": {
+      "edges": 772,
+      "dst_missing": 0,
+      "dst_missing_pct": 0.0,
+      "distinct_missing_ids": 0,
+      "self_loops": 0,
+      "duplicate_edges": 0
+    },
+    "labels_total": 31,
+    "null_or_empty_ids": {
+      "doc_id": 0,
+      "other_doc_id": 0
+    },
+    "src_doc_id_missing_in_metadata": 0,
+    "mapped_label_counts_by_class": {
+      "bo_sung": 13385,
+      "sua_doi": 25424,
+      "thay_the": 37146
+    }
+  },
+  "articles_per_doc": {
+    "min": 1,
+    "median": 6.0,
+    "p95": 31.75,
+    "max": 204
+  },
+  "article_body_chars": {
+    "min": 36,
+    "median": 926.0,
+    "p95": 5437.149999999995,
+    "max": 61111
+  },
+  "chunks_per_article": {
+    "min": 1,
+    "median": 1.0,
+    "p95": 6.0,
+    "max": 52
+  },
+  "chunk_kinds": {
+    "khoan": 5346,
+    "whole": 5003,
+    "sentence": 4043,
+    "token_window": 42
+  },
+  "counts": {
+    "docs_processed": 707,
+    "docs_index": 706,
+    "articles_processed": 7511,
+    "articles_index": 7392,
+    "chunks_processed": 14600,
+    "chunks_index": 14434
+  },
+  "docs_with_duplicate_article_numbers": 18,
+  "filter_steps": [
+    {
+      "step": "0_all_metadata",
+      "docs_before": 171556,
+      "docs_after": 171556
+    },
+    {
+      "step": "1_doc_type",
+      "docs_before": 171556,
+      "docs_after": 23170,
+      "removed_reason": "loai_van_ban not in config doc_types"
+    },
+    {
+      "step": "2_effect_status",
+      "docs_before": 23170,
+      "docs_after": 10315,
+      "removed_reason": "tinh_trang_hieu_luc not in config effective_statuses"
+    },
+    {
+      "step": "3_domain_exact",
+      "docs_before": 10315,
+      "docs_after": 1133,
+      "removed_reason": "linh_vuc (exact string) not in config domains; includes null / Chưa phân loại"
+    },
+    {
+      "step": "4_empty_or_no_article",
+      "docs_before": 1133,
+      "docs_after": 707,
+      "removed_reason": {
+        "no_article": 424,
+        "empty_html": 2
+      }
+    },
+    {
+      "step": "5_amendment_docs_kept",
+      "docs_before": 707,
+      "docs_after": 707,
+      "note": "văn bản sửa đổi/bổ sung/thay thế được giữ nếu qua bước 1-4 (SPEC 3.2)"
+    }
+  ],
+  "articles_rejected": {
+    "title_only": 8
+  },
+  "parse_stats": {
+    "appendix_cut": 79,
+    "appendix_lines": 21960,
+    "trailer_lines": 10918,
+    "title_from_next_line": 0,
+    "section_lines_skipped": 2464,
+    "dup_numbers": 98,
+    "heading_text_as_body": 498,
+    "ambiguous_quote": 48,
+    "quoted_lines": 251,
+    "straight_quote_article": 18,
+    "docs_with_dup_numbers": 18,
+    "articles_with_long_sentence": 18
+  },
+  "errors": []
+}
