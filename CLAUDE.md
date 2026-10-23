@@ -134,3 +134,120 @@ Paper phải nêu ít nhất:
 - Ghi rõ file nào đã tạo/sửa.
 - Ghi rõ test nào đã chạy và kết quả.
 - Nếu đang bị chặn bởi quyết định của người, **dừng ở trạng thái an toàn và nêu chính xác cần người quyết định gì**.
+
+---
+
+## Quy tắc quản lý file và commit
+
+### 1. Hai vùng làm việc
+
+**Vùng chia sẻ qua Git**
+
+Các vị trí hợp lệ gồm `src/`, `scripts/`, `tests/`, `configs/`,
+`notebooks/`, `reports/`, `docs/` và `data/` đối với artifact được SPEC yêu cầu.
+
+Việc nằm trong một thư mục trên không tự động có nghĩa file được commit.
+Mỗi file vẫn phải đáp ứng điều kiện ở mục 2.
+
+**Vùng local**
+
+Dùng `.scratch/`, được loại bằng `.gitignore`.
+
+Vùng này chứa ghi chú phiên, câu hỏi tạm, kế hoạch làm việc, bảng debug,
+bản nháp bàn giao, script dùng một lần và output trung gian.
+
+Pipeline, test và notebook chính thức không được dùng file trong `.scratch/`
+làm đầu vào bắt buộc. Khi một file trở nên cần thiết cho dự án, phải chuyển nó
+sang vị trí chính thức, đặt tên rõ và ghi chức năng trước khi commit.
+
+Không cần thêm `.scratch/` vào `.git/info/exclude` nếu nó đã có trong
+`.gitignore`. `.git/info/exclude` chỉ dùng cho ngoại lệ cá nhân trên từng máy.
+
+### 2. Khi nào một file được vào vùng chia sẻ
+
+File chỉ được commit khi có ít nhất một chức năng rõ ràng:
+
+- chạy hệ thống hoặc pipeline;
+- được code khác import hoặc gọi;
+- có entry point được ghi trong README hoặc Makefile;
+- là test bảo vệ hành vi quan trọng;
+- chứa cấu hình cần để tái lập;
+- là artifact bắt buộc theo SPEC;
+- là báo cáo, bảng hoặc hình cuối dùng cho paper, slide hay kiểm chứng kết quả.
+
+Định dạng và nơi lưu do SPEC chỉ định phải tuân theo SPEC, ví dụ run file TREC,
+CSV/PNG ở mục 11.3 và artifact trong `reports/data_stats/`.
+
+Ngoài trường hợp SPEC yêu cầu:
+
+- không xuất cùng một nội dung thành nhiều định dạng nếu không có nơi sử dụng
+  riêng cho từng định dạng;
+- mỗi phase ưu tiên một báo cáo chính;
+- file dữ liệu hỗ trợ chỉ commit khi được báo cáo, notebook hoặc bước pipeline
+  khác trực tiếp tham chiếu;
+- file sinh lại được nhưng không được sử dụng trực tiếp thì để local.
+
+Bằng chứng người duyệt mà SPEC yêu cầu, gồm số liệu leakage mục 4.3, nhãn thô,
+`FROZEN.md` và thông tin người duyệt split, được commit. Bảng debug hoặc nhận
+xét trung gian của agent không commit.
+
+Số dùng trong paper phải được sinh từ script. Notebook dùng để khám phá và
+trình bày, không chứa một phiên bản pipeline riêng và không trở thành nguồn số
+liệu độc lập.
+
+Mỗi số liệu chỉ có một nguồn chính. `CHANGELOG` chỉ ghi quyết định, lý do và
+đường dẫn tham chiếu; không sao chép lại bảng số liệu.
+
+### 3. Khi tạo file ngoài `.scratch/`
+
+Trước khi tạo, phải trả lời được:
+
+1. File thực hiện chức năng gì?
+2. Code, notebook hoặc người nào sử dụng?
+3. File có thể sinh lại không và bằng lệnh nào?
+4. File thuộc task hoặc phase nào?
+5. File là sản phẩm cuối hay chỉ là trung gian?
+
+Nếu không trả lời được thì tạo file trong `.scratch/`.
+
+File máy sinh được commit phải có nơi ghi script/lệnh sinh lại, trực tiếp trong
+README liên quan hoặc tài liệu của phase.
+
+### 4. Nhánh và commit
+
+- Mỗi task dùng một nhánh riêng theo quy ước `task/<số>-<tên>`.
+- Không trộn preprocessing, split, query generation, training và app trong cùng
+  một commit.
+- Code chưa hoàn thiện nhưng cần chia sẻ được commit WIP trên nhánh task.
+- Commit WIP không merge trực tiếp vào nhánh chính; phải review và squash hoặc
+  chỉnh lại lịch sử trước khi merge.
+- Không chờ đến cuối dự án mới commit và dọn toàn bộ.
+- Artifact đã ghi hash trong `data/FROZEN.md` không được sửa trong commit
+  thông thường. Mọi thay đổi phải theo mục 0 của SPEC và ghi vào Changelog.
+
+Một nhánh chỉ được đưa vào nhánh chính khi:
+
+- test liên quan đạt;
+- phạm vi chỉ thuộc một task;
+- danh sách file đã được kiểm kê;
+- không chứa file local hoặc output trung gian;
+- người phụ trách đã duyệt.
+
+### 5. Trước mỗi commit
+
+- Không dùng `git add -A`, `git add .` hoặc stage toàn repo.
+- Liệt kê từng file dự định commit kèm chức năng.
+- Stage bằng đường dẫn cụ thể.
+- Kiểm tra `git diff --cached`.
+- Dùng `git diff --ignore-cr-at-eol` để phát hiện thay đổi chỉ do EOL.
+- File chỉ khác EOL không đưa vào commit chức năng.
+- Nếu cần chuẩn hóa EOL, thực hiện bằng một commit housekeeping riêng.
+- Quét `.env`, API key, token và secret.
+- Liệt kê mọi file lớn hơn 1 MB kèm lý do cần commit.
+- Không commit model, checkpoint, index, dữ liệu tải về, SQLite, cache hoặc
+  artifact bị SPEC 13.2 loại khỏi Git.
+- File thuộc task khác để lại cho nhánh tương ứng.
+- Không tự xóa, di chuyển, stage, commit, push hoặc merge thay đổi của người
+  khác.
+- Chỉ push khi người dùng cho phép.
+- Khi chưa chắc file có cần chia sẻ hay không, để local và báo lại.
