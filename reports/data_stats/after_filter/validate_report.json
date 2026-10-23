@@ -1,14 +1,14 @@
 {
   "chunk_tokens": {
     "min": 37,
-    "median": 308.0,
-    "p95": 442.0,
+    "median": 307.0,
+    "p95": 441.7999999999993,
     "max": 450
   },
   "dedup": {
-    "groups": 105,
-    "articles_removed": 119,
-    "groups_spanning_multiple_docs": 96,
+    "groups": 103,
+    "articles_removed": 117,
+    "groups_spanning_multiple_docs": 97,
     "docs_losing_all_articles": 1
   },
   "relationships": {
@@ -51,13 +51,13 @@
   "articles_per_doc": {
     "min": 1,
     "median": 6.0,
-    "p95": 31.75,
+    "p95": 30.0,
     "max": 204
   },
   "article_body_chars": {
     "min": 36,
-    "median": 926.0,
-    "p95": 5437.149999999995,
+    "median": 920.0,
+    "p95": 5390.149999999998,
     "max": 61111
   },
   "chunks_per_article": {
@@ -67,20 +67,20 @@
     "max": 52
   },
   "chunk_kinds": {
-    "khoan": 5346,
-    "whole": 5003,
-    "sentence": 4043,
-    "token_window": 42
+    "khoan": 5320,
+    "whole": 4981,
+    "sentence": 3944,
+    "token_window": 36
   },
   "counts": {
     "docs_processed": 707,
     "docs_index": 706,
-    "articles_processed": 7511,
-    "articles_index": 7392,
-    "chunks_processed": 14600,
-    "chunks_index": 14434
+    "articles_processed": 7457,
+    "articles_index": 7340,
+    "chunks_processed": 14445,
+    "chunks_index": 14281
   },
-  "docs_with_duplicate_article_numbers": 18,
+  "docs_with_duplicate_article_numbers": 13,
   "filter_steps": [
     {
       "step": "0_all_metadata",
@@ -122,21 +122,28 @@
     }
   ],
   "articles_rejected": {
-    "title_only": 8
+    "appendix_or_form_cut": 102,
+    "form_template": 24
   },
   "parse_stats": {
-    "appendix_cut": 79,
-    "appendix_lines": 21960,
-    "trailer_lines": 10918,
+    "appendix_cut": 107,
+    "appendix_lines": 30703,
+    "trailer_lines": 5711,
     "title_from_next_line": 0,
-    "section_lines_skipped": 2464,
-    "dup_numbers": 98,
-    "heading_text_as_body": 498,
-    "ambiguous_quote": 48,
-    "quoted_lines": 251,
+    "section_lines_skipped": 2441,
+    "dup_numbers": 59,
+    "heading_text_as_body": 477,
+    "ambiguous_quote": 25,
+    "quote_stray_closers": 27,
+    "quoted_lines": 478,
     "straight_quote_article": 18,
-    "docs_with_dup_numbers": 18,
-    "articles_with_long_sentence": 18
+    "articles_after_signature": 126,
+    "heading_without_punct": 2,
+    "heading_ocr_variant": 1,
+    "form_template_articles": 24,
+    "form_uncertain_articles": 0,
+    "docs_with_dup_numbers": 13,
+    "articles_with_long_sentence": 17
   },
   "errors": []
 }

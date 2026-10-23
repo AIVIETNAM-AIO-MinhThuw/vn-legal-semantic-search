@@ -1,0 +1,225 @@
+[
+ {
+  "is_largest_family": true,
+  "corpus_docs": 94,
+  "nodes_total": 5227,
+  "dangling_nodes": 33,
+  "components_without_dangling_nodes": 1,
+  "corpus_docs_per_component_desc_top5": [
+   94
+  ],
+  "corpus_docs_outside_largest_component": 0,
+  "corpus_docs_adjacent_to_dangling": 0,
+  "dangling_hubs": [
+   {
+    "id": "12898",
+    "degree": 4,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Sửa đổi, bổ sung": 2,
+     "Thay thế": 1,
+     "Văn bản được sửa đổi": 1
+    }
+   },
+   {
+    "id": "128981",
+    "degree": 2,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được sửa đổi": 2
+    }
+   },
+   {
+    "id": "141904",
+    "degree": 2,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được sửa đổi": 2
+    }
+   },
+   {
+    "id": "80732",
+    "degree": 2,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được bổ sung": 2
+    }
+   },
+   {
+    "id": "80737",
+    "degree": 2,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được bổ sung": 1,
+     "Văn bản được sửa đổi": 1
+    }
+   }
+  ]
+ },
+ {
+  "is_largest_family": false,
+  "corpus_docs": 3,
+  "nodes_total": 417,
+  "dangling_nodes": 4,
+  "components_without_dangling_nodes": 1,
+  "corpus_docs_per_component_desc_top5": [
+   3
+  ],
+  "corpus_docs_outside_largest_component": 0,
+  "corpus_docs_adjacent_to_dangling": 0,
+  "dangling_hubs": [
+   {
+    "id": "39643",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được bổ sung": 1
+    }
+   },
+   {
+    "id": "39640",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được bổ sung": 1
+    }
+   },
+   {
+    "id": "39634",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được bổ sung": 1
+    }
+   },
+   {
+    "id": "85851",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được bổ sung": 1
+    }
+   }
+  ]
+ },
+ {
+  "is_largest_family": false,
+  "corpus_docs": 2,
+  "nodes_total": 386,
+  "dangling_nodes": 8,
+  "components_without_dangling_nodes": 1,
+  "corpus_docs_per_component_desc_top5": [
+   2
+  ],
+  "corpus_docs_outside_largest_component": 0,
+  "corpus_docs_adjacent_to_dangling": 0,
+  "dangling_hubs": [
+   {
+    "id": "159024",
+    "degree": 2,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được sửa đổi": 2
+    }
+   },
+   {
+    "id": "178680",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được bổ sung": 1
+    }
+   },
+   {
+    "id": "178679",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được bổ sung": 1
+    }
+   },
+   {
+    "id": "166957",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được bổ sung": 1
+    }
+   },
+   {
+    "id": "159017",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được sửa đổi": 1
+    }
+   }
+  ]
+ },
+ {
+  "is_largest_family": false,
+  "corpus_docs": 2,
+  "nodes_total": 5,
+  "dangling_nodes": 1,
+  "components_without_dangling_nodes": 1,
+  "corpus_docs_per_component_desc_top5": [
+   2
+  ],
+  "corpus_docs_outside_largest_component": 0,
+  "corpus_docs_adjacent_to_dangling": 0,
+  "dangling_hubs": [
+   {
+    "id": "31956",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được bổ sung": 1
+    }
+   }
+  ]
+ },
+ {
+  "is_largest_family": false,
+  "corpus_docs": 1,
+  "nodes_total": 30,
+  "dangling_nodes": 1,
+  "components_without_dangling_nodes": 1,
+  "corpus_docs_per_component_desc_top5": [
+   1
+  ],
+  "corpus_docs_outside_largest_component": 0,
+  "corpus_docs_adjacent_to_dangling": 0,
+  "dangling_hubs": [
+   {
+    "id": "187841",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Thay thế": 1
+    }
+   }
+  ]
+ },
+ {
+  "is_largest_family": false,
+  "corpus_docs": 1,
+  "nodes_total": 17,
+  "dangling_nodes": 1,
+  "components_without_dangling_nodes": 1,
+  "corpus_docs_per_component_desc_top5": [
+   1
+  ],
+  "corpus_docs_outside_largest_component": 0,
+  "corpus_docs_adjacent_to_dangling": 0,
+  "dangling_hubs": [
+   {
+    "id": "134203",
+    "degree": 1,
+    "corpus_neighbors": 0,
+    "labels": {
+     "Văn bản được sửa đổi": 1
+    }
+   }
+  ]
+ }
+]

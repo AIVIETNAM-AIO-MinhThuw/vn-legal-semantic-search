@@ -68,6 +68,16 @@ def main() -> None:
         fo.write("doc_id\tstep\treason\tvalue\n")
         for r in removed:
             fo.write(f"{r['doc_id']}\t{r['step']}\t{r['reason']}\t{r['value']}\n")
+    # Bảng đếm tổng hợp (commit được): số văn bản bị loại theo bước và giá trị gốc.
+    sum_dir = Path(cfg["processed"]["after_filter_dir"])
+    sum_dir.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame([{"step": st["step"], "docs_before": st["docs_before"], "docs_after": st["docs_after"],
+                   "docs_removed": st["docs_before"] - st["docs_after"]} for st in steps]).to_csv(
+        sum_dir / "filter_steps.csv", index=False, encoding="utf-8-sig")
+    cnt = Counter((r["step"], r["value"]) for r in removed)
+    pd.DataFrame([{"step": k[0], "value": k[1], "n_docs": v} for k, v in
+                  sorted(cnt.items(), key=lambda kv: (kv[0][0], -kv[1], kv[0][1]))]).to_csv(
+        sum_dir / "filtered_out_summary.csv", index=False, encoding="utf-8-sig")
     for st in steps[1:]:
         n_logged = sum(1 for r in removed if r["step"] == st["step"])
         if n_logged != st["docs_before"] - st["docs_after"]:
@@ -111,10 +121,14 @@ def main() -> None:
             pstats[k] += int(v)
         pstats["docs_with_dup_numbers"] += int(parsed.stats["dup_numbers"] > 0)
         if (parsed.stats["dup_numbers"] or parsed.stats["appendix_cut"] or parsed.stats["ambiguous_quote"]
-                or parsed.stats["straight_quote_article"]):
+                or parsed.stats["articles_after_signature"]
+                or parsed.stats["straight_quote_article"] or parsed.stats["quote_stray_closers"]):
             nums = Counter(a.number for a in parsed.articles)
             jdump(anom_f, {"doc_id": doc_id, "n_articles": len(parsed.articles), "stats": parsed.stats,
                            "dup_numbers": sorted(k for k, v in nums.items() if v > 1)})
+        for dr in parsed.dropped:  # log từng Điều nằm trong phần phụ lục / biểu mẫu bị cắt (SPEC 3.4, 3.7)
+            rej_art["appendix_or_form_cut"] += 1
+            jdump(rej_f, {"level": "article", "doc_id": doc_id, "article_id": None, **dr})
         if not parsed.articles:
             rej_doc["no_article"] += 1
             jdump(rej_f, {"level": "doc", "doc_id": doc_id, "reason": "no_article", "n_lines": len(lines)})
@@ -141,7 +155,9 @@ def main() -> None:
             else:
                 rej_art[why] += 1
                 jdump(rej_f, {"level": "article", "doc_id": doc_id, "article_id": aid, "reason": why,
-                              "number": a.number, "title": a.title[:120], "body_chars": len(a.body)})
+                              "number": a.number, "title": a.title[:120], "body_chars": len(a.body),
+                              "after_signature": a.after_signature,
+                              "evidence": a.form_evidence if why == "form_template" else None})
         if not kept:
             rej_doc["no_valid_article"] += 1
             jdump(rej_f, {"level": "doc", "doc_id": doc_id, "reason": "no_valid_article",
@@ -150,13 +166,16 @@ def main() -> None:
         n_docs_kept += 1
         year = pd.to_datetime(m.ngay_ban_hanh, format="%d/%m/%Y", errors="coerce")
         jdump(docs_f, {"doc_id": doc_id, "title": title, "so_ky_hieu": m.so_ky_hieu, "loai_van_ban": m.loai_van_ban,
-                       "linh_vuc": m.linh_vuc, "tinh_trang_hieu_luc": m.tinh_trang_hieu_luc,
+                       "linh_vuc": m.linh_vuc, "co_quan_ban_hanh": None if pd.isna(m.co_quan_ban_hanh) else m.co_quan_ban_hanh,
+                       "tinh_trang_hieu_luc": m.tinh_trang_hieu_luc,
                        "year": None if pd.isna(year) else int(year.year), "n_articles": len(kept),
-                       "has_duplicate_article_numbers": parsed.stats["dup_numbers"] > 0})
+                       "has_duplicate_article_numbers": parsed.stats["dup_numbers"] > 0,
+                       "n_articles_after_signature": sum(1 for _, a, _ in kept if a.after_signature)})
         for aid, a, chunks in kept:
             n_arts += 1
             jdump(arts_f, {"article_id": aid, "doc_id": doc_id, "number": a.number, "title": normalize_line(a.title),
-                           "body": a.body, "n_chunks": len(chunks)})
+                           "body": a.body, "n_chunks": len(chunks),
+                           "after_signature": a.after_signature, "form_uncertain": a.form_uncertain})
             for k, c in enumerate(chunks):
                 n_chunks += 1
                 jdump(chunks_f, {"chunk_id": f"{aid}#{k:02d}", "article_id": aid, "doc_id": doc_id,

@@ -22,10 +22,21 @@
 {"level": "doc", "doc_id": "77469", "reason": "no_article", "n_lines": 92}
 {"level": "doc", "doc_id": "77274", "reason": "no_article", "n_lines": 15}
 {"level": "doc", "doc_id": "75248", "reason": "no_article", "n_lines": 62}
+{"level": "article", "doc_id": "22232", "article_id": null, "number": "1", "title": "Truy thu số thuế giá trị gia tăng theo quy định tại điểm 1 mục I, Thông tư số.../2002/TT-BTC ngày.... tháng 4 năm 2002 c", "line": 101, "reason": "appendix_or_form_cut", "marker": "MẪU SỐ 01/OTO-XM"}
+{"level": "article", "doc_id": "22232", "article_id": null, "number": "2", "title": "Công ty.......... có trách nhiệm nộp khoản tiền thuế truy thu vào tài khoản tạm giữ số.......... của Cục thuế....... mở ", "line": 103, "reason": "appendix_or_form_cut", "marker": "MẪU SỐ 01/OTO-XM"}
+{"level": "article", "doc_id": "22232", "article_id": null, "number": "3", "title": "Quyết định này có hiệu lực từ ngày ký. Các ông (bà) trưởng phòng xử lý thông tin và tin học, trưởng phòng quản lý.... và", "line": 104, "reason": "appendix_or_form_cut", "marker": "MẪU SỐ 01/OTO-XM"}
+{"level": "article", "doc_id": "22232", "article_id": null, "number": "1", "title": "Truy thu số thuế giá trị gia tăng theo quy định tại điểm 1 mục I, Thông tư số số .../2002/TT-BTC ngày .... tháng 4 năm 2", "line": 122, "reason": "appendix_or_form_cut", "marker": "MẪU SỐ 01/OTO-XM"}
+{"level": "article", "doc_id": "22232", "article_id": null, "number": "2", "title": "Công ty.......... có trách nhiệm nộp khoản tiền thuế truy thu vào tài khoản tạm giữ số.......... của Chi cục thuế.......", "line": 124, "reason": "appendix_or_form_cut", "marker": "MẪU SỐ 01/OTO-XM"}
+{"level": "article", "doc_id": "22232", "article_id": null, "number": "3", "title": "Quyết định này có hiệu lực từ ngày ký. Các ông (bà) đội trưởng đội quản lý.v.v... và giám đốc công ty..... chịu trách nh", "line": 125, "reason": "appendix_or_form_cut", "marker": "MẪU SỐ 01/OTO-XM"}
 {"level": "doc", "doc_id": "22232", "reason": "no_article", "n_lines": 129}
 {"level": "doc", "doc_id": "75579", "reason": "no_article", "n_lines": 13}
-{"level": "article", "doc_id": "170885", "article_id": "170885_016", "reason": "title_only", "number": "1", "title": "Duyệt dự toán thu, chi năm... Chủ đầu tư (hoặc Ban quản lý dự án) ... Giá trị dự toán được duyệt như sau:", "body_chars": 0}
-{"level": "article", "doc_id": "170885", "article_id": "170885_021", "reason": "title_only", "number": "2", "title": "Phân bổ giá trị quyết toán chi phí quản lý dự án năm... cho các dự án được giao quản lý; cụ thể như sau:", "body_chars": 0}
+{"level": "article", "doc_id": "170885", "article_id": null, "number": "1", "title": "Duyệt dự toán thu, chi năm... Chủ đầu tư (hoặc Ban quản lý dự án) ... Giá trị dự toán được duyệt như sau:", "line": 241, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 01(i)/DT-QLDA"}
+{"level": "article", "doc_id": "170885", "article_id": null, "number": "2", "title": "Chủ đầu tư, Giám đốc BQLDA, cơ quan kiểm soát, thanh toán (cụ thể tên cơ quan) và các đơn vị có liên quan (chi tiết các ", "line": 242, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 01(i)/DT-QLDA"}
+{"level": "article", "doc_id": "170885", "article_id": null, "number": "1", "title": "Duyệt dự toán thu, chi của Ban quản lý dự án ... năm... như sau:", "line": 262, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 01(i)/DT-QLDA"}
+{"level": "article", "doc_id": "170885", "article_id": null, "number": "3", "title": "Chủ đầu tư, Giám đốc BQLDA, cơ quan thanh toán (cụ thể tên cơ quan) và các đơn vị có liên quan (chi tiết các tên đơn vị ", "line": 306, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 01(i)/DT-QLDA"}
+{"level": "article", "doc_id": "170885", "article_id": null, "number": "1", "title": "Duyệt quyết toán thu, chi năm...", "line": 343, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 01(i)/DT-QLDA"}
+{"level": "article", "doc_id": "170885", "article_id": null, "number": "2", "title": "Phân bổ giá trị quyết toán chi phí quản lý dự án năm... cho các dự án được giao quản lý; cụ thể như sau:", "line": 347, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 01(i)/DT-QLDA"}
+{"level": "article", "doc_id": "170885", "article_id": null, "number": "3", "title": "Giám đốc BQLDA, cơ quan kiểm soát, thanh toán (cụ thể tên cơ quan) và các đơn vị có liên quan (chi tiết các tên đơn vị l", "line": 348, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 01(i)/DT-QLDA"}
 {"level": "doc", "doc_id": "158985", "reason": "no_article", "n_lines": 0}
 {"level": "doc", "doc_id": "121869", "reason": "no_article", "n_lines": 0}
 {"level": "doc", "doc_id": "15646", "reason": "no_article", "n_lines": 53}
@@ -83,6 +94,9 @@
 {"level": "doc", "doc_id": "83966", "reason": "no_article", "n_lines": 164}
 {"level": "doc", "doc_id": "121273", "reason": "no_article", "n_lines": 0}
 {"level": "doc", "doc_id": "121271", "reason": "no_article", "n_lines": 0}
+{"level": "article", "doc_id": "25159", "article_id": null, "number": "1", "title": "Xử phạt vi phạm hành chính đối với:", "line": 136, "reason": "appendix_or_form_cut", "marker": "Phụ lục 2"}
+{"level": "article", "doc_id": "25159", "article_id": null, "number": "2", "title": "Ông (bà)/tổ chức...........phải nghiêm chỉnh chấp hành Quyết định xử phạt trong thời hạn 10 (mười) ngày, kể từ ngày được", "line": 153, "reason": "appendix_or_form_cut", "marker": "Phụ lục 2"}
+{"level": "article", "doc_id": "25159", "article_id": null, "number": "3", "title": "Quyết định này có hiệu lực kể từ ngày...... tháng...... năm........", "line": 157, "reason": "appendix_or_form_cut", "marker": "Phụ lục 2"}
 {"level": "doc", "doc_id": "23881", "reason": "no_article", "n_lines": 36}
 {"level": "doc", "doc_id": "24002", "reason": "no_article", "n_lines": 120}
 {"level": "doc", "doc_id": "14526", "reason": "no_article", "n_lines": 139}
@@ -99,6 +113,15 @@
 {"level": "doc", "doc_id": "75461", "reason": "no_article", "n_lines": 14}
 {"level": "doc", "doc_id": "108471", "reason": "no_article", "n_lines": 0}
 {"level": "doc", "doc_id": "78395", "reason": "no_article", "n_lines": 47}
+{"level": "article", "doc_id": "172740", "article_id": null, "number": "1", "title": "Phê duyệt chủ trương thực hiện nhiệm vụ ... (2) ... do ... (1) ... chủ trì thực hiện", "line": 147, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
+{"level": "article", "doc_id": "172740", "article_id": null, "number": "2", "title": "Tổ chức thực hiện", "line": 153, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
+{"level": "article", "doc_id": "172740", "article_id": null, "number": "3", "title": "Điều khoản thi hành", "line": 156, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
+{"level": "article", "doc_id": "172740", "article_id": null, "number": "1", "title": "Phê duyệt nhiệm vụ mua sắm (hoặc sửa chữa, nâng cấp) tài sản, trang thiết bị của cơ quan, đơn vị với các nội dung chủ yế", "line": 185, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
+{"level": "article", "doc_id": "172740", "article_id": null, "number": "2", "title": "Tổ chức thực hiện.", "line": 192, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
+{"level": "article", "doc_id": "172740", "article_id": null, "number": "3", "title": "Tổ chức, cá nhân có liên quan chịu trách nhiệm thi hành Quyết định này.", "line": 193, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
+{"level": "article", "doc_id": "172740", "article_id": null, "number": "1", "title": "Phê duyệt nhiệm vụ (tên nhiệm vụ ....) với các nội dung chủ yếu như sau:", "line": 222, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
+{"level": "article", "doc_id": "172740", "article_id": null, "number": "2", "title": "Tổ chức thực hiện.", "line": 231, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
+{"level": "article", "doc_id": "172740", "article_id": null, "number": "3", "title": "Tổ chức, cá nhân có liên quan chịu trách nhiệm thi hành Quyết định này.", "line": 232, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
 {"level": "doc", "doc_id": "80269", "reason": "no_article", "n_lines": 53}
 {"level": "doc", "doc_id": "78201", "reason": "no_article", "n_lines": 33}
 {"level": "doc", "doc_id": "77490", "reason": "no_article", "n_lines": 60}
@@ -144,6 +167,11 @@
 {"level": "doc", "doc_id": "75416", "reason": "no_article", "n_lines": 145}
 {"level": "doc", "doc_id": "11270", "reason": "no_article", "n_lines": 59}
 {"level": "doc", "doc_id": "79807", "reason": "no_article", "n_lines": 128}
+{"level": "article", "doc_id": "7c66dce0-6967-11f1-b31b-e346c5a84510", "article_id": null, "number": "1", "title": "Bộ Tài chính ủy quyền cho Ngân hàng__ làm Ngân hàng phục vụ để thực hiện giải ngân và thu hồi nợ theo Thỏa thuận vay____", "line": 291, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "7c66dce0-6967-11f1-b31b-e346c5a84510", "article_id": null, "number": "2", "title": "Trách nhiệm của Bộ Tài chính", "line": 292, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "7c66dce0-6967-11f1-b31b-e346c5a84510", "article_id": null, "number": "3", "title": "Trách nhiệm của Ngân hàng phục vụ", "line": 294, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "7c66dce0-6967-11f1-b31b-e346c5a84510", "article_id": null, "number": "4", "title": "Phí ngân hàng phục vụ", "line": 296, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "7c66dce0-6967-11f1-b31b-e346c5a84510", "article_id": null, "number": "5", "title": "Hiệu lực thi hành", "line": 298, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
 {"level": "doc", "doc_id": "14808", "reason": "no_article", "n_lines": 57}
 {"level": "doc", "doc_id": "18814", "reason": "no_article", "n_lines": 23}
 {"level": "doc", "doc_id": "107550", "reason": "no_article", "n_lines": 0}
@@ -172,7 +200,6 @@
 {"level": "doc", "doc_id": "85871", "reason": "no_article", "n_lines": 20}
 {"level": "doc", "doc_id": "110221", "reason": "no_article", "n_lines": 12}
 {"level": "doc", "doc_id": "75420", "reason": "no_article", "n_lines": 17}
-{"level": "article", "doc_id": "110990", "article_id": "110990_001", "reason": "title_only", "number": "1", "title": "Ban hành kèm theo Thông tư này Chế độ kế toán áp dụng đối với Quỹ Hoán đổi danh mục (Quỹ ETF) gồm 4 phần:", "body_chars": 0}
 {"level": "doc", "doc_id": "12775", "reason": "no_article", "n_lines": 78}
 {"level": "doc", "doc_id": "15416", "reason": "no_article", "n_lines": 79}
 {"level": "doc", "doc_id": "6767", "reason": "no_article", "n_lines": 86}
@@ -222,6 +249,8 @@
 {"level": "doc", "doc_id": "22238", "reason": "no_article", "n_lines": 310}
 {"level": "doc", "doc_id": "110598", "reason": "no_article", "n_lines": 42}
 {"level": "doc", "doc_id": "18477", "reason": "no_article", "n_lines": 112}
+{"level": "article", "doc_id": "185566", "article_id": null, "number": "1", "title": "Thực hiện chế độ hỗ trợ hằng quý đối với sĩ quan Quân đội nghỉ hưu mắc bệnh hiểm nghèo theo quy định tại Nghị định số ..", "line": 245, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
+{"level": "article", "doc_id": "185566", "article_id": null, "number": "2", "title": "UBND xã (phường, đặc khu).....................; cơ quan, đơn vị có liên quan và đồng chí .................. chịu trách n", "line": 254, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC"}
 {"level": "doc", "doc_id": "108962", "reason": "no_article", "n_lines": 191}
 {"level": "doc", "doc_id": "21741", "reason": "no_article", "n_lines": 60}
 {"level": "doc", "doc_id": "18816", "reason": "no_article", "n_lines": 46}
@@ -245,6 +274,26 @@
 {"level": "doc", "doc_id": "78167", "reason": "no_article", "n_lines": 37}
 {"level": "doc", "doc_id": "78602", "reason": "no_article", "n_lines": 45}
 {"level": "doc", "doc_id": "110859", "reason": "no_article", "n_lines": 368}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "1", "title": "Định nghĩa", "line": 365, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "2", "title": "Hiệu lực và thời hạn Hợp đồng", "line": 371, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "3", "title": "Mua bán điện năng", "line": 377, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "4", "title": "Cam kết thực hiện", "line": 383, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "5", "title": "Nghĩa vụ của Bên bán điện trước ngày vận hành thương mại", "line": 385, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "6", "title": "Trách nhiệm đấu nối và hệ thống đo đếm", "line": 395, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "7", "title": "Điều độ và vận hành hệ thống pin lưu trữ năng lượng", "line": 397, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "8", "title": "Lập hóa đơn và thanh toán", "line": 399, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "9", "title": "Sự kiện ảnh hưởng việc thực hiện Hợp đồng và chế tài áp dụng", "line": 401, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "10", "title": "Chấm dứt Hợp đồng", "line": 403, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "11", "title": "Bồi thường thiệt hại", "line": 405, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "12", "title": "Các trường hợp miễn trách nhiệm đối với hành vi vi phạm", "line": 407, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "13", "title": "Giải quyết tranh chấp", "line": 409, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "14", "title": "Tái cơ cấu ngành điện và chuyển giao quyền và nghĩa vụ", "line": 411, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "15", "title": "Lưu giữ hồ sơ và cung cấp thông tin", "line": 417, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "16", "title": "Các chi phí khác", "line": 419, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "17", "title": "Đại diện có thẩm quyền và trao đổi thông tin", "line": 422, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "18", "title": "Bảo mật thông tin", "line": 424, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "19", "title": "Luật áp dụng và ngôn ngữ hợp đồng mua bán điện", "line": 426, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "184620", "article_id": null, "number": "20", "title": "Các thỏa thuận khác", "line": 429, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
 {"level": "doc", "doc_id": "120980", "reason": "no_article", "n_lines": 0}
 {"level": "doc", "doc_id": "127281", "reason": "no_article", "n_lines": 0}
 {"level": "doc", "doc_id": "128215", "reason": "no_article", "n_lines": 0}
@@ -257,7 +306,6 @@
 {"level": "doc", "doc_id": "108675", "reason": "no_article", "n_lines": 157}
 {"level": "doc", "doc_id": "82148", "reason": "no_article", "n_lines": 13}
 {"level": "doc", "doc_id": "75107", "reason": "no_article", "n_lines": 57}
-{"level": "article", "doc_id": "75233", "article_id": "75233_065", "reason": "title_only", "number": "65", "title": "- Tổ kiểm kê phải kiểm kê tại từng kế hoạch hợp đồng, kiểm kê xong phải lập biên bản và bảng đối chiếu kho sau kiểm kê (", "body_chars": 0}
 {"level": "doc", "doc_id": "75408", "reason": "no_article", "n_lines": 65}
 {"level": "doc", "doc_id": "78403", "reason": "no_article", "n_lines": 34}
 {"level": "doc", "doc_id": "75406", "reason": "no_article", "n_lines": 37}
@@ -266,6 +314,15 @@
 {"level": "doc", "doc_id": "82442", "reason": "no_article", "n_lines": 31}
 {"level": "doc", "doc_id": "108519", "reason": "no_article", "n_lines": 85}
 {"level": "doc", "doc_id": "14828", "reason": "no_article", "n_lines": 97}
+{"level": "article", "doc_id": "8089b220-7aab-11f1-9652-f1d90219607e", "article_id": null, "number": "1", "title": "Tuyển dụng đồng chí có tên sau vào quân đội, xếp lương công chức quốc phòng, điều về ……nhận công tác:", "line": 374, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "8089b220-7aab-11f1-9652-f1d90219607e", "article_id": null, "number": "2", "title": "Quyết định này có hiệu lực từ ngày ký.", "line": 381, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "8089b220-7aab-11f1-9652-f1d90219607e", "article_id": null, "number": "3", "title": "Tổng Tham mưu trưởng, Chủ nhiệm Tổng cục Chính trị; thủ trưởng đơn vị, cơ quan có liên quan và đồng chí có tên tại Điều ", "line": 382, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "8089b220-7aab-11f1-9652-f1d90219607e", "article_id": null, "number": "1", "title": "Áp dụng chính sách trọng dụng nhân tài đối với đồng chí có tên sau:", "line": 399, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "8089b220-7aab-11f1-9652-f1d90219607e", "article_id": null, "number": "2", "title": "Quyết định này có hiệu lực từ ngày ký.", "line": 404, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "8089b220-7aab-11f1-9652-f1d90219607e", "article_id": null, "number": "3", "title": "Tổng Tham mưu trưởng, Chủ nhiệm Tổng cục Chính trị; thủ trưởng đơn vị, cơ quan có liên quan và đồng chí có tên tại Điều ", "line": 405, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "8089b220-7aab-11f1-9652-f1d90219607e", "article_id": null, "number": "1", "title": "Thôi áp dụng chính sách thu hút (trọng dụng) nhân tài đối với đồng chí có tên sau:", "line": 518, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "8089b220-7aab-11f1-9652-f1d90219607e", "article_id": null, "number": "2", "title": "Quyết định này có hiệu lực từ ngày ký.", "line": 523, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
+{"level": "article", "doc_id": "8089b220-7aab-11f1-9652-f1d90219607e", "article_id": null, "number": "3", "title": "Tổng Tham mưu trưởng, Chủ nhiệm Tổng cục Chính trị; thủ trưởng đơn vị, cơ quan có liên quan và đồng chí có tên tại Điều ", "line": 524, "reason": "appendix_or_form_cut", "marker": "PHỤ LỤC I"}
 {"level": "doc", "doc_id": "15894", "reason": "no_article", "n_lines": 58}
 {"level": "doc", "doc_id": "20047", "reason": "no_article", "n_lines": 9}
 {"level": "doc", "doc_id": "6726", "reason": "no_article", "n_lines": 65}
@@ -283,8 +340,20 @@
 {"level": "doc", "doc_id": "108313", "reason": "no_article", "n_lines": 328}
 {"level": "doc", "doc_id": "75243", "reason": "no_article", "n_lines": 15}
 {"level": "doc", "doc_id": "7660", "reason": "no_article", "n_lines": 51}
+{"level": "article", "doc_id": "109875", "article_id": null, "number": "2", "title": "Kết quả đầu tư:", "line": 294, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01/QTDA:"}
+{"level": "article", "doc_id": "109875", "article_id": null, "number": "3", "title": "Trách nhiệm của chủ đầu tư và các đơn vị liên quan", "line": 303, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01/QTDA:"}
 {"level": "doc", "doc_id": "21981", "reason": "no_article", "n_lines": 403}
 {"level": "doc", "doc_id": "109389", "reason": "no_article", "n_lines": 11}
+{"level": "article", "doc_id": "ec263480-80ec-11f1-ae5a-a5f03b1c4657", "article_id": null, "number": "1", "title": "Duyệt dự toán thu, chi năm....", "line": 337, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 02/DT-QLDA"}
+{"level": "article", "doc_id": "ec263480-80ec-11f1-ae5a-a5f03b1c4657", "article_id": null, "number": "2", "title": "Chủ đầu tư, Giám đốc Ban quản lý dự án, cơ quan thanh toán (cụ thể tên cơ quan) và các cơ quan, đơn vị có liên quan (chi", "line": 371, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 02/DT-QLDA"}
+{"level": "article", "doc_id": "ec263480-80ec-11f1-ae5a-a5f03b1c4657", "article_id": null, "number": "1", "title": "Duyệt dự toán thu, chi của Ban quản lý dự án ... năm... như sau:", "line": 390, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 02/DT-QLDA"}
+{"level": "article", "doc_id": "ec263480-80ec-11f1-ae5a-a5f03b1c4657", "article_id": null, "number": "2", "title": "Giám đốc Ban quản lý dự án, cơ quan thanh toán (cụ thể tên cơ quan) và các đơn vị có liên quan (chi tiết các tên đơn vị ", "line": 429, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 02/DT-QLDA"}
+{"level": "article", "doc_id": "ec263480-80ec-11f1-ae5a-a5f03b1c4657", "article_id": null, "number": "1", "title": "Duyệt quyết toán thu, chi năm....", "line": 496, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 02/DT-QLDA"}
+{"level": "article", "doc_id": "ec263480-80ec-11f1-ae5a-a5f03b1c4657", "article_id": null, "number": "2", "title": "Phân bổ giá trị quyết toán thu, chi năm.... cho các dự án được giao quản lý cụ thể như sau:", "line": 537, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 02/DT-QLDA"}
+{"level": "article", "doc_id": "ec263480-80ec-11f1-ae5a-a5f03b1c4657", "article_id": null, "number": "3", "title": "Chủ đầu tư, Giám đốc Ban quản lý dự án, cơ quan thanh toán (cụ thể tên cơ quan) và các đơn vị có liên quan (chi tiết các", "line": 542, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 02/DT-QLDA"}
+{"level": "article", "doc_id": "ec263480-80ec-11f1-ae5a-a5f03b1c4657", "article_id": null, "number": "1", "title": "Duyệt quyết toán thu, chi năm....", "line": 629, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 02/DT-QLDA"}
+{"level": "article", "doc_id": "ec263480-80ec-11f1-ae5a-a5f03b1c4657", "article_id": null, "number": "2", "title": "Phân bổ giá trị quyết toán chi phí quản lý dự án năm.... cho các dự án được giao quản lý; cụ thể như sau:", "line": 681, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 02/DT-QLDA"}
+{"level": "article", "doc_id": "ec263480-80ec-11f1-ae5a-a5f03b1c4657", "article_id": null, "number": "3", "title": "Giám đốc Ban quản lý dự án, cơ quan thanh toán (cụ thể tên cơ quan) và các đơn vị có liên quan (chi tiết các tên đơn vị ", "line": 687, "reason": "appendix_or_form_cut", "marker": "Mẫu số: 02/DT-QLDA"}
 {"level": "doc", "doc_id": "24463", "reason": "no_article", "n_lines": 43}
 {"level": "doc", "doc_id": "107452", "reason": "no_article", "n_lines": 42}
 {"level": "doc", "doc_id": "108934", "reason": "no_article", "n_lines": 156}
@@ -305,6 +374,24 @@
 {"level": "doc", "doc_id": "82440", "reason": "no_article", "n_lines": 71}
 {"level": "doc", "doc_id": "80366", "reason": "no_article", "n_lines": 15}
 {"level": "doc", "doc_id": "110408", "reason": "no_article", "n_lines": 0}
+{"level": "article", "doc_id": "187280", "article_id": "187280_022", "reason": "form_template", "number": "1", "title": "", "body_chars": 415, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 10, "weak_ellipsis_lines": 0, "paren_placeholder_lines": 0, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_023", "reason": "form_template", "number": "2", "title": "", "body_chars": 123, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 10, "weak_ellipsis_lines": 0, "paren_placeholder_lines": 0, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_024", "reason": "form_template", "number": "1", "title": "", "body_chars": 377, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 10, "weak_ellipsis_lines": 0, "paren_placeholder_lines": 0, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_025", "reason": "form_template", "number": "2", "title": "", "body_chars": 125, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 10, "weak_ellipsis_lines": 0, "paren_placeholder_lines": 0, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_026", "reason": "form_template", "number": "1", "title": "", "body_chars": 313, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 4, "weak_ellipsis_lines": 3, "paren_placeholder_lines": 0, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_027", "reason": "form_template", "number": "2", "title": "", "body_chars": 118, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 4, "weak_ellipsis_lines": 3, "paren_placeholder_lines": 0, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_028", "reason": "form_template", "number": "1", "title": "", "body_chars": 236, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 4, "weak_ellipsis_lines": 3, "paren_placeholder_lines": 0, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_029", "reason": "form_template", "number": "2", "title": "", "body_chars": 118, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 4, "weak_ellipsis_lines": 3, "paren_placeholder_lines": 0, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_030", "reason": "form_template", "number": "1", "title": "", "body_chars": 250, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 4, "weak_ellipsis_lines": 3, "paren_placeholder_lines": 0, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_031", "reason": "form_template", "number": "2", "title": "", "body_chars": 118, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 4, "weak_ellipsis_lines": 3, "paren_placeholder_lines": 0, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_032", "reason": "form_template", "number": "1", "title": "", "body_chars": 1286, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 18, "weak_ellipsis_lines": 1, "paren_placeholder_lines": 2, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_033", "reason": "form_template", "number": "2", "title": "Đồng chí Nguyễn Văn A được hưởng các chế độ sau:", "body_chars": 477, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 18, "weak_ellipsis_lines": 1, "paren_placeholder_lines": 2, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_034", "reason": "form_template", "number": "3", "title": "", "body_chars": 178, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 18, "weak_ellipsis_lines": 1, "paren_placeholder_lines": 2, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_035", "reason": "form_template", "number": "4", "title": "", "body_chars": 118, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 18, "weak_ellipsis_lines": 1, "paren_placeholder_lines": 2, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_036", "reason": "form_template", "number": "1", "title": "", "body_chars": 1291, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 16, "weak_ellipsis_lines": 4, "paren_placeholder_lines": 2, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_037", "reason": "form_template", "number": "2", "title": "Đồng chí Nguyễn Văn A được hưởng các chế độ sau:", "body_chars": 477, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 16, "weak_ellipsis_lines": 4, "paren_placeholder_lines": 2, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_038", "reason": "form_template", "number": "3", "title": "", "body_chars": 178, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 16, "weak_ellipsis_lines": 4, "paren_placeholder_lines": 2, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "187280", "article_id": "187280_039", "reason": "form_template", "number": "4", "title": "", "body_chars": 118, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 16, "weak_ellipsis_lines": 4, "paren_placeholder_lines": 2, "clear": true, "any_blank": true}}
 {"level": "doc", "doc_id": "82828", "reason": "no_article", "n_lines": 24}
 {"level": "doc", "doc_id": "5967", "reason": "no_article", "n_lines": 15}
 {"level": "doc", "doc_id": "22941", "reason": "no_article", "n_lines": 39}
@@ -329,6 +416,20 @@
 {"level": "doc", "doc_id": "78437", "reason": "no_article", "n_lines": 22}
 {"level": "doc", "doc_id": "77623", "reason": "no_article", "n_lines": 44}
 {"level": "doc", "doc_id": "77453", "reason": "no_article", "n_lines": 50}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "1", "title": "Cấp Thẻ nhân viên tiếp cận cộng đồng để tham gia thực hiện các biện pháp can thiệp giảm tác hại trong dự phòng lây nhiễm", "line": 559, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "2", "title": "Quyết định này có hiệu lực thi hành kể từ ngày ký ban hành.", "line": 560, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "3", "title": "Các ông/bà Trưởng phòng, Trưởng khoa, lãnh đạo các đơn vị có liên quan và các cá nhân có tên tại Điều 1 chịu trách nhiệm", "line": 561, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "1", "title": "Thu hồi Thẻ nhân viên tiếp cận cộng đồng của:", "line": 581, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "2", "title": "Quyết định này có hiệu lực thi hành kể từ ngày ký ban hành.", "line": 585, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "3", "title": "Các ông/bà Trưởng phòng, Trưởng khoa, lãnh đạo các đơn vị có liên quan và các cá nhân có tên tại Điều 1 chịu trách nhiệm", "line": 586, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "1", "title": "Điều trị nghiện các chất dạng thuốc phiện bằng thuốc thay thế đối với:", "line": 720, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "2", "title": "Giao cho 4 và gia đình ông (bà):…….3…… phối hợp hỗ trợ và quản lý ông (bà) 3 trong thời gian tham gia điều trị nghiện cá", "line": 725, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "3", "title": "Quyết định này có hiệu lực kể từ ngày tháng năm", "line": 726, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "1", "title": "Chỉ định là cơ sở xét nghiệm khẳng định HIV dương tính tham chiếu.", "line": 1005, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "2", "title": "chịu trách nhiệm chỉ đạo quản lý cơ sở xét nghiệm khẳng định HIV dương tính tham chiếu, bảo đảm chất lượng xét nghiệm HI", "line": 1006, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "3", "title": "………………………… chịu trách nhiệm kiểm tra năng lực xét nghiệm HIV của các cơ sở thực hiện xét nghiệm HIV theo quy định.", "line": 1007, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "4", "title": "Quyết định này có hiệu lực kể từ ngày ký ban hành.", "line": 1008, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
+{"level": "article", "doc_id": "171156", "article_id": null, "number": "5", "title": "Các ông/bà: Chánh Văn phòng Bộ, Cục trưởng, Vụ trưởng các Vụ, Cục, Thủ trưởng các đơn vị trực thuộc Bộ Y tế, Giám đốc Sở", "line": 1009, "reason": "appendix_or_form_cut", "marker": "Mẫu số 01 | Đơn đề nghị cấp Thẻ nhân viên tiếp cận cộng đồng"}
 {"level": "doc", "doc_id": "18474", "reason": "no_article", "n_lines": 70}
 {"level": "doc", "doc_id": "158987", "reason": "no_article", "n_lines": 0}
 {"level": "doc", "doc_id": "108325", "reason": "no_article", "n_lines": 51}
@@ -351,6 +452,9 @@
 {"level": "doc", "doc_id": "110500", "reason": "no_article", "n_lines": 34}
 {"level": "doc", "doc_id": "110497", "reason": "no_article", "n_lines": 55}
 {"level": "doc", "doc_id": "13813", "reason": "no_article", "n_lines": 58}
+{"level": "article", "doc_id": "37988", "article_id": null, "number": "1", "title": "Xử phạt vi phạm hành chính đối với:", "line": 181, "reason": "appendix_or_form_cut", "marker": "Mẫu số 02"}
+{"level": "article", "doc_id": "37988", "article_id": null, "number": "2", "title": "Ông (bà)/Tổ chức …………………. phải nghiêm chỉnh chấp hành Quyết định xử phạt trong thời hạn ……………. ngày, kể từ ngày được gia", "line": 196, "reason": "appendix_or_form_cut", "marker": "Mẫu số 02"}
+{"level": "article", "doc_id": "37988", "article_id": null, "number": "3", "title": "Quyết định này có hiệu lực kể từ ngày …... tháng .... năm …...(10)", "line": 200, "reason": "appendix_or_form_cut", "marker": "Mẫu số 02"}
 {"level": "doc", "doc_id": "81790", "reason": "no_article", "n_lines": 36}
 {"level": "doc", "doc_id": "12687", "reason": "no_article", "n_lines": 74}
 {"level": "doc", "doc_id": "22505", "reason": "no_article", "n_lines": 110}
@@ -384,11 +488,25 @@
 {"level": "doc", "doc_id": "80239", "reason": "no_article", "n_lines": 44}
 {"level": "doc", "doc_id": "75558", "reason": "no_article", "n_lines": 19}
 {"level": "doc", "doc_id": "78430", "reason": "no_article", "n_lines": 62}
-{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": "0da53250-5d6b-11f1-807d-c70e99d85013_031", "reason": "title_only", "number": "2", "title": "Tổ chức thực hiện.", "body_chars": 0}
-{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": "0da53250-5d6b-11f1-807d-c70e99d85013_034", "reason": "title_only", "number": "2", "title": "Tổ chức thực hiện.", "body_chars": 0}
-{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": "0da53250-5d6b-11f1-807d-c70e99d85013_037", "reason": "title_only", "number": "2", "title": "Tổ chức thực hiện.", "body_chars": 0}
-{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": "0da53250-5d6b-11f1-807d-c70e99d85013_038", "reason": "title_only", "number": "3", "title": "Tổ chức, cá nhân có liên quan chịu trách nhiệm thi h", "body_chars": 0}
+{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": null, "number": "1", "title": "Phê duyệt dự kiến chi phí thực hiện hoạt động quy hoạch (tên hoạt động quy hoạch ...) với các nội dung chủ yếu như sau:", "line": 359, "reason": "appendix_or_form_cut", "marker": "Mẫu số 03"}
+{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": null, "number": "2", "title": "Tổ chức thực hiện.", "line": 367, "reason": "appendix_or_form_cut", "marker": "Mẫu số 03"}
+{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": null, "number": "3", "title": "Tổ chức, cá nhân có liên quan chịu trách nhiệm thi h", "line": 368, "reason": "appendix_or_form_cut", "marker": "Mẫu số 03"}
+{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": "0da53250-5d6b-11f1-807d-c70e99d85013_030", "reason": "form_template", "number": "1", "title": "Phê duyệt chủ trương và dự kiến kinh phí mua sắm tài sản, trang thiết bị (hoặc sửa chữa, cải tạo, nâng cấp tài sản, tran", "body_chars": 579, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 1, "weak_ellipsis_lines": 3, "paren_placeholder_lines": 3, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": "0da53250-5d6b-11f1-807d-c70e99d85013_031", "reason": "form_template", "number": "2", "title": "Tổ chức thực hiện.", "body_chars": 0, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 1, "weak_ellipsis_lines": 3, "paren_placeholder_lines": 3, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": "0da53250-5d6b-11f1-807d-c70e99d85013_032", "reason": "form_template", "number": "3", "title": "", "body_chars": 71, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 1, "weak_ellipsis_lines": 3, "paren_placeholder_lines": 3, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": "0da53250-5d6b-11f1-807d-c70e99d85013_033", "reason": "form_template", "number": "1", "title": "Phê duyệt chủ trương (tên nhiệm vụ ....) với các nội dung chủ yếu như sau:", "body_chars": 553, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 0, "weak_ellipsis_lines": 5, "paren_placeholder_lines": 4, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": "0da53250-5d6b-11f1-807d-c70e99d85013_034", "reason": "form_template", "number": "2", "title": "Tổ chức thực hiện.", "body_chars": 0, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 0, "weak_ellipsis_lines": 5, "paren_placeholder_lines": 4, "clear": true, "any_blank": true}}
+{"level": "article", "doc_id": "0da53250-5d6b-11f1-807d-c70e99d85013", "article_id": "0da53250-5d6b-11f1-807d-c70e99d85013_035", "reason": "form_template", "number": "3", "title": "", "body_chars": 71, "after_signature": true, "evidence": {"lead_in": true, "strong_blank_lines": 0, "weak_ellipsis_lines": 5, "paren_placeholder_lines": 4, "clear": true, "any_blank": true}}
 {"level": "doc", "doc_id": "108526", "reason": "no_article", "n_lines": 89}
+{"level": "article", "doc_id": "d8909ce0-6967-11f1-8a46-8fe3a24b9563", "article_id": null, "number": "1", "title": "Phân bổ, giao dự toán thu, chi ngân sách nhà nước năm…..cho các đơn vị sử dụng ngân sách trực thuộc Bộ... theo phụ lục (", "line": 5406, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "d8909ce0-6967-11f1-8a46-8fe3a24b9563", "article_id": null, "number": "2", "title": "Căn cứ dự toán chi ngân sách năm…..được giao, Thủ trưởng các đơn vị tổ chức thực hiện theo đúng quy định của Luật ngân s", "line": 5407, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "d8909ce0-6967-11f1-8a46-8fe3a24b9563", "article_id": null, "number": "3", "title": "Cục/Vụ trưởng Cục/Vụ Kế hoạch - Tài chính, Thủ trưởng các đơn vị chịu trách nhiệm thi hành quyết định này./.", "line": 5408, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "d8909ce0-6967-11f1-8a46-8fe3a24b9563", "article_id": null, "number": "1", "title": "Giao dự toán thu, chi ngân sách nhà nước năm…..cho các đơn vị sử dụng ngân sách trực thuộc Sở... theo phụ lục (2) đính k", "line": 5425, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "d8909ce0-6967-11f1-8a46-8fe3a24b9563", "article_id": null, "number": "2", "title": "Căn cứ dự toán chi ngân sách năm….được giao, Thủ trưởng các đơn vị tổ chức thực hiện theo đúng quy định của Luật ngân sá", "line": 5426, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "d8909ce0-6967-11f1-8a46-8fe3a24b9563", "article_id": null, "number": "3", "title": "Trưởng phòng Kế hoạch - Tài chính, Thủ trưởng các đơn vị chịu trách nhiệm thi hành quyết định này./.", "line": 5427, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "d8909ce0-6967-11f1-8a46-8fe3a24b9563", "article_id": null, "number": "1", "title": "Giao dự toán thu, chi ngân sách nhà nước năm……cho các đơn vị sử dụng ngân sách trực thuộc Phòng ... theo phụ lục (2) đín", "line": 5442, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "d8909ce0-6967-11f1-8a46-8fe3a24b9563", "article_id": null, "number": "2", "title": "Căn cứ dự toán chi ngân sách năm…..được giao, Thủ trưởng các đơn vị tổ chức thực hiện theo đúng quy định của Luật ngân s", "line": 5443, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
+{"level": "article", "doc_id": "d8909ce0-6967-11f1-8a46-8fe3a24b9563", "article_id": null, "number": "3", "title": "Thủ trưởng các đơn vị chịu trách nhiệm thi hành quyết định này./.", "line": 5444, "reason": "appendix_or_form_cut", "marker": "Phụ lục I"}
 {"level": "doc", "doc_id": "75581", "reason": "no_article", "n_lines": 8}
 {"level": "doc", "doc_id": "122466", "reason": "no_article", "n_lines": 0}
 {"level": "doc", "doc_id": "82712", "reason": "no_article", "n_lines": 58}

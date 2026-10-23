@@ -1,0 +1,570 @@
+﻿corpus_docs,corpus_articles,nodes_total,dangling_nodes,n_domains,dominant_domain_tied,dominant_domain_alphabetical
+94,1127,5227,33,8,False,"Lao động, tiền lương, tiền công"
+4,150,30,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+4,19,19,0,2,False,"Quản lý thuế, phí và lệ phí"
+4,13,4,0,1,False,"Quản lý thuế, phí và lệ phí"
+4,12,10,0,1,False,Quản lý ngân sách
+3,75,19,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+3,41,417,4,1,False,"Lao động, tiền lương, tiền công"
+3,25,4,0,2,False,"TCNH và thị trường TC, trái phiếu, khác"
+3,11,10,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+2,85,9,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+2,57,386,8,1,False,"Lao động, tiền lương, tiền công"
+2,46,12,0,1,False,"Lao động, tiền lương, tiền công"
+2,32,45,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+2,31,4,0,1,False,Quản lý ngân sách
+2,29,3,0,2,True,Ngân sách nhà nước
+2,27,2,0,2,True,Chính sách thuế
+2,26,5,0,1,False,Quản lý ngân sách
+2,24,18,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+2,23,3,0,1,False,"Quản lý thuế, phí và lệ phí"
+2,15,33,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+2,9,4,0,1,False,Quản lý ngân sách
+2,9,4,0,1,False,"Quản lý thuế, phí và lệ phí"
+2,9,2,0,1,False,Quản lý ngân sách
+2,8,15,0,2,True,Quản lý ngân sách
+2,7,5,0,2,True,Quản lý ngân sách
+2,7,2,0,1,False,"Lao động, tiền lương, tiền công"
+2,7,2,0,1,False,Quản lý ngân sách
+2,7,2,0,2,True,"Lao động, tiền lương, tiền công"
+2,6,3,0,1,False,Quản lý ngân sách
+2,6,3,0,1,False,"Quản lý thuế, phí và lệ phí"
+2,4,16,0,1,False,Chính sách thuế
+2,4,5,1,1,False,"Quản lý thuế, phí và lệ phí"
+2,3,3,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,115,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,68,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,64,13,0,1,False,"Lao động, tiền lương, tiền công"
+1,59,1,0,1,False,Ngân sách nhà nước
+1,53,6,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,52,1,0,1,False,Ngân sách nhà nước
+1,49,7,0,1,False,Ngân sách nhà nước
+1,45,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,43,4,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,42,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,40,4,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,39,3,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,39,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,38,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,38,1,0,1,False,Ngân sách nhà nước
+1,37,1,0,1,False,Ngân sách nhà nước
+1,35,5,0,1,False,"Lao động, tiền lương, tiền công"
+1,35,2,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,34,1,0,1,False,Ngân sách nhà nước
+1,34,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,30,3,0,1,False,Quản lý ngân sách
+1,30,1,0,1,False,Ngân sách nhà nước
+1,29,7,0,1,False,Quản lý ngân sách
+1,29,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,29,1,0,1,False,Ngân sách nhà nước
+1,29,1,0,1,False,Ngân sách nhà nước
+1,29,1,0,1,False,Ngân sách nhà nước
+1,28,5,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,28,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,27,3,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,27,2,0,1,False,Ngân sách nhà nước
+1,27,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,27,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,27,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,26,2,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,26,1,0,1,False,Quản lý ngân sách
+1,25,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,25,2,0,1,False,Quản lý ngân sách
+1,25,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,25,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,25,1,0,1,False,Chính sách thuế
+1,24,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,24,3,0,1,False,Quản lý ngân sách
+1,24,1,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,24,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,24,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,23,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,23,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,23,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,23,1,0,1,False,Ngân sách nhà nước
+1,22,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,22,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,22,1,0,1,False,Ngân sách nhà nước
+1,22,1,0,1,False,Ngân sách nhà nước
+1,22,1,0,1,False,Ngân sách nhà nước
+1,22,1,0,1,False,Ngân sách nhà nước
+1,21,2,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,21,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,21,2,0,1,False,Quản lý ngân sách
+1,21,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,21,1,0,1,False,Ngân sách nhà nước
+1,21,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,20,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,20,8,0,1,False,Quản lý ngân sách
+1,20,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,20,1,0,1,False,Ngân sách nhà nước
+1,20,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,20,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,19,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,19,19,0,1,False,"Lao động, tiền lương, tiền công"
+1,19,5,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,19,4,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,19,1,0,1,False,Quản lý ngân sách
+1,19,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,19,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,19,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,18,10,0,1,False,"Lao động, tiền lương, tiền công"
+1,18,4,0,1,False,Quản lý ngân sách
+1,18,2,0,1,False,Tài chính hành chính sự nghiệp
+1,18,5,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,18,3,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,18,4,0,1,False,"Lao động, tiền lương, tiền công"
+1,18,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,18,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,17,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,17,2,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,17,2,0,1,False,Quản lý ngân sách
+1,17,1,0,1,False,Quản lý ngân sách
+1,17,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,17,1,0,1,False,Ngân sách nhà nước
+1,17,1,0,1,False,Ngân sách nhà nước
+1,17,1,0,1,False,Ngân sách nhà nước
+1,16,7,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,16,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,16,4,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,16,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,16,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,16,1,0,1,False,Quản lý ngân sách
+1,16,1,0,1,False,Quản lý ngân sách
+1,15,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,15,1,0,1,False,Ngân sách nhà nước
+1,15,1,0,1,False,Quản lý ngân sách
+1,15,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,15,1,0,1,False,Quản lý ngân sách
+1,15,1,0,1,False,Quản lý ngân sách
+1,15,1,0,1,False,Quản lý ngân sách
+1,15,1,0,1,False,Quản lý ngân sách
+1,15,1,0,1,False,Quản lý ngân sách
+1,15,1,0,1,False,Ngân sách nhà nước
+1,15,1,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,14,9,0,1,False,"Lao động, tiền lương, tiền công"
+1,14,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,14,3,0,1,False,Ngân sách nhà nước
+1,14,4,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,14,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,14,1,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,14,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,14,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,14,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,14,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,14,1,0,1,False,Quản lý ngân sách
+1,14,1,0,1,False,Quản lý ngân sách
+1,13,2,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,13,1,0,1,False,Ngân sách nhà nước
+1,13,1,0,1,False,Ngân sách nhà nước
+1,13,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,13,1,0,1,False,Tài chính hành chính sự nghiệp
+1,13,1,0,1,False,Quản lý ngân sách
+1,13,1,0,1,False,Quản lý ngân sách
+1,13,1,0,1,False,Ngân sách nhà nước
+1,13,1,0,1,False,Ngân sách nhà nước
+1,13,1,0,1,False,Quản lý ngân sách
+1,13,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,13,1,0,1,False,Quản lý ngân sách
+1,12,4,0,1,False,"Lao động, tiền lương, tiền công"
+1,12,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,12,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,12,5,0,1,False,Tài chính hành chính sự nghiệp
+1,12,2,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,12,2,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,12,2,0,1,False,Tài chính hành chính sự nghiệp
+1,12,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,12,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,12,1,0,1,False,Ngân sách nhà nước
+1,12,1,0,1,False,Quản lý ngân sách
+1,12,1,0,1,False,Ngân sách nhà nước
+1,12,1,0,1,False,Quản lý ngân sách
+1,12,1,0,1,False,Quản lý ngân sách
+1,12,1,0,1,False,Quản lý ngân sách
+1,12,1,0,1,False,Tài chính hành chính sự nghiệp
+1,11,2,0,1,False,Quản lý ngân sách
+1,11,5,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,11,2,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,11,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,11,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,11,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,11,1,0,1,False,Quản lý ngân sách
+1,11,1,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,11,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,11,1,0,1,False,Tài chính hành chính sự nghiệp
+1,11,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,11,1,0,1,False,Quản lý ngân sách
+1,10,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,10,5,0,1,False,Quản lý ngân sách
+1,10,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,10,1,0,1,False,Quản lý ngân sách
+1,10,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,10,1,0,1,False,Ngân sách nhà nước
+1,10,1,0,1,False,Ngân sách nhà nước
+1,10,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,10,1,0,1,False,Quản lý ngân sách
+1,10,1,0,1,False,Quản lý ngân sách
+1,10,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,10,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,10,1,0,1,False,Tài chính hành chính sự nghiệp
+1,9,17,1,1,False,"Lao động, tiền lương, tiền công"
+1,9,2,0,1,False,Quản lý ngân sách
+1,9,2,0,1,False,Tài chính hành chính sự nghiệp
+1,9,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,9,1,0,1,False,Quản lý ngân sách
+1,9,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,9,1,0,1,False,Tài chính hành chính sự nghiệp
+1,9,1,0,1,False,Quản lý ngân sách
+1,9,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,9,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,9,1,0,1,False,Chính sách thuế
+1,9,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,9,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,9,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,9,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,9,1,0,1,False,Tài chính hành chính sự nghiệp
+1,9,1,0,1,False,Tài chính hành chính sự nghiệp
+1,9,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,9,1,0,1,False,Ngân sách nhà nước
+1,9,1,0,1,False,Ngân sách nhà nước
+1,8,5,0,1,False,Quản lý ngân sách
+1,8,4,0,1,False,Tài chính hành chính sự nghiệp
+1,8,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,8,5,0,1,False,Ngân sách nhà nước
+1,8,6,0,1,False,"Lao động, tiền lương, tiền công"
+1,8,2,0,1,False,Chính sách thuế
+1,8,4,0,1,False,Chính sách thuế
+1,8,3,0,1,False,Quản lý ngân sách
+1,8,2,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,8,1,0,1,False,Tài chính hành chính sự nghiệp
+1,8,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,8,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,8,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,8,1,0,1,False,Ngân sách nhà nước
+1,8,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,8,1,0,1,False,Ngân sách nhà nước
+1,8,1,0,1,False,Quản lý ngân sách
+1,8,1,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,8,1,0,1,False,Quản lý ngân sách
+1,8,1,0,1,False,Tài chính hành chính sự nghiệp
+1,8,1,0,1,False,Quản lý ngân sách
+1,8,1,0,1,False,Chính sách thuế
+1,8,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,8,1,0,1,False,Quản lý ngân sách
+1,8,1,0,1,False,Quản lý ngân sách
+1,8,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,8,1,0,1,False,Quản lý ngân sách
+1,8,1,0,1,False,Tài chính hành chính sự nghiệp
+1,8,1,0,1,False,Tài chính hành chính sự nghiệp
+1,8,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,8,1,0,1,False,Quản lý ngân sách
+1,7,4,0,1,False,Tài chính hành chính sự nghiệp
+1,7,3,0,1,False,Chính sách thuế
+1,7,2,0,1,False,Quản lý ngân sách
+1,7,3,0,1,False,Chính sách thuế
+1,7,3,0,1,False,Chính sách thuế
+1,7,3,0,1,False,Ngân sách nhà nước
+1,7,2,0,1,False,Quản lý ngân sách
+1,7,2,0,1,False,Quản lý ngân sách
+1,7,2,0,1,False,Quản lý ngân sách
+1,7,2,0,1,False,Ngân sách nhà nước
+1,7,2,0,1,False,Tài chính hành chính sự nghiệp
+1,7,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,7,1,0,1,False,Chính sách thuế
+1,7,1,0,1,False,Quản lý ngân sách
+1,7,1,0,1,False,Quản lý ngân sách
+1,7,1,0,1,False,Tài chính hành chính sự nghiệp
+1,7,1,0,1,False,Tài chính hành chính sự nghiệp
+1,7,1,0,1,False,Quản lý ngân sách
+1,7,1,0,1,False,Quản lý ngân sách
+1,7,1,0,1,False,Ngân sách nhà nước
+1,7,1,0,1,False,Tài chính hành chính sự nghiệp
+1,7,1,0,1,False,Quản lý ngân sách
+1,7,1,0,1,False,Quản lý ngân sách
+1,7,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,7,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,7,1,0,1,False,Chính sách thuế
+1,7,1,0,1,False,Quản lý ngân sách
+1,7,1,0,1,False,Chính sách thuế
+1,7,1,0,1,False,Chính sách thuế
+1,7,1,0,1,False,Quản lý ngân sách
+1,7,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,7,1,0,1,False,Tài chính hành chính sự nghiệp
+1,7,1,0,1,False,Quản lý ngân sách
+1,7,1,0,1,False,Ngân sách nhà nước
+1,7,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,7,1,0,1,False,Quản lý ngân sách
+1,7,1,0,1,False,Chính sách thuế
+1,7,1,0,1,False,Chính sách thuế
+1,6,30,1,1,False,Ngân sách nhà nước
+1,6,4,0,1,False,Quản lý ngân sách
+1,6,4,0,1,False,"Lao động, tiền lương, tiền công"
+1,6,7,0,1,False,"Lao động, tiền lương, tiền công"
+1,6,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,6,2,0,1,False,Ngân sách nhà nước
+1,6,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,6,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,6,3,0,1,False,Quản lý ngân sách
+1,6,2,0,1,False,Quản lý ngân sách
+1,6,2,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,6,2,0,1,False,Chính sách thuế
+1,6,2,0,1,False,Quản lý ngân sách
+1,6,3,0,1,False,Quản lý ngân sách
+1,6,2,0,1,False,Quản lý ngân sách
+1,6,4,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,6,2,0,1,False,Quản lý ngân sách
+1,6,2,0,1,False,Chính sách thuế
+1,6,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,6,1,0,1,False,Tài chính hành chính sự nghiệp
+1,6,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Chính sách thuế
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Tài chính hành chính sự nghiệp
+1,6,1,0,1,False,Chính sách thuế
+1,6,1,0,1,False,Tài chính hành chính sự nghiệp
+1,6,1,0,1,False,Chính sách thuế
+1,6,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,6,1,0,1,False,Chính sách thuế
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,6,1,0,1,False,Tài chính hành chính sự nghiệp
+1,6,1,0,1,False,Chính sách thuế
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,6,1,0,1,False,Ngân sách nhà nước
+1,6,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,6,1,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Ngân sách nhà nước
+1,6,1,0,1,False,Chính sách thuế
+1,6,1,0,1,False,Chính sách thuế
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Quản lý ngân sách
+1,6,1,0,1,False,Quản lý ngân sách
+1,5,3,0,1,False,Tài chính hành chính sự nghiệp
+1,5,2,0,1,False,Tài chính hành chính sự nghiệp
+1,5,2,0,1,False,Quản lý ngân sách
+1,5,6,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,2,0,1,False,Ngân sách nhà nước
+1,5,3,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,9,0,1,False,"TCNH và thị trường TC, trái phiếu, khác"
+1,5,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,2,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,2,0,1,False,Quản lý ngân sách
+1,5,2,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,2,0,1,False,Quản lý ngân sách
+1,5,2,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,Ngân sách nhà nước
+1,5,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,1,0,1,False,Tài chính hành chính sự nghiệp
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,Ngân sách nhà nước
+1,5,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,Tài chính hành chính sự nghiệp
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,Chính sách thuế
+1,5,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,Tài chính hành chính sự nghiệp
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,Tài chính hành chính sự nghiệp
+1,5,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,5,1,0,1,False,Quản lý ngân sách
+1,5,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,5,1,0,1,False,Tài chính hành chính sự nghiệp
+1,4,7,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,4,3,0,1,False,Quản lý ngân sách
+1,4,3,0,1,False,Quản lý ngân sách
+1,4,2,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,5,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,3,0,1,False,Chính sách thuế
+1,4,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,2,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,4,1,0,1,False,Chính sách thuế
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,4,1,0,1,False,Quản lý ngân sách
+1,4,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,4,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,Quản lý ngân sách
+1,4,1,0,1,False,Quản lý ngân sách
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,4,1,0,1,False,Ngân sách nhà nước
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,Quản lý ngân sách
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,4,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,4,1,0,1,False,Ngân sách nhà nước
+1,4,1,0,1,False,Tài chính hành chính sự nghiệp
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,Quản lý ngân sách
+1,4,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,4,1,0,1,False,Quản lý ngân sách
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,4,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,4,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,4,1,0,1,False,Quản lý ngân sách
+1,3,4,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,3,0,1,False,Chính sách thuế
+1,3,4,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,12,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,2,0,1,False,Chính sách thuế
+1,3,7,0,1,False,Ngân sách nhà nước
+1,3,2,0,1,False,Quản lý ngân sách
+1,3,33,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,6,0,1,False,Tài chính hành chính sự nghiệp
+1,3,4,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,4,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,3,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,5,0,1,False,Quản lý ngân sách
+1,3,3,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,2,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,2,0,1,False,Chính sách thuế
+1,3,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,2,0,1,False,Ngân sách nhà nước
+1,3,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,1,0,1,False,Quản lý ngân sách
+1,3,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,1,0,1,False,Quản lý dịch vụ tài chính và các quỹ tài chính
+1,3,1,0,1,False,Quản lý ngân sách
+1,3,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,1,0,1,False,Quản lý ngân sách
+1,3,1,0,1,False,Quản lý ngân sách
+1,3,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,1,0,1,False,Quản lý ngân sách
+1,3,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,3,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,3,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,8,0,1,False,Ngân sách nhà nước
+1,2,5,0,1,False,Chính sách thuế
+1,2,9,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,9,0,1,False,Quản lý ngân sách
+1,2,7,0,1,False,Quản lý ngân sách
+1,2,9,0,1,False,Tài chính hành chính sự nghiệp
+1,2,3,0,1,False,Ngân sách nhà nước
+1,2,7,0,1,False,"Lao động, tiền lương, tiền công"
+1,2,16,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,2,0,1,False,Quản lý ngân sách
+1,2,6,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,6,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,2,0,1,False,Chính sách thuế
+1,2,2,0,1,False,Tài chính hành chính sự nghiệp
+1,2,2,0,1,False,Tài chính hành chính sự nghiệp
+1,2,4,0,1,False,"Lao động, tiền lương, tiền công"
+1,2,13,0,1,False,Quản lý ngân sách
+1,2,3,0,1,False,"Lao động, tiền lương, tiền công"
+1,2,2,0,1,False,Tài chính hành chính sự nghiệp
+1,2,4,0,1,False,Chính sách thuế
+1,2,10,0,1,False,Tài chính hành chính sự nghiệp
+1,2,2,0,1,False,Tài chính hành chính sự nghiệp
+1,2,2,0,1,False,Quản lý ngân sách
+1,2,3,0,1,False,Quản lý ngân sách
+1,2,2,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,2,0,1,False,Quản lý ngân sách
+1,2,2,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,1,0,1,False,Ngân sách nhà nước
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,Quản lý ngân sách
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,2,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,2,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,2,1,0,1,False,Quản lý ngân sách
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,2,1,0,1,False,Quản lý ngân sách
+1,2,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,1,0,1,False,"Lao động, tiền lương, tiền công"
+1,2,1,0,1,False,Chính sách thuế
+1,2,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,2,1,0,1,False,Tài chính hành chính sự nghiệp
+1,1,1,0,1,False,Tài chính hành chính sự nghiệp
+1,1,1,0,1,False,Chính sách thuế
+1,1,1,0,1,False,Quản lý ngân sách
+1,1,1,0,1,False,"Quản lý thuế, phí và lệ phí"
+1,1,1,0,1,False,"Quản lý thuế, phí và lệ phí"
