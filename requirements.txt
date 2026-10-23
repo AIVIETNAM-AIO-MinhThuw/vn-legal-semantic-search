@@ -10,3 +10,8 @@ transformers==4.46.3
 tokenizers==0.20.3
 sentencepiece==0.2.0
 pytest==8.3.4
+# Hợp đồng API, máy chủ ASGI và HTTP client cho test
+fastapi==0.115.6
+pydantic==2.10.4
+uvicorn==0.34.0
+httpx==0.28.1
