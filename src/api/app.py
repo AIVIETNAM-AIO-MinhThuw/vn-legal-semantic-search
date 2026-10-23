@@ -22,7 +22,7 @@ from src.contracts import (
 )
 
 ERR_422 = {422: {"model": ErrorResponse, "description": "EMPTY_QUERY, INVALID_FILTER hoặc INVALID_REQUEST"}}
-ERR_422_REQ = {422: {"model": ErrorResponse, "description": "INVALID_REQUEST"}}
+ERR_422_REQ = {422: {"model": ErrorResponse, "description": "INVALID_REQUEST: sai schema, search_id không tồn tại, hoặc (system, article_id) không thuộc lượt tìm đó"}}
 ERR_503 = {503: {"model": ErrorResponse, "description": "MODEL_NOT_READY hoặc INDEX_MANIFEST_MISMATCH"}}
 
 
@@ -34,11 +34,12 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title="VN Legal Semantic Search API",
         version=CONTRACT_VERSION,
-        description="schema API v1 — SPEC mục 14.5.",
+        description="Hợp đồng API v1 — SPEC mục 14.5.",
     )
     install_error_handlers(app)
 
-    @app.get("/health", response_model=HealthResponse, responses=ERR_503, tags=["system"])
+    @app.get("/health", response_model=HealthResponse,
+             responses={503: {"model": ErrorResponse, "description": "MODEL_NOT_READY"}}, tags=["system"])
     def health() -> HealthResponse:
         raise _not_ready()
 

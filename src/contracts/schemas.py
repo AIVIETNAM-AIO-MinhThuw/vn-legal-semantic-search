@@ -108,11 +108,29 @@ class ResultItem(_Strict):
     in_both: bool  # chỉ có ý nghĩa ở chế độ compare; server tính
     highlights: list[Highlight] = Field(default_factory=list)
 
+    @model_validator(mode="after")
+    def _valid_highlights(self) -> "ResultItem":
+        previous_end = -1
+        for span in self.highlights:
+            if span.end > len(self.content):
+                raise ValueError("highlight vượt độ dài content")
+            if span.start <= previous_end:
+                raise ValueError("highlights phải tăng dần, không chồng và đã gộp đoạn liền kề")
+            previous_end = span.end
+        return self
+
 
 class ResultList(_Strict):
     system: SystemName
     score_type: ScoreType
     items: list[ResultItem]
+
+    @model_validator(mode="after")
+    def _matching_score_type(self) -> "ResultList":
+        expected = {"bm25": "bm25", "semantic": "cosine", "hybrid": "rrf"}
+        if self.score_type != expected[self.system]:
+            raise ValueError("score_type không khớp system")
+        return self
 
 
 class SearchWarning(_Strict):
