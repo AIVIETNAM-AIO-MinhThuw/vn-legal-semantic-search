@@ -1,0 +1,180 @@
+{
+ "ok": true,
+ "errors": [],
+ "groups": 569,
+ "groups_per_split": {
+  "train": 455,
+  "test": 57,
+  "val": 57
+ },
+ "docs_per_split": {
+  "train": 588,
+  "test": 58,
+  "val": 60
+ },
+ "hash_overlap_index_only": {
+  "train_val": 0,
+  "train_test": 0,
+  "val_test": 0,
+  "examples": []
+ },
+ "hash_overlap_including_removed_duplicates_info_only": {
+  "train_val": 22,
+  "train_test": 4,
+  "val_test": 0,
+  "examples": [
+   {
+    "sha1": "ee61040b5b1152f8e195003a4198364845070b88",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "00773bfc86ee9b3b2d3d3da08fe447cde1f94b28",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "18a89e7acdd34060ade8acc5261b730742545353",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "1aaf9d7070b823c7a76d1fa62c7e647781baef4f",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "81214625ae765ea77499b799eaf6ee84352513c4",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "50c9bc0776501131f1add4acaf8d44ec43e4b7bc",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "386950aebd40b70f8668bce1e490f727bb83fd7c",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "d845da25d373f18afecb056db5bead68b3708da2",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "57386ae3d58a9872a9cd77ef7a6f1d0ad205500f",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "4bb6386fbd940ef6990d770b88a85dd2a7fca0b2",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   }
+  ]
+ },
+ "duplicate_groups_spanning_splits": {
+  "count": 26,
+  "examples": [
+   {
+    "sha1": "ee61040b5b1152f8e195003a4198364845070b88",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "00773bfc86ee9b3b2d3d3da08fe447cde1f94b28",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "18a89e7acdd34060ade8acc5261b730742545353",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "1aaf9d7070b823c7a76d1fa62c7e647781baef4f",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "81214625ae765ea77499b799eaf6ee84352513c4",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "50c9bc0776501131f1add4acaf8d44ec43e4b7bc",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "386950aebd40b70f8668bce1e490f727bb83fd7c",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "d845da25d373f18afecb056db5bead68b3708da2",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "57386ae3d58a9872a9cd77ef7a6f1d0ad205500f",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   },
+   {
+    "sha1": "4bb6386fbd940ef6990d770b88a85dd2a7fca0b2",
+    "splits": {
+     "val": 1,
+     "train": 1
+    }
+   }
+  ],
+  "note": "báo riêng, không phải lỗi; bản đã loại khỏi index không là nguồn query. Không loại trừ near-duplicate."
+ },
+ "queries_checked": 0,
+ "queries_with_other_split_source": [],
+ "queries_unknown_source": [],
+ "docs_multi_group": [],
+ "docs_uncovered": [],
+ "docs_not_in_corpus": []
+}

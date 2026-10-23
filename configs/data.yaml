@@ -63,7 +63,10 @@ split:
   # lĩnh vực chủ đạo đếm trên các văn bản trong corpus của họ.
   families_scope: corpus_only
   stratify_domain_scope: corpus_docs
-  # Không đặt ngưỡng cắt họ; chỉ báo phân phối kích thước họ trước khi split.
+  # SPEC 4.1 (phương án B, người dùng xác nhận trong phiên làm việc ngày 2026-10-23):
+  # họ có a_f / A > ngưỡng này (A = tổng Điều trong index sau dedup) chỉ được nằm trong train.
+  # Ngưỡng thực dụng đăng ký trước, không phải ngưỡng thống kê. Không đặt ngưỡng cắt họ nào khác.
+  force_train_article_share_gt: 0.05
 
 # SPEC 3.4, 3.6, 7.3. Tokenizer lấy từ đúng checkpoint e5, ghim revision.
 tokenizer:
