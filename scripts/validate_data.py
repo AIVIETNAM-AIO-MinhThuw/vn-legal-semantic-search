@@ -19,6 +19,7 @@ import pandas as pd
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.data.labels import make_display_labels  # noqa: E402
 from src.data.tokenizer import count_tokens, load_tokenizer  # noqa: E402
 from src.retrieval.e5_format import format_passage  # noqa: E402
 
@@ -131,6 +132,24 @@ def validate(cfg: dict) -> dict:
         a["duplicate_article_ids"] = dup_map.get(a["article_id"], [])
         arts_idx.append(a)
     chunks_idx = [c for c in chunks if c["article_id"] not in removed]
+    by_doc: dict[str, list[dict]] = defaultdict(list)
+    for a in arts_idx:
+        by_doc[a["doc_id"]].append(a)
+    dup_rows = []
+    for doc_id, items in by_doc.items():  # nhãn hiển thị: số Điều + tiêu đề, thêm định danh nếu vẫn trùng
+        labels = make_display_labels(items)
+        nums = Counter(a["number"] for a in items)
+        seen_n: Counter = Counter()
+        for a in items:
+            a["display_label"] = labels[a["article_id"]]
+            seen_n[a["number"]] += 1
+            if nums[a["number"]] > 1:
+                dup_rows.append({"doc_id": doc_id, "article_id": a["article_id"], "number": a["number"],
+                                 "title": a["title"], "display_label": a["display_label"],
+                                 "occurrence": seen_n[a["number"]], "count_same_number": nums[a["number"]]})
+    if len({a["display_label"] for a in arts_idx}) and any(
+            len({a["display_label"] for a in items}) != len(items) for items in by_doc.values()):
+        errors.append("display_label vẫn trùng trong cùng văn bản")
     real_n = Counter(a["doc_id"] for a in arts_idx)
     docs_idx = []
     for d in docs:
@@ -140,6 +159,11 @@ def validate(cfg: dict) -> dict:
         d["n_articles_before_dedup"] = d["n_articles"]
         d["n_articles"] = real_n[d["doc_id"]]  # tính lại theo dữ liệu sau dedup
         docs_idx.append(d)
+    agency = meta.set_index("id")["co_quan_ban_hanh"]  # co_quan_ban_hanh phải giữ nguyên từ metadata
+    bad_agency = [d["doc_id"] for d in docs_idx if "co_quan_ban_hanh" not in d or
+                  d["co_quan_ban_hanh"] != (None if pd.isna(agency.get(d["doc_id"])) else agency.get(d["doc_id"]))]
+    if bad_agency:
+        errors.append(f"{len(bad_agency)} văn bản trong index có co_quan_ban_hanh thiếu hoặc khác metadata, ví dụ {bad_agency[:3]}")
     stale = check_doc_article_counts(docs_idx, arts_idx)
     if stale:
         errors.append(f"{len(stale)} văn bản có n_articles không khớp articles_index, ví dụ {stale[:3]}")
@@ -233,6 +257,9 @@ def validate(cfg: dict) -> dict:
     write_jsonl(proc / "docs_index.jsonl", docs_idx)
     (out / "duplicate_groups.json").write_text(json.dumps(dup_map, ensure_ascii=False, indent=1), encoding="utf-8")
     pl.to_csv(out / "relationships_per_label.csv", index=False, encoding="utf-8-sig")
+    pd.DataFrame(dup_rows, columns=["doc_id", "article_id", "number", "title", "display_label", "occurrence",
+                                    "count_same_number"]).to_csv(out / "duplicate_article_numbers.csv", index=False,
+                                                                 encoding="utf-8-sig")
     for col, name in [("loai_van_ban", "type"), ("linh_vuc", "domain"), ("year", "year"),
                       ("tinh_trang_hieu_luc", "status")]:
         D[col].value_counts(dropna=False).rename_axis(col).reset_index(name="n_docs").to_csv(

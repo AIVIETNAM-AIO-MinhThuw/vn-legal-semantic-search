@@ -1,0 +1,430 @@
+﻿doc_id,title,warning_groups,source_path,output_path,compared_range,source_evidence,parser_result,issue,possible_impact,automated_proposal,automated_evidence_level,n_stray_positions,table_summary,reviewer_name,review_date,review_result,review_note
+110446,"Thông tư số 148/2013/TT- BTC Hướng dẫn thi hành Quy chế kinh doanh bán hàng miễn thuế ban hành kèm theo Quyết định số 24/2009/QĐ-TTg ngày 17/02/2009 của Thủ tướng Chính phủ và Quyết định số 44/2013/QĐ-TTg ngày 19/7/2013 sửa đổi, bổ sung một số điều của Quy chế kinh doanh bán hàng miễn thuế ban hành kèm theo Quyết định số 24/2009/QĐ-TTg ngày 17/02/2009 của Thủ tướng Chính phủ",C,"data/raw/data/content.parquet (id = 110446, cột content_html); bản trích: data/processed/review_cache/110446.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 110446); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–207; 20 Điều parse; 2 vị trí ” thừa: L31, L34","[vị trí 1] L31 cột 34
+  ⌖ cửa sổ quanh ” thừa của L31 (cột 34): 8. Dán tem ‘‘VIETNAM DUTY NOT PAID” đối với những mặt hàng thuộc diện phải dán tem trước khi bày bán tại cửa hàng miễn thuế hoặc trước khi giao cho khách mua hàng trong trườn…
+ L29 [Đ3] b) Sao lưu, kết xuất dữ liệu để phục vụ công tác báo cáo, thống kê, lưu trữ.
+ L30 [Đ3] c) Kết nối trực tuyến với Chi cục Hải quan quản lý kinh doanh bán hàng miễn thuế để phục vụ công tác kiểm tra, kiểm soát.
+ L31 [Đ3] 8. Dán tem ‘‘VIETNAM DUTY NOT PAID” đối với những mặt hàng thuộc diện phải dán tem trước khi bày bán tại cửa hàng miễn thuế hoặc trước khi giao cho khách mua hàng trong …
+ L32 [Đ3] a) Vị trí dán tem đối với mặt hàng thuốc lá, rượu, bia thực hiện theo quy định tại Phụ lục ban hành kèm theo Thông tư này.
+ L33 [Đ3] b) Vị trí dán tem đối với mặt hàng khác giao Tổng cục Hải quan, Bộ Tài chính hướng dẫn cụ thể.
+
+[vị trí 2] L34 cột 253
+  ⌖ cửa sổ quanh ” thừa của L34 (cột 253): …uyển tiêu thụ nội địa, thương nhân thực hiện gỡ, hủy tem ‘‘VIETNAM DUTY NOT PAID” đã dán lên từng mặt hàng dưới sự giám sát của Chi cục Hải quan quản lý kinh doanh bán hàng miễn thuế.
+ L32 [Đ3] a) Vị trí dán tem đối với mặt hàng thuốc lá, rượu, bia thực hiện theo quy định tại Phụ lục ban hành kèm theo Thông tư này.
+ L33 [Đ3] b) Vị trí dán tem đối với mặt hàng khác giao Tổng cục Hải quan, Bộ Tài chính hướng dẫn cụ thể.
+ L34 [Đ3] 9. Trường hợp hàng hóa kinh doanh bán tại cửa hàng miễn thuế hết thời hạn tạm nhập, tạm xuất theo quy định tại khoản 2 Điều này, trước khi làm thủ tục tái xuất, tái nhập…
+ L35 [Đ3] 10. Hàng hóa đưa vào, đưa ra khỏi kho chứa hàng miễn thuế; đưa vào, bán ra khỏi cửa hàng miễn thuế phải được nạp thông tin vào chương trình quản lý kinh doanh bán hàng m…
+ L36 [Đ3] 11. Tổ chức thông tin cho người mua hàng về tiêu chuẩn miễn thuế đối với hàng hóa mua để nhập cảnh; thực hiện khuyến nghị người mua hàng miễn thuế về việc mua hàng trong…",L31 → Điều 3 — Trách nhiệm của thương nhân kinh doanh bán hàng m… [110446_003; trong index]; vùng trích không có; L34 → Điều 3 — Trách nhiệm của thương nhân kinh doanh bán hàng m… [110446_003; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L31: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L34: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,2,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+110990,Thông tư số 181/2015/TT-BTC Chế độ kế toán áp dụng đối với Quỹ Hoán đổi danh mục,A+C,"data/raw/data/content.parquet (id = 110990, cột content_html); bản trích: data/processed/review_cache/110990.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 110990); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–4729; 6 Điều parse; 11 vị trí ” thừa: L1306, L2629, L4204, L4207, L4209, L4211, L4213, L4215, L4217, L4219, L4221","[vị trí 1] L1306 cột 496
+  ⌖ cửa sổ quanh ” thừa của L1306 (cột 496): …ư làm cơ sở xác định đúng, chính xác Chỉ tiêu ‘Giá trị tài sản ròng của Quỹ ETF ” (NAV) tại kỳ xác định NAV hoặc cuối kỳ kế toán. Đồng thời xác định đúng đắn giá trị các khoản đầu tư của kỳ tính giá trị tài sản ròng (NAV…
+ L1304 [cắt] Chênh lệch tăng do đánh giá lại các khoản đầu tư phản ánh vào Chỉ tiêu “Thu nhập”, chi tiết “Chênh lệch tăng về đánh giá lại các khoản đầu tư”.
+ L1305 [cắt] Chênh lệch tăng hoặc giảm do đánh giá lại các khoản đầu tư thuộc Danh mục đầu tư của Quỹ ETF xác định lợi nhuận hoặc lỗ chưa thực hiện của kỳ (kỳ tính giá trị tài sản rò…
+ L1306 [cắt] 18. Đối với các khoản đầu tư thuộc Danh mục đầu tư của Quỹ ETF phát sinh cổ tức được chia hoặc tiền lãi được nhận tính trên giá trị mệnh giá của các khoản đầu tư (trái p…
+ L1307 [cắt] Nguyên tắc ghi nhận cổ tức được chia, tiền lãi được nhận theo quy định tại hướng dẫn Tài khoản 515 - Doanh thu hoạt động đầu tư.
+ L1308 [cắt] 19. Kế toán phải mở sổ chi tiết để theo dõi tách biệt sự biến động về số lượng và giá trị hiện có theo giá thị trường hoặc giá trị hợp lý (trong trường hợp không có giá …
+
+[vị trí 2] L2629 cột 185
+  ⌖ cửa sổ quanh ” thừa của L2629 (cột 185): …ộng Quỹ ETF, như: “Tỷ lệ chi phí hoạt động (%)” và Tốc độ vòng quay danh mục (%)” phải tuân thủ các quy định của pháp luật hiện hành về thành lập và quản lý Quỹ ETF và theo quy định của Chế độ kế toán Quỹ ETF, gồm:
+ L2627 [cắt] Phí phát hành hoặc phí hoán đổi lại Chứng chỉ Quỹ ETF và các chi phí khác phát sinh từ việc hoán đổi, bán Chứng chỉ quỹ.
+ L2628 [cắt] Các khoản cổ tức và các khoản phân phối khác đã trả cho Nhà đầu tư.
+ L2629 [cắt] 4. Những chi phí được tính vào chỉ tiêu “Chi phí hoạt động Quỹ ETF ” để tính các chỉ tiêu đánh giá hoạt động Quỹ ETF, như: “Tỷ lệ chi phí hoạt động (%)” và Tốc độ vòng q…
+ L2630 [cắt] 4.1. Chi phí hoán đổi các khoản đầu tư (TK 6322 - Chi phí giao dịch hoán đổi/mua các khoản đầu tư);
+ L2631 [cắt] 4.2. Chi phí giao dịch bán các khoản đầu tư (TK 641 - Chi phí giao dịch bán các khoản đầu tư);
+
+[vị trí 3] L4204 cột 414
+  ⌖ cửa sổ quanh ” thừa của L4204 (cột 414): …i phí hoạt động Quỹ ETF ” đối ứng với Bên Nợ TK 911 “Xác định kết quả kinh doanh” trong kỳ báo cáo trên sổ Cái.
+ L4202 [cắt] Chỉ tiêu này phản ánh chi phí đầu tư khác phải trả được tính vào chi phí đầu tư trong kỳ báo cáo. Số liệu để ghi vào Chỉ tiêu này được căn cứ vào TK 63599 “Chi phí đầu t…
+ L4203 [cắt] 1.3.16. Chi phí hoạt động Quỹ ETF (Mã số 20)
+ L4204 [cắt] Là Chỉ tiêu tổng hợp phản ánh các khoản chi phí quản lý liên quan đến hoạt động Quỹ ETF như phí quản lý Quỹ ETF, phí dịch vụ lưu ký, giám sát, quản trị Quỹ ETF, dịch vụ …
+ L4205 [cắt] Mã số 20 = Mã số 20.1+Mã số 20.2+ Mã số 20.3+Mã số 20.4+ Mã số 20.5+Mã số 20.6+ Mã số 20.7+Mã số 20.8+ Mã số 20.9+Mã số 20.10
+ L4206 [cắt] 1.3.16. Phí quản lý Quỹ ETF (Mã số 20.1)
+… (xem file vị trí chi tiết)",L1306 → phụ lục / biểu mẫu bị cắt; vùng trích không có; L2629 → phụ lục / biểu mẫu bị cắt; vùng trích L2629–L2629; L4204 → phụ lục / biểu mẫu bị cắt; vùng trích L4204–L4204; L4207 → phụ lục / biểu mẫu bị cắt; vùng trích L4207–L4207. Mất nội dung giữa các Điều: 0 dòng.,L1306: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L2629: vùng trích dẫn L2629–L2629 (1 dòng) không chứa tiêu đề Điều và thuộc một Điều; L4204: vùng trích dẫn L4204–L4204 (1 dòng) không chứa tiêu đề Điều và thuộc một Điều,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,11,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+153630,"Nghị định số 124/2021/NĐ-CP sửa đổi, bổ sung một số điều của Nghị định số 115/2018/NĐ-CP ngày 04 tháng 9 năm 2018 của Chính phủ quy định xử phạt vi phạm hành chính về an toàn thực phẩm và Nghị định số 117/2020/NĐ-CP ngày 28 tháng 9 năm 2020 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực y tế",A+C,"data/raw/data/content.parquet (id = 153630, cột content_html); bản trích: data/processed/review_cache/153630.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 153630); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–545; 5 Điều parse; 10 vị trí ” thừa: L37, L288, L316, L322, L367, L401, L404, L406, L408, L473","[vị trí 1] L37 cột 241
+  ⌖ cửa sổ quanh ” thừa của L37 (cột 241): … tiếp với thực phẩm không có giấy xác nhận tập huấn kiến thức an toàn thực phẩm;”;
+ L35 [Đ1] “d) Không duy trì bảo đảm vệ sinh nơi kinh doanh thực phẩm đã qua chế biến.”;
+ L36 [Đ1] d) Sửa đổi, bổ sung điểm đ khoản 3 như sau:
+ L37 [Đ1] ""đ) Sử dụng người trực tiếp sản xuất, kinh doanh thực phẩm, phụ gia thực phẩm, chất hỗ trợ chế biến thực phẩm, dụng cụ, vật liệu bao gói, chứa đựng tiếp xúc trực tiếp vớ…
+ L38 [Đ1] đ) Sửa đổi, bổ sung điểm d khoản 5 như sau:
+ L39 [Đ1] “d) Chủ cơ sở sản xuất, kinh doanh thực phẩm, phụ gia thực phẩm, chất hỗ trợ chế biến thực phẩm, dụng cụ, vật liệu bao gói, chứa đựng tiếp xúc trực tiếp với thực phẩm kh…
+
+[vị trí 2] L288 cột 0
+  ⌖ cửa sổ quanh ” thừa của L288 (cột 0): ”c) Không thực hiện thủ tục đăng ký thay đổi, bổ sung giấy đăng ký lưu hành với cơ quan nhà nước có thẩm quyền và được phê duyệt trước khi l…
+ L286 [Đ2] ""b) Không thực hiện thủ tục thông báo cho cơ quan nhà nước có thẩm quyền đối với các thay đổi nhỏ thuộc trường hợp yêu cầu thông báo trước khi lưu hành thuốc và nguyên l…
+ L287 [Đ2] b) Sửa đổi, bổ sung điểm c và d khoản 3 như sau:
+ L288 [Đ2] ”c) Không thực hiện thủ tục đăng ký thay đổi, bổ sung giấy đăng ký lưu hành với cơ quan nhà nước có thẩm quyền và được phê duyệt trước khi lưu hành thuốc, nguyên liệu là…
+ L289 [Đ2] d) Sản xuất và lưu hành thuốc, nguyên liệu làm thuốc có thay đổi so với hồ sơ đăng ký thuốc đã được phê duyệt mà pháp luật quy định phải thực hiện thủ tục cấp giấy đăng …
+ L290 [Đ2] c) Bổ sung khoản 6 vào sau khoản 5 như sau:
+
+[vị trí 3] L316 cột 0
+  ⌖ cửa sổ quanh ” thừa của L316 (cột 0): ”b) Không có khu vực riêng cho các sản phẩm không phải là thuốc hoặc không có biển hiệu tại khu vực riêng ghi rõ ""sản phẩm này không phải là…
+ L314 [Đ2] 16. Sửa đổi, bổ sung một số khoản của Điều 59 như sau:
+ L315 [Đ2] a) Sửa đổi, bổ sung điểm b khoản 2 như sau:
+ L316 [Đ2] ”b) Không có khu vực riêng cho các sản phẩm không phải là thuốc hoặc không có biển hiệu tại khu vực riêng ghi rõ ""sản phẩm này không phải là thuốc"" hoặc để lẫn sản phẩm …
+ L317 [Đ2] b) Sửa đổi, bổ sung các điểm đ và e khoản 3 như sau:
+ L318 [Đ2] “đ) Bán lẻ vắc xin;
+… (xem file vị trí chi tiết)","L37 → Điều 1 — Sửa đổi, bổ sung một số điều của Nghị định số 115… [153630_001; trong index]; vùng trích không có; L288 → Điều 2 — Sửa đổi, bổ sung một số điều của Nghị định số 117… [153630_002; trong index]; vùng trích không có; L316 → Điều 2 — Sửa đổi, bổ sung một số điều của Nghị định số 117… [153630_002; trong index]; vùng trích không có; L322 → Điều 2 — Sửa đổi, bổ sung một số điều của Nghị định số 117… [153630_002; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.",L37: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L288: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L316: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,10,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+154782,"Thông tư số 28/2022/TT-BTC Bãi bỏ Thông tư liên tịch số 129/2014/TTLT-BTC-BNV ngày 05 tháng 9 năm 2014 của Bộ Tài chính, Bộ Nội vụ quy định việc quản lý, sử dụng, quyết toán kinh phí ngân sách nhà nước bảo đảm thực hiện Đề án ""Sưu tầm tài liệu lưu trữ quý, hiếm của Việt Nam và về Việt Nam""",C,"data/raw/data/content.parquet (id = 154782, cột content_html); bản trích: data/processed/review_cache/154782.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 154782); logs/parse_anomalies.jsonl; logs/rejected.jsonl,dòng 1–14; 2 Điều parse; 1 vị trí ” thừa: L9,"[vị trí 1] L9 cột 347
+  ⌖ cửa sổ quanh ” thừa của L9 (cột 347): … thực hiện Đề án ""Sưu tầm tài liệu lưu trữ quý, hiếm của Việt Nam và về Việt Nam”.
+ L7 [đầu] Căn cứ Nghị định số 87/2017/NĐ-CP ngày 26 tháng 7 năm 2017 của Chính phủ quy định chức năng, nhiệm vụ, quyền hạn và cơ cấu tổ chức của Bộ Tài chính;
+ L8 [đầu] Theo đề nghị của Vụ trưởng Vụ Tài chính Hành chính sự nghiệp;
+ L9 [đầu] Sau khi có ý kiến thống nhất của Bộ Nội vụ, Bộ trưởng Bộ Tài chính ban hành Thông tư bãi bỏ Thông tư liên tịch số 129/2014/TTLT-BTC-BNV ngày 05 tháng 9 năm 2014 của Bộ T…
+▶L10 [Đ1] Điều 1. Bãi bỏ toàn bộ Thông tư liên tịch số 129/2014/TTLT-BTC-BNV ngày 05 tháng 9 năm 2014 của Bộ Tài chính và Bộ Nội vụ quy định việc quản lý, sử dụng, quyết toán kinh…
+▶L11 [Đ2] Điều 2. Điều khoản thi hành",L9 → không thuộc Điều nào (đầu văn bản); vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L9: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,1,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+170839,"NGHỊ ĐỊNH SỐ 129/2024/NĐ-CP SỬA ĐỔI, BỔ SUNG MỘT SỐ ĐIỀU CỦA NGHỊ ĐỊNH SỐ 91/2016/NĐ-CP NGÀY 01 THÁNG 7 NĂM 2016 CỦA CHÍNH PHỦ VỀ QUẢN LÝ HÓA CHẤT, CHẾ PHẨM DIỆT CÔN TRÙNG, DIỆT KHUẨN DÙNG TRONG LĨNH VỰC GIA DỤNG VÀ Y TẾ; NGHỊ ĐỊNH SỐ 155/2018/NĐ-CP NGÀY 12 THÁNG 11 NĂM 2018 CỦA CHÍNH PHỦ SỬA ĐỔI, BỔ SUNG MỘT SỐ QUY ĐỊNH LIÊN QUAN ĐẾN ĐIỀU KIỆN ĐẦU TƯ KINH DOANH THUỘC PHẠM VI QUẢN LÝ NHÀ NƯỚC CỦA BỘ Y TẾ",C,"data/raw/data/content.parquet (id = 170839, cột content_html); bản trích: data/processed/review_cache/170839.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 170839); logs/parse_anomalies.jsonl; logs/rejected.jsonl,dòng 1–282; 6 Điều parse; 1 vị trí ” thừa: L188,"[vị trí 1] L188 cột 128
+  ⌖ cửa sổ quanh ” thừa của L188 (cột 128): …ghi thời hạn hết hiệu lực thì thời điểm hết hiệu lực là 36 tháng kể từ ngày cấp.”
+ L186 [cắt] 3. Hiệu lực của Giấy chứng nhận lưu hành tự do
+ L187 [cắt] Hiệu lực của Giấy chứng nhận lưu hành tự do tối thiểu là 06 tháng kể từ ngày nộp hồ sơ đăng ký lưu hành. Trường hợp Giấy chứng nhận lưu hành tự do còn hiệu lực ít hơn 06…
+ L188 [cắt] Trường hợp Giấy chứng nhận lưu hành tự do không ghi thời hạn hết hiệu lực thì thời điểm hết hiệu lực là 36 tháng kể từ ngày cấp.”
+ L189 [cắt] 4. Hợp pháp hóa lãnh sự
+ L190 [cắt] Giấy chứng nhận lưu hành tự do phải được hợp pháp hóa lãnh sự theo quy định, trừ các trường hợp được miễn hợp pháp hóa lãnh sự như sau:",L188 → phụ lục / biểu mẫu bị cắt; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L188: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,1,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+173642,"Nghị định số 21/2024/NĐ-CP Sửa đổi, bổ sung một số điều của Nghị định số 51/2016/NĐ-CP ngày 13 tháng 6 năm 2016 của Chính phủ quy định quản lý lao động, tiền lương và tiền thưởng đối với người lao động làm việc trong công ty trách nhiệm hữu hạn một thành viên do Nhà nước nắm giữ 100% vốn điều lệ và Nghị định số 52/2016/NĐ-CP ngày 13 tháng 6 năm 2016 của Chính phủ quy định tiền lương, thù lao, tiền thưởng đối với người quản lý công ty trách nhiệm hữu hạn một thành viên do Nhà nước nắm giữ 100% vốn điều lệ",C,"data/raw/data/content.parquet (id = 173642, cột content_html); bản trích: data/processed/review_cache/173642.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 173642); logs/parse_anomalies.jsonl; logs/rejected.jsonl,dòng 1–79; 4 Điều parse; 1 vị trí ” thừa: L28,"[vị trí 1] L28 cột 1905
+  ⌖ cửa sổ quanh ” thừa của L28 (cột 1905): … môi trường, điều kiện khai thác khoáng sản đối với công ty khai thác khoáng sản”.
+ L26 [Đ1] 2. Sửa đổi, bổ sung điểm a và điểm b khoản 3 Điều 5 như sau:
+ L27 [Đ1] ""a) Nhà nước điều chỉnh giá, hạn mức sản xuất, kinh doanh (đối với sản phẩm, dịch vụ do Nhà nước định giá hoặc quy định hạn mức sản xuất, kinh doanh), ưu đãi thuế thu nh…
+ L28 [Đ1] b) Công ty tham gia thực hiện nhiệm vụ chính trị, an ninh quốc phòng, đảm bảo an sinh xã hội, cân đối cung cầu cho nền kinh tế theo quyết định của Thủ tướng Chính phủ; t…
+▶L29 [Đ2] Điều 2. Sửa đổi, bổ sung một số điều của Nghị định số 52/2016/NĐ-CP ngày 13 tháng 6 năm 2016 của Chính phủ quy định tiền lương, thù lao, tiền thưởng đối với người quản l…
+ L30 [Đ2] 1. Cụm từ ""người quản lý"" tại tên gọi và các cụm từ ""người quản lý"" hoặc ""người quản lý công ty"" trong các điều, khoản, Phụ lục của Nghị định được thay thế bằng cụm từ ""…",L28 → Điều 1 — <nội dung> [173642_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L28: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,1,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185602,"Thông tư số 53/2025/TT-BYT sửa đổi Thông tư 43/2025/TT-BYT hướng dẫn chức năng, nhiệm vụ, quyền hạn và cơ cấu tổ chức của Trạm Y tế xã, phường, đặc khu thuộc tỉnh, thành phố trực thuộc Trung ương",C,"data/raw/data/content.parquet (id = 185602, cột content_html); bản trích: data/processed/review_cache/185602.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185602); logs/parse_anomalies.jsonl; logs/rejected.jsonl,dòng 1–32; 2 Điều parse; 1 vị trí ” thừa: L28,"[vị trí 1] L28 cột 772
+  ⌖ cửa sổ quanh ” thừa của L28 (cột 772): …p giấy phép hoạt động mới và ký hợp đồng khám bệnh, chữa bệnh bảo hiểm y tế mới.”
+ L26 [Đ1] d) Mã cơ sở, con dấu của cơ sở, con dấu của cơ sở đứng tên ký hợp đồng khám bệnh, chữa bệnh bảo hiểm y tế trước ngày được sắp xếp, tổ chức lại, sáp nhập, thay đổi tên gọ…
+ L27 [Đ1] đ) Được gửi dữ liệu điện tử chậm tối đa không quá 07 ngày so với thời gian quy định tại Điều 6, Điều 7 Thông tư số 48/2017/TT-BYT ngày 28 tháng 12 năm 2017 của Bộ trưởng…
+ L28 [Đ1] e) Căn cứ yêu cầu thực tiễn tại địa phương, Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương quyết định giải pháp xử lý các tình huống phát sinh để bảo đảm duy trì …
+▶L29 [Đ2] Điều 2. Hiệu lực thi hành
+ L30 [Đ2] Thông tư này có hiệu lực kể từ ngày 01 tháng 01 năm 2026.","L28 → Điều 1 — Sửa đổi, bổ sung một số điều của Thông tư số 43/2… [185602_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.",L28: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,1,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185676,"Thông tư số 33/2025/TT-BXD Quy định về quản lý, khai thác vận tải đường sắt",A+C,"data/raw/data/content.parquet (id = 185676, cột content_html); bản trích: data/processed/review_cache/185676.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185676); logs/parse_anomalies.jsonl; logs/rejected.jsonl,dòng 1–3269; 204 Điều parse; 1 vị trí ” thừa: L1911,"[vị trí 1] L1911 cột 123
+  ⌖ cửa sổ quanh ” thừa của L1911 (cột 123): … gia” hoặc đường sắt chuyên dùng”, “đường sắt địa phương” hoặc “đường sắt đô thị”
+ L1909 [cắt] Ghi chú:
+ L1910 [cắt] - Mục “Giấy phép lái ...” phải ghi rõ loại giấy phép lái tàu được quy định tại khoản 1 Điều 56 Thông tư này;
+ L1911 [cắt] - Mục “Trên: …” phải ghi rõ “đường sắt quốc gia” hoặc đường sắt chuyên dùng”, “đường sắt địa phương” hoặc “đường sắt đô thị”
+ L1912 [cắt] 2. Mặt sau
+ L1913 [cắt] Ghi chú: Hướng dẫn sử dụng giấy phép lái tàu và các thông tin liên quan khác nếu có",L1911 → phụ lục / biểu mẫu bị cắt; vùng trích L1911–L1911. Mất nội dung giữa các Điều: 0 dòng.,L1911: vùng trích dẫn L1911–L1911 (1 dòng) không chứa tiêu đề Điều và thuộc một Điều,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,1,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185691,"Thông tư số 46/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận thành phố Đà Nẵng và khu vực quản lý của Cảng vụ Hàng hải Đà Nẵng",C,"data/raw/data/content.parquet (id = 185691, cột content_html); bản trích: data/processed/review_cache/185691.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185691); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–110; 4 Điều parse; 46 vị trí ” thừa: L32, L33, L34, L35, L36, L38, L39, L40, L41, L42, L46, L47, L48, L49, L70, L71, L72, L73, L74, L75, L76, L77, L78, L82, L83, L84, L85, L89, L90, L91, L92, L93, L94, L95, L96, L97, L98, L99, L100, L101, L102, L103, L107, L108, L109, L110","[vị trí 1] L32 cột 15
+  ⌖ cửa sổ quanh ” thừa của L32 (cột 15): KH1: 15º30’21,8”N, 108º37’53,5”E;
+ L30 [Đ1] a) Ranh giới về phía biển:
+ L31 [Đ1] Được giới hạn bởi các đoạn thẳng nối lần lượt các điểm KH1, KH2, KH3, KH4, KH5 có tọa độ như sau:
+ L32 [Đ1] KH1: 15º30’21,8”N, 108º37’53,5”E;
+ L33 [Đ1] KH2: 15º34’09,8”N, 108º37’53,5”E;
+ L34 [Đ1] KH3: 15º34’09,8”N, 108º43’23,5”E;
+
+[vị trí 2] L33 cột 15
+  ⌖ cửa sổ quanh ” thừa của L33 (cột 15): KH2: 15º34’09,8”N, 108º37’53,5”E;
+ L31 [Đ1] Được giới hạn bởi các đoạn thẳng nối lần lượt các điểm KH1, KH2, KH3, KH4, KH5 có tọa độ như sau:
+ L32 [Đ1] KH1: 15º30’21,8”N, 108º37’53,5”E;
+ L33 [Đ1] KH2: 15º34’09,8”N, 108º37’53,5”E;
+ L34 [Đ1] KH3: 15º34’09,8”N, 108º43’23,5”E;
+ L35 [Đ1] KH4: 15º27’03,7”N, 108º43’23,5”E;
+
+[vị trí 3] L34 cột 15
+  ⌖ cửa sổ quanh ” thừa của L34 (cột 15): KH3: 15º34’09,8”N, 108º43’23,5”E;
+ L32 [Đ1] KH1: 15º30’21,8”N, 108º37’53,5”E;
+ L33 [Đ1] KH2: 15º34’09,8”N, 108º37’53,5”E;
+ L34 [Đ1] KH3: 15º34’09,8”N, 108º43’23,5”E;
+ L35 [Đ1] KH4: 15º27’03,7”N, 108º43’23,5”E;
+ L36 [Đ1] KH5: 15º27’03,7”N, 108º41’45,5”E.
+… (xem file vị trí chi tiết)",L32 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185691_001; trong index]; vùng trích không có; L33 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185691_001; trong index]; vùng trích không có; L34 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185691_001; trong index]; vùng trích không có; L35 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185691_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L32: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L33: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L34: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,46,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185692,"Thông tư số 47/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận tỉnh Gia Lai, tỉnh Đắk Lắk và khu vực quản lý của Cảng vụ Hàng hải Quy Nhơn",C,"data/raw/data/content.parquet (id = 185692, cột content_html); bản trích: data/processed/review_cache/185692.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185692); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–105; 5 Điều parse; 48 vị trí ” thừa: L16, L17, L18, L19, L20, L21, L22, L25, L26, L27, L28, L35, L36, L37, L38, L39, L40, L44, L45, L46, L48, L49, L50, L51, L73, L74, L75, L76, L77, L78, L79, L83, L84, L85, L86, L90, L91, L92, L93, L94, L95, L99, L100, L101, L102, L103, L104, L105","[vị trí 1] L16 cột 15
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 15): QN1: 13°45’05,7”N, 109°17’08,5”E;
+ L14 [Đ1] 1. Khu vực Quy Nhơn - Thị Nại - Đống Đa với phạm vi:
+ L15 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm QN1, QN2, QN3, QN4 và QN5 có các tọa độ sau đây:
+ L16 [Đ1] QN1: 13°45’05,7”N, 109°17’08,5”E;
+ L17 [Đ1] QN2: 13°45’15,7”N, 109°19’53,5”E;
+ L18 [Đ1] QN3: 13°41’09,7”N; 109°19’53,5”E;
+
+[vị trí 2] L17 cột 15
+  ⌖ cửa sổ quanh ” thừa của L17 (cột 15): QN2: 13°45’15,7”N, 109°19’53,5”E;
+ L15 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm QN1, QN2, QN3, QN4 và QN5 có các tọa độ sau đây:
+ L16 [Đ1] QN1: 13°45’05,7”N, 109°17’08,5”E;
+ L17 [Đ1] QN2: 13°45’15,7”N, 109°19’53,5”E;
+ L18 [Đ1] QN3: 13°41’09,7”N; 109°19’53,5”E;
+ L19 [Đ1] QN4: 13°41’09,7”N; 109°14’59,5”E;
+
+[vị trí 3] L18 cột 15
+  ⌖ cửa sổ quanh ” thừa của L18 (cột 15): QN3: 13°41’09,7”N; 109°19’53,5”E;
+ L16 [Đ1] QN1: 13°45’05,7”N, 109°17’08,5”E;
+ L17 [Đ1] QN2: 13°45’15,7”N, 109°19’53,5”E;
+ L18 [Đ1] QN3: 13°41’09,7”N; 109°19’53,5”E;
+ L19 [Đ1] QN4: 13°41’09,7”N; 109°14’59,5”E;
+ L20 [Đ1] QN5: 13°41’18,7”N; 109°13’51,5”E.
+… (xem file vị trí chi tiết)",L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh G… [185692_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh G… [185692_001; trong index]; vùng trích không có; L18 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh G… [185692_001; trong index]; vùng trích không có; L19 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh G… [185692_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L17: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L18: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,48,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185693,"Thông tư số 48/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận tỉnh Hưng Yên, tỉnh Ninh Bình và khu vực quản lý của Cảng vụ Hàng hải Thái Bình",C,"data/raw/data/content.parquet (id = 185693, cột content_html); bản trích: data/processed/review_cache/185693.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185693); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–98; 5 Điều parse; 42 vị trí ” thừa: L15, L16, L17, L18, L19, L20, L23, L24, L25, L26, L27, L31, L32, L33, L34, L39, L40, L41, L42, L43, L44, L65, L66, L67, L68, L69, L73, L77, L78, L79, L80, L81, L85, L86, L87, L88, L93, L94, L95, L96, L97, L98","[vị trí 1] L15 cột 15
+  ⌖ cửa sổ quanh ” thừa của L15 (cột 15): HY1: 20°33’55,8”N, 106°35’05,9”E;
+ L13 [Đ1] 1. Khu vực Diêm Điền - Trà Lý với phạm vi:
+ L14 [Đ1] Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm theo thứ tự HY1, HY2, HY3, HY4 và HY5 có tọa độ sau đây:
+ L15 [Đ1] HY1: 20°33’55,8”N, 106°35’05,9”E;
+ L16 [Đ1] HY2: 20°30’35,2”N, 106°44’15,3”E;
+ L17 [Đ1] HY3: 20°24’26,1”N, 106°44’15,3”E;
+
+[vị trí 2] L16 cột 15
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 15): HY2: 20°30’35,2”N, 106°44’15,3”E;
+ L14 [Đ1] Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm theo thứ tự HY1, HY2, HY3, HY4 và HY5 có tọa độ sau đây:
+ L15 [Đ1] HY1: 20°33’55,8”N, 106°35’05,9”E;
+ L16 [Đ1] HY2: 20°30’35,2”N, 106°44’15,3”E;
+ L17 [Đ1] HY3: 20°24’26,1”N, 106°44’15,3”E;
+ L18 [Đ1] HY4: 20°24’26,1”N, 106°39’35,0”E;
+
+[vị trí 3] L17 cột 15
+  ⌖ cửa sổ quanh ” thừa của L17 (cột 15): HY3: 20°24’26,1”N, 106°44’15,3”E;
+ L15 [Đ1] HY1: 20°33’55,8”N, 106°35’05,9”E;
+ L16 [Đ1] HY2: 20°30’35,2”N, 106°44’15,3”E;
+ L17 [Đ1] HY3: 20°24’26,1”N, 106°44’15,3”E;
+ L18 [Đ1] HY4: 20°24’26,1”N, 106°39’35,0”E;
+ L19 [Đ1] HY5: 20°27’56,5”N, 106°35’41,0”E.
+… (xem file vị trí chi tiết)",L15 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh H… [185693_001; trong index]; vùng trích không có; L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh H… [185693_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh H… [185693_001; trong index]; vùng trích không có; L18 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh H… [185693_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L15: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L17: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,42,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185694,"Thông tư số 50/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận tỉnh Quảng Ninh và khu vực quản lý của Cảng vụ Hàng hải Quảng Ninh",C,"data/raw/data/content.parquet (id = 185694, cột content_html); bản trích: data/processed/review_cache/185694.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185694); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–344; 4 Điều parse; 264 vị trí ” thừa: L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, L26, L27, L28, L29, L30, L31, L32, L33, L34, L35, L36, L37, L40, L41, L42, L43, L45, L46, L47, L48, L49, L50, L51, L53, L54, L55, L56, L57, L58, L59, L62, L63, L64, L65, L66, L69, L70, L71, L72, L73, L74, L75, L76, L77, L78, L79, L80, L81, L82, L83, L84, L85, L86, L87, L88, L89, L90, L91, L92, L93, L94, L95, L96, L97, L98, L99, L100, L101, L102, L103, L104, L105, L107, L108, L109, L110, L113, L115, L116, L117, L118, L119, L120, L121, L122, L123, L124, L125, L126, L127, L128, L129, L130, L131, L132, L133, L134, L135, L136, L137, L139, L140, L141, L142, L143, L146, L147, L148, L149, L151, L152, L153, L154, L170, L171, L172, L175, L189, L190, L191, L192, L193, L194, L195, L196, L197, L198, L199, L200, L201, L202, L203, L204, L205, L206, L207, L208, L209, L210, L211, L212, L216, L217, L218, L219, L220, L221, L222, L223, L224, L225, L226, L227, L228, L229, L230, L231, L232, L233, L237, L238, L239, L240, L241, L242, L246, L247, L248, L249, L250, L251, L252, L253, L254, L255, L256, L257, L258, L259, L260, L261, L262, L263, L264, L265, L266, L267, L268, L269, L270, L271, L272, L273, L274, L275, L276, L277, L278, L279, L280, L281, L282, L283, L284, L288, L289, L290, L291, L292, L296, L297, L298, L299, L300, L301, L302, L303, L304, L305, L306, L307, L308, L309, L310, L311, L312, L313, L314, L315, L316, L317, L318, L319, L320, L321, L322, L323, L324, L325, L329, L330, L331, L332, L333, L334, L335, L336, L337, L341, L342, L343, L344","[vị trí 1] L14 cột 36
+  ⌖ cửa sổ quanh ” thừa của L14 (cột 36): a) Từ điểm VH1 có tọa độ: 21°24’40,0”N, 108°01’10,0”E nối bằng các đoạn thẳng lần lượt tới các điểm theo thứ tự từ VH2 đến VH5 có tọa độ như sau:
+ L12 [Đ1] Vùng nước cảng biển thuộc địa phận tỉnh Quảng Ninh tính theo mực nước thủy triều lớn nhất bao gồm các khu vực sau:
+ L13 [Đ1] 1. Khu vực Vạn Gia - Hải Hà với phạm vi:
+ L14 [Đ1] a) Từ điểm VH1 có tọa độ: 21°24’40,0”N, 108°01’10,0”E nối bằng các đoạn thẳng lần lượt tới các điểm theo thứ tự từ VH2 đến VH5 có tọa độ như sau:
+ L15 [Đ1] VH2: 21°24’52,1”N, 108°03’35,3”E;
+ L16 [Đ1] VH3: 21°18’03,6”N, 108°03’35,3”E;
+
+[vị trí 2] L15 cột 15
+  ⌖ cửa sổ quanh ” thừa của L15 (cột 15): VH2: 21°24’52,1”N, 108°03’35,3”E;
+ L13 [Đ1] 1. Khu vực Vạn Gia - Hải Hà với phạm vi:
+ L14 [Đ1] a) Từ điểm VH1 có tọa độ: 21°24’40,0”N, 108°01’10,0”E nối bằng các đoạn thẳng lần lượt tới các điểm theo thứ tự từ VH2 đến VH5 có tọa độ như sau:
+ L15 [Đ1] VH2: 21°24’52,1”N, 108°03’35,3”E;
+ L16 [Đ1] VH3: 21°18’03,6”N, 108°03’35,3”E;
+ L17 [Đ1] VH4: 21°18’03,6”N, 107°59’53,2”E;
+
+[vị trí 3] L16 cột 15
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 15): VH3: 21°18’03,6”N, 108°03’35,3”E;
+ L14 [Đ1] a) Từ điểm VH1 có tọa độ: 21°24’40,0”N, 108°01’10,0”E nối bằng các đoạn thẳng lần lượt tới các điểm theo thứ tự từ VH2 đến VH5 có tọa độ như sau:
+ L15 [Đ1] VH2: 21°24’52,1”N, 108°03’35,3”E;
+ L16 [Đ1] VH3: 21°18’03,6”N, 108°03’35,3”E;
+ L17 [Đ1] VH4: 21°18’03,6”N, 107°59’53,2”E;
+ L18 [Đ1] VH5: 21°23’45,6”N, 107°59’53,2”E.
+… (xem file vị trí chi tiết)",L14 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh Q… [185694_001; trong index]; vùng trích không có; L15 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh Q… [185694_001; trong index]; vùng trích không có; L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh Q… [185694_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh Q… [185694_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L14: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L15: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,264,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185695,"Thông tư số 49/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận thành phố Hải Phòng và khu vực quản lý của Cảng vụ Hàng hải Hải Phòng",C,"data/raw/data/content.parquet (id = 185695, cột content_html); bản trích: data/processed/review_cache/185695.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185695); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–103; 4 Điều parse; 61 vị trí ” thừa: L15, L16, L17, L18, L19, L20, L21, L23, L24, L25, L26, L27, L28, L29, L30, L31, L32, L33, L35, L36, L37, L38, L39, L40, L41, L42, L51, L52, L53, L55, L70, L71, L72, L73, L74, L75, L76, L77, L78, L79, L80, L81, L82, L83, L84, L85, L86, L87, L88, L89, L90, L91, L92, L93, L94, L95, L96, L100, L101, L102, L103","[vị trí 1] L15 cột 15
+  ⌖ cửa sổ quanh ” thừa của L15 (cột 15): HP1: 20°46’40,7”N, 106°48’40,2”E;
+ L13 [Đ1] Vùng nước cảng biển thuộc địa phận thành phố Hải Phòng tính theo mực nước thủy triều lớn nhất bao gồm vùng nước tại khu vực sông Văn Úc, Nam Đồ Sơn, Đông Bắc cửa sông Th…
+ L14 [Đ1] 1. Ranh giới về phía biển: Được giới hạn bởi các đoạn thẳng nối lần lượt các điểm HP1, HP2, HP3 và HP4 có tọa độ sau đây:
+ L15 [Đ1] HP1: 20°46’40,7”N, 106°48’40,2”E;
+ L16 [Đ1] HP2: 20°37’53,4”N, 106°48’40,2”E;
+ L17 [Đ1] HP3: 20°41’39,8”N, 106°44’34,8”E;
+
+[vị trí 2] L16 cột 15
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 15): HP2: 20°37’53,4”N, 106°48’40,2”E;
+ L14 [Đ1] 1. Ranh giới về phía biển: Được giới hạn bởi các đoạn thẳng nối lần lượt các điểm HP1, HP2, HP3 và HP4 có tọa độ sau đây:
+ L15 [Đ1] HP1: 20°46’40,7”N, 106°48’40,2”E;
+ L16 [Đ1] HP2: 20°37’53,4”N, 106°48’40,2”E;
+ L17 [Đ1] HP3: 20°41’39,8”N, 106°44’34,8”E;
+ L18 [Đ1] HP4: 20°40’33,5”N, 106°43’24,8”E;
+
+[vị trí 3] L17 cột 15
+  ⌖ cửa sổ quanh ” thừa của L17 (cột 15): HP3: 20°41’39,8”N, 106°44’34,8”E;
+ L15 [Đ1] HP1: 20°46’40,7”N, 106°48’40,2”E;
+ L16 [Đ1] HP2: 20°37’53,4”N, 106°48’40,2”E;
+ L17 [Đ1] HP3: 20°41’39,8”N, 106°44’34,8”E;
+ L18 [Đ1] HP4: 20°40’33,5”N, 106°43’24,8”E;
+ L19 [Đ1] Từ điểm HP4 chạy dọc theo bờ sông Văn Úc đến điểm HP5 có tọa độ: 20°44’43,3”N, 106°34’33,9”E (cách chân cầu Khuể 200 mét về phía hạ lưu);
+… (xem file vị trí chi tiết)",L15 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185695_001; trong index]; vùng trích không có; L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185695_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185695_001; trong index]; vùng trích không có; L18 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185695_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L15: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L17: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,61,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185696,"Thông tư số 51/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận tỉnh Quảng Trị và khu vực quản lý của Cảng vụ Hàng hải Quảng Trị",C,"data/raw/data/content.parquet (id = 185696, cột content_html); bản trích: data/processed/review_cache/185696.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185696); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–90; 4 Điều parse; 40 vị trí ” thừa: L14, L15, L16, L17, L21, L22, L23, L24, L25, L28, L29, L30, L31, L32, L33, L36, L37, L38, L39, L61, L62, L63, L64, L68, L69, L70, L71, L72, L73, L77, L78, L79, L80, L81, L82, L83, L87, L88, L89, L90","[vị trí 1] L14 cột 15
+  ⌖ cửa sổ quanh ” thừa của L14 (cột 15): HL1: 17°57’39,1”N, 106°30’33,1”E;
+ L12 [Đ1] 1. Khu vực Hòn La với phạm vi:
+ L13 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm HL1, HL2, HL3 và HL4 có tọa độ sau đây:
+ L14 [Đ1] HL1: 17°57’39,1”N, 106°30’33,1”E;
+ L15 [Đ1] HL2: 17°57’39,1”N, 106°34’10,4”E;
+ L16 [Đ1] HL3: 17°53’03,6”N, 106°34’10,4”E;
+
+[vị trí 2] L15 cột 15
+  ⌖ cửa sổ quanh ” thừa của L15 (cột 15): HL2: 17°57’39,1”N, 106°34’10,4”E;
+ L13 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm HL1, HL2, HL3 và HL4 có tọa độ sau đây:
+ L14 [Đ1] HL1: 17°57’39,1”N, 106°30’33,1”E;
+ L15 [Đ1] HL2: 17°57’39,1”N, 106°34’10,4”E;
+ L16 [Đ1] HL3: 17°53’03,6”N, 106°34’10,4”E;
+ L17 [Đ1] HL4: 17°53’03,6”N, 106°27’35,7”E.
+
+[vị trí 3] L16 cột 15
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 15): HL3: 17°53’03,6”N, 106°34’10,4”E;
+ L14 [Đ1] HL1: 17°57’39,1”N, 106°30’33,1”E;
+ L15 [Đ1] HL2: 17°57’39,1”N, 106°34’10,4”E;
+ L16 [Đ1] HL3: 17°53’03,6”N, 106°34’10,4”E;
+ L17 [Đ1] HL4: 17°53’03,6”N, 106°27’35,7”E.
+ L18 [Đ1] b) Ranh giới về phía đất liền: được giới hạn từ điểm HL4 chạy theo mép nước dọc bờ biển xã Phú Trạch về phía Bắc đến điểm HL1.
+… (xem file vị trí chi tiết)",L14 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh Q… [185696_001; trong index]; vùng trích không có; L15 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh Q… [185696_001; trong index]; vùng trích không có; L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh Q… [185696_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh Q… [185696_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L14: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L15: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,40,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185697,"Thông tư số 52/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận tỉnh Thanh Hóa và khu vực quản lý của Cảng vụ Hàng hải Thanh Hóa",C,"data/raw/data/content.parquet (id = 185697, cột content_html); bản trích: data/processed/review_cache/185697.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185697); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–81; 4 Điều parse; 42 vị trí ” thừa: L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L26, L27, L30, L31, L32, L33, L34, L35, L36, L37, L38, L58, L59, L60, L61, L62, L63, L64, L65, L66, L67, L68, L69, L73, L74, L75, L76, L77, L78, L79, L80, L81","[vị trí 1] L14 cột 15
+  ⌖ cửa sổ quanh ” thừa của L14 (cột 15): LM1: 19°46’40,2”N, 105°55’44,6”E (điểm nhô ra xa nhất của cửa Lạch Trào - sông Mã về phía Nam);
+ L12 [Đ1] 1. Khu vực Lệ Môn - Lạch Sung với phạm vi:
+ L13 [Đ1] a) Ranh giới về phía biển được giới hạn bởi các đoạn thẳng nối lần lượt các điểm LM1, LM2, LM3, LM4 và LM5, LM6, LM9, LM10, LM11, LM12 có các tọa độ sau đây:
+ L14 [Đ1] LM1: 19°46’40,2”N, 105°55’44,6”E (điểm nhô ra xa nhất của cửa Lạch Trào - sông Mã về phía Nam);
+ L15 [Đ1] LM2: 19°45’12,0”N, 106°00’00,0”E;
+ L16 [Đ1] LM3: 19°45’12,3”N, 106°02’52,3”E;
+
+[vị trí 2] L15 cột 15
+  ⌖ cửa sổ quanh ” thừa của L15 (cột 15): LM2: 19°45’12,0”N, 106°00’00,0”E;
+ L13 [Đ1] a) Ranh giới về phía biển được giới hạn bởi các đoạn thẳng nối lần lượt các điểm LM1, LM2, LM3, LM4 và LM5, LM6, LM9, LM10, LM11, LM12 có các tọa độ sau đây:
+ L14 [Đ1] LM1: 19°46’40,2”N, 105°55’44,6”E (điểm nhô ra xa nhất của cửa Lạch Trào - sông Mã về phía Nam);
+ L15 [Đ1] LM2: 19°45’12,0”N, 106°00’00,0”E;
+ L16 [Đ1] LM3: 19°45’12,3”N, 106°02’52,3”E;
+ L17 [Đ1] LM4: 19°51’11,4”N, 106°02’54,7”E;
+
+[vị trí 3] L16 cột 15
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 15): LM3: 19°45’12,3”N, 106°02’52,3”E;
+ L14 [Đ1] LM1: 19°46’40,2”N, 105°55’44,6”E (điểm nhô ra xa nhất của cửa Lạch Trào - sông Mã về phía Nam);
+ L15 [Đ1] LM2: 19°45’12,0”N, 106°00’00,0”E;
+ L16 [Đ1] LM3: 19°45’12,3”N, 106°02’52,3”E;
+ L17 [Đ1] LM4: 19°51’11,4”N, 106°02’54,7”E;
+ L18 [Đ1] LM5: 19°52’24,8”N, 106°01’19,4”E;
+… (xem file vị trí chi tiết)",L14 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh T… [185697_001; trong index]; vùng trích không có; L15 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh T… [185697_001; trong index]; vùng trích không có; L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh T… [185697_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh T… [185697_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L14: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L15: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,42,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185698,"Thông tư số 53/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận thành phố Huế và khu vực quản lý của Cảng vụ Hàng hải Thừa Thiên Huế",C,"data/raw/data/content.parquet (id = 185698, cột content_html); bản trích: data/processed/review_cache/185698.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185698); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–81; 4 Điều parse; 32 vị trí ” thừa: L16, L17, L18, L19, L23, L24, L25, L26, L28, L29, L30, L31, L35, L36, L37, L38, L60, L61, L62, L63, L67, L68, L69, L70, L71, L72, L73, L74, L78, L79, L80, L81","[vị trí 1] L16 cột 15
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 15): PĐ1: 16º42’11,7”N, 107º26’23,4”E;
+ L14 [Đ1] 1. Khu vực Phong Điền với phạm vi:
+ L15 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm PĐ1, PĐ2, PĐ3 và PĐ4 có tọa độ như sau:
+ L16 [Đ1] PĐ1: 16º42’11,7”N, 107º26’23,4”E;
+ L17 [Đ1] PĐ2: 16º43’45,7”N, 107º27’44,4”E;
+ L18 [Đ1] PĐ3: 16º42’02,7”N, 107º29’54,4”E;
+
+[vị trí 2] L17 cột 15
+  ⌖ cửa sổ quanh ” thừa của L17 (cột 15): PĐ2: 16º43’45,7”N, 107º27’44,4”E;
+ L15 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm PĐ1, PĐ2, PĐ3 và PĐ4 có tọa độ như sau:
+ L16 [Đ1] PĐ1: 16º42’11,7”N, 107º26’23,4”E;
+ L17 [Đ1] PĐ2: 16º43’45,7”N, 107º27’44,4”E;
+ L18 [Đ1] PĐ3: 16º42’02,7”N, 107º29’54,4”E;
+ L19 [Đ1] PĐ4: 16º40’28,7”N, 107º28’34,4”E.
+
+[vị trí 3] L18 cột 15
+  ⌖ cửa sổ quanh ” thừa của L18 (cột 15): PĐ3: 16º42’02,7”N, 107º29’54,4”E;
+ L16 [Đ1] PĐ1: 16º42’11,7”N, 107º26’23,4”E;
+ L17 [Đ1] PĐ2: 16º43’45,7”N, 107º27’44,4”E;
+ L18 [Đ1] PĐ3: 16º42’02,7”N, 107º29’54,4”E;
+ L19 [Đ1] PĐ4: 16º40’28,7”N, 107º28’34,4”E.
+ L20 [Đ1] b) Ranh giới về phía đất liền: từ điểm PĐ1 chạy dọc theo bờ biển về phía Nam đến điểm PĐ4.
+… (xem file vị trí chi tiết)",L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185698_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185698_001; trong index]; vùng trích không có; L18 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185698_001; trong index]; vùng trích không có; L19 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận thành … [185698_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L17: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L18: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,32,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185699,"Thông tư số 54/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận tỉnh Hà Tĩnh và khu vực quản lý của Cảng vụ Hàng hải Hà Tĩn",C,"data/raw/data/content.parquet (id = 185699, cột content_html); bản trích: data/processed/review_cache/185699.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185699); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–51; 4 Điều parse; 13 vị trí ” thừa: L15, L16, L17, L18, L19, L22, L42, L43, L44, L45, L46, L50, L51","[vị trí 1] L15 cột 12
+  ⌖ cửa sổ quanh ” thừa của L15 (cột 12): A1: 18°06’33”N, 106°21’50”E;
+ L13 [Đ1] 1. Khu vực Vũng Áng - Sơn Dương với phạm vi:
+ L14 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm A1, A2, A3, A4 và A5 có tọa độ sau đây:
+ L15 [Đ1] A1: 18°06’33”N, 106°21’50”E;
+ L16 [Đ1] A2: 18°12’35”N, 106°21’50”E;
+ L17 [Đ1] A3: 18°12’35”N, 106°31’10”E;
+
+[vị trí 2] L16 cột 12
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 12): A2: 18°12’35”N, 106°21’50”E;
+ L14 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm A1, A2, A3, A4 và A5 có tọa độ sau đây:
+ L15 [Đ1] A1: 18°06’33”N, 106°21’50”E;
+ L16 [Đ1] A2: 18°12’35”N, 106°21’50”E;
+ L17 [Đ1] A3: 18°12’35”N, 106°31’10”E;
+ L18 [Đ1] A4: 18°00’00”N, 106°31’10”E;
+
+[vị trí 3] L17 cột 12
+  ⌖ cửa sổ quanh ” thừa của L17 (cột 12): A3: 18°12’35”N, 106°31’10”E;
+ L15 [Đ1] A1: 18°06’33”N, 106°21’50”E;
+ L16 [Đ1] A2: 18°12’35”N, 106°21’50”E;
+ L17 [Đ1] A3: 18°12’35”N, 106°31’10”E;
+ L18 [Đ1] A4: 18°00’00”N, 106°31’10”E;
+ L19 [Đ1] A5: 18°00’00”N, 106°28’01”E.
+… (xem file vị trí chi tiết)",L15 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh H… [185699_001; trong index]; vùng trích không có; L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh H… [185699_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh H… [185699_001; trong index]; vùng trích không có; L18 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh H… [185699_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L15: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L17: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,13,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185701,"Thông tư số 56/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận tỉnh Nghệ An và khu vực quản lý của Cảng vụ Hàng hải Nghệ An",C,"data/raw/data/content.parquet (id = 185701, cột content_html); bản trích: data/processed/review_cache/185701.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185701); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–65; 4 Điều parse; 26 vị trí ” thừa: L16, L17, L18, L19, L20, L21, L24, L25, L26, L27, L28, L29, L31, L50, L51, L52, L53, L54, L55, L56, L60, L61, L62, L63, L64, L65","[vị trí 1] L16 cột 15
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 15): ĐH1: 19°17’16,6”N, 105°48’10,3”E;
+ L14 [Đ1] 1. Khu vực Đông Hồi với phạm vi:
+ L15 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm từ ĐH1 đến ĐH5, có các tọa độ như sau:
+ L16 [Đ1] ĐH1: 19°17’16,6”N, 105°48’10,3”E;
+ L17 [Đ1] ĐH2: 19°16’31,6”N, 105°50’24,3”E;
+ L18 [Đ1] ĐH3: 19°13’21,6”N, 105°53’05,3”E;
+
+[vị trí 2] L17 cột 15
+  ⌖ cửa sổ quanh ” thừa của L17 (cột 15): ĐH2: 19°16’31,6”N, 105°50’24,3”E;
+ L15 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm từ ĐH1 đến ĐH5, có các tọa độ như sau:
+ L16 [Đ1] ĐH1: 19°17’16,6”N, 105°48’10,3”E;
+ L17 [Đ1] ĐH2: 19°16’31,6”N, 105°50’24,3”E;
+ L18 [Đ1] ĐH3: 19°13’21,6”N, 105°53’05,3”E;
+ L19 [Đ1] ĐH4: 19°12’21,6”N, 105°53’05,3”E;
+
+[vị trí 3] L18 cột 15
+  ⌖ cửa sổ quanh ” thừa của L18 (cột 15): ĐH3: 19°13’21,6”N, 105°53’05,3”E;
+ L16 [Đ1] ĐH1: 19°17’16,6”N, 105°48’10,3”E;
+ L17 [Đ1] ĐH2: 19°16’31,6”N, 105°50’24,3”E;
+ L18 [Đ1] ĐH3: 19°13’21,6”N, 105°53’05,3”E;
+ L19 [Đ1] ĐH4: 19°12’21,6”N, 105°53’05,3”E;
+ L20 [Đ1] ĐH5: 19°12’21,6”N, 105°43’59,3”E.
+… (xem file vị trí chi tiết)",L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh N… [185701_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh N… [185701_001; trong index]; vùng trích không có; L18 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh N… [185701_001; trong index]; vùng trích không có; L19 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh N… [185701_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L17: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L18: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,26,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+185706,"Thông tư số 61/2025/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận tỉnh Khánh Hòa và khu vực quản lý của Cảng vụ Hàng hải Nha Trang",C,"data/raw/data/content.parquet (id = 185706, cột content_html); bản trích: data/processed/review_cache/185706.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 185706); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–153; 4 Điều parse; 85 vị trí ” thừa: L15, L16, L17, L19, L20, L24, L25, L27, L28, L29, L33, L34, L35, L38, L39, L40, L41, L42, L43, L44, L47, L48, L49, L50, L51, L52, L53, L56, L57, L58, L59, L60, L63, L64, L65, L67, L70, L71, L72, L99, L100, L101, L102, L103, L104, L105, L106, L107, L108, L109, L110, L111, L112, L113, L114, L115, L116, L117, L118, L119, L120, L121, L122, L123, L124, L125, L129, L130, L131, L132, L133, L137, L138, L139, L140, L141, L142, L143, L147, L148, L149, L150, L151, L152, L153","[vị trí 1] L15 cột 15
+  ⌖ cửa sổ quanh ” thừa của L15 (cột 15): VP1: 12º33’39,7”N, 109º25’53,6”E (mũi Gành - phía Nam bán đảo Hòn Gốm);
+ L13 [Đ1] 1. Khu vực vịnh Vân Phong với phạm vi:
+ L14 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối các điểm theo thứ tự VP1, VP2 và VP3 có tọa độ sau đây:
+ L15 [Đ1] VP1: 12º33’39,7”N, 109º25’53,6”E (mũi Gành - phía Nam bán đảo Hòn Gốm);
+ L16 [Đ1] VP2: 12°24’03,7”N, 109°24’33,6”E;
+ L17 [Đ1] VP3: 12º24’03,7”N, 109º20’23,6”E (mũi Bàn Thang).
+
+[vị trí 2] L16 cột 15
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 15): VP2: 12°24’03,7”N, 109°24’33,6”E;
+ L14 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối các điểm theo thứ tự VP1, VP2 và VP3 có tọa độ sau đây:
+ L15 [Đ1] VP1: 12º33’39,7”N, 109º25’53,6”E (mũi Gành - phía Nam bán đảo Hòn Gốm);
+ L16 [Đ1] VP2: 12°24’03,7”N, 109°24’33,6”E;
+ L17 [Đ1] VP3: 12º24’03,7”N, 109º20’23,6”E (mũi Bàn Thang).
+ L18 [Đ1] b) Ranh giới về phía đất liền: từ điểm VP1 (mũi Gành) chạy dọc theo đường bờ phía Tây của bán đảo Hòn Gốm lên phía Bắc qua mũi Cô Cổ, mũi Đa Sơn và dọc theo đường bờ đến…
+
+[vị trí 3] L17 cột 15
+  ⌖ cửa sổ quanh ” thừa của L17 (cột 15): VP3: 12º24’03,7”N, 109º20’23,6”E (mũi Bàn Thang).
+ L15 [Đ1] VP1: 12º33’39,7”N, 109º25’53,6”E (mũi Gành - phía Nam bán đảo Hòn Gốm);
+ L16 [Đ1] VP2: 12°24’03,7”N, 109°24’33,6”E;
+ L17 [Đ1] VP3: 12º24’03,7”N, 109º20’23,6”E (mũi Bàn Thang).
+ L18 [Đ1] b) Ranh giới về phía đất liền: từ điểm VP1 (mũi Gành) chạy dọc theo đường bờ phía Tây của bán đảo Hòn Gốm lên phía Bắc qua mũi Cô Cổ, mũi Đa Sơn và dọc theo đường bờ đến…
+ L19 [Đ1] VP4: 12°36’19,7”N, 109°11’56,6”E;
+… (xem file vị trí chi tiết)",L15 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh K… [185706_001; trong index]; vùng trích không có; L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh K… [185706_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh K… [185706_001; trong index]; vùng trích không có; L19 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh K… [185706_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L15: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L17: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,85,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+186174,Thông tư số 53/2025/TT-BKHCN Ban hành “Quy chuẩn kỹ thuật quốc gia về yêu cầu đối với dịch vụ chứng thực thông điệp dữ liệu”,C,"data/raw/data/content.parquet (id = 186174, cột content_html); bản trích: data/processed/review_cache/186174.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 186174); logs/parse_anomalies.jsonl; logs/rejected.jsonl,dòng 1–18; 3 Điều parse; 1 vị trí ” thừa: L10,"[vị trí 1] L10 cột 147
+  ⌖ cửa sổ quanh ” thừa của L10 (cột 147): …chuẩn kỹ thuật quốc gia về yêu cầu đối với dịch vụ chứng thực thông điệp dữ liệu”.
+ L8 [đầu] Căn cứ Nghị định số 55/2025/NĐ-CP ngày 02 tháng 3 năm 2025 của Chính phủ quy định chức năng, nhiệm vụ, quyền hạn và cơ cấu tổ chức của Bộ Khoa và Công nghệ;
+ L9 [đầu] Theo đề nghị của Giám đốc Trung tâm Chứng thực điện tử quốc gia;
+ L10 [đầu] Bộ trưởng Bộ Khoa học và Công nghệ ban hành Thông tư ban hành ""Quy chuẩn kỹ thuật quốc gia về yêu cầu đối với dịch vụ chứng thực thông điệp dữ liệu”.
+▶L11 [Đ1] Điều 1. Ban hành kèm theo Thông tư này Quy chuẩn kỹ thuật quốc gia về yêu cầu đối với dịch vụ chứng thực thông điệp dữ liệu (QCVN 139:2025/BKHCN).
+▶L12 [Đ2] Điều 2. Hiệu lực thi hành",L10 → không thuộc Điều nào (đầu văn bản); vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L10: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,1,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+187237,"Thông tư số 06/2026/TT-BXD Công bố vùng nước cảng biển, khu vực hàng hải thuộc địa phận tỉnh An Giang, tỉnh Cà Mau và khu vực quản lý của Cảng vụ Hàng hải Kiên Giang",C,"data/raw/data/content.parquet (id = 187237, cột content_html); bản trích: data/processed/review_cache/187237.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 187237); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–223; 5 Điều parse; 120 vị trí ” thừa: L15, L16, L17, L18, L19, L20, L24, L25, L26, L27, L28, L32, L33, L34, L35, L37, L38, L41, L42, L43, L44, L48, L49, L50, L51, L52, L53, L54, L55, L56, L57, L61, L62, L63, L64, L66, L67, L70, L71, L72, L73, L74, L75, L79, L80, L81, L82, L84, L85, L91, L92, L93, L94, L96, L98, L100, L103, L104, L105, L106, L127, L128, L129, L130, L131, L132, L136, L137, L138, L139, L140, L144, L145, L146, L147, L148, L149, L153, L154, L155, L156, L160, L161, L162, L163, L164, L165, L166, L167, L168, L169, L173, L174, L175, L176, L177, L178, L182, L183, L184, L185, L186, L187, L191, L192, L193, L194, L195, L196, L201, L202, L203, L204, L208, L212, L216, L220, L221, L222, L223","[vị trí 1] L15 cột 13
+  ⌖ cửa sổ quanh ” thừa của L15 (cột 13): HC1: 10°10’13” N, 104°35’59” E;
+ L13 [Đ1] 1. Khu vực Hòn Chông với phạm vi:
+ L14 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm từ HC1 đến HC6 có tọa độ sau đây:
+ L15 [Đ1] HC1: 10°10’13” N, 104°35’59” E;
+ L16 [Đ1] HC2: 10°10’18” N, 104°34’02” E;
+ L17 [Đ1] HC3: 10°00’00” N, 104°33’36” E;
+
+[vị trí 2] L16 cột 13
+  ⌖ cửa sổ quanh ” thừa của L16 (cột 13): HC2: 10°10’18” N, 104°34’02” E;
+ L14 [Đ1] a) Ranh giới về phía biển: được giới hạn bởi các đoạn thẳng nối lần lượt các điểm từ HC1 đến HC6 có tọa độ sau đây:
+ L15 [Đ1] HC1: 10°10’13” N, 104°35’59” E;
+ L16 [Đ1] HC2: 10°10’18” N, 104°34’02” E;
+ L17 [Đ1] HC3: 10°00’00” N, 104°33’36” E;
+ L18 [Đ1] HC4: 10°00’00” N, 104°35’36” E;
+
+[vị trí 3] L17 cột 13
+  ⌖ cửa sổ quanh ” thừa của L17 (cột 13): HC3: 10°00’00” N, 104°33’36” E;
+ L15 [Đ1] HC1: 10°10’13” N, 104°35’59” E;
+ L16 [Đ1] HC2: 10°10’18” N, 104°34’02” E;
+ L17 [Đ1] HC3: 10°00’00” N, 104°33’36” E;
+ L18 [Đ1] HC4: 10°00’00” N, 104°35’36” E;
+ L19 [Đ1] HC5: 10°08’39” N, 104°35’57” E;
+… (xem file vị trí chi tiết)",L15 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh A… [187237_001; trong index]; vùng trích không có; L16 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh A… [187237_001; trong index]; vùng trích không có; L17 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh A… [187237_001; trong index]; vùng trích không có; L18 → Điều 1 — Công bố vùng nước cảng biển thuộc địa phận tỉnh A… [187237_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L15: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L16: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L17: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,120,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+187278,Thông tư số 82/2025/TT-BCA Hướng dẫn quy trình công nhận và thực hiện chế độ ưu đãi đối với người có công với cách mạng thuộc trách nhiệm của Bộ Công an,C,"data/raw/data/content.parquet (id = 187278, cột content_html); bản trích: data/processed/review_cache/187278.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 187278); logs/parse_anomalies.jsonl; logs/rejected.jsonl,dòng 1–165; 27 Điều parse; 1 vị trí ” thừa: L72,"[vị trí 1] L72 cột 957
+  ⌖ cửa sổ quanh ” thừa của L72 (cột 957): …ghị của Công an cấp tỉnh nêu chi tiết về trường hợp hy sinh của cán bộ, chiến sĩ”.
+ L70 [Đ13] 1. Đại diện thân nhân người hy sinh hoặc mất tích có trách nhiệm gửi Ủy ban nhân dân cấp xã nơi người hy sinh hoặc mất tích thường trú ngay trước khi tham gia Công an nh…
+ L71 [Đ13] 2. Công an xã, phường, đặc khu (sau đây viết tắt là Công an cấp xã) nơi người hy sinh hoặc mất tích thường trú ngay trước khi tham gia Công an nhân dân hoặc Quân đội nhâ…
+ L72 [Đ13] 3. Công an cấp tỉnh trong thời gian 30 ngày, kể từ ngày nhận đủ các giấy tờ do Công an cấp xã chuyển đến, có trách nhiệm kiểm tra, xét duyệt hồ sơ (nếu cần thiết, phối h…
+ L73 [Đ13] 4. Cục Tổ chức cán bộ trong thời gian 20 ngày, kể từ ngày nhận đủ hồ sơ, có trách nhiệm xem xét, trình lãnh đạo Bộ Công an ký văn bản kèm hồ sơ đề nghị công nhận liệt sĩ…
+ L74 [Đ13] 5. Sau khi nhận được Bằng “Tổ quốc ghi công” và bản sao quyết định cấp Bằng của Thủ tướng Chính phủ do Bộ Nội vụ chuyển đến, trong thời gian 05 ngày, Cục Tổ chức cán bộ …","L72 → Điều 13 — Quy trình tiếp nhận hồ sơ, đề nghị công nhận liệt… [187278_013; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.",L72: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,1,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+23676,Thông tư số 206/2009/TT-BTC Hướng dẫn kế toán giao dịch mua bán lại trái phiếu Chính phủ,C,"data/raw/data/content.parquet (id = 23676, cột content_html); bản trích: data/processed/review_cache/23676.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 23676); logs/parse_anomalies.jsonl; logs/rejected.jsonl,dòng 1–79; 6 Điều parse; 1 vị trí ” thừa: L72,"[vị trí 1] L72 cột 390
+  ⌖ cửa sổ quanh ” thừa của L72 (cột 390): …ủ” là số dư Nợ của Tài khoản 171 – “Giao dịch mua bán lại trái phiếu Chính phủ” ” trên Sổ kế toán Tài khoản 171.
+ L70 [Đ3] Có các TK 111,112,...
+▶L71 [Đ4] Điều 4. Bổ sung một số chỉ tiêu vào Phần thứ hai - Hệ thống báo cáo tài chính ban hành theo Quyết định số 15/2006/QĐ-BTC ngày 20/3/2006 của Bộ trưởng Bộ Tài chính về việ…
+ L72 [Đ4] 4.1. Bổ sung chỉ tiêu “Giao dịch mua bán lại trái phiếu Chính phủ” – Mã số 157 trên Bảng Cân đối kế toán. Chỉ tiêu này phản ánh giá trị trái phiếu Chính phủ của bên mua …
+ L73 [Đ4] 4.2. Bổ sung chỉ tiêu “Giao dịch mua bán lại trái phiếu Chính phủ” – Mã số 327 trên Bảng Cân đối kế toán. Chỉ tiêu này phản ánh giá trị trái phiếu Chính phủ của bên bán …
+▶L74 [Đ5] Điều 5. Thông tư này có hiệu lực thi hành sau 45 ngày, kể từ ngày ký.",L72 → Điều 4 — <nội dung> [23676_004; trong index]; vùng trích L72–L72. Mất nội dung giữa các Điều: 0 dòng.,L72: vùng trích dẫn L72–L72 (1 dòng) không chứa tiêu đề Điều và thuộc một Điều,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,1,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+25159,Thông tư số 03/2010/TT-BTC Hướng dẫn thực hiện Nghị định số 41/2009/NĐ-CP ngày 05 tháng 05 năm 2009 của Chính phủ quy định về xử phạt vi phạm hành chính trong lĩnh vực kinh doanh bảo hiểm,C,"data/raw/data/content.parquet (id = 25159, cột content_html); bản trích: data/processed/review_cache/25159.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 25159); logs/parse_anomalies.jsonl; logs/rejected.jsonl,dòng 1–165; 12 Điều parse; 1 vị trí ” thừa: L25,"[vị trí 1] L25 cột 233
+  ⌖ cửa sổ quanh ” thừa của L25 (cột 233): …g tin làm ảnh hưởng đến quyền và lợi ích hợp pháp của doanh nghiệp bảo hiểm khác”, là việc:
+▶L23 [Đ5] Điều 5. Một số hành vi vi phạm quy định tại Nghị định 41/2009/NĐ-CP được hướng dẫn cụ thể như sau:
+ L24 [Đ5] 1. Điểm b, khoản 3, Điều 12 Nghị định 41/2009/NĐ-CP: “Chuyển nhượng cổ phần, phần vốn góp chiếm 10% số vốn điều lệ trở lên” là giao dịch làm thay đổi từ 10% vốn điều lệ …
+ L25 [Đ5] 2. Điểm a, điểm c khoản 1 Điều 16 Nghị định 41/2009/NĐ-CP: “Thông tin, quảng cáo sai sự thật về nội dung, phạm vi hoạt động, điều kiện bảo hiểm” và ""Thông tin làm ảnh hư…
+ L26 [Đ5] a) Doanh nghiệp bảo hiểm thực hiện thông tin, quảng cáo sai sự thật về nội dung, phạm vi hoạt động của doanh nghiệp bảo hiểm đã được quy định trong Giấy phép thành lập v…
+ L27 [Đ5] b) Doanh nghiệp bảo hiểm thực hiện thông tin, quảng cáo sai sự thật về điều kiện bảo hiểm quy định tại quy tắc và điều khoản sản phẩm bảo hiểm đã được Bộ Tài chính phê c…",L25 → Điều 5 — Một số hành vi vi phạm quy định tại Nghị định 41/… [25159_005; trong index]; vùng trích L25–L25. Mất nội dung giữa các Điều: 0 dòng.,L25: vùng trích dẫn L25–L25 (1 dòng) không chứa tiêu đề Điều và thuộc một Điều,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,1,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.
+26857,"Thông tư số 138/2011/TT-BTC Hướng dẫn sửa đổi, bổ sung Chế độ kế toán Doanh nghiệp Nhỏ và vừa ban hành kèm theo Quyết định số 48/2006/QĐ-BTC ngày 14/9/2006 của Bộ trưởng Bộ Tài chính",C,"data/raw/data/content.parquet (id = 26857, cột content_html); bản trích: data/processed/review_cache/26857.html",data/processed/articles_index.jsonl và articles.jsonl (doc_id = 26857); logs/parse_anomalies.jsonl; logs/rejected.jsonl,"dòng 1–295; 2 Điều parse; 2 vị trí ” thừa: L49, L286","[vị trí 1] L49 cột 410
+  ⌖ cửa sổ quanh ” thừa của L49 (cột 410): … từ đồng ngoại tệ sang Việt Nam Đồng hoặc thay đổi đơn vị tiền tệ trong kế toán.”
+ L47 [Đ1] + Cột “Năm trước” của Báo cáo kết quả hoạt động kinh doanh và Báo cáo lưu chuyển tiền tệ được trình bày căn cứ vào Báo cáo kết quả hoạt động kinh doanh và Báo cáo lưu ch…
+ L48 [Đ1] e) Thuyết minh báo cáo tài chính
+ L49 [Đ1] Khi quy đổi báo cáo tài chính (được lập bằng ngoại tệ) sang Việt Nam Đồng hoặc khi thay đổi đơn vị tiền tệ trong kế toán, doanh nghiệp Nhỏ và vừa phải trình bày rõ trên …
+ L50 [Đ1] 2. Mục 5, 6, 7, 8, 9 phần thứ nhất “Quy định chung” được sửa đổi, bổ sung như sau:
+ L51 [Đ1] - Sửa đổi số thứ tự các Mục 5, 6, 7, 8, 9 thành Mục “4, 5, 6, 7, 8”.
+
+[vị trí 2] L286 cột 29
+  ⌖ cửa sổ quanh ” thừa của L286 (cột 29): - Cho vay dài hạn | | - | | -”
+ L284 [Đ1] - Đầu tư trái phiếu | - | - | - | -
+ L285 [Đ1] - Đầu tư tín phiếu, kỳ phiếu | | - | | -
+ L286 [Đ1] - Cho vay dài hạn | | - | | -”
+ L287 [Đ1] 6. Mục I Phần thứ năm “Chế độ sổ kế toán” bổ sung nội dung sau:
+ L288 [Đ1] “10. Chuyển đổi số dư trên sổ kế toán khi chuyển đổi hình thức sở hữu:",L49 → Điều 1 — Sửa đổi bổ sung một số quy định tại Chế độ kế toá… [26857_001; trong index]; vùng trích không có; L286 → Điều 1 — Sửa đổi bổ sung một số quy định tại Chế độ kế toá… [26857_001; trong index]; vùng trích không có. Mất nội dung giữa các Điều: 0 dòng.,L49: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích; L286: dấu ” thừa không có vùng trích dẫn mở trước đó; không có vùng nào bị parser coi là đoạn trích,"Nếu vùng trích dẫn bị xác định sai, Điều trích dẫn thành Điều độc lập hoặc Điều thật bị nuốt vào đoạn trích; số Điều, dedup và tỷ lệ Điều của họ (luật B) có thể đổi.",Đề xuất giữ nguyên parser.,Đủ bằng chứng tự động,2,"A: 16/16, B: 6/6, C: 25/25",Minh Thư,2026-10-24,Đã xác nhận,Xác nhận phần đã đối chiếu (cột compared_range). Ghi theo yêu cầu của người dùng ngày 2026-10-24.

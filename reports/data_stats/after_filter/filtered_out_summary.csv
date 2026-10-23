@@ -1,0 +1,696 @@
+﻿step,value,n_docs
+1_doc_type,Quyết định,91183
+1_doc_type,Nghị quyết,28337
+1_doc_type,Bản dịch văn bản,10952
+1_doc_type,Chỉ thị,8543
+1_doc_type,Thông tư liên tịch,3519
+1_doc_type,Văn bản hợp nhất,2232
+1_doc_type,Sắc lệnh,981
+1_doc_type,Văn bản hệ thống hóa,762
+1_doc_type,Công văn,732
+1_doc_type,Lệnh,379
+1_doc_type,Văn bản hành chính liên quan,281
+1_doc_type,Pháp lệnh,248
+1_doc_type,Văn bản liên quan,43
+1_doc_type,Chương trình,42
+1_doc_type,Nghị quyết liên tịch,34
+1_doc_type,Hiệp định,24
+1_doc_type,Bộ luật,17
+1_doc_type,Công ước,16
+1_doc_type,Văn bản khác,16
+1_doc_type,Thông báo,11
+1_doc_type,Chưa xác định,9
+1_doc_type,Thông tư liên bộ,7
+1_doc_type,Hiến pháp,6
+1_doc_type,Nghị định thư,4
+1_doc_type,Sắc luật,4
+1_doc_type,Bản ghi nhớ,2
+1_doc_type,Quy định,1
+1_doc_type,Thỏa thuận,1
+2_effect_status,Hết hiệu lực toàn bộ,10660
+2_effect_status,Hết hiệu lực một phần,1999
+2_effect_status,Ngưng hiệu lực,116
+2_effect_status,Chưa có hiệu lực,52
+2_effect_status,Chưa xác định,25
+2_effect_status,Không còn phù hợp,3
+3_domain_exact,Chưa phân loại,5125
+3_domain_exact,<NULL>,354
+3_domain_exact,"Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",69
+3_domain_exact,Hàng hải,67
+3_domain_exact,Quản lý tài chính doanh nghiệp,64
+3_domain_exact,An ninh quốc gia,63
+3_domain_exact,Tài chính khác,58
+3_domain_exact,Thanh tra,55
+3_domain_exact,Tổ chức cán bộ,47
+3_domain_exact,Xuất nhập khẩu,44
+3_domain_exact,Đường bộ,42
+3_domain_exact,An toàn lao động,39
+3_domain_exact,Hoạt động khoa học và công nghệ,38
+3_domain_exact,Đo đạc và bản đồ,38
+3_domain_exact,Lĩnh vực giá,35
+3_domain_exact,Tài chính doanh nghiệp,35
+3_domain_exact,Tài chính đối ngoại,35
+3_domain_exact,Chính sách tiền tệ,34
+3_domain_exact,Môi trường,33
+3_domain_exact,"Quản lý Khám, chữa bệnh",33
+3_domain_exact,Hàng không,32
+3_domain_exact,Quản lý ngoại hối,32
+3_domain_exact,"Công chức, viên chức",31
+3_domain_exact,Diêm nghiệp,31
+3_domain_exact,Chính quyền địa phương,30
+3_domain_exact,Quản lý ngân sách; Tài chính khác,30
+3_domain_exact,Đường sắt,30
+3_domain_exact,Giáo dục,29
+3_domain_exact,Quản lý dược,29
+3_domain_exact,"An toàn, vệ sinh lao động",28
+3_domain_exact,Khác,28
+3_domain_exact,Thú y,28
+3_domain_exact,Đăng kiểm,28
+3_domain_exact,Đường thủy nội địa,28
+3_domain_exact,Hải quan,27
+3_domain_exact,Khoa học và công nghệ,27
+3_domain_exact,"Kế toán, kiểm toán",27
+3_domain_exact,Giáo dục nghề nghiệp,26
+3_domain_exact,"Thanh tra, giám sát ngân hàng",26
+3_domain_exact,An toàn thực phẩm,25
+3_domain_exact,Bưu chính,25
+3_domain_exact,Tài chính,25
+3_domain_exact,Cục An toàn hệ thống các tổ chức tín dụng,24
+3_domain_exact,Thủy sản,24
+3_domain_exact,Xây dựng,24
+3_domain_exact,Nông nghiệp,23
+3_domain_exact,Thủy lợi,23
+3_domain_exact,Bảo hiểm xã hội,22
+3_domain_exact,Chứng khoán,22
+3_domain_exact,Quản lý công sản,22
+3_domain_exact,Quản lý thuế,22
+3_domain_exact,Vận tải,22
+3_domain_exact,Giáo dục đào tạo thuộc hệ thống giáo dục quốc dân và các cơ sở khác,21
+3_domain_exact,Quản lý tài sản công,21
+3_domain_exact,Y tế dự phòng,21
+3_domain_exact,Khám chữa bệnh,20
+3_domain_exact,Ngân hàng Nhà nước Việt Nam,20
+3_domain_exact,Bảo vệ thực vật,19
+3_domain_exact,"Công nghệ thông tin,điện tử",19
+3_domain_exact,"Thi đua, khen thưởng",19
+3_domain_exact,"Thể dục, thể thao",19
+3_domain_exact,Tín dụng,19
+3_domain_exact,An toàn bức xạ và hạt nhân,18
+3_domain_exact,Bảo hiểm y tế,18
+3_domain_exact,Lâm nghiệp,18
+3_domain_exact,Việc làm,18
+3_domain_exact,"Khoa học và công nghệ, Tần số-vô tuyến điện",17
+3_domain_exact,Tiêu chuẩn đo lường chất lượng,17
+3_domain_exact,Tài nguyên nước,17
+3_domain_exact,Đất đai,17
+3_domain_exact,Công nghiệp,15
+3_domain_exact,Hợp tác quốc tế,15
+3_domain_exact,Quản lý chung,15
+3_domain_exact,Quản lý ngân sách nhà nước,15
+3_domain_exact,Đầu tư,15
+3_domain_exact,Lĩnh vực khác,14
+3_domain_exact,Ngân hàng và tổ chức tài chính,14
+3_domain_exact,Phát hành và kho quỹ,14
+3_domain_exact,"Vận tải, Tần số-vô tuyến điện",14
+3_domain_exact,"Tài nguyên khoáng sản, địa chất",13
+3_domain_exact,Điều tiết điện lực,13
+3_domain_exact,Đấu thầu,13
+3_domain_exact,"Địa chất, khoáng sản",13
+3_domain_exact,Chất lượng Nông Lâm sản và Thủy sản,12
+3_domain_exact,Công chức,12
+3_domain_exact,Giáo dục đào tạo,12
+3_domain_exact,Khoa học công nghệ,12
+3_domain_exact,Phí và lệ phí,12
+3_domain_exact,Tần số-vô tuyến điện,12
+3_domain_exact,Xử lý vi phạm hành chính,12
+3_domain_exact,Phát triển tiềm lực khoa học và công nghệ,11
+3_domain_exact,"Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng",11
+3_domain_exact,"Quản lý, sử dụng tài sản công",11
+3_domain_exact,Thi hành án,11
+3_domain_exact,Thi hành án dân sự,11
+3_domain_exact,Bảo hiểm,10
+3_domain_exact,Dân quân tự vệ,10
+3_domain_exact,Dự trữ nhà nước,10
+3_domain_exact,Giao thông vận tải,10
+3_domain_exact,Lưu trữ,10
+3_domain_exact,Nhà giáo và Cán bộ quản lý cơ sở giáo dục,10
+3_domain_exact,Trồng trọt,10
+3_domain_exact,"Tư pháp, pháp chế",10
+3_domain_exact,Viễn thông và Internet;,10
+3_domain_exact,Xử lý vi phạm hành chính và theo dõi thi hành pháp luật,10
+3_domain_exact,Điện,10
+3_domain_exact,Công tác dân tộc,9
+3_domain_exact,Kho bạc,9
+3_domain_exact,Kế hoạch tài chính,9
+3_domain_exact,Quản lý giá,9
+3_domain_exact,Quản lý nợ và tài chính đối ngoại,9
+3_domain_exact,"Quản lý vay nợ, trả nợ trong nước, ngoài nước của Chính phủ, nợ của khu vực công, nợ quốc gia và nguồn viện trợ quốc tế",9
+3_domain_exact,"Tài chính, kế toán",9
+3_domain_exact,Cơ cấu tổ chức,8
+3_domain_exact,Giám định tư pháp,8
+3_domain_exact,Giáo dục đại học,8
+3_domain_exact,Khoa học và Công nghệ các ngành kinh tế - kỹ thuật,8
+3_domain_exact,"Khí hậu , thủy văn",8
+3_domain_exact,Kinh tế hợp tác và Phát triển nông thôn,8
+3_domain_exact,Nông nghiệp và Môi trường,8
+3_domain_exact,Pháp chế,8
+3_domain_exact,"Phòng, chống HIV/AIDS",8
+3_domain_exact,"Tiêu chuẩn, quy chuẩn",8
+3_domain_exact,Viên chức,8
+3_domain_exact,An toàn thông tin,7
+3_domain_exact,Chính sách,7
+3_domain_exact,"Hàng hải, Kết cấu hạ tầng giao thông",7
+3_domain_exact,Kỹ thuật an toàn và Môi trường công nghiệp,7
+3_domain_exact,"Lương, phụ cấp",7
+3_domain_exact,"Quản lý quỹ ngân sách, quỹ dự trữ nhà nước, và các quỹ tài chính khác của nhà nước",7
+3_domain_exact,Sở hữu trí tuệ,7
+3_domain_exact,Thông tin khoa học và công nghệ quốc gia,7
+3_domain_exact,Trợ giúp pháp lý,7
+3_domain_exact,"Vận tải, Khoa học và công nghệ",7
+3_domain_exact,"Đánh giá, thẩm định và giám định công nghệ",7
+3_domain_exact,"An ninh và trật tự, an toàn xã hội",6
+3_domain_exact,Báo chí,6
+3_domain_exact,"Chất lượng sản phẩm, hàng hóa",6
+3_domain_exact,"Cán bộ, công chức",6
+3_domain_exact,"Công nghệ cao, chuyển giao công nghệ",6
+3_domain_exact,Công nghệ tin học ngân hàng,6
+3_domain_exact,Công tác lãnh sự,6
+3_domain_exact,Công tác thanh niên,6
+3_domain_exact,Dược - Mỹ phẩm,6
+3_domain_exact,Lao động ngoài nước,6
+3_domain_exact,Lâm nghiệp và Kiểm lâm,6
+3_domain_exact,Người có công,6
+3_domain_exact,Phát triển công nghiệp và thương mại địa phương,6
+3_domain_exact,Phát triển nông thôn,6
+3_domain_exact,"Phòng, chống tham nhũng",6
+3_domain_exact,Quân y,6
+3_domain_exact,"Thanh tra, kiểm tra tài chính",6
+3_domain_exact,"Thuế xuất khẩu, thuế nhập khẩu",6
+3_domain_exact,Thương mại,6
+3_domain_exact,Thống kê,6
+3_domain_exact,"Thủy lợi, đề điều và phòng chống bão lụt",6
+3_domain_exact,Trang thiết bị y tế,6
+3_domain_exact,"Vận tải, Công nghệ thông tin,điện tử",6
+3_domain_exact,Ban hành văn bản quy phạm pháp luật,5
+3_domain_exact,Biển và hải đảo,5
+3_domain_exact,Bảo trợ xã hội,5
+3_domain_exact,"Chính sách thương mại biên giới, thương mại miền núi",5
+3_domain_exact,Dân số,5
+3_domain_exact,Dân sự - Kinh tế,5
+3_domain_exact,"Khoa học, công nghệ và môi trường",5
+3_domain_exact,"Khám bệnh, chữa bệnh",5
+3_domain_exact,Kinh doanh bảo hiểm,5
+3_domain_exact,"Kiểm tra, rà soát, hệ thống hóa, hợp nhất văn bản quy phạm pháp luật, pháp điển hệ thống quy phạm pháp luật",5
+3_domain_exact,Kế toán,5
+3_domain_exact,Nghĩa vụ quân sự,5
+3_domain_exact,Năng lượng,5
+3_domain_exact,"Năng lượng nguyên tử, an toàn bức xạ và hạt nhân",5
+3_domain_exact,Phòng không nhân dân,5
+3_domain_exact,Quy hoạch,5
+3_domain_exact,Quản lý môi trường y tế,5
+3_domain_exact,Quản lý nhà và thị trường bất động sản,5
+3_domain_exact,"Thanh tra, Tiếp công dân, Tài chính, Khiếu nại, Phòng, chống tham nhũng",5
+3_domain_exact,Tài chính khác; Quản lý ngân sách,5
+3_domain_exact,"Xây dựng pháp luật, pháp chế",5
+3_domain_exact,An toàn kỹ thuật công nghiệp,4
+3_domain_exact,Biến đổi khí hậu,4
+3_domain_exact,"Bảo hiểm xã hội, Bảo hiểm y tế",4
+3_domain_exact,Bảo vệ và chăm sóc trẻ em,4
+3_domain_exact,Chính sách hậu phương quân đội,4
+3_domain_exact,Chứng khoán và thị trường chứng khoán,4
+3_domain_exact,Các tổ chức tín dụng,4
+3_domain_exact,"Công nghiệp, Thủy sản",4
+3_domain_exact,Dân số - Kế hoạch hóa gia đình,4
+3_domain_exact,Giao thông đường thủy nội địa,4
+3_domain_exact,Hoạt động khác,4
+3_domain_exact,"Hàng hải, Khoa học - Công nghệ",4
+3_domain_exact,Hàng không dân dụng Việt Nam,4
+3_domain_exact,Hình sự - hành chính,4
+3_domain_exact,Hóa chất,4
+3_domain_exact,"Hóa chất, vật liệu nổ công nghiệp",4
+3_domain_exact,Kinh tế xây dựng,4
+3_domain_exact,Kiểm lâm,4
+3_domain_exact,Kế hoạch - Tài chính,4
+3_domain_exact,Lý lịch tư pháp,4
+3_domain_exact,"Nông nghiệp, Chính sách thuế",4
+3_domain_exact,Phát triển thị trường và doanh nghiệp khoa học và công nghệ,4
+3_domain_exact,Phát triển đô thị,4
+3_domain_exact,"Phòng cháy, chữa cháy",4
+3_domain_exact,Quy hoạch - Kiến trúc,4
+3_domain_exact,Quản lý trang thiết bị y tế,4
+3_domain_exact,Quản lý tài chính các tổ chức tài chính và dịch vụ tài chính,4
+3_domain_exact,Quản lý tài sản nhà nước,4
+3_domain_exact,Quản lý xuất nhập cảnh,4
+3_domain_exact,"TCNH và thị trường TC, trái phiếu, khác; Quản lý dịch vụ tài chính và các quỹ tài chính",4
+3_domain_exact,"TCNH và thị trường TC, trái phiếu, khác; Tài chính khác",4
+3_domain_exact,Thành lập và hoạt động của doanh nghiệp,4
+3_domain_exact,"Thủy sản, kiểm ngư",4
+3_domain_exact,Tiền lương,4
+3_domain_exact,Tài chính doanh nghiệp và quản lý vốn của nhà nước tại doanh nghiệp,4
+3_domain_exact,Tổ chức phi Chính phủ,4
+3_domain_exact,Tổng hợp,4
+3_domain_exact,Văn thư và Lưu trữ Nhà nước,4
+3_domain_exact,Vệ sinh an toàn và dinh dưỡng,4
+3_domain_exact,Xúc tiến thương mại,4
+3_domain_exact,Điện lực,4
+3_domain_exact,Đầu tư tại Việt Nam,4
+3_domain_exact,Biên giới quốc gia,3
+3_domain_exact,Bồi thường nhà nước,3
+3_domain_exact,Chế biến nông lâm thủy sản và Nghề muối,3
+3_domain_exact,Công nghiệp quốc phòng,3
+3_domain_exact,"Công nghiệp tiêu dùng, công nghiệp thực phẩm và công nghiệp chế biến khác;",3
+3_domain_exact,"Công trình quốc phòng, khu quân sự",3
+3_domain_exact,"Công tác học sinh, sinh viên",3
+3_domain_exact,Cơ khí - Luyện kim - Công nghiệp hỗ trợ,3
+3_domain_exact,Cơ yếu,3
+3_domain_exact,Cảnh sát biển,3
+3_domain_exact,Du lịch,3
+3_domain_exact,Dầu khí,3
+3_domain_exact,Dịch vụ thương mại,3
+3_domain_exact,Giá,3
+3_domain_exact,Giáo dục mầm non,3
+3_domain_exact,HIV/AIDS,3
+3_domain_exact,"Hoạt động khoa học và công nghệ, Phát triển tiềm lực khoa học và công nghệ",3
+3_domain_exact,Hạ tầng kỹ thuật,3
+3_domain_exact,"Hộ tịch, quốc tịch, chứng thực",3
+3_domain_exact,"Khoa học và công nghệ, Phát thanh truyền hình và thông tin điện tử",3
+3_domain_exact,Khí tượng thủy văn,3
+3_domain_exact,Kế hoạch tài chính Quản lý dược,3
+3_domain_exact,"Kế hoạch, Tài chính",3
+3_domain_exact,Một số hoạt động kinh doanh đặc thù,3
+3_domain_exact,Nhà ở và công sở,3
+3_domain_exact,"Phòng, chống bệnh truyền nhiễm",3
+3_domain_exact,"Phổ biến, giáo dục pháp luật",3
+3_domain_exact,"Quản lý thuế, phí và lệ phí; Quản lý tài chính doanh nghiệp",3
+3_domain_exact,Quản lý và đầu tư vốn nhà nước tại doanh nghiệp,3
+3_domain_exact,"Than, khoáng sản",3
+3_domain_exact,Thanh toán,3
+3_domain_exact,"Thực hành tiết kiệm, chống lãng phí",3
+3_domain_exact,Tiêu chuẩn và quy chuẩn kỹ thuật,3
+3_domain_exact,Trang thiết bị và công trình y tế,3
+3_domain_exact,"Trật tự an toàn, giao thông đường bộ",3
+3_domain_exact,Tôn giáo,3
+3_domain_exact,Tổ chức- Biên chế,3
+3_domain_exact,"Xuất bản, in, phát hành",3
+3_domain_exact,Y dược cổ truyền,3
+3_domain_exact,"cán bộ, công chức",3
+3_domain_exact,"Đào tạo bồi dưỡng cán bộ, công chức, viên chức",3
+3_domain_exact,"Đăng kiểm, Khoa học - Công nghệ",3
+3_domain_exact,Đối ngoại,3
+3_domain_exact,"Bưu chính, Vận tải, Tần số-vô tuyến điện",2
+3_domain_exact,Bảo hiểm xã hội bắt buộc và bảo hiểm xã hội tự nguyện,2
+3_domain_exact,Bảo vệ bí mật nhà nước,2
+3_domain_exact,Bổ trợ tư pháp,2
+3_domain_exact,Chăn nuôi,2
+3_domain_exact,"Chăn nuôi, Thú y",2
+3_domain_exact,Chế độ báo cáo,2
+3_domain_exact,Các lĩnh vực khác,2
+3_domain_exact,Công an nhân dân,2
+3_domain_exact,"Công nghiệp, Khoa học công nghệ",2
+3_domain_exact,Công nghệ thông tin,2
+3_domain_exact,"Công nghệ thông tin,điện tử, Khoa học và công nghệ",2
+3_domain_exact,Cơ quan đại diện Việt Nam ở nước ngoài,2
+3_domain_exact,Cơ quan đại diện nước Cộng hòa Xã hội Chủ nghĩa Việt Nam ở nước ngoài,2
+3_domain_exact,Cơ sở vật chất và thiết bị trường học,2
+3_domain_exact,Cải cách hành chính,2
+3_domain_exact,Doanh nghiệp,2
+3_domain_exact,Dược,2
+3_domain_exact,Dạy nghề,2
+3_domain_exact,Dự trữ quốc gia,2
+3_domain_exact,Giáo dục chuyên nghiệp,2
+3_domain_exact,Giáo dục dân tộc,2
+3_domain_exact,Giáo dục thường xuyên,2
+3_domain_exact,Hoạt động của các tổ chức phi chính phủ nước ngoài tại VN,2
+3_domain_exact,"Hàm, cấp ngoại giao",2
+3_domain_exact,Hành chính,2
+3_domain_exact,Hình sự,2
+3_domain_exact,"Hạ tầng kỹ thuật đô thị, khu công nghiệp, khu kinh tế, khu công nghệ cao",2
+3_domain_exact,"Hải quan Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",2
+3_domain_exact,Hộ tịch,2
+3_domain_exact,Khiếu nại,2
+3_domain_exact,"Khoa học, công nghệ và đổi mới sáng tạo",2
+3_domain_exact,Khí tượng thủy văn và biến đổi khí hậu,2
+3_domain_exact,Khảo thí và Kiểm định chất lượng,2
+3_domain_exact,Kinh tế đối ngoại,2
+3_domain_exact,"Kiến trúc, quy hoạch xây dựng",2
+3_domain_exact,Kính tế hợp tác và Phát triển nông thôn,2
+3_domain_exact,"Ký kết điều ước quốc tế, thỏa thuận quốc tế",2
+3_domain_exact,Kỹ thuật,2
+3_domain_exact,"Lưu thông hàng hóa trong nước và xuất khẩu, nhập khẩu",2
+3_domain_exact,Nuôi con nuôi,2
+3_domain_exact,"Nông nghiệp, Thủy sản",2
+3_domain_exact,Phát thanh truyền hình và thông tin điện tử,2
+3_domain_exact,Phòng thủ dân sự,2
+3_domain_exact,"Phòng, chống rửa tiền",2
+3_domain_exact,"Phòng, chống tệ nạn xã hội",2
+3_domain_exact,Quy hoạch đô thị và nông thôn,2
+3_domain_exact,Quản lý biên giới,2
+3_domain_exact,Quản lý cạnh tranh,2
+3_domain_exact,Quản lý dịch vụ tài chính và các quỹ tài chính; Quản lý ngân sách,2
+3_domain_exact,Quản lý dự trữ nhà nước,2
+3_domain_exact,Quản lý ngoại thương,2
+3_domain_exact,Quản lý ngân sách; Quản lý tài chính doanh nghiệp,2
+3_domain_exact,Quản lý nhà,2
+3_domain_exact,Quản lý nợ công,2
+3_domain_exact,"Quản lý thuế, phí và lệ phí; Quản lý ngân sách",2
+3_domain_exact,Quản lý thị trường,2
+3_domain_exact,Quản lý và sử dụng nguồn vốn hỗ trợ phát triển chính thức (ODA) và vốn vay ưu đãi của các nhà tài trợ nước ngoài,2
+3_domain_exact,Quản lý vùng trời,2
+3_domain_exact,Quốc phòng,2
+3_domain_exact,Sĩ quan,2
+3_domain_exact,"TCNH và thị trường TC, trái phiếu, khác; Quản lý ngân sách",2
+3_domain_exact,"Thanh tra, kiểm tra tài chính; Quản lý ngân sách",2
+3_domain_exact,Thi hành án hình sự và hỗ trợ tư pháp,2
+3_domain_exact,Thuế thu nhập cá nhân,2
+3_domain_exact,Thuế thu nhập doanh nghiệp,2
+3_domain_exact,Thông tin tín dụng,2
+3_domain_exact,Tiêu chuẩn vật chất hậu cần cho quân nhân tại ngũ,2
+3_domain_exact,Tiếp công dân,2
+3_domain_exact,Trọng tài thương mại,2
+3_domain_exact,Tuyển sinh quân sự,2
+3_domain_exact,"Tài chính khác; Quản lý thuế, phí và lệ phí",2
+3_domain_exact,Tổ chức Viện kiểm sát nhân dân,2
+3_domain_exact,Tổ chức chính quyền địa phương,2
+3_domain_exact,"Tổ chức, bộ máy",2
+3_domain_exact,Viễn thông,2
+3_domain_exact,Văn hóa,2
+3_domain_exact,"Văn phòng đại diện tổ chức hợp tác, nghiên cứu nước ngoài tại Việt Nam",2
+3_domain_exact,Văn thư - Lưu trữ,2
+3_domain_exact,"Vận tải, Hàng hải",2
+3_domain_exact,giảm nghèo,2
+3_domain_exact,Đa dạng sinh học,2
+3_domain_exact,Điện ảnh,2
+3_domain_exact,Đo đạc bản đồ,2
+3_domain_exact,Đào tạo và nghiên cứu y dược,2
+3_domain_exact,Đăng ký giao dịch bảo đảm,2
+3_domain_exact,Đấu giá tài sản,2
+3_domain_exact,Địa chất và khoáng sản,2
+3_domain_exact,Động viên,2
+3_domain_exact,"An ninh quốc gia, An ninh mạng",1
+3_domain_exact,"An toàn bức xạ và hạt nhân, Tiêu chuẩn đo lường chất lượng",1
+3_domain_exact,An toàn giao thông,1
+3_domain_exact,"An toàn giao thông, Tiêu chuẩn và quy chuẩn kỹ thuật, Đường sắt",1
+3_domain_exact,An toàn hệ thống các tổ chức tín dụng,1
+3_domain_exact,"An toàn lao động, Giáo dục nghề nghiệp",1
+3_domain_exact,"An toàn thông tin mạng, Tiêu chuẩn, quy chuẩn",1
+3_domain_exact,"An toàn thông tin, Công nghệ thông tin,điện tử",1
+3_domain_exact,"An toàn thông tin, Công nghệ thông tin,điện tử, Khoa học và công nghệ, Tần số-vô tuyến điện, Viễn thông và Internet;",1
+3_domain_exact,"An toàn thông tin, Ngân sách nhà nước",1
+3_domain_exact,"An toàn thông tin, Tin học hóa, Viễn thông và Internet;",1
+3_domain_exact,"An toàn thực phẩm Bảo hiểm y tế Quản lý Khám, chữa bệnh",1
+3_domain_exact,Ban hành văn bản QPPL,1
+3_domain_exact,Biên giới Quốc gia,1
+3_domain_exact,Biên phòng,1
+3_domain_exact,"Biên phòng Việt Nam, Biên giới quốc gia",1
+3_domain_exact,"Biên phòng, Quản lý biên giới",1
+3_domain_exact,Biển và Hải đảo,1
+3_domain_exact,"Báo chí Công nghệ thông tin,điện tử Viễn thông và Internet;",1
+3_domain_exact,Báo chí Phát thanh truyền hình và thông tin điện tử,1
+3_domain_exact,"Bưu chính, Công nghệ thông tin,điện tử, Phát thanh truyền hình và thông tin điện tử, Tần số-vô tuyến điện, Xuất bản, in, phát hành, Báo chí, Viễn thông",1
+3_domain_exact,"Bưu chính, Giáo dục đào tạo, An toàn thông tin, Chuyển đổi số, Cơ cấu tổ chức, Công nghệ thông tin,điện tử, Khoa học và công nghệ, Phát thanh truyền hình và thông tin điện tử, Tần số-vô tuyến điện, Viễn thông và Internet;",1
+3_domain_exact,"Bưu chính, Lĩnh vực khác",1
+3_domain_exact,"Bưu chính, Lĩnh vực khác, Phát thanh truyền hình và thông tin điện tử",1
+3_domain_exact,"Bưu chính, Phát thanh truyền hình và thông tin điện tử",1
+3_domain_exact,"Bưu chính, Vận tải",1
+3_domain_exact,"Bưu chính, Vận tải, An toàn thông tin, Công nghệ thông tin,điện tử, Tần số-vô tuyến điện, Xuất bản, in, phát hành",1
+3_domain_exact,"Bưu chính, Vận tải, Công nghệ thông tin,điện tử, Phát thanh truyền hình và thông tin điện tử, Tin học hóa",1
+3_domain_exact,"Bưu chính, Vận tải, Xuất bản, in, phát hành, Tần số-vô tuyến điện",1
+3_domain_exact,"Bưu chính, Xuất bản, in, phát hành",1
+3_domain_exact,Bản quyền tác giả,1
+3_domain_exact,Bảo hiểm tiền gửi,1
+3_domain_exact,"Bảo hiểm xã hội, Bảo hiểm thất nghiệp",1
+3_domain_exact,"Bảo hiểm xã hội, Thủy lợi",1
+3_domain_exact,"Bảo hiểm y tế, Bảo hiểm xã hội",1
+3_domain_exact,"Bảo hiểm y tế, Dược",1
+3_domain_exact,Bảo vệ quyền lợi người tiêu dùng,1
+3_domain_exact,Bảo vệ sức khỏe nhân dân,1
+3_domain_exact,Chuyển giao công nghệ,1
+3_domain_exact,Chuyển đổi số,1
+3_domain_exact,"Chuyển đổi số, Công nghệ thông tin,điện tử",1
+3_domain_exact,"Chính quyền địa phương, Tổ chức, bộ máy",1
+3_domain_exact,"Chính sách thuế Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",1
+3_domain_exact,"Chính sách thuế, Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",1
+3_domain_exact,"Chính sách tiền tệ, Quản lý ngoại hối",1
+3_domain_exact,"Chính sách, Ngân sách nhà nước",1
+3_domain_exact,"Chính sách, Sĩ quan",1
+3_domain_exact,"Chăn nuôi Chăn nuôi, Thú y",1
+3_domain_exact,"Chăn nuôi, thú y",1
+3_domain_exact,"Chưa phân loại, Chính sách",1
+3_domain_exact,"Chưa phân loại, Giáo dục",1
+3_domain_exact,"Chưa phân loại, Giáo dục nghề nghiệp",1
+3_domain_exact,"Chưa phân loại, Nông nghiệp",1
+3_domain_exact,"Chưa phân loại, Phòng cháy, chữa cháy",1
+3_domain_exact,"Chưa phân loại, Quản lý nợ công",1
+3_domain_exact,"Chưa phân loại, Thủy lợi, đề điều và phòng chống bão lụt, Quản lý quỹ ngân sách, quỹ dự trữ nhà nước, và các quỹ tài chính khác của nhà nước",1
+3_domain_exact,"Chưa phân loại, Tổ chức cán bộ",1
+3_domain_exact,"Chưa phân loại, Tổ chức, bộ máy",1
+3_domain_exact,"Chưa phân loại, Xây dựng",1
+3_domain_exact,"Chất lượng, Chế biến và Phát triển thị trường",1
+3_domain_exact,"Chứng khoán và thị trường chứng khoán, Kế toán, kiểm toán",1
+3_domain_exact,"Chứng khoán, Chứng khoán và thị trường chứng khoán",1
+3_domain_exact,"Cán bộ, công chức, Viên chức",1
+3_domain_exact,"Cán bộ, công chức, viên chức",1
+3_domain_exact,"Cán bộ, công chức, viên chức, Tổ chức, bộ máy",1
+3_domain_exact,"Công chức, viên chức, Dân số - Kế hoạch hóa gia đình",1
+3_domain_exact,"Công chức, viên chức, Viên chức",1
+3_domain_exact,Công nghiệp nhẹ,1
+3_domain_exact,"Công nghiệp, Bảo vệ thực vật",1
+3_domain_exact,"Công nghiệp, Bảo vệ thực vật, Lâm nghiệp, Thú y",1
+3_domain_exact,"Công nghiệp, Thương mại",1
+3_domain_exact,Công nghệ cao,1
+3_domain_exact,"Công nghệ cao, chuyển giao công nghệ, Đăng ký hoạt động khoa học và công nghệ",1
+3_domain_exact,"Công nghệ thông tin, An toàn thông tin",1
+3_domain_exact,"Công nghệ thông tin,điện tử Tin học hóa",1
+3_domain_exact,"Công nghệ thông tin,điện tử Viễn thông",1
+3_domain_exact,"Công nghệ thông tin,điện tử Viễn thông và Internet;",1
+3_domain_exact,"Công nghệ thông tin,điện tử, Tin học hóa",1
+3_domain_exact,Công tác người Việt Nam ở nước ngoài,1
+3_domain_exact,Công đoàn,1
+3_domain_exact,"Cơ cấu tổ chức, Lĩnh vực khác",1
+3_domain_exact,Cấp giấy chứng minh nhân dân,1
+3_domain_exact,Di sản văn hóa,1
+3_domain_exact,"Dân quân tự vệ, Giáo dục quốc phòng và an ninh",1
+3_domain_exact,"Dân quân tự vệ, Quản lý vùng trời",1
+3_domain_exact,"Dân tộc, Chính sách",1
+3_domain_exact,"Dân tộc, Tôn giáo",1
+3_domain_exact,"Dầu khí, Lĩnh vực giá",1
+3_domain_exact,"Dầu khí, Điện",1
+3_domain_exact,"Dịch vụ thương mại, Thị trường trong nước",1
+3_domain_exact,"Dự trữ nhà nước, Quản lý tài sản công",1
+3_domain_exact,Gia đình,1
+3_domain_exact,Giao dịch,1
+3_domain_exact,Giám định nhà nước về Chất lượng công trình xây dựng,1
+3_domain_exact,"Giám định y khoa, pháp y, pháp y tâm thần",1
+3_domain_exact,Giáo dục quốc phòng,1
+3_domain_exact,Giáo dục trung học,1
+3_domain_exact,Giáo dục đại học Khảo thí và Kiểm định chất lượng,1
+3_domain_exact,"Hoạt động khoa học và công nghệ, Biển Việt Nam",1
+3_domain_exact,"Hoạt động khoa học và công nghệ, Kế hoạch - Tổng hợp",1
+3_domain_exact,Hoạt động nghệ thuật biểu diễn,1
+3_domain_exact,"Hoạt động thông tin, báo chí nước ngoài tại VN",1
+3_domain_exact,Hoạt động văn hóa và kinh doanh dịch vụ văn hóa công cộng,1
+3_domain_exact,"Hàng hải, Hàng không, Khoa học - Công nghệ",1
+3_domain_exact,Hàng không dân dụng,1
+3_domain_exact,"Hàng không, Kết cấu hạ tầng giao thông",1
+3_domain_exact,Hợp nhất văn bản quy phạm pháp luật,1
+3_domain_exact,"Khiếu nại, tố cáo",1
+3_domain_exact,Kho bạc Ngân sách nhà nước,1
+3_domain_exact,Kho bạc Quản lý tài chính các tổ chức tài chính và dịch vụ tài chính,1
+3_domain_exact,"Kho bạc, Quản lý dự trữ nhà nước, Quản lý tài sản nhà nước",1
+3_domain_exact,Khoa học - Công nghệ,1
+3_domain_exact,Khoa học Công nghệ và Môi trường,1
+3_domain_exact,"Khoa học công nghệ, Bảo vệ thực vật",1
+3_domain_exact,"Khoa học công nghệ, Chất lượng Nông Lâm sản và Thủy sản",1
+3_domain_exact,"Khoa học công nghệ, Thủy sản",1
+3_domain_exact,Khoa học thanh tra,1
+3_domain_exact,"Khoa học và Công nghệ các ngành kinh tế - kỹ thuật, Phát triển thị trường và doanh nghiệp khoa học và công nghệ, Phát triển tiềm lực khoa học và công nghệ, Thông tin khoa học và công nghệ quốc gia, Ứng dụng và Phát triển công nghệ, Đăng ký hoạt động khoa học và công nghệ, Hoạt động khoa học và công nghệ",1
+3_domain_exact,Khoa học và công nghệ Viễn thông và Internet;,1
+3_domain_exact,"Khoa học và công nghệ, Tần số-vô tuyến điện, Viễn thông",1
+3_domain_exact,"Khoa học và công nghệ, Viễn thông và Internet;",1
+3_domain_exact,"Khám bệnh, chữa bệnh, Phòng, chống ma túy",1
+3_domain_exact,"Khám chữa bệnh, Bảo hiểm y tế",1
+3_domain_exact,Kinh doanh bất động sản,1
+3_domain_exact,"Kinh tế hợp tác và Phát triển nông thôn, Phát triển nông thôn",1
+3_domain_exact,Kiến trúc,1
+3_domain_exact,Kiểm soát thủ tục hành chính,1
+3_domain_exact,"Kiểm soát thủ tục hành chính, Lập và hoạt động của văn phòng đại diện của các tổ chức hợp tác, nghiên cứu của nước ngoài tại Việt Nam",1
+3_domain_exact,Kiểm toán Nhà nước,1
+3_domain_exact,Kiểm tra theo dõi thi hành văn bản QPPL,1
+3_domain_exact,Kế hoạch - Tổng hợp,1
+3_domain_exact,"Kế toán, Chứng khoán và thị trường chứng khoán",1
+3_domain_exact,"Kế toán, Kiểm toán độc lập",1
+3_domain_exact,"Kế toán, kiểm toán Kho bạc Quản lý ngân sách nhà nước",1
+3_domain_exact,"Kế toán, kiểm toán Tài chính doanh nghiệp",1
+3_domain_exact,Kết cấu hạ tầng giao thông,1
+3_domain_exact,"Kỹ thuật, Biển và hải đảo",1
+3_domain_exact,Lao động,1
+3_domain_exact,"Lao động, tiền lương, tiền công, Giáo dục nghề nghiệp",1
+3_domain_exact,"Lao động, tiền lương, tiền công, Tài chính hành chính sự nghiệp",1
+3_domain_exact,"Lâm nghiệp, Nông nghiệp",1
+3_domain_exact,"Lâm nghiệp, Nông nghiệp, Thủy sản",1
+3_domain_exact,"Lâm nghiệp, Thủy sản",1
+3_domain_exact,Lăng Chủ tịch Hồ Chí Minh,1
+3_domain_exact,"Lĩnh vực khác, Tần số-vô tuyến điện",1
+3_domain_exact,Lĩnh vực quản lý vũ khí – vật liệu nổ công nghiệp và công cụ hỗ trợ.,1
+3_domain_exact,Lĩnh vực thực hiện chính sách bảo hiểm y tế,1
+3_domain_exact,"Lưu trữ, Văn thư và Lưu trữ Nhà nước",1
+3_domain_exact,"Lương, phụ cấp, Chính sách",1
+3_domain_exact,"Lương, phụ cấp, Cán bộ, công chức, viên chức, Chính sách trợ giúp xã hội đối với đối tượng bảo trợ xã hội, Ưu đãi người có công với cách mạng, Lĩnh vực chi trả các chế độ bảo hiểm xã hội",1
+3_domain_exact,Lễ tân ngoại giao,1
+3_domain_exact,Môi trường y tế,1
+3_domain_exact,"Môi trường, Nông nghiệp, Khoa học công nghệ",1
+3_domain_exact,"Môi trường, Tài nguyên nước",1
+3_domain_exact,Mỹ phẩm,1
+3_domain_exact,"Nghĩa vụ quân sự, Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng, Cán bộ, công chức, viên chức, Dân quân tự vệ, Sĩ quan",1
+3_domain_exact,"Nghĩa vụ quân sự, Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng, Sĩ quan",1
+3_domain_exact,"Nghĩa vụ quân sự, Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng, Động viên",1
+3_domain_exact,Ngoại vụ địa phương,1
+3_domain_exact,"Ngân hàng Nhà nước Việt Nam, Đầu tư công",1
+3_domain_exact,"Ngân sách nhà nước, Quản lý quỹ ngân sách, quỹ dự trữ nhà nước, và các quỹ tài chính khác của nhà nước",1
+3_domain_exact,"Ngân sách nhà nước, Đầu tư công",1
+3_domain_exact,Người cao tuổi,1
+3_domain_exact,"Người có công, Ưu đãi người có công",1
+3_domain_exact,Người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng,1
+3_domain_exact,Nhà ở,1
+3_domain_exact,"Nhập cảnh, xuất cảnh, quá cảnh, cư trú của người nước ngoài tại Việt Nam",1
+3_domain_exact,Nông nghiệp Thủy sản,1
+3_domain_exact,"Nông nghiệp, Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",1
+3_domain_exact,Nông thôn mới,1
+3_domain_exact,"Pháp chế, Tài chính",1
+3_domain_exact,Pháp luật quốc tế,1
+3_domain_exact,"Phát triển nông thôn, Phát triển đô thị",1
+3_domain_exact,"Phòng, chống ma túy",1
+3_domain_exact,"Phổ biến, giáo dục pháp luật, hòa giải ở cơ sở",1
+3_domain_exact,"Phục hồi, phá sản",1
+3_domain_exact,"Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng Sĩ quan",1
+3_domain_exact,"Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng, Chính sách",1
+3_domain_exact,"Quân nhân chuyên nghiệp, công nhân và viên chức quốc phòng, Sĩ quan Quân đội nhân dân Việt Nam",1
+3_domain_exact,"Quân sự, Quốc phòng",1
+3_domain_exact,"Quản lý cho vay vốn tín dụng đầu tư, tín dụng xuất khẩu của Nhà nước",1
+3_domain_exact,Quản lý dịch vụ tài chính và các quỹ tài chính; Quản lý tài chính doanh nghiệp,1
+3_domain_exact,"Quản lý dịch vụ tài chính và các quỹ tài chính; TCNH và thị trường TC, trái phiếu, khác",1
+3_domain_exact,Quản lý dịch vụ tài chính và các quỹ tài chính; Tài chính khác,1
+3_domain_exact,"Quản lý dự trữ nhà nước, Quản lý tài chính các tổ chức tài chính và dịch vụ tài chính",1
+3_domain_exact,Quản lý giá; Tài chính khác,1
+3_domain_exact,Quản lý hoạt động thương mại của các tổ chức và cá nhân người Việt Nam ở nước ngoài và của người nước ngoài ở Việt Nam,1
+3_domain_exact,"Quản lý ngoại thương, Xuất nhập khẩu",1
+3_domain_exact,Quản lý ngân sách nhà nước Tài chính doanh nghiệp,1
+3_domain_exact,Quản lý ngân sách nhà nước Tài chính hành chính sự nghiệp,1
+3_domain_exact,"Quản lý ngân sách nhà nước, Quản lý nợ và tài chính đối ngoại",1
+3_domain_exact,"Quản lý ngân sách, Chính sách thuế, Phòng, chống thiên tai",1
+3_domain_exact,"Quản lý ngân sách; Quản lý thuế, phí và lệ phí",1
+3_domain_exact,Quản lý ngân sách; Quản lý tài chính doanh nghiệp; Quản lý giá,1
+3_domain_exact,Quản lý ngân sách; Quản lý tài sản công,1
+3_domain_exact,"Quản lý ngân sách; TCNH và thị trường TC, trái phiếu, khác; Tài chính khác",1
+3_domain_exact,"Quản lý ngân sách; Tài chính khác; Quản lý thuế, phí và lệ phí",1
+3_domain_exact,"Quản lý nợ công, Đầu tư công",1
+3_domain_exact,"Quản lý thuế, Thuế thu nhập doanh nghiệp, Thuế thu nhập cá nhân",1
+3_domain_exact,"Quản lý tài chính doanh nghiệp; Quản lý thuế, phí và lệ phí",1
+3_domain_exact,"Quản lý tài sản nhà nước, Quốc phòng, Doanh nghiệp",1
+3_domain_exact,"Quản lý và sử dụng viện trợ không hoàn lại không thuộc hỗ trợ phát triển chính thức của các cơ quản, tổ chức, cá nhân nước ngoài dành cho Việt Nam",1
+3_domain_exact,"Quản lý, sử dụng vũ khí, vật liệu nổ, công cụ hỗ trợ",1
+3_domain_exact,Quảng cáo,1
+3_domain_exact,"Quảng cáo, Thư viện, Điện ảnh, Di sản văn hóa, Xử lý vi phạm hành chính",1
+3_domain_exact,"Quốc phòng, An ninh quốc gia, Phòng, chống thiên tai",1
+3_domain_exact,"Quốc phòng, an ninh",1
+3_domain_exact,Quốc tịch,1
+3_domain_exact,"Sở hữu trí tuệ, Tiêu chuẩn đo lường chất lượng",1
+3_domain_exact,Sử dụng năng lượng tiết kiệm và hiệu quả,1
+3_domain_exact,"TCNH và thị trường TC, trái phiếu, khác; Quản lý thuế, phí và lệ phí",1
+3_domain_exact,"TCNH và thị trường TC, trái phiếu, khác; Tài chính đối ngoại",1
+3_domain_exact,Tham gia lực lượng gìn giữ hòa bình,1
+3_domain_exact,"Thanh tra, Công nghiệp, Lâm nghiệp, Thủy sản",1
+3_domain_exact,"Thanh tra, Khoa học công nghệ, Công nghiệp, Lâm nghiệp, Thủy sản",1
+3_domain_exact,"Thanh tra, Nông nghiệp",1
+3_domain_exact,Thi hành án hình sự,1
+3_domain_exact,Thi đua - Khen thưởng,1
+3_domain_exact,Thi đua - khen thưởng,1
+3_domain_exact,Thuế bảo vệ môi trường,1
+3_domain_exact,"Thông tin, báo chí nước ngoài",1
+3_domain_exact,"Thú y, Chăn nuôi",1
+3_domain_exact,Thư viện,1
+3_domain_exact,Thương mại điện tử,1
+3_domain_exact,"Thương mại, Chất lượng sản phẩm, hàng hóa, Bảo vệ quyền lợi người tiêu dùng, Giao dịch điện tử",1
+3_domain_exact,"Thương mại, Công nghiệp",1
+3_domain_exact,"Thể dục, thể thao, Thi đua, khen thưởng",1
+3_domain_exact,Thị trường trong nước,1
+3_domain_exact,Thủ đô,1
+3_domain_exact,"Thủy lợi, Thủy lợi, đề điều và phòng chống bão lụt",1
+3_domain_exact,"Thủy lợi, đề điều và phòng chống bão lụt, Đê điều và Phòng chống thiên tai",1
+3_domain_exact,"Thủy sản, Chính sách thuế",1
+3_domain_exact,"Thủy sản, Thủy sản, kiểm ngư",1
+3_domain_exact,Thừa phát lại,1
+3_domain_exact,"Thực hiện chế độ hưu trí đối với quân nhân trực tiếp tham gia kháng chiến chống Mỹ cứu nước từ ngày 30 tháng 4 năm 1975 trở về trước có 20 năm trở lên phục vụ quân đội đã phục viên, xuất ngũ",1
+3_domain_exact,"Tiêu chuẩn nhà giáo, cán bộ quản lý giáo dục",1
+3_domain_exact,"Tiêu chuẩn và quy chuẩn kỹ thuật, An toàn thông tin mạng",1
+3_domain_exact,"Tiêu chuẩn và quy chuẩn kỹ thuật, Chất lượng sản phẩm, hàng hóa, Đo lường",1
+3_domain_exact,"Tiêu chuẩn và quy chuẩn kỹ thuật, Giao thông đường thủy nội địa",1
+3_domain_exact,"Tiêu chuẩn và quy chuẩn kỹ thuật, Quản lý trang thiết bị y tế",1
+3_domain_exact,"Tiêu chuẩn, quy chuẩn, Tiêu chuẩn và quy chuẩn kỹ thuật",1
+3_domain_exact,Trẻ em,1
+3_domain_exact,Trồng trọt và Bảo vệ thực vật,1
+3_domain_exact,"Trồng trọt, Bảo vệ thực vật",1
+3_domain_exact,Tài chính doanh nghiệp Tài chính doanh nghiệp và quản lý vốn của nhà nước tại doanh nghiệp,1
+3_domain_exact,"Tài chính doanh nghiệp, Thể dục, thể thao",1
+3_domain_exact,Tài chính hành chính sự nghiệp Tổ chức cán bộ,1
+3_domain_exact,"Tài chính hành chính sự nghiệp, Thi đua, khen thưởng",1
+3_domain_exact,"Tài chính khác; TCNH và thị trường TC, trái phiếu, khác",1
+3_domain_exact,"Tài chính, Chính sách",1
+3_domain_exact,"Tài chính, Chức năng, nhiệm vụ quyền hạn, Cơ cấu tổ chức",1
+3_domain_exact,"Tài chính, Khiếu nại, Khiếu nại, tố cáo",1
+3_domain_exact,"Tài chính, Tiếp công dân, Khiếu nại",1
+3_domain_exact,"Tài nguyên khoáng sản, địa chất, Tài nguyên nước",1
+3_domain_exact,Tư vấn pháp luật,1
+3_domain_exact,Tố tụng hình sự,1
+3_domain_exact,Tổ chức Chính phủ,1
+3_domain_exact,"Tổ chức cán bộ, Đăng kiểm, Hàng hải",1
+3_domain_exact,"Việc làm, Lưu trữ, Tổng hợp, Thống kê",1
+3_domain_exact,Văn hóa cơ sở,1
+3_domain_exact,"Văn thư - Lưu trữ, Văn thư và Lưu trữ Nhà nước",1
+3_domain_exact,"Vận tải, Công nghệ thông tin,điện tử, Lĩnh vực khác",1
+3_domain_exact,"Vận tải, Công nghệ thông tin,điện tử, Tần số-vô tuyến điện",1
+3_domain_exact,"Vận tải, Hàng không",1
+3_domain_exact,"Vận tải, Khoa học và công nghệ, Tần số-vô tuyến điện",1
+3_domain_exact,"Vận tải, Lĩnh vực khác",1
+3_domain_exact,"Vận tải, Đăng kiểm",1
+3_domain_exact,"Vận tải, Đường sắt",1
+3_domain_exact,"Vận tải, Đường thủy nội địa",1
+3_domain_exact,Vật liệu xây dựng,1
+3_domain_exact,"Xuất cảnh, nhập cảnh của công dân Việt Nam",1
+3_domain_exact,Xây dựng nhà ở,1
+3_domain_exact,"chuyển đổi số Công nghệ thông tin,điện tử",1
+3_domain_exact,"chức năng, nhiệm vụ, quyền hạn, cơ cấu tổ chức của sở Thông tin và Truyền thông",1
+3_domain_exact,"cán bộ, công chức Viên chức",1
+3_domain_exact,giáo dục nghề nghiệp,1
+3_domain_exact,học phí,1
+3_domain_exact,"khám bệnh, chữa bệnh",1
+3_domain_exact,lao động ngoài nước,1
+3_domain_exact,nội vụ,1
+3_domain_exact,"phân cấp, phân quyền",1
+3_domain_exact,"phân cấp, phân quyền, Người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng, Chứng thực, Nhập cảnh, xuất cảnh, quá cảnh, cư trú của người nước ngoài tại Việt Nam, Quốc tịch, Điều ước quốc tế, Thỏa thuận quốc tế, Biên giới, lãnh thổ, Tổ chức phi Chính phủ nước ngoài tại Việt Nam, Tổ chức- Biên chế, Hộ tịch, Nuôi con nuôi, Tố tụng hình sự",1
+3_domain_exact,"phân cấp, phân quyền, Quy hoạch - Kiến trúc",1
+3_domain_exact,tiêu chí và định mức,1
+3_domain_exact,xây dựng lực lượng,1
+3_domain_exact,y tế khác,1
+3_domain_exact,"Điện ảnh, Nghệ thuật biểu diễn",1
+3_domain_exact,"Điện ảnh, Sở hữu trí tuệ, Ngân sách nhà nước",1
+3_domain_exact,"Đánh giá, thẩm định và giám định công nghệ Công nghệ thông tin,điện tử",1
+3_domain_exact,Đê điều và Phòng chống thiên tai,1
+3_domain_exact,"Đăng kiểm, Hàng hải, Khoa học - Công nghệ",1
+3_domain_exact,"Đăng kiểm, Đường thủy nội địa, Khoa học - Công nghệ",1
+3_domain_exact,Đăng ký hoạt động khoa học và công nghệ,1
+3_domain_exact,"Đăng ký, quản lý con dấu",1
+3_domain_exact,"Đăng ký, quản lý cư trú, Quản lý xuất nhập cảnh",1
+3_domain_exact,"Đăng ký, quản lý phương tiện giao thông",1
+3_domain_exact,"Đường bộ, Khoa học - Công nghệ",1
+3_domain_exact,"Đường bộ, Đường sắt, Đường thủy nội địa, Hàng hải, Hàng không",1
+3_domain_exact,"Đường thủy nội địa, Hàng hải, Hàng không",1
+3_domain_exact,"Đường thủy nội địa, Khoa học - Công nghệ",1
+3_domain_exact,Đầu tư Kho bạc Ngân sách nhà nước,1
+3_domain_exact,Đầu tư công,1
+3_domain_exact,Đầu tư theo phương thức đối tác công tư,1
+3_domain_exact,Đầu tư từ VN ra nước ngoài,1
+3_domain_exact,"Đầu tư, Tài chính doanh nghiệp",1
+3_domain_exact,"Động viên, Tuyển quân",1
+3_domain_exact,"Ưu đãi, miễn trừ ngoại giao",1
+3_domain_exact,Ứng dụng và Phát triển công nghệ,1

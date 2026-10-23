@@ -1,0 +1,5 @@
+﻿step,docs_before,docs_after,docs_removed
+0_all_metadata,171556,171556,0
+1_doc_type,171556,23170,148386
+2_effect_status,23170,10315,12855
+3_domain_exact,10315,1133,9182
