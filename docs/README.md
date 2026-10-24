@@ -50,3 +50,7 @@ Sau mỗi phase, lưu bản bàn giao ở `docs/phases/NN_ten_phase.md` theo m�
 | Phê duyệt và Git | Quyết định tại điểm chờ, xác nhận nội dung bàn giao và commit/push theo phân công. | Nhóm chưa ghi tên. |
 
 Một người có thể đảm nhiệm nhiều vai trò; ghi nhận đóng góp thực tế, không tạo lịch sử đóng góp hoặc kết quả kiểm chứng giả.
+
+## Bàn giao ngày 2026-10-25
+
+[Báo cáo baseline và pilot gán nhãn](phases/annotation.md) ghi trạng thái hiện tại, artifact bàn giao, lệnh dựng lại model/index và các việc người nhận cần tiếp tục. Đây là cập nhật mới hơn bảng tiến độ lịch sử bên trên.

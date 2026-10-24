@@ -163,3 +163,7 @@ Kết quả mặc định ở `data/interim/e5_s2/`, index ở `indexes/e5_s2/`.
 ```
 
 Bằng chứng chạy, hashes, kiểm thử và giới hạn ở [bàn giao E5](docs/phases/e5.md). Chưa có nhãn nên chưa báo cáo Precision/Recall/MRR/MAP/NDCG hoặc khẳng định chất lượng tìm kiếm.
+
+## Bàn giao baseline và pilot gán nhãn
+
+Xem [báo cáo bàn giao và hướng dẫn dựng lại](docs/phases/annotation.md): danh sách dữ liệu cần gửi riêng, tải model/VNCoreNLP, dựng index, tiếp tục pilot và kiểm chứng nhãn. Pilot đã gọi API; chưa nghiệm thu chất lượng hoặc tạo dataset chính thức.
