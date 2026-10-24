@@ -48,9 +48,9 @@ def test_gemini_request_shape_and_key_in_header_only():
         seen["url"], seen["key"], seen["body"] = str(request.url), request.headers.get("x-goog-api-key"), json.loads(request.content)
         return httpx.Response(200, json=ok_body('{"results": []}'))
 
-    c = GeminiClient("gemini-2.5-flash", 0.7, api_key=KEY, transport=httpx.MockTransport(handler))
+    c = GeminiClient("gemini-3.5-flash-lite", 0.7, api_key=KEY, transport=httpx.MockTransport(handler))
     assert c.generate("PROMPT") == '{"results": []}'
-    assert seen["url"] == ENDPOINT.format(model="gemini-2.5-flash") and KEY not in seen["url"]
+    assert seen["url"] == ENDPOINT.format(model="gemini-3.5-flash-lite") and KEY not in seen["url"]
     assert seen["key"] == KEY
     assert seen["body"]["generationConfig"] == {"temperature": 0.7, "responseMimeType": "application/json"}
     assert seen["body"]["contents"][0]["parts"][0]["text"] == "PROMPT"
@@ -60,10 +60,10 @@ def test_gemini_request_shape_and_key_in_header_only():
 def test_gemini_reads_key_from_environment_and_reports_missing_key_without_leaking(monkeypatch):
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     with pytest.raises(MissingApiKeyError) as e:
-        GeminiClient("gemini-2.5-flash", 0.7)
+        GeminiClient("gemini-3.5-flash-lite", 0.7)
     assert "GEMINI_API_KEY" in str(e.value)
     monkeypatch.setenv("GEMINI_API_KEY", KEY)
-    c = GeminiClient("gemini-2.5-flash", 0.7, transport=httpx.MockTransport(lambda r: httpx.Response(200, json=ok_body("x"))))
+    c = GeminiClient("gemini-3.5-flash-lite", 0.7, transport=httpx.MockTransport(lambda r: httpx.Response(200, json=ok_body("x"))))
     assert c.generate("p") == "x"
 
 
@@ -109,7 +109,7 @@ def test_generator_with_gemini_client_retries_using_retry_after_with_fake_sleep(
                     "queries": {"natural": "câu một", "scenario": "câu hai", "keyword": "từ khóa"}} for a in arts]
         return httpx.Response(200, json=ok_body(json.dumps({"results": results}, ensure_ascii=False)))
 
-    client = GeminiClient("gemini-2.5-flash", 0.7, api_key=KEY, transport=httpx.MockTransport(handler))
+    client = GeminiClient("gemini-3.5-flash-lite", 0.7, api_key=KEY, transport=httpx.MockTransport(handler))
     g, store, _ = base.make_gen(tmp_path, client, ft=ft)
     g.run(base.make_articles(10))
     assert ft.sleeps == [4.0] and len(store.read_all()) == 10 and len(calls) == 2
@@ -119,9 +119,9 @@ def test_generator_with_gemini_client_retries_using_retry_after_with_fake_sleep(
 def test_config_reflects_confirmed_decisions_and_never_guesses_quota():
     raw = (ROOT / "configs" / "querygen.yaml").read_text(encoding="utf-8")
     cfg = yaml.safe_load(raw)
-    assert cfg["llm"]["model"] == "gemini-2.5-flash" and cfg["llm"]["temperature"] == 0.7 and cfg["llm"]["batch_size"] == 15
+    assert cfg["llm"]["model"] == "gemini-3.5-flash-lite" and cfg["llm"]["temperature"] == 0.7 and cfg["llm"]["batch_size"] == 15
     assert cfg["llm"]["api_key_env"] == "GEMINI_API_KEY"
-    assert cfg["llm"]["rate_limit_calls"] is None and cfg["llm"]["generation_date"] is None  # quota từ AI Studio; ngày ghi khi chạy
+    assert cfg["llm"]["rate_limit_calls"] == 5 and cfg["llm"]["generation_date"] is None  # quota người dùng điền từ AI Studio; ngày ghi khi chạy
     assert cfg["lexical"] == {"verbatim_n": 8, "train_overlap_threshold": 0.8, "train_overlap_inclusive": True,
                               "keyword_min_syllables": 1, "keyword_max_syllables": 6}  # nhóm duyệt 2026-10-24
     s = cfg["selection"]
@@ -139,7 +139,7 @@ def test_build_meta_records_runtime_date_and_requires_pinned_model():
     cfg = yaml.safe_load((ROOT / "configs" / "querygen.yaml").read_text(encoding="utf-8"))
     m = build_meta(cfg, "h", "train", 42)
     import datetime
-    assert m["generation_date"] == datetime.date.today().isoformat() and m["model"] == "gemini-2.5-flash" and m["mock"] is False
+    assert m["generation_date"] == datetime.date.today().isoformat() and m["model"] == "gemini-3.5-flash-lite" and m["mock"] is False
     assert build_meta(cfg, "h", "train", 42, generation_date="2001-02-03")["generation_date"] == "2001-02-03"
     cfg["llm"]["model"] = None
     with pytest.raises(ValueError):
@@ -275,6 +275,7 @@ def test_cli_plan_eval_insufficient_source_stops_without_borrowing(tmp_path):
 def test_cli_generate_requires_quota_and_api_key_and_never_prints_key(tmp_path, monkeypatch):
     gq = base._script()
     dcfg, qcfg = base._tmp_cfgs(tmp_path, pinned=False)
+    qcfg["llm"]["rate_limit_calls"] = None
     monkeypatch.setenv("GEMINI_API_KEY", KEY)
     with pytest.raises(SystemExit) as e:  # rate_limit_calls vẫn null: không đoán quota
         gq.cmd_generate(dcfg, qcfg, "train", {"split": "train", "article_ids": []})

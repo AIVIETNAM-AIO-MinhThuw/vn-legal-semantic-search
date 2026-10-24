@@ -4,7 +4,7 @@
 
 llm:
   provider: gemini                 # gọi qua HTTP bằng httpx (đã có trong requirements.txt); không thêm SDK
-  model: gemini-2.5-flash          # chốt; điều kiện: dự án AI Studio còn truy cập được model. Không tự đổi model giữa các lượt sinh
+  model: gemini-3.5-flash-lite     # nhóm chốt 2026-10-24 (gemini-2.5-flash trả 404, không còn phục vụ người dùng mới). Không tự đổi model giữa các lượt sinh
   temperature: 0.7                 # chốt
   api_key_env: GEMINI_API_KEY      # key chỉ đọc từ biến môi trường này; không ghi vào config, log hay repo. Nếu dùng .env thì phải bị .gitignore
   generation_date: null            # tự ghi vào metadata khi chạy thực tế (không điền tay)
@@ -12,7 +12,7 @@ llm:
   max_attempts: 5                  # retry khi rate limit / lỗi tạm thời / phản hồi sai schema
   retry_base_delay_seconds: 2.0
   retry_max_delay_seconds: 60.0
-  rate_limit_calls: null           # lấy từ AI Studio của tài khoản thật, không đoán; lệnh sinh thật dừng khi còn null
+  rate_limit_calls: 5              # RPM free tier đã xác nhận cho gemini-2.5-flash; CHƯA xác nhận cho gemini-3.5-flash-lite (giữ 5 làm cận dưới an toàn). Kiểm tra trên AI Studio
   rate_limit_window_seconds: 60
 
 prompt:
