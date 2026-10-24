@@ -137,6 +137,17 @@ Paper phải nêu ít nhất:
 
 ---
 
+## Quy tắc phạm vi và độ phức tạp
+
+- Chỉ làm mức tối thiểu cần thiết để hoàn thành task hiện tại, đáp ứng `SPEC.md`, rubric và khả năng tái lập. Ưu tiên giải pháp đơn giản, ổn định và đã có bằng chứng chạy được.
+- Không tự mở rộng thành nghiên cứu hoặc hệ thống production: không thêm vòng thử nghiệm, phân tích thống kê, luật lọc, cấu hình, artifact, cổng duyệt hay kiến trúc mới nếu `SPEC.md` không yêu cầu và chúng không xử lý một blocker thực tế.
+- Luôn phân biệt rõ **bắt buộc theo SPEC/blocker** với **đề xuất tùy chọn**. Đề xuất tùy chọn không được biến thành việc phải làm hoặc điều kiện chặn task; chỉ nêu ngắn gọn khi thật sự hữu ích.
+- Khi phương án hiện tại đã đáp ứng SPEC và mục tiêu, không tiếp tục tối ưu chỉ để làm kết quả “đẹp hơn”. Không chạy thêm pilot hoặc mở change procedure nếu chưa có bằng chứng rằng task không thể hoàn thành theo luật hiện tại.
+- Nếu người dùng yêu cầu review, đánh giá hoặc thảo luận thì chỉ thực hiện đúng việc đó; không tự viết kế hoạch triển khai, prompt giao việc hay sửa code trừ khi được yêu cầu.
+- Trước khi đề xuất thêm việc, phải trả lời được: việc này được SPEC yêu cầu ở đâu, hoặc blocker cụ thể nào khiến task không thể tiếp tục. Nếu không trả lời được thì bỏ qua.
+
+---
+
 ## Quy tắc quản lý file và commit
 
 ### 1. Hai vùng làm việc
