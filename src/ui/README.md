@@ -53,15 +53,24 @@ tìm lại. Nếu chưa tìm lần nào, hãy bấm Tìm để thấy lỗi quer
   mã này là lượt tìm hết hạn. Không đọc `error.message` để đoán nguyên nhân;
   cần mã lỗi riêng từ hợp đồng tương lai để phân biệt chính xác.
 - Dùng Streamlit 1.50.0 để có nút tertiary, segmented control và container
-  căn giữa rộng tối đa 1200px. `.streamlit/config.toml` chọn theme light mặc định
-  và toolbar viewer, không đặt màu. Một khối CSS trong `app.py` chỉ căn trái và
-  đặt độ đậm 600 cho nút tiêu đề Điều qua class `st-key-article-…`.
-  Tiêu đề nút tự xuống dòng. Số dòng caption tên văn bản và đoạn trích tùy
-  chiều rộng viewport; không ép 1 dòng hoặc 2–3 dòng bằng CSS. Đoạn trích bỏ
-  xuống dòng thành khoảng trắng cùng độ dài code point; toàn văn giữ xuống dòng.
+  căn giữa rộng tối đa 1200px. `.streamlit/config.toml` chọn theme light,
+  primary `#1F4E8C`, text `#1F2328` và toolbar viewer. CSS nằm duy nhất trong
+  `style.py`, được `app.py` gọi một lần mỗi lượt render; chỉ chọn key do UI đặt
+  hoặc các class HTML của UI, không ghi đè class nội bộ của Streamlit.
+  Nút tiêu đề tối đa 2 dòng, tên văn bản 1 dòng ellipsis; trích đoạn tối đa
+  3 dòng và luôn dành chiều cao 3 dòng. Đoạn trích bỏ xuống dòng thành khoảng
+  trắng cùng độ dài code point; toàn văn giữ xuống dòng. Màu chữ phụ là
+  `#5B6470`, nền highlight `#FCE8A6` và chữ highlight kế thừa màu văn bản.
 - Semantic/Hybrid hiện đúng câu highlight trong thẻ; BM25 hiện cửa sổ khoảng
   250 ký tự quanh span đầu. Một câu rất dài có thể vượt 250 ký tự để không cắt
-  mất câu highlight. Reader dùng container cuộn cao 420px và dialog lớn gốc.
+  mất câu highlight, nhưng thẻ vẫn clamp 3 dòng. So sánh vẽ từng cặp hàng theo
+  hạng, giữ ô trống nếu một bên thiếu kết quả. Reader dùng dialog lớn gốc:
+  nội dung trên 1500 ký tự có khung cuộn 480px, nội dung ngắn để cao tự nhiên;
+  trích dẫn nằm trong popover ở header. Không thay đổi client hoặc xử lý state.
+- Khi chụp bản style ở 1440px trên Chromium với Streamlit 1.50.0, các selector,
+  màu/cỡ chữ, ellipsis, line-clamp và hover gạch chân đã nhận giá trị mong muốn.
+  Không ghi nhận CSS không tác dụng trong lượt kiểm tra này. Chưa xác minh
+  trên các trình duyệt khác; không có test tự động.
 - Không viết hoặc chạy bộ test UI trong P4-UI. Ảnh mẫu chỉ là bằng chứng trình
   bày, chưa phải nghiệm thu API thật hoặc kiểm thử đủ các tương tác.
 
@@ -78,6 +87,7 @@ tìm lại. Nếu chưa tìm lần nào, hãy bấm Tìm để thấy lỗi quer
 | `cards.py` | Thẻ một cột hoặc so sánh hai cột |
 | `reader.py` | Dialog đọc và feedback theo lượt tìm/hệ thống/Điều |
 | `state.py` | Trạng thái phiên và callback tìm lại |
+| `style.py` | CSS tập trung cho key/class HTML của UI |
 | `README.md` | Lệnh chạy, giới hạn, kiểm kê và kiểm thử để lại |
 | `sample_data/info.json` | Info mẫu, giới hạn và giá trị bộ lọc |
 | `sample_data/search_semantic.json` | 10 Điều, thang cosine |
@@ -94,7 +104,7 @@ tìm lại. Nếu chưa tìm lần nào, hãy bấm Tìm để thấy lỗi quer
 | `sample_data/error_feedback.json` | Lỗi feedback mẫu |
 | `sample_data/error_search_expired.json` | Lỗi feedback hết hạn mẫu |
 | `../../requirements-ui.txt` (từ gốc repo: `requirements-ui.txt`) | 3 dependency UI ghim cứng |
-| `.streamlit/config.toml` (từ gốc repo) | Toolbar viewer và theme light mặc định |
+| `.streamlit/config.toml` (từ gốc repo) | Toolbar viewer, theme light và hai màu theme |
 | `data/FROZEN.md` (từ gốc repo) | Mốc 12, commit riêng `3d92837` |
 
 `data/FROZEN.md` ghi SHA-256 trên blob LF của `openapi.json`:

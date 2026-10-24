@@ -4,7 +4,7 @@ from html import escape
 from src.contracts import Highlight
 
 
-def render_html(content: str, spans: list[Highlight]) -> str:
+def render_html(content: str, spans: list[Highlight], *, doc_title: str | None = None) -> str:
     pieces = []
     cursor = 0
     for span in spans:
@@ -12,7 +12,10 @@ def render_html(content: str, spans: list[Highlight]) -> str:
                        escape(content[span.start:span.end]), "</mark>"))
         cursor = span.end
     pieces.append(escape(content[cursor:]))
-    return '<div style="white-space: pre-wrap">' + "".join(pieces) + "</div>"
+    body = "".join(pieces)
+    if doc_title is not None:
+        return f'<div class="doc">{escape(doc_title)}</div><div class="snip">{body}</div>'
+    return f'<div class="reader-body">{body}</div>'
 
 
 def snippet(content: str, spans: list[Highlight], width=250) -> tuple[str, list[Highlight]]:

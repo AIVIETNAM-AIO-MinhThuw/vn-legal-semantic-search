@@ -3,3 +3,5 @@ toolbarMode = "viewer"
 
 [theme]
 base = "light"
+primaryColor = "#1F4E8C"
+textColor = "#1F2328"

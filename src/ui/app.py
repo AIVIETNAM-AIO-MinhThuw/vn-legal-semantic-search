@@ -15,21 +15,10 @@ from src.ui.client import ApiClient, SampleClient
 from src.ui.errors import ApiFailure, UNAVAILABLE, error_text
 from src.ui.layout import controls, footer, header, search_form, status
 from src.ui.state import FILTERS, apply_info, clear_filters, init_state, reload_info
+from src.ui.style import inject
 
 st.set_page_config(page_title="Tìm kiếm pháp luật", layout="wide", initial_sidebar_state="collapsed")
-st.html("""
-<style>
-[class*="st-key-article-"] button {
-    justify-content: flex-start;
-    text-align: left;
-    font-weight: 600;
-}
-[class*="st-key-article-"] button p {
-    text-align: left;
-    font-weight: 600;
-}
-</style>
-""")
+inject()
 
 
 def load_info(client):

@@ -1,4 +1,6 @@
 """Cửa sổ đọc chỉ nhận item và hệ thống của lần bấm."""
+from html import escape
+
 import streamlit as st
 
 from src.contracts import ErrorCode, FeedbackRequest
@@ -11,18 +13,31 @@ from src.ui.layout import NAMES, SCORE_HELP, format_score
 def open_reader(item, system, score_type, search_id, client, compare=False, cross_rank=None):
     name = NAMES[system]
     other = "Semantic" if system == "bm25" else "BM25"
-    st.caption(f"Đang xem từ cột {name}" if compare else f"Kết quả {name}")
+    with st.container(key="reader-source"):
+        st.caption(f"Đang xem từ cột {name}" if compare else f"Kết quả {name}")
     title = f"Điều {item.article_number}. {item.article_title}"
-    st.subheader(title)
-    st.caption(f"{item.doc_title} · {item.effect_status}")
+    with st.container(key="reader-header"):
+        heading, citation = st.columns([0.8, 0.2])
+        with heading:
+            st.markdown(f'<div class="reader-title">{escape(title)}</div>', unsafe_allow_html=True)
+        with citation:
+            with st.popover("Sao chép trích dẫn"):
+                st.code(f"{title} — {item.doc_title}", language=None, wrap_lines=True)
+    with st.container(key="reader-meta"):
+        st.caption(f"{item.doc_title} · {item.effect_status}")
     score = f"{name} #{item.rank} · {format_score(item.score, score_type)}"
     if compare:
         score += f" · {other} #{cross_rank}" if cross_rank is not None else f" · {other} —"
-    st.caption(score, help=SCORE_HELP)
-    with st.container(height=420, border=False):
+    with st.container(key="reader-score"):
+        st.caption(score, help=SCORE_HELP)
+    st.divider()
+    body = st.container(height=480) if len(item.content) > 1500 else st.container()
+    with body:
         st.markdown(render_html(item.content, item.highlights), unsafe_allow_html=True)
-    st.caption("BM25: tô các từ trùng với câu hỏi." if system == "bm25" else
-               f"{name}: tô câu gần nghĩa nhất với câu hỏi.")
+    st.divider()
+    with st.container(key="reader-note"):
+        st.caption("BM25: tô các từ trùng với câu hỏi." if system == "bm25" else
+                   f"{name}: tô câu gần nghĩa nhất với câu hỏi.")
     vote_key = (str(search_id), system, item.article_id)
     selected = st.session_state.feedback_labels.get(vote_key)
     with st.container(horizontal=True):
@@ -40,4 +55,3 @@ def open_reader(item, system, score_type, search_id, client, compare=False, cros
                     st.session_state.feedback_labels[vote_key] = label
                     st.session_state.csv = None
                     st.rerun(scope="fragment")
-    st.code(f"{title} — {item.doc_title}", language=None, wrap_lines=True)
