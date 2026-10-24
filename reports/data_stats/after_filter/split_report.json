@@ -1,0 +1,140 @@
+{
+ "N": 569,
+ "A": 7340,
+ "Q": {
+  "train": 455,
+  "val": 57,
+  "test": 57
+ },
+ "F": 1,
+ "threshold": "1/20",
+ "forced": [
+  {
+   "group_id": "0da53250-5d6b-11f1-807d-c70e99d85013",
+   "article_share": "1127/7340"
+  }
+ ],
+ "q": {
+  "train": 454,
+  "val": 57,
+  "test": 57
+ },
+ "R": 568,
+ "x": {
+  "Chính sách thuế": {
+   "train": 37,
+   "val": 5,
+   "test": 5
+  },
+  "Lao động, tiền lương, tiền công": {
+   "train": 102,
+   "val": 13,
+   "test": 13
+  },
+  "Ngân sách nhà nước": {
+   "train": 45,
+   "val": 5,
+   "test": 6
+  },
+  "Quản lý dịch vụ tài chính và các quỹ tài chính": {
+   "train": 20,
+   "val": 2,
+   "test": 3
+  },
+  "Quản lý ngân sách": {
+   "train": 111,
+   "val": 14,
+   "test": 14
+  },
+  "Quản lý thuế, phí và lệ phí": {
+   "train": 77,
+   "val": 10,
+   "test": 9
+  },
+  "TCNH và thị trường TC, trái phiếu, khác": {
+   "train": 19,
+   "val": 3,
+   "test": 2
+  },
+  "Tài chính hành chính sự nghiệp": {
+   "train": 43,
+   "val": 5,
+   "test": 5
+  }
+ },
+ "ideal": {
+  "Chính sách thuế": {
+   "train": "10669/284",
+   "val": "2679/568",
+   "test": "2679/568"
+  },
+  "Lao động, tiền lương, tiền công": {
+   "train": "7264/71",
+   "val": "912/71",
+   "test": "912/71"
+  },
+  "Ngân sách nhà nước": {
+   "train": "3178/71",
+   "val": "399/71",
+   "test": "399/71"
+  },
+  "Quản lý dịch vụ tài chính và các quỹ tài chính": {
+   "train": "5675/284",
+   "val": "1425/568",
+   "test": "1425/568"
+  },
+  "Quản lý ngân sách": {
+   "train": "31553/284",
+   "val": "7923/568",
+   "test": "7923/568"
+  },
+  "Quản lý thuế, phí và lệ phí": {
+   "train": "5448/71",
+   "val": "684/71",
+   "test": "684/71"
+  },
+  "TCNH và thị trường TC, trái phiếu, khác": {
+   "train": "1362/71",
+   "val": "171/71",
+   "test": "171/71"
+  },
+  "Tài chính hành chính sự nghiệp": {
+   "train": "12031/284",
+   "val": "3021/568",
+   "test": "3021/568"
+  }
+ },
+ "column_moves": [
+  {
+   "domain": "Ngân sách nhà nước",
+   "from": "val",
+   "to": "test",
+   "delta_sse": "0"
+  },
+  {
+   "domain": "Quản lý dịch vụ tài chính và các quỹ tài chính",
+   "from": "val",
+   "to": "test",
+   "delta_sse": "0"
+  }
+ ],
+ "domains_missing_in": {
+  "val": [],
+  "test": []
+ },
+ "docs_per_split": {
+  "train": 588,
+  "test": 58,
+  "val": 60
+ },
+ "families_per_split": {
+  "train": 455,
+  "val": 57,
+  "test": 57
+ },
+ "articles_per_split": {
+  "train": 6121,
+  "val": 538,
+  "test": 681
+ }
+}
