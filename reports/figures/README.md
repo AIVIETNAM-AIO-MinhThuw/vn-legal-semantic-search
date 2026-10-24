@@ -21,6 +21,6 @@ Chỉ tạo thư mục khi có hình thật. Không có hình không có nghĩa 
 - Ghi file nguồn, script/notebook tạo hình, phạm vi, đơn vị, ngày/version và chú thích trong hồ sơ phase. Lưu config/phiên bản phù hợp để xuất lại, không chỉ lưu ảnh chụp màn hình.
 - Nếu sửa dữ liệu biểu diễn (ví dụ log scale hoặc top N), ghi rõ; không bỏ nhóm bất thường để biểu đồ trông đẹp hơn.
 - Sơ đồ phương pháp phải theo SPEC. Ảnh demo phải từ lần chạy thật; mockup nếu có phải ghi rõ là minh họa.
-- Không tạo hình metric test/OOD trước thời điểm SPEC cho phép. Không đưa thông tin bị cấm vào tài liệu cho annotator.
+- Không tạo hình metric test/OOD trước thời điểm SPEC cho phép. Không đưa thông tin bị cấm (mục 10.2 SPEC) vào dữ liệu gửi cho LLM gán nhãn hoặc người kiểm chứng.
 
 Số xuất hiện trong hình và dùng trong paper phải truy được về script/artifact, theo [SPEC](../../SPEC.md). Notebook có thể dùng để xuất hình, không trở thành nguồn số liệu độc lập với pipeline.

@@ -1,0 +1,6 @@
+# Install after requirements.txt; Java is provided through JAVA_HOME.
+bm25s==0.2.14
+py-vncorenlp==0.1.4
+pyjnius==1.9.0
+numpy==2.4.6
+scipy==1.17.1

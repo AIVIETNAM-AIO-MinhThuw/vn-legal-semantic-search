@@ -1,0 +1,41 @@
+schema_version: annotation-v1
+seed: 42
+paths:
+  queries: data/interim/semantic_queries_500.csv
+  articles: data/processed/articles_index.jsonl
+  docs: data/processed/docs_index.jsonl
+  baselines:
+    bm25: data/interim/bm25_s10
+    e5: data/interim/e5_s2
+  run: data/interim/annotation_pilot_v1
+  prompt: prompts/relevance_v1.txt
+  guideline: annotation/GUIDELINE.md
+  examples: annotation/examples.jsonl
+  metadata: data/interim/annotation_metadata.jsonl
+  exclusions: data/interim/annotation_exclusions.jsonl
+pool_depth: 10
+hard_negative_rank: 3
+csv_field_size_limit: 10000000
+selection:
+  mode: pilot
+  query_count: 10
+  query_ids: []
+  approval: null
+api:
+  base_url: https://generativelanguage.googleapis.com/v1beta
+  model: gemini-3.5-flash-lite
+  key_env: GOOGLE_API_KEY
+  timeout_seconds: 120
+  attempts: 3
+  interval_seconds: 7
+  backoff_seconds: 10
+  max_input_tokens: 100000
+  retry_statuses: [429, 500, 502, 503, 504]
+  generation:
+    temperature: 1.0
+    maxOutputTokens: 8192
+    thinkingConfig:
+      thinkingLevel: minimal
+review:
+  per_label: 10
+  examples_per_label: 2

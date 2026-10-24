@@ -11,8 +11,8 @@ Thư mục dành cho phân tích, minh họa và xuất hình từ artifact đã
 | Notebook dự kiến, chưa tạo | Nội dung | Điều kiện bắt đầu |
 |---|---|---|
 | `02_corpus_audit.ipynb` | Minh họa parse/chunk, trước/sau lọc và dedup, thống kê validation. | Có bản artifact được bàn giao và trạng thái review rõ ràng; không đọc output đang ghi. |
-| `03_split_audit.ipynb` | Thống kê họ, phân bố split và kết quả leakage đã kiểm tra. | Có báo cáo và phê duyệt theo SPEC; notebook không tự chia lại tập. |
-| `04_queries_audit.ipynb` | Kiểu query, overlap, lý do loại/duyệt và nguồn split. | Có file query/version được bàn giao; không tạo/gợi ý/sửa OOD hoặc final labels. |
+| `03_split_audit.ipynb` | Thống kê họ, phân bố split dataset và số liệu chồng lấn đã kiểm tra. | Có dataset có nhãn, split và phê duyệt theo SPEC; notebook không tự chia lại tập. |
+| `04_queries_audit.ipynb` | Kiểu query, overlap (chỉ phân tích), lý do loại/đánh dấu, phân phối nhãn và đồng thuận pilot. | Có file query, judgment và version được bàn giao; không tạo/gợi ý/sửa OOD, không sửa nhãn trong notebook. |
 | `05_experiment_analysis.ipynb` | Phân tích run, bảng metric, kiểm định và lỗi từ kết quả được phép dùng. | Phân biệt val và kết quả chính thức; test/OOD chỉ sau freeze theo SPEC. |
 
 Đây là gợi ý tổ chức phần trình bày, không phải thứ tự thực thi mới. Một phase có thể chỉ cần báo cáo Markdown và log thay vì notebook. Không tạo notebook rỗng để biểu thị hoàn tất.

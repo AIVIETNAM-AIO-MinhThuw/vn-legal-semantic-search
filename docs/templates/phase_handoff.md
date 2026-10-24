@@ -44,7 +44,7 @@
 - Đã chạy notebook từ kernel mới, kiểm tra nhãn/font/đơn vị: chưa kiểm tra hoặc không áp dụng.
 - Số dùng trong paper có script tái lập theo SPEC 13: chưa kiểm tra.
 - Nội dung chưa chắc, chưa được phép đánh giá hoặc chưa được duyệt đã ghi rõ: chưa xác nhận.
-- Chưa tiết lộ thông tin bị cấm hoặc dùng LLM vào OOD/final labels: chưa kiểm tra.
+- Chưa tiết lộ thông tin bị cấm cho LLM gán nhãn/người kiểm chứng, chưa dùng LLM viết/sửa OOD, không gọi nhãn LLM là human gold: chưa kiểm tra.
 
 ## 5. Đóng mốc và việc tiếp theo
 

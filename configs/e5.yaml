@@ -1,0 +1,51 @@
+seed: 42
+paths:
+  chunks: data/processed/chunks_index.jsonl
+  articles: data/processed/articles_index.jsonl
+  docs: data/processed/docs_index.jsonl
+  queries: data/interim/semantic_queries_500.csv
+  model: data/raw/multilingual-e5-base
+  index: indexes/e5_s2
+  output: data/interim/e5_s2
+model:
+  name: intfloat/multilingual-e5-base
+  revision: d128750597153bb5987e10b1c3493a34e5a4502a
+  files:
+    - config.json
+    - model.safetensors
+    - sentencepiece.bpe.model
+    - special_tokens_map.json
+    - tokenizer.json
+    - tokenizer_config.json
+encoding:
+  preprocessing_version: e5-natural-v1
+  max_length: 512
+  batch_size: 8
+  dimension: 768
+  pooling: mean
+  normalize: true
+  dtype: float32
+  attention: eager
+  norm_atol: 0.00001
+  log_every_batches: 50
+retrieval:
+  top_k: 10
+  chunk_top_k: 200
+  run_tag: e5_s2
+runtime:
+  device: cuda
+  cpu_threads: 4
+  deterministic: true
+  allow_tf32: false
+  cublas_workspace_config: ':4096:8'
+versions:
+  torch: 2.5.1
+  transformers: 4.46.3
+  tokenizers: 0.20.3
+  huggingface-hub: 0.36.0
+  numpy: 2.4.6
+  safetensors: 0.8.0
+download:
+  cache_dir: data/raw/hf_cache
+  max_workers: 2
+  disable_xet: true
