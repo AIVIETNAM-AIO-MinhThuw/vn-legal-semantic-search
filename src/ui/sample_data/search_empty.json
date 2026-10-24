@@ -1,0 +1,13 @@
+{
+  "search_id": "00000000-0000-0000-0000-000000000078",
+  "query_normalized": "đề nghị hỗ trợ tiền lương (câu hỏi mẫu)",
+  "warnings": [],
+  "timing_ms": 42.6,
+  "lists": [
+    {
+      "system": "semantic",
+      "score_type": "cosine",
+      "items": []
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "error": {
+    "code": "INVALID_FILTER",
+    "message": "Thông báo nội bộ mẫu; UI phải ánh xạ theo code."
+  }
+}
