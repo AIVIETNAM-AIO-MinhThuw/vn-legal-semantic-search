@@ -19,14 +19,13 @@ def format_score(score, score_type):
 
 
 def header():
-    with st.container(horizontal=True, horizontal_alignment="center"):
-        st.title("Tìm kiếm ngữ nghĩa văn bản pháp luật", width="content")
+    st.markdown('<div class="page-title">Tra cứu văn bản pháp luật</div>', unsafe_allow_html=True)
     with st.container(horizontal=True, horizontal_alignment="center"):
         st.caption("Kết quả không thay thế tư vấn pháp lý.", width="content")
 
 
 def search_form(disabled):
-    with st.form("search_form", border=False):
+    with st.form("search_form", border=False, enter_to_submit=False):
         question, submit = st.columns([9, 1], vertical_alignment="bottom")
         with question:
             st.text_input("Câu hỏi pháp luật", placeholder="Nhập câu hỏi pháp luật…",
@@ -66,13 +65,15 @@ def controls(info, disabled):
 
 
 def status(response, mode, top_k):
-    if mode == "compare":
-        st.caption("So sánh: BM25 (thang bm25) và Semantic (thang cosine) · "
-                   f"{top_k} kết quả mỗi bên · {response.timing_ms:g} ms")
-    else:
-        result_list = response.lists[0]
-        st.caption(f"{len(result_list.items)} kết quả · {response.timing_ms:g} ms · "
-                   f"{NAMES[result_list.system]} (thang {result_list.score_type})")
+    timing = f"{response.timing_ms:g}".replace(".", ",")
+    with st.container(key="search-status"):
+        if mode == "compare":
+            st.caption("So sánh: BM25 (thang bm25) và Semantic (thang cosine) · "
+                       f"{top_k} kết quả mỗi bên · {timing} ms")
+        else:
+            result_list = response.lists[0]
+            st.caption(f"{len(result_list.items)} kết quả · {timing} ms · "
+                       f"{NAMES[result_list.system]} (thang {result_list.score_type})")
     for warning in response.warnings:
         if warning.code in WARNINGS:
             st.info(WARNINGS[WarningCode(warning.code)])

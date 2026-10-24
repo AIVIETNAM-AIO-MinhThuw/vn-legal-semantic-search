@@ -20,7 +20,8 @@ API hiện là stub trả 503; chế độ mẫu không cần API, model, index 
 
 ## Cách xem demo
 
-Nhập câu hỏi bất kỳ và nhấn Tìm (hoặc Enter). UI gửi nguyên văn chuỗi nhập,
+Nhập câu hỏi bất kỳ và nhấn Tìm (hoặc Enter khi focus nút Tìm). Form dùng
+`enter_to_submit=False` để bỏ hint gửi form dưới ô nhập. UI gửi nguyên văn chuỗi nhập,
 không kiểm tra rỗng, chuẩn hóa Unicode, tách từ hay rút gọn query.
 Đổi chế độ hoặc bộ lọc sẽ dùng lại **câu hỏi đã gửi gần nhất**, kể cả khi đang
 gõ một câu hỏi mới trong form. Bấm tiêu đề Điều để đọc và gửi phản hồi.
@@ -53,24 +54,34 @@ tìm lại. Nếu chưa tìm lần nào, hãy bấm Tìm để thấy lỗi quer
   mã này là lượt tìm hết hạn. Không đọc `error.message` để đoán nguyên nhân;
   cần mã lỗi riêng từ hợp đồng tương lai để phân biệt chính xác.
 - Dùng Streamlit 1.50.0 để có nút tertiary, segmented control và container
-  căn giữa rộng tối đa 1200px. `.streamlit/config.toml` chọn theme light,
+  trang mang key `page`, rộng `min(90vw, 1440px)` và không vượt khung cha.
+  `.streamlit/config.toml` chọn theme light,
   primary `#1F4E8C`, text `#1F2328` và toolbar viewer. CSS nằm duy nhất trong
   `style.py`, được `app.py` gọi một lần mỗi lượt render; chỉ chọn key do UI đặt
-  hoặc các class HTML của UI, không ghi đè class nội bộ của Streamlit.
+  hoặc các class HTML của UI, không ghi đè class nội bộ của Streamlit. Ngoại lệ
+  duy nhất là `html { font-size: clamp(16px, 0.55vw + 9.5px, 19px); }` để cỡ
+  chữ rem co giãn theo viewport; không thêm `baseFontSize` vào config.
+  Tiêu đề trang là “Tra cứu văn bản pháp luật” (2rem). Rank nằm trong nhãn
+  nút bằng Markdown `:small`; Streamlit gán cỡ chữ inline nên chỉ dùng một
+  `!important` cho cỡ rank 0.85rem trong selector key của nút Điều, không dùng
+  `!important` cho quy tắc `html`. Tên văn bản là 0.95rem/500 theo textColor.
   Nút tiêu đề tối đa 2 dòng, tên văn bản 1 dòng ellipsis; trích đoạn tối đa
-  3 dòng và luôn dành chiều cao 3 dòng. Đoạn trích bỏ xuống dòng thành khoảng
+  3 dòng; chỉ So sánh dành chiều cao 3 dòng, chế độ đơn co theo nội dung.
+  Đoạn trích bỏ xuống dòng thành khoảng
   trắng cùng độ dài code point; toàn văn giữ xuống dòng. Màu chữ phụ là
   `#5B6470`, nền highlight `#FCE8A6` và chữ highlight kế thừa màu văn bản.
 - Semantic/Hybrid hiện đúng câu highlight trong thẻ; BM25 hiện cửa sổ khoảng
   250 ký tự quanh span đầu. Một câu rất dài có thể vượt 250 ký tự để không cắt
   mất câu highlight, nhưng thẻ vẫn clamp 3 dòng. So sánh vẽ từng cặp hàng theo
   hạng, giữ ô trống nếu một bên thiếu kết quả. Reader dùng dialog lớn gốc:
-  nội dung trên 1500 ký tự có khung cuộn 480px, nội dung ngắn để cao tự nhiên;
+  nội dung trên 1200 ký tự có khung cuộn 360px không viền, nội dung ngắn để cao tự nhiên;
   trích dẫn nằm trong popover ở header. Không thay đổi client hoặc xử lý state.
-- Khi chụp bản style ở 1440px trên Chromium với Streamlit 1.50.0, các selector,
-  màu/cỡ chữ, ellipsis, line-clamp và hover gạch chân đã nhận giá trị mong muốn.
-  Không ghi nhận CSS không tác dụng trong lượt kiểm tra này. Chưa xác minh
-  trên các trình duyệt khác; không có test tự động.
+- Ảnh responsive là ảnh viewport (`fullPage=False`) ở 1280×720, 1366×768,
+  1920×1080, 2560×1440 cho Semantic và So sánh; reader dài ở 1366×768.
+  Trên Chromium/Streamlit 1.50.0, cỡ chữ gốc đo được lần lượt 16.54px,
+  17.0152px, 19px, 19px: quy tắc `html` không bị ghi đè. Khung trang đạt trần
+  1440px ở hai kích thước lớn. Feedback của Điều dài nhìn thấy khi không cuộn
+  cửa sổ ở cả 1366×768 và 1440×900. Chưa xác minh trình duyệt khác; không có test tự động.
 - Không viết hoặc chạy bộ test UI trong P4-UI. Ảnh mẫu chỉ là bằng chứng trình
   bày, chưa phải nghiệm thu API thật hoặc kiểm thử đủ các tương tác.
 

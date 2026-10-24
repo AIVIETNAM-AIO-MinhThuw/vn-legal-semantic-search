@@ -12,12 +12,9 @@ def result_card(item, result_list, search_id, client, other=None):
     system = result_list.system
     cross_rank = other_rank(other, item.article_id) if other is not None else None
     with st.container(border=True, key=f"card-{system}-{item.article_id}"):
-        rank_col, title_col, score_col = st.columns([0.06, 0.76, 0.18], vertical_alignment="top")
-        with rank_col:
-            with st.container(key=f"rank-{system}-{item.article_id}"):
-                st.caption(f"#{item.rank}")
+        title_col, score_col = st.columns([0.82, 0.18], vertical_alignment="top")
         with title_col:
-            if st.button(f"Điều {item.article_number}. {item.article_title}",
+            if st.button(f":small[#{item.rank}]  Điều {item.article_number}. {item.article_title}",
                          key=f"article:{search_id}:{system}:{item.article_id}",
                          type="tertiary", width="stretch"):
                 open_reader(item, system, result_list.score_type,
@@ -31,7 +28,8 @@ def result_card(item, result_list, search_id, client, other=None):
             content = content[first.start:first.end]
             highlights = [Highlight(start=0, end=len(content))]
         text, spans = snippet(content, highlights)
-        st.markdown(render_html(text, spans, doc_title=item.doc_title), unsafe_allow_html=True)
+        st.markdown(render_html(text, spans, doc_title=item.doc_title,
+                                fixed_snippet=other is not None), unsafe_allow_html=True)
         if other is not None:
             rank = f"#{cross_rank}" if cross_rank is not None else "—"
             with st.container(key=f"cross-rank-{system}-{item.article_id}"):

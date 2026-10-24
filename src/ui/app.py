@@ -88,9 +88,7 @@ def main():
         apply_info(st.session_state.info)
     info = st.session_state.info
     blocked = st.session_state.availability_error is not None or info is None or not info.modes
-    with st.container(horizontal=True, horizontal_alignment="center"):
-        content = st.container(width=1200)
-    with content:
+    with st.container(key="page"):
         header()
         submitted = search_form(blocked)
         messages = st.container()

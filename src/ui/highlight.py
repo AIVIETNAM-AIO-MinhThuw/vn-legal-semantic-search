@@ -4,7 +4,8 @@ from html import escape
 from src.contracts import Highlight
 
 
-def render_html(content: str, spans: list[Highlight], *, doc_title: str | None = None) -> str:
+def render_html(content: str, spans: list[Highlight], *, doc_title: str | None = None,
+                fixed_snippet: bool = False) -> str:
     pieces = []
     cursor = 0
     for span in spans:
@@ -14,7 +15,8 @@ def render_html(content: str, spans: list[Highlight], *, doc_title: str | None =
     pieces.append(escape(content[cursor:]))
     body = "".join(pieces)
     if doc_title is not None:
-        return f'<div class="doc">{escape(doc_title)}</div><div class="snip">{body}</div>'
+        snippet_class = "snip snip-fixed" if fixed_snippet else "snip"
+        return f'<div class="doc">{escape(doc_title)}</div><div class="{snippet_class}">{body}</div>'
     return f'<div class="reader-body">{body}</div>'
 
 
