@@ -54,6 +54,8 @@ Mọi kết luận phải dẫn về một con số trong bảng kết quả ho�
 - Không xử lý trùng lặp gần giống (mục 3.6).
 - Recall@k là recall tương đối theo pooled qrels (mục 11.4).
 - Mỗi cấu hình chỉ chạy một seed.
+- Query val/test không lấy nguồn từ các họ bị buộc vào train (mục 4.1); do đó val/test không đại diện cho toàn corpus và không được mô tả là đã cân bằng. Phải báo phân bố thực tế sau split. Ngưỡng 5% là lựa chọn đăng ký trước, không phải ngưỡng thống kê, và việc chia theo họ không loại bỏ sự phụ thuộc giữa các query cùng họ.
+- OOD có thể liên quan đến các họ đã dùng để train. Sau khi có qrels do người gán, báo riêng số query OOD có Điều liên quan thuộc các họ bị buộc vào train. Không tự sinh hoặc sửa OOD.
 - Lọc overlap và kiểm tra chép nguyên văn N = 8 chỉ kiểm tra trùng từ, không bảo đảm câu hỏi đúng ý hay Điều nguồn trả lời được; người duyệt val/test và một lượt thử nhỏ trên Điều train trước khi freeze prompt là các biện pháp bổ sung. Nếu bộ lọc overlap loại gần hết query `keyword` của train thì ghi kết quả đo (số query trước/sau lọc theo từng kiểu) vào Limitations.
 
 ---
@@ -187,13 +189,21 @@ Split được thực hiện ở cấp **họ văn bản** (`group_id`), không 
 - Chỉ các họ có ít nhất một văn bản trong corpus cuối cùng (sau bộ lọc mục 3.2 và sau parse/`validate_data`, tức văn bản còn ít nhất một Điều trong index) mới được đưa vào chia split; họ không có văn bản nào trong corpus bị bỏ khỏi `splits.json`.
 - Mọi Điều của cùng một `group_id` nằm trong cùng một split.
 - Kết hợp loại trùng bằng hash ở mục 3.6.
-- Tỷ lệ: **80% train, 10% val, 10% test**, tính theo số họ có ít nhất một văn bản trong corpus cuối cùng.
-- Phân tầng theo lĩnh vực xuất hiện nhiều nhất trong họ, đếm **chỉ trên các văn bản thuộc corpus cuối cùng của họ**; nếu hòa, chọn lĩnh vực đứng trước theo thứ tự chữ cái.
-- Seed cố định, ghi trong `configs/data.yaml`.
+- **Quy tắc chia (phương án B).** `N` = số họ có ít nhất một văn bản trong corpus cuối cùng. `A` = tổng số Điều trong `articles_index.jsonl` (sau loại trùng, mục 3.6) của corpus cuối cùng; `a_f` = số Điều trong index của họ `f`.
+- `group_id` của một họ = `min(doc_id)` theo thứ tự chuỗi Unicode (so sánh code point) trong các văn bản của họ thuộc corpus cuối cùng. Mọi sắp xếp "tăng dần theo `group_id`" dùng thứ tự này.
+- **Họ buộc vào train:** họ `f` có `a_f / A > split.force_train_article_share_gt` (so sánh nghiêm ngặt `>`; giá trị đã chốt `0.05`, ghi trong `configs/data.yaml`) chỉ được nằm trong train. Ngưỡng này là lựa chọn thực dụng đăng ký trước, không phải ngưỡng thống kê; không thử ngưỡng hoặc phương án khác rồi chọn theo kết quả.
+- **Chỉ tiêu theo tổng số họ (phần dư lớn nhất).** Với tỷ lệ `r = (4/5, 1/10, 1/10)` cho `(train, val, test)`: `Q_s = floor(N * r_s)`; số họ còn thiếu để đủ `N` được chia cho từng tập theo phần dư lớn nhất của `N * r_s`; hòa ưu tiên train, rồi val, rồi test. Tính bằng số hữu tỷ (`fractions.Fraction`), không dùng số thực.
+- Họ buộc vào train được tính vào `Q_train`. Gọi `F` là số họ bị buộc; chỉ tiêu còn lại là `q_train = Q_train - F`, `q_val = Q_val`, `q_test = Q_test`, và `R = N - F`. **Không chia lại 80/10/10 trên phần còn lại.**
+- **Lĩnh vực chủ đạo của họ** = lĩnh vực xuất hiện nhiều nhất trong các văn bản của họ thuộc corpus cuối cùng (đếm chỉ trên các văn bản đó); nếu hòa, chọn lĩnh vực đứng trước theo thứ tự chuỗi Unicode.
+- **Phân bổ họ còn lại theo lĩnh vực chủ đạo.** Với mỗi lĩnh vực `d` có `R_d` họ còn lại, tỷ lệ lý tưởng `e_ds = R_d * q_s / R`. Bước 1: trong từng lĩnh vực, `x_ds = floor(e_ds)`; phần còn lại của `R_d` chia theo phần dư lớn nhất của `e_ds`; hòa ưu tiên train, val, test.
+- **Điều chỉnh tổng cột.** Nếu tổng cột `sum_d x_ds` khác `q_s`, lặp đến khi mọi cột khớp: mỗi lần chuyển đúng một đơn vị phân bổ trong cùng một lĩnh vực từ tập đang thừa (tổng cột lớn hơn `q_s`, và `x_ds > 0`) sang tập đang thiếu (tổng cột nhỏ hơn `q_s`). Chọn phép chuyển làm tổng bình phương sai lệch `sum (x_ds - e_ds)^2` tăng ít nhất. Hòa: tên lĩnh vực theo thứ tự Unicode tăng dần, rồi tập nguồn, rồi tập đích theo thứ tự train, val, test.
+- **Gán họ vào tập (tái lập).** Duyệt các lĩnh vực theo thứ tự Unicode. Trong mỗi lĩnh vực, sắp các họ còn lại tăng dần theo `group_id`, rồi xáo bằng `random.Random(f"{seed}|{d}").shuffle(...)`, trong đó `seed` đọc từ `configs/data.yaml` (hiện 42) và `d` là tên lĩnh vực; seed bằng chuỗi của Python 3.11 là xác định, không phụ thuộc `PYTHONHASHSEED`. `x_d,train` họ đầu vào train, `x_d,val` họ kế tiếp vào val, phần còn lại vào test. Họ buộc vào train được gán vào train trước mọi bước phân bổ.
+- `splits.json` là một đối tượng JSON ba khóa: `meta`, `splits` (`group_id → split`) và `members` (`group_id → [doc_id]`). `meta` gồm `seed`, ngưỡng, `N`, `A`, `Q_s`, `F`, phiên bản Python, hash SHA-256 của danh sách `group_id` đã sắp và `approved_by_corpus` (tên người đã đối chiếu nguồn và xác nhận corpus). Đây là định dạng chuẩn mà `check_leakage` và bộ sinh query đọc.
+- **Điều kiện dừng.** Nếu `F > Q_train`, hoặc một chỉ tiêu còn lại `q_s` âm, hoặc một lĩnh vực có `x_d,val = 0` hoặc `x_d,test = 0`, script **không ghi `splits.json`** và chỉ ghi báo cáo chẩn đoán để người quyết định. Không tự gộp lĩnh vực, không cắt cạnh, không đổi ngưỡng hay quy tắc.
 - Kết quả ghi ra `data/splits.json` (`group_id → split`) và được commit vào repo.
 - **Không được tạo lại hoặc sửa `splits.json` sau khi tập query test đã được tạo.**
 - Nếu union-find gặp vấn đề như tỷ lệ cạnh không ánh xạ cao, dữ liệu quan hệ hỏng hoặc họ quá lớn, Claude Code **không được tự đổi sang cách chia khác**. Phải báo lại theo quy trình thay đổi ở mục 0.
-- Claude Code chỉ báo phân phối kích thước họ (số văn bản trong corpus của mỗi họ, họ lớn nhất) trước khi split; **không** tự đặt ngưỡng cắt họ, không bỏ cạnh, không đổi cách split.
+- Claude Code báo phân phối kích thước họ (số văn bản và số Điều trong corpus của mỗi họ, họ lớn nhất) và kết quả kiểm tra ràng buộc trước khi split; ngoài ngưỡng buộc vào train đã đăng ký ở trên, **không** tự đặt thêm ngưỡng cắt họ, không bỏ cạnh, không đổi cách split.
 
 ## 4.2 Phạm vi của split
 
@@ -203,6 +213,7 @@ Split được thực hiện ở cấp **họ văn bản** (`group_id`), không 
 - Index truy hồi chứa toàn bộ corpus của cả ba split.
 - Một query test có thể có Điều liên quan nằm ở split khác; điều đó hợp lệ và phải ghi rõ trong paper.
 - Hard negative cho training chỉ được lấy từ Điều thuộc split train.
+- Họ bị buộc vào train (mục 4.1) chỉ nằm trong train, nên không là nguồn query val/test; index vẫn chứa toàn bộ corpus, nên Điều của các họ đó vẫn có thể xuất hiện trong kết quả truy hồi và pool.
 - Văn bản của val và test không được xuất hiện trong bất kỳ dữ liệu huấn luyện nào, kể cả với vai trò negative.
 
 ## 4.3 Kiểm tra leakage bắt buộc
@@ -210,8 +221,10 @@ Split được thực hiện ở cấp **họ văn bản** (`group_id`), không 
 Script `check_leakage` phải chạy sau split và dừng với lỗi nếu:
 
 - một `group_id` xuất hiện ở hơn một split;
-- hash nội dung của một Điều train trùng với hash của một Điều val hoặc test; yêu cầu = 0;
+- hash nội dung của một Điều train trùng với hash của một Điều val hoặc test; yêu cầu = 0. “Điều” ở đây là bản đại diện trong index sau loại trùng (mục 3.6), tức dữ liệu thực sự được dùng. Kết luận chỉ áp dụng cho trùng nội dung chính xác sau loại trùng; không loại trừ near-duplicate hoặc nội dung liên quan;
 - sau khi sinh query, một Điều nguồn của query train thuộc val hoặc test.
+
+Query, positive, negative, chunk, run và qrels chỉ dùng bản đại diện trong index; các ID bản sao bị loại (`duplicate_article_ids`) chỉ phục vụ truy vết. Script báo riêng số nhóm trùng có các bản gốc thuộc nhiều split (không coi là lỗi vì các bản đã bị loại khỏi index không là nguồn query); việc 48 nhóm trùng nằm ở nhiều họ không bảo đảm chúng nằm ở nhiều split, và việc hash trong index bằng 0 không loại trừ near-duplicate.
 
 Số liệu chồng lấn phải xuất ra file. Con người xác nhận các con số này, không chỉ dựa vào thông báo “không có leakage” của script.
 
@@ -1263,7 +1276,7 @@ OI-1 đến OI-9 đã chốt; xem Changelog.
 - Điều dài tách theo Khoản → câu → cửa sổ token (chồng lấn 50 token) nếu một câu vượt 450 token.
 - Score Điều = MaxP.
 - Prefix chunk: `Tên văn bản › Điều X. Tiêu đề › ...`.
-- Split 80/10/10 theo **họ văn bản** gom bằng union-find trên quan hệ sửa đổi, bổ sung, thay thế; phân tầng theo lĩnh vực; seed cố định.
+- Split 80/10/10 theo **số họ văn bản** gom bằng union-find trên quan hệ sửa đổi, bổ sung, thay thế; phân tầng theo lĩnh vực; seed cố định. Theo phương án B (mục 4.1), họ có tỷ lệ Điều trong index > 5% bị buộc vào train và được tính vào chỉ tiêu train; tỷ lệ theo số Điều thực tế được báo trong `split_report.json`.
 - Union-find chạy trên **toàn bộ dataset trước khi lọc**, sau đó giới hạn về corpus.
 - Không đổi split sau khi có query test.
 - Exact-hash overlap giữa split = 0.
@@ -1365,6 +1378,9 @@ OI-1 đến OI-9 đã chốt; xem Changelog.
 | 2026-10-22 | Mục 4.1: chỉ chia các họ có văn bản trong corpus cuối cùng; lĩnh vực chủ đạo đếm trên văn bản trong corpus của họ; chỉ báo kích thước họ, không tự đặt ngưỡng | SPEC trước đó chưa rõ tập họ và phạm vi đếm lĩnh vực | Mục 4.1 | Nhóm |
 | 2026-10-22 | Làm rõ ngoại lệ ID thiếu metadata: chỉ áp dụng cho `other_doc_id` khác null/rỗng; `doc_id` nguồn thiếu và ID null/rỗng vẫn là lỗi; mỗi ID là một nút riêng | Tránh code vô tình cho phép cả hai đầu hoặc gộp ID null thành một nút | Mục 3.6, 4.1 | Nhóm |
 | 2026-10-22 | Thêm API (FastAPI) và Docker cho phần app; sửa mục 7.2, 7.3, 7.4, 11.2, 13.1 đến 13.3, 14.1 đến 14.4, 15, 16, 17; thêm mục 14.5 đến 14.7 (gồm chế độ `hybrid` và `score_type` `rrf`); thêm OI-11 | Tách lớp rõ ràng, chống lệch âm thầm giữa app và đánh giá, ổn định khi demo | Chỉ phần app và đóng gói. Không ảnh hưởng split, query, pooling, qrels, huấn luyện hay số liệu đánh giá | Thành Vũ |
+| 2026-10-23 | Mục 4.1, 4.2 và Limitations (mục 1): chốt phương án B cho split: họ có tỷ lệ Điều > 5% (mẫu số = tổng Điều trong index sau loại trùng) bị buộc vào train; chỉ tiêu 80/10/10 theo tổng số họ bằng phần dư lớn nhất, họ buộc được tính trong chỉ tiêu train, không chia lại phần còn lại; phân bổ theo lĩnh vực chủ đạo, điều chỉnh tổng cột, thứ tự `group_id` và bộ sinh ngẫu nhiên (seed 42) được mô tả xác định; điều kiện dừng khi ràng buộc không thỏa; khóa config `split.force_train_article_share_gt: 0.05` | Họ lớn nhất chiếm khoảng 15,34% số Điều nên có thể làm kết quả val/test phụ thuộc vào một nhóm nội dung; chưa có `splits.json` nên không artifact nào bị đổi | Mục 1, 4.1, 4.2; `configs/data.yaml` | Người dùng xác nhận trong phiên làm việc ngày 2026-10-23 |
+| 2026-10-23 | Mục 4.3: kiểm tra hash train–val/test chỉ áp dụng cho Điều bản đại diện sau loại trùng (dữ liệu thực sự dùng), yêu cầu = 0; query/positive/negative/chunk/run/qrels chỉ dùng bản đại diện; báo riêng nhóm trùng có bản thuộc nhiều split; phạm vi không loại trừ near-duplicate | Phương án 2 của Q2; bản trùng bị loại khỏi index không là nguồn query | Mục 4.3; `scripts/check_leakage.py` | Người dùng xác nhận trong phiên làm việc ngày 2026-10-23 |
+| 2026-10-23 | Mục 4.1: mô tả định dạng `splits.json` = `{meta, splits, members}` | Q3: giữ định dạng đã triển khai | Mục 4.1; `scripts/split.py`, `scripts/check_leakage.py` | Người dùng xác nhận trong phiên làm việc ngày 2026-10-23 |
 | 2026-10-23 | Mục 5.3, 5.4, Limitations: overlap train loại khi `≥ 0,8` cho mọi kiểu; train khoảng 5.000 cặp sau lọc, bổ sung theo danh sách ngẫu nhiên phân tầng có seed; val/test chọn ngẫu nhiên phân tầng (seed 42), 150 chính + 75 dự phòng (25 mỗi kiểu), thay cùng split cùng kiểu, không lấy bù từ split khác; thêm giới hạn về lọc từ vựng | Q6 | Mục 1, 5.3, 5.4; `configs/querygen.yaml` | Người dùng xác nhận trong phiên làm việc ngày 2026-10-23 |
 | 2026-10-24 | Mục 5.2: query `keyword` đổi từ "1–4 từ" thành "1–6 âm tiết (tách theo 5.3)"; giới hạn đọc từ `lexical.keyword_min_syllables`/`keyword_max_syllables`, prompt `v0.1-draft` | Quyết định của nhóm; cách đếm dùng chung tokenizer âm tiết của 5.3. Quy tắc hiện hành | Mục 5.2; `configs/querygen.yaml`, `prompts/query_generation.v0.1.draft.md`. Chưa có query thật nên không artifact nào bị đổi | Nhóm, 2026-10-24 |
 | 2026-10-24 | Mục 5.1: model sinh query đổi từ `gemini-2.5-flash` sang `gemini-3.5-flash-lite`; prompt `v0.1-draft`, temperature 0.7, batch 15 và các tham số khác giữ nguyên | `gemini-2.5-flash` trả HTTP 404, không còn phục vụ người dùng mới | `configs/querygen.yaml` (`llm.model`). Chưa có query thật nào được sinh (3 lượt pilot đều dừng ở request đầu, 0 query), nên không artifact nào bị đổi; mọi query sinh từ đây ghi model mới trong metadata | Nhóm, 2026-10-24 |
