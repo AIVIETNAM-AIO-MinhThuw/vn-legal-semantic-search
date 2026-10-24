@@ -53,7 +53,9 @@ tìm lại. Nếu chưa tìm lần nào, hãy bấm Tìm để thấy lỗi quer
   mã này là lượt tìm hết hạn. Không đọc `error.message` để đoán nguyên nhân;
   cần mã lỗi riêng từ hợp đồng tương lai để phân biệt chính xác.
 - Dùng Streamlit 1.50.0 để có nút tertiary, segmented control và container
-  căn giữa rộng tối đa 1200px. Theme lấy mặc định của Streamlit/trình duyệt.
+  căn giữa rộng tối đa 1200px. `.streamlit/config.toml` chọn theme light mặc định
+  và toolbar viewer, không đặt màu. Một khối CSS trong `app.py` chỉ căn trái và
+  đặt độ đậm 600 cho nút tiêu đề Điều qua class `st-key-article-…`.
   Tiêu đề nút tự xuống dòng. Số dòng caption tên văn bản và đoạn trích tùy
   chiều rộng viewport; không ép 1 dòng hoặc 2–3 dòng bằng CSS. Đoạn trích bỏ
   xuống dòng thành khoảng trắng cùng độ dài code point; toàn văn giữ xuống dòng.
@@ -92,6 +94,7 @@ tìm lại. Nếu chưa tìm lần nào, hãy bấm Tìm để thấy lỗi quer
 | `sample_data/error_feedback.json` | Lỗi feedback mẫu |
 | `sample_data/error_search_expired.json` | Lỗi feedback hết hạn mẫu |
 | `../../requirements-ui.txt` (từ gốc repo: `requirements-ui.txt`) | 3 dependency UI ghim cứng |
+| `.streamlit/config.toml` (từ gốc repo) | Toolbar viewer và theme light mặc định |
 | `data/FROZEN.md` (từ gốc repo) | Mốc 12, commit riêng `3d92837` |
 
 `data/FROZEN.md` ghi SHA-256 trên blob LF của `openapi.json`:

@@ -49,7 +49,7 @@ def controls(info, disabled):
             if info:
                 for key, label in FILTERS.items():
                     st.multiselect(label, getattr(info.filter_values, key), key=key,
-                                   disabled=disabled, on_change=queue_search)
+                                   disabled=disabled, on_change=queue_search, placeholder="Tất cả")
                 limits = info.limits
                 if limits.top_k_min < limits.top_k_max:
                     st.slider("Số kết quả", limits.top_k_min, limits.top_k_max, key="top_k",
