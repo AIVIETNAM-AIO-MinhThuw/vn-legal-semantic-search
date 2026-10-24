@@ -1,4 +1,4 @@
-"""CSS tập trung; html là ngoại lệ duy nhất ngoài key/class của UI."""
+"""CSS tập trung; ngoại lệ ngoài key/class của UI: html (cỡ chữ gốc) và stMainBlockContainer (padding trên)."""
 import streamlit as st
 
 
@@ -51,6 +51,7 @@ html {{ font-size: clamp(16px, 0.55vw + 9.5px, 19px); }}
 }}
 [class*="st-key-score-"] p {{
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
 }}
 .doc {{
     font-size: 0.95rem;
@@ -78,20 +79,29 @@ html {{ font-size: clamp(16px, 0.55vw + 9.5px, 19px); }}
     padding: 0 .1em;
     border-radius: 2px;
 }}
-[class*="st-key-compare-summary-"] p {{
+.summary {{
     text-align: center;
+}}
+.summary-num {{
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: {text};
+}}
+.summary-label {{
+    font-size: 0.85rem;
+    color: #5B6470;
+    margin: 0;
+}}
+.col-title {{
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+}}
+.col-scale {{
     font-size: 0.85rem;
     color: #5B6470;
 }}
-[class*="st-key-compare-summary-"] strong {{
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: {text};
-}}
-[class*="st-key-compare-heading-"] p {{
-    font-size: 1.25rem;
-}}
-[class*="st-key-compare-scale-"] p,
 .st-key-reader-source p,
 .st-key-reader-meta p,
 .st-key-reader-score p,
@@ -115,6 +125,21 @@ html {{ font-size: clamp(16px, 0.55vw + 9.5px, 19px); }}
 .st-key-reader-divider-top hr,
 .st-key-reader-divider-bottom hr {{
     margin: 0.25rem 0;
+}}
+/* Streamlit gán margin-bottom:-1rem cho khối markdown (bù khoảng cách đoạn văn);
+   khối HTML tự viết không có đoạn văn nên phải tự bù, nếu không phần tử sau sẽ đè lên.
+   Không viết thẻ HTML trong comment: st.html sẽ làm hỏng cả khối style. */
+.page-title,
+.reader-title,
+.reader-body,
+.card-body,
+.summary,
+.col-head {{
+    margin-bottom: 1rem;
+}}
+/* Ngoại lệ thứ hai ngoài key của UI: bớt khoảng trống mặc định phía trên trang. */
+[data-testid="stMainBlockContainer"] {{
+    padding-top: 4rem; /* thanh header của Streamlit cao 3.75rem, thấp hơn sẽ che tiêu đề */
 }}
 </style>
 """)

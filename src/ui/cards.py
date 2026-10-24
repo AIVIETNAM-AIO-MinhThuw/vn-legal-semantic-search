@@ -12,7 +12,8 @@ def result_card(item, result_list, search_id, client, other=None):
     system = result_list.system
     cross_rank = other_rank(other, item.article_id) if other is not None else None
     with st.container(border=True, key=f"card-{system}-{item.article_id}"):
-        title_col, score_col = st.columns([0.82, 0.18], vertical_alignment="top")
+        ratio = [0.74, 0.26] if other is not None else [0.82, 0.18]
+        title_col, score_col = st.columns(ratio, vertical_alignment="top")
         with title_col:
             if st.button(f":small[#{item.rank}]  Điều {item.article_number}. {item.article_title}",
                          key=f"article:{search_id}:{system}:{item.article_id}",
@@ -48,18 +49,14 @@ def results(response, mode, client):
     for index, (column, count, text) in enumerate(zip(st.columns(3), counts,
                                    ("Điều có ở cả hai", "chỉ có ở BM25", "chỉ có ở Semantic"))):
         with column.container(border=True, key=f"compare-summary-{index}"):
-            st.markdown(f"**{count}**\n\n{text}")
+            st.markdown(f'<div class="summary"><div class="summary-num">{count}</div>'
+                        f'<div class="summary-label">{text}</div></div>', unsafe_allow_html=True)
     left, right = st.columns(2)
-    with left:
-        with st.container(key="compare-heading-bm25"):
-            st.markdown("**BM25 — Khớp từ khóa**")
-        with st.container(key="compare-scale-bm25"):
-            st.caption("Thang điểm: bm25")
-    with right:
-        with st.container(key="compare-heading-semantic"):
-            st.markdown("**Semantic — Gần nghĩa nội dung**")
-        with st.container(key="compare-scale-semantic"):
-            st.caption("Thang điểm: cosine")
+    for column, title, scale in ((left, "BM25 — Khớp từ khóa", "bm25"),
+                                 (right, "Semantic — Gần nghĩa nội dung", "cosine")):
+        with column:
+            st.markdown(f'<div class="col-head"><div class="col-title">{title}</div>'
+                        f'<div class="col-scale">Thang điểm: {scale}</div></div>', unsafe_allow_html=True)
     for index in range(max(len(bm25.items), len(semantic.items))):
         left, right = st.columns(2)
         if index < len(bm25.items):

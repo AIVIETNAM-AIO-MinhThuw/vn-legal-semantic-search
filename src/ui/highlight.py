@@ -16,7 +16,8 @@ def render_html(content: str, spans: list[Highlight], *, doc_title: str | None =
     body = "".join(pieces)
     if doc_title is not None:
         snippet_class = "snip snip-fixed" if fixed_snippet else "snip"
-        return f'<div class="doc">{escape(doc_title)}</div><div class="{snippet_class}">{body}</div>'
+        return (f'<div class="card-body"><div class="doc">{escape(doc_title)}</div>'
+                f'<div class="{snippet_class}">{body}</div></div>')
     return f'<div class="reader-body">{body}</div>'
 
 

@@ -1070,7 +1070,7 @@ Từ dataset gốc đến checkpoint.
 | Nhập query | Ô văn bản tiếng Việt |
 | Top-k | Chọn 1–20, mặc định 10 |
 | Chế độ | BM25; Semantic; Hybrid; So sánh hai cột BM25 và Semantic, đánh dấu Điều xuất hiện ở cả hai |
-| Filter | Loại văn bản, lĩnh vực, cơ quan ban hành, năm ban hành; áp dụng mask trước ranking. Danh sách giá trị lọc lấy từ `GET /v1/info`, UI không hard-code. |
+| Filter | Loại văn bản, lĩnh vực, cơ quan ban hành; áp dụng mask trước ranking. Danh sách giá trị lọc lấy từ `GET /v1/info`, UI không hard-code. UI không có lọc theo năm ban hành. |
 | Điểm | Hiển thị điểm kèm tên thang: `BM25`, `cosine` hoặc `RRF`; không đặt hai thang lên cùng một trục |
 | Highlight | BM25: các âm tiết của query xuất hiện trong Điều. Semantic: câu trong Điều có cosine cao nhất với query. API trả về **danh sách vị trí ký tự**, không trả HTML (mục 14.5). Chỉ tính cho kết quả đang hiển thị, có cache. Quy tắc tách câu là xác định và ghi trong config. Hybrid: dùng highlight kiểu Semantic. |
 | Thông tin kết quả | Tên văn bản, số và tiêu đề Điều, tình trạng hiệu lực, nội dung Điều |
@@ -1112,7 +1112,7 @@ Từ dataset gốc đến checkpoint.
 | `GET /v1/feedback/export` | Tải CSV feedback. |
 
 **`POST /v1/search`**
-- Request: `query`, `mode` (`bm25`, `semantic`, `hybrid`, `compare`), `top_k` (1 đến 20, mặc định 10), `filters` (`doc_types`, `domains`, `issuers`, `year_min`, `year_max`), `highlight` (mặc định `true`).
+- Request: `query`, `mode` (`bm25`, `semantic`, `hybrid`, `compare`), `top_k` (1 đến 20, mặc định 10), `filters` (`doc_types`, `domains`, `issuers`, `year_min`, `year_max`), `highlight` (mặc định `true`). `year_min` và `year_max` vẫn thuộc hợp đồng nhưng UI không gửi (mục 14.2).
 - Response: `search_id` (UUID do server sinh), `query_normalized`, `warnings`, `timing_ms`, và `lists`.
 - `lists` là mảng các danh sách kết quả. Chế độ `bm25`, `semantic` và `hybrid` trả một danh sách, `compare` trả hai danh sách (BM25 và Semantic). Mỗi danh sách có `system`, `score_type` và `items`.
 - Mỗi item gồm: `rank`, `article_id`, tên văn bản, số và tiêu đề Điều, tình trạng hiệu lực, `content`, `score`, `in_both`, `highlights`.
@@ -1360,3 +1360,4 @@ OI-1 đến OI-9 đã chốt; xem Changelog.
 | 2026-10-22 | Mục 4.1: chỉ chia các họ có văn bản trong corpus cuối cùng; lĩnh vực chủ đạo đếm trên văn bản trong corpus của họ; chỉ báo kích thước họ, không tự đặt ngưỡng | SPEC trước đó chưa rõ tập họ và phạm vi đếm lĩnh vực | Mục 4.1 | Nhóm |
 | 2026-10-22 | Làm rõ ngoại lệ ID thiếu metadata: chỉ áp dụng cho `other_doc_id` khác null/rỗng; `doc_id` nguồn thiếu và ID null/rỗng vẫn là lỗi; mỗi ID là một nút riêng | Tránh code vô tình cho phép cả hai đầu hoặc gộp ID null thành một nút | Mục 3.6, 4.1 | Nhóm |
 | 2026-10-22 | Thêm API (FastAPI) và Docker cho phần app; sửa mục 7.2, 7.3, 7.4, 11.2, 13.1 đến 13.3, 14.1 đến 14.4, 15, 16, 17; thêm mục 14.5 đến 14.7 (gồm chế độ `hybrid` và `score_type` `rrf`); thêm OI-11 | Tách lớp rõ ràng, chống lệch âm thầm giữa app và đánh giá, ổn định khi demo | Chỉ phần app và đóng gói. Không ảnh hưởng split, query, pooling, qrels, huấn luyện hay số liệu đánh giá | Thành Vũ |
+| 2026-10-24 | Mục 14.2: UI bỏ lọc theo năm ban hành; mục 14.5 ghi rõ UI không gửi `year_min`, `year_max` | Người tra cứu thường không biết năm ban hành của văn bản; corpus chỉ gồm văn bản còn hiệu lực nên lọc năm ít giá trị | Chỉ phần UI. Hợp đồng API và `openapi.json` giữ nguyên (`year_min`, `year_max` vẫn là trường tùy chọn); không ảnh hưởng split, query, pooling, qrels, huấn luyện hay số liệu đánh giá | Thành Vũ |
