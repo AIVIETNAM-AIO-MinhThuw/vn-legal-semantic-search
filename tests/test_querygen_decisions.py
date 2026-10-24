@@ -355,6 +355,31 @@ def row(slot_state, **kw):
     return r
 
 
+def test_review_init_marks_reserves_already_used_by_build_sets_so_rejection_never_duplicates_an_article():
+    st, recs, arts = _review_fixture("val")
+    st["slots"][0].update(article_id="r0_001", query_id="r0_001::natural")  # build-sets đã thay slot 0 bằng dự phòng r0
+    cands = [{"article_id": s["article_id"], "query_id": s["query_id"], "type": s["type"], "text": s["text"]} for s in st["slots"]]
+    plan = {"reserve_ids": ["r0_001", "r1_001", "r2_001"], "reserve_types": {"r0_001": "natural", "r1_001": "natural", "r2_001": "keyword"}}
+    st2 = R.init_state("val", cands, plan)
+    assert st2["reserve_used"] == ["r0_001"]
+    recs += [base.rec("r2_001", "val", {"natural": (0.1, False, False), "scenario": (0.1, False, False), "keyword": (0.1, False, False)})]
+    arts["r2_001"] = arts["r1_001"]
+    new = R.apply_sheet(st2, [row(st2["slots"][0], decision="reject", reason="khó hiểu")], recs, arts, **KWR)
+    assert new["slots"][0]["article_id"] == "r1_001"  # không quay lại r0_001 đang nằm trong tập
+    assert len({s["article_id"] for s in new["slots"]}) == len(new["slots"])
+
+
+def test_export_sheet_prints_full_article_text_without_truncation(tmp_path):
+    st, recs, arts = _review_fixture("val")
+    long_body = "người nộp thuế phải kê khai đầy đủ. " * 200 + "CÂU CUỐI ĐIỀU"  # > 7.000 ký tự
+    arts[st["slots"][0]["article_id"]]["body"] = long_body
+    p = tmp_path / "sheet.csv"
+    assert R.export_sheet(st, arts, p) == 3
+    rows = R.read_sheet(p)
+    assert rows[0]["article_text"] == long_body and len(rows[0]["article_text"]) > 2500 and rows[0]["article_text"].endswith("CÂU CUỐI ĐIỀU")
+    assert all(r["article_text"] == arts[r["article_id"]]["body"] for r in rows)
+
+
 def test_review_val_allows_only_accept_or_reject_and_requires_human_fields():
     st, recs, arts = _review_fixture("val")
     s0 = st["slots"][0]

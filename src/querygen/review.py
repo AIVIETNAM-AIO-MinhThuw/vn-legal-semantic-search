@@ -45,10 +45,14 @@ def init_state(split: str, candidates: list[dict], plan: dict) -> dict:
         raise ValueError("chỉ duyệt val và test")
     slots = [{"slot": i, "type": q["type"], "article_id": q["article_id"], "query_id": q["query_id"], "text": q["text"],
               "status": "pending", "edited": False, "history": []} for i, q in enumerate(candidates)]
-    return {"split": split, "round": 1, "slots": slots, "reserve_used": [], "plan": {"reserve_ids": plan["reserve_ids"], "reserve_types": plan["reserve_types"]}}
+    # Điều dự phòng đã được `build-sets` dùng để thay query lỗi tự động nằm sẵn trong ứng viên: không được dùng lại khi thay query bị loại
+    reserve = set(plan["reserve_ids"])
+    used = sorted({q["article_id"] for q in candidates if q["article_id"] in reserve})
+    return {"split": split, "round": 1, "slots": slots, "reserve_used": used, "plan": {"reserve_ids": plan["reserve_ids"], "reserve_types": plan["reserve_types"]}}
 
 
-def export_sheet(state: dict, articles: dict[str, dict], path: Path | str, max_chars: int = 2500) -> int:
+def export_sheet(state: dict, articles: dict[str, dict], path: Path | str) -> int:
+    """Xuất phiếu các slot đang chờ duyệt. `article_text` là toàn văn nội dung Điều (không cắt), để người duyệt đủ căn cứ."""
     rows = [s for s in state["slots"] if s["status"] == "pending"]
     with open(path, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=SHEET_COLS)
@@ -56,7 +60,7 @@ def export_sheet(state: dict, articles: dict[str, dict], path: Path | str, max_c
         for s in rows:
             a = articles[s["article_id"]]
             w.writerow({"slot": s["slot"], "query_id": s["query_id"], "article_id": s["article_id"], "type": s["type"], "query_text": s["text"],
-                        "article_title": a.get("title", ""), "article_text": a["body"][:max_chars], "decision": "", "reason": "", "edited_text": "",
+                        "article_title": a.get("title", ""), "article_text": a["body"], "decision": "", "reason": "", "edited_text": "",
                         "reviewer": "", "date": "", "note": ""})
     return len(rows)
 
