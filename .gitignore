@@ -50,3 +50,8 @@ Thumbs.db
 
 # Log từng văn bản bị loại ở bước lọc 1-3 (~10 MB); tái tạo bằng scripts/prepare_data.py
 logs/filtered_out.tsv
+
+# Khóa API: chỉ qua biến môi trường GEMINI_API_KEY; nếu dùng .env thì phải bị bỏ qua
+.env
+.env.*
+!.env.example

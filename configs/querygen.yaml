@@ -1,0 +1,49 @@
+# Cấu hình công cụ sinh query (SPEC mục 5). Prompt vẫn là BẢN NHÁP, chưa freeze; chưa dùng để sinh query thật.
+# Các giá trị bên dưới do người dùng chốt trong phiên làm việc ngày 2026-10-23 (Q5, Q6). `null` = chưa có: lệnh sinh thật dừng với
+# lỗi rõ ràng. Seed dùng chung với configs/data.yaml (`seed`).
+
+llm:
+  provider: gemini                 # gọi qua HTTP bằng httpx (đã có trong requirements.txt); không thêm SDK
+  model: gemini-2.5-flash          # chốt; điều kiện: dự án AI Studio còn truy cập được model. Không tự đổi model giữa các lượt sinh
+  temperature: 0.7                 # chốt
+  api_key_env: GEMINI_API_KEY      # key chỉ đọc từ biến môi trường này; không ghi vào config, log hay repo. Nếu dùng .env thì phải bị .gitignore
+  generation_date: null            # tự ghi vào metadata khi chạy thực tế (không điền tay)
+  batch_size: 15                   # chốt (SPEC 5.1: 10-20 Điều mỗi request)
+  max_attempts: 5                  # retry khi rate limit / lỗi tạm thời / phản hồi sai schema
+  retry_base_delay_seconds: 2.0
+  retry_max_delay_seconds: 60.0
+  rate_limit_calls: null           # lấy từ AI Studio của tài khoản thật, không đoán; lệnh sinh thật dừng khi còn null
+  rate_limit_window_seconds: 60
+
+prompt:
+  path: prompts/query_generation.v0.draft.md   # bản nháp; sửa prompt = tăng version (SPEC 5.1). Chạy thử nhỏ trên Điều train trước khi freeze
+  version: v0-draft
+
+paths:
+  articles: data/processed/articles_index.jsonl
+  docs: data/processed/docs_index.jsonl
+  out_dir: runs/queries            # query thô; mọi bước sau bắt đầu từ các file này, không gọi lại LLM
+  review_dir: runs/review          # phiếu duyệt val/test và trạng thái duyệt
+  test_edit_log: logs/test_query_edits.jsonl   # SPEC 5.4: mọi sửa câu chữ query test
+
+lexical:
+  verbatim_n: 8                    # SPEC 5.3
+  train_overlap_threshold: 0.8     # SPEC 5.3
+  train_overlap_inclusive: true    # chốt: loại khi overlap >= 0,8; áp dụng cho mọi kiểu query của train
+
+selection:
+  excluded_titles:                 # SPEC 5.2: loại trước khi chọn
+    - Hiệu lực thi hành
+    - Trách nhiệm thi hành
+    - Điều khoản thi hành
+    - Tổ chức thực hiện
+  train_target_pairs_after_filter: 5000   # chốt: khoảng 5.000 cặp (query-Điều) SAU lọc, không phải 5.000 Điều
+  eval_articles_per_type: 50       # val/test: 150 Điều chính = 50 natural + 50 scenario + 50 keyword
+  eval_reserve_per_type: 25        # chốt: 75 Điều dự phòng mỗi split (25 mỗi kiểu) -> 225 Điều mỗi split
+  eval_selection: stratified_by_domain   # chốt: ngẫu nhiên phân tầng tỷ lệ theo lĩnh vực, seed 42
+
+variants:                          # SPEC 5.5: chỉ cho test; xác định theo seed
+  typo_short_max_syllables: 5
+  typo_errors_short: 1
+  typo_errors_long: 2
+  typo_sample_size: 30             # mẫu cho người đọc; chỉ xuất file mẫu, không tạo từ query test thật trong lượt này

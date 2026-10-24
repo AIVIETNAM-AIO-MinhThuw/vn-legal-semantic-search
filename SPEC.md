@@ -54,6 +54,7 @@ Mọi kết luận phải dẫn về một con số trong bảng kết quả ho�
 - Không xử lý trùng lặp gần giống (mục 3.6).
 - Recall@k là recall tương đối theo pooled qrels (mục 11.4).
 - Mỗi cấu hình chỉ chạy một seed.
+- Lọc overlap và kiểm tra chép nguyên văn N = 8 chỉ kiểm tra trùng từ, không bảo đảm câu hỏi đúng ý hay Điều nguồn trả lời được; người duyệt val/test và một lượt thử nhỏ trên Điều train trước khi freeze prompt là các biện pháp bổ sung. Nếu bộ lọc overlap loại gần hết query `keyword` của train thì ghi kết quả đo (số query trước/sau lọc theo từng kiểu) vào Limitations.
 
 ---
 
@@ -270,7 +271,7 @@ số âm tiết khác nhau của query
 
 - **Chép nguyên văn:** query chứa một chuỗi liên tiếp từ **N = 8 âm tiết** trở lên lấy nguyên từ Điều.
 - Query chép nguyên văn bị loại khỏi mọi tập.
-- Ngưỡng lọc overlap cao cho train = **0,8**.
+- Ngưỡng lọc overlap cao cho train = **0,8**: query train có `overlap ≥ 0,8` bị loại; áp dụng cho mọi kiểu query của train (natural, scenario, keyword).
 - Ngưỡng overlap cao chỉ áp dụng cho **train**.
 - Val và test không bị lọc theo overlap, chỉ bị phân nhóm trong phân tích.
 - Không lọc test theo overlap để tránh chủ động tạo bất lợi cho BM25.
@@ -279,12 +280,16 @@ số âm tiết khác nhau của query
 
 | Tập | Quy mô | Nguồn Điều | Người duyệt | Nhãn |
 |---|---:|---|---|---|
-| Train | khoảng 5.000 cặp | Split train, chọn ngẫu nhiên phân tầng theo lĩnh vực | Không, chỉ lọc tự động | Điều nguồn |
+| Train | khoảng 5.000 cặp (query–Điều) sau lọc | Split train, chọn ngẫu nhiên phân tầng theo lĩnh vực | Không, chỉ lọc tự động | Điều nguồn |
 | Val | 150 query: 50 natural, 50 scenario, 50 keyword | Split val, mỗi Điều một query | Có: chấp nhận hoặc loại | Điều nguồn, mức 2 |
 | Test | 150 query: 50 natural, 50 scenario, 50 keyword | Split test, mỗi Điều một query | Có: chấp nhận, loại hoặc sửa câu chữ giữ nguyên ý | Qrels từ pooling |
 | OOD | khoảng 40 query | Người viết | Là người viết | Qrels từ pooling |
 
 Train dùng mọi query qua bộ lọc của các Điều được chọn.
+
+Train: duyệt danh sách Điều train theo thứ tự ngẫu nhiên phân tầng theo lĩnh vực có seed (mọi tiền tố của danh sách xấp xỉ đúng tỷ lệ lĩnh vực), sinh và lọc theo từng lượt, bổ sung đến khi đủ khoảng 5.000 cặp sau lọc. Giữ mọi query hợp lệ của các Điều đã chọn, cho phép vượt nhẹ ở lượt cuối.
+
+Val và test: Điều được chọn ngẫu nhiên phân tầng tỷ lệ theo lĩnh vực, seed 42, sau khi đã loại các Điều có tiêu đề thi hành (mục 5.2). Mỗi split gồm 150 Điều chính + 75 Điều dự phòng = 225 Điều; 150 Điều chính được gán kiểu query 50/50/50 và 75 Điều dự phòng được gán 25 Điều mỗi kiểu. Query bị loại được thay bằng query cùng kiểu của một Điều dự phòng cùng split. Nếu nguồn đủ điều kiện của một split không đủ, báo nhóm; không lấy bù từ split khác và không đổi seed để tìm kết quả thuận lợi.
 
 Với val và test, kiểu query của mỗi Điều được gán ngẫu nhiên theo seed để đạt đúng tỷ lệ 50/50/50.
 
@@ -295,7 +300,7 @@ Lý do loại khi duyệt val và test:
 - chứa số hiệu Điều hoặc văn bản;
 - trùng ý với query khác trong tập.
 
-Query bị loại được thay bằng query từ một Điều khác cùng split.
+Query bị loại được thay bằng query cùng kiểu từ một Điều dự phòng cùng split.
 
 Sau khi người sửa câu chữ một query, phải chạy lại kiểm tra chép nguyên văn (N = 8, mục 5.3) trên bản đã sửa. Bản sửa vi phạm thì phải sửa lại hoặc loại.
 
@@ -1360,3 +1365,4 @@ OI-1 đến OI-9 đã chốt; xem Changelog.
 | 2026-10-22 | Mục 4.1: chỉ chia các họ có văn bản trong corpus cuối cùng; lĩnh vực chủ đạo đếm trên văn bản trong corpus của họ; chỉ báo kích thước họ, không tự đặt ngưỡng | SPEC trước đó chưa rõ tập họ và phạm vi đếm lĩnh vực | Mục 4.1 | Nhóm |
 | 2026-10-22 | Làm rõ ngoại lệ ID thiếu metadata: chỉ áp dụng cho `other_doc_id` khác null/rỗng; `doc_id` nguồn thiếu và ID null/rỗng vẫn là lỗi; mỗi ID là một nút riêng | Tránh code vô tình cho phép cả hai đầu hoặc gộp ID null thành một nút | Mục 3.6, 4.1 | Nhóm |
 | 2026-10-22 | Thêm API (FastAPI) và Docker cho phần app; sửa mục 7.2, 7.3, 7.4, 11.2, 13.1 đến 13.3, 14.1 đến 14.4, 15, 16, 17; thêm mục 14.5 đến 14.7 (gồm chế độ `hybrid` và `score_type` `rrf`); thêm OI-11 | Tách lớp rõ ràng, chống lệch âm thầm giữa app và đánh giá, ổn định khi demo | Chỉ phần app và đóng gói. Không ảnh hưởng split, query, pooling, qrels, huấn luyện hay số liệu đánh giá | Thành Vũ |
+| 2026-10-23 | Mục 5.3, 5.4, Limitations: overlap train loại khi `≥ 0,8` cho mọi kiểu; train khoảng 5.000 cặp sau lọc, bổ sung theo danh sách ngẫu nhiên phân tầng có seed; val/test chọn ngẫu nhiên phân tầng (seed 42), 150 chính + 75 dự phòng (25 mỗi kiểu), thay cùng split cùng kiểu, không lấy bù từ split khác; thêm giới hạn về lọc từ vựng | Q6 | Mục 1, 5.3, 5.4; `configs/querygen.yaml` | Người dùng xác nhận trong phiên làm việc ngày 2026-10-23 |
