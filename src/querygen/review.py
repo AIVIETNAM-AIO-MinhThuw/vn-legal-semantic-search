@@ -66,9 +66,10 @@ def read_sheet(path: Path | str) -> list[dict]:
         return list(csv.DictReader(f))
 
 
-def apply_sheet(state: dict, rows: list[dict], records: list[dict], articles: dict[str, dict], *, verbatim_n: int = 8,
-                edit_log: Path | str | None = None) -> dict:
-    """Áp dụng phiếu do NGƯỜI điền. Trả về trạng thái mới (không sửa `state` đầu vào). Atomic: có lỗi thì raise ReviewError."""
+def apply_sheet(state: dict, rows: list[dict], records: list[dict], articles: dict[str, dict], *, keyword_min_syllables: int,
+                keyword_max_syllables: int, verbatim_n: int = 8, edit_log: Path | str | None = None) -> dict:
+    """Áp dụng phiếu do NGƯỜI điền. Trả về trạng thái mới (không sửa `state` đầu vào). Atomic: có lỗi thì raise ReviewError.
+    Giới hạn âm tiết của keyword đọc từ config (`lexical.keyword_*_syllables`), không hard-code."""
     split = state["split"]
     allowed = DECISIONS_VAL if split == "val" else DECISIONS_TEST
     by_rec = {r["article_id"]: r for r in records}
@@ -121,8 +122,8 @@ def apply_sheet(state: dict, rows: list[dict], records: list[dict], articles: di
             if refers_to_article_or_document_number(new):
                 problems.append(f"{tag}: bản sửa nhắc số hiệu Điều/văn bản; sửa lại hoặc loại")
                 continue
-            if not new.strip() or (s["type"] == "keyword" and not 1 <= len(syllables(new)) <= 4):
-                problems.append(f"{tag}: query keyword phải có 1-4 từ")
+            if s["type"] == "keyword" and not keyword_min_syllables <= len(syllables(new)) <= keyword_max_syllables:
+                problems.append(f"{tag}: query keyword phải có {keyword_min_syllables}-{keyword_max_syllables} âm tiết")
                 continue
             entry.update(edited_text=new, original_text=s["text"])
             edits.append({"query_id": s["query_id"], "split": split, "original": s["text"], "edited": new, "editor": entry["reviewer"], "date": entry["date"]})

@@ -25,6 +25,7 @@ from src.querygen.io import JsonlStore  # noqa: E402
 from src.querygen.limits import RateLimitError, RetryableError  # noqa: E402
 
 KEY = "TEST-KEY-NOT-REAL-123"
+KWR = {"keyword_min_syllables": base.KW["keyword_min"], "keyword_max_syllables": base.KW["keyword_max"]}  # giới hạn keyword từ config
 
 
 @pytest.fixture(autouse=True)
@@ -121,7 +122,8 @@ def test_config_reflects_confirmed_decisions_and_never_guesses_quota():
     assert cfg["llm"]["model"] == "gemini-2.5-flash" and cfg["llm"]["temperature"] == 0.7 and cfg["llm"]["batch_size"] == 15
     assert cfg["llm"]["api_key_env"] == "GEMINI_API_KEY"
     assert cfg["llm"]["rate_limit_calls"] is None and cfg["llm"]["generation_date"] is None  # quota từ AI Studio; ngày ghi khi chạy
-    assert cfg["lexical"] == {"verbatim_n": 8, "train_overlap_threshold": 0.8, "train_overlap_inclusive": True}
+    assert cfg["lexical"] == {"verbatim_n": 8, "train_overlap_threshold": 0.8, "train_overlap_inclusive": True,
+                              "keyword_min_syllables": 1, "keyword_max_syllables": 6}  # nhóm duyệt 2026-10-24
     s = cfg["selection"]
     assert s["train_target_pairs_after_filter"] == 5000 and s["eval_articles_per_type"] == 50 and s["eval_reserve_per_type"] == 25
     assert s["eval_selection"] == "stratified_by_domain"
@@ -235,12 +237,13 @@ def test_run_until_stops_after_the_batch_that_reaches_target_and_keeps_all_pairs
 def test_run_until_reports_shortfall_instead_of_borrowing(tmp_path):
     client = base.FakeClient()
     g, store, _ = base.make_gen(tmp_path, client)
-    arts = base.make_articles(12)
+    arts = base.make_articles(20)
     for a in arts:
         a["split"] = "train"
     count = lambda: len(sets.filter_split(store.read_all(), "train", 0.8, True)[0]) if store.read_all() else 0
     stats = g.run_until(arts, count, 1000)
-    assert stats["target_reached"] is False and stats["pairs_after_filter"] == 36 and client.calls == 2
+    assert stats["target_reached"] is False and stats["pairs_after_filter"] == 60 and client.calls == 2
+    assert stats["stop_reason"] == "plan_exhausted"
 
 
 # ---------------- CLI plan / generate / build-sets ----------------
@@ -248,7 +251,7 @@ def test_cli_plan_train_pilot_and_errors(tmp_path):
     gq = base._script()
     dcfg, qcfg = base._tmp_cfgs(tmp_path)
     plan = gq.cmd_plan(dcfg, qcfg, "train")
-    assert plan["target_pairs"] == 5000 and len(plan["ordered_article_ids"]) == 24 and plan == gq.cmd_plan(dcfg, qcfg, "train")
+    assert plan["target_pairs"] == 5000 and len(plan["ordered_article_ids"]) == base.N_CLI and plan == gq.cmd_plan(dcfg, qcfg, "train")
     pilot = gq.cmd_plan(dcfg, qcfg, "train", pilot=5)
     assert pilot["ordered_article_ids"] == plan["ordered_article_ids"][:5] and pilot["target_pairs"] is None and pilot["pilot"] is True
     with pytest.raises(SystemExit):
@@ -263,7 +266,7 @@ def test_cli_plan_train_pilot_and_errors(tmp_path):
 def test_cli_plan_eval_insufficient_source_stops_without_borrowing(tmp_path):
     gq = base._script()
     dcfg, qcfg = base._tmp_cfgs(tmp_path)
-    base.write_split(Path(dcfg["split"]["output"]), {f"d{i:02d}": ("val" if i < 8 else "train") for i in range(24)})
+    base.write_split(Path(dcfg["split"]["output"]), {f"d{i:02d}": ("val" if i < 8 else "train") for i in range(base.N_CLI)})
     with pytest.raises(SystemExit) as e:  # 8 Điều val < 225
         gq.cmd_plan(dcfg, qcfg, "val")
     assert "không lấy bù từ split khác" in str(e.value) and "không đổi seed" in str(e.value)
@@ -283,11 +286,11 @@ def test_cli_generate_requires_quota_and_api_key_and_never_prints_key(tmp_path, 
     assert "GEMINI_API_KEY" in str(e.value)
 
 
-def _eval_env(tmp_path, n_docs=24):
+def _eval_env(tmp_path, n_docs=base.N_CLI):
     gq = base._script()
     dcfg, qcfg = base._tmp_cfgs(tmp_path)
     base.write_split(Path(dcfg["split"]["output"]), {f"d{i:02d}": "val" for i in range(n_docs)})
-    qcfg["selection"].update(eval_articles_per_type=2, eval_reserve_per_type=1)
+    qcfg["selection"].update(eval_articles_per_type=4, eval_reserve_per_type=1)  # 12 + 3 = 15 Điều = 1 batch đầy đủ
     qcfg["paths"]["review_dir"] = str(tmp_path / "review")
     qcfg["paths"]["test_edit_log"] = str(tmp_path / "logs" / "test_query_edits.jsonl")
     return gq, dcfg, qcfg
@@ -296,31 +299,31 @@ def _eval_env(tmp_path, n_docs=24):
 def test_end_to_end_plan_generate_build_sets_and_review_with_simulated_human(tmp_path):
     gq, dcfg, qcfg = _eval_env(tmp_path)
     plan = gq.cmd_plan(dcfg, qcfg, "val")
-    assert len(plan["article_ids"]) == 6 and len(plan["reserve_ids"]) == 3
+    assert len(plan["article_ids"]) == 12 and len(plan["reserve_ids"]) == 3
     ft = base.FakeTime()
     gq.cmd_generate(dcfg, qcfg, "val", plan, client=base.FakeClient(), mock=True, sleep=ft.sleep, clock=ft.clock)
     res = gq.cmd_build_sets(qcfg, "val", plan)
-    assert res["candidates"] == 6 and res["replaced"] == 0
+    assert res["candidates"] == 12 and res["replaced"] == 0
     stats = json.loads((tmp_path / "runs" / "queries_val.filter_stats.json").read_text(encoding="utf-8"))
-    assert set(stats["by_type"]) == {"natural", "scenario", "keyword"} and stats["generated_total"] == 27
+    assert set(stats["by_type"]) == {"natural", "scenario", "keyword"} and stats["generated_total"] == 45
     # duyệt offline
     cands = sel.read_jsonl(tmp_path / "runs" / "queries_val.candidates.jsonl")
     state = R.init_state("val", cands, plan)
     arts = {a["article_id"]: a for a in sel.read_jsonl(qcfg["paths"]["articles"])}
     records = JsonlStore(tmp_path / "runs" / "queries_val.raw.jsonl").read_all()
     sheet = tmp_path / "sheet.csv"
-    assert R.export_sheet(state, arts, sheet) == 6
+    assert R.export_sheet(state, arts, sheet) == 12
     rows = R.read_sheet(sheet)
     assert all(r["decision"] == "" and r["reviewer"] == "" and r["date"] == "" for r in rows)  # công cụ không điền thay người
     with pytest.raises(R.ReviewError):  # phiếu chưa điền
-        R.apply_sheet(state, rows, records, arts)
+        R.apply_sheet(state, rows, records, arts, **KWR)
     for i, r in enumerate(rows):  # "người duyệt" giả: loại một query, chấp nhận còn lại
         r.update(reviewer="Người Giả", date="2000-01-01", decision="reject" if i == 0 else "accept", reason="khó hiểu" if i == 0 else "")
-    state2 = R.apply_sheet(state, rows, records, arts)
+    state2 = R.apply_sheet(state, rows, records, arts, **KWR)
     assert sum(1 for s in state2["slots"] if s["status"] == "pending") == 1 and len(state2["reserve_used"]) == 1
     rows2 = [dict(r, decision="accept", reviewer="Người Giả", date="2000-01-02") for r in R.read_sheet(_export(state2, arts, tmp_path / "s2.csv"))]
-    final = R.finalize(R.apply_sheet(state2, rows2, records, arts), records, 2)
-    assert len(final) == 6 and all(x["split"] == "val" for x in final)
+    final = R.finalize(R.apply_sheet(state2, rows2, records, arts, **KWR), records, 4)
+    assert len(final) == 12 and all(x["split"] == "val" for x in final)
 
 
 def _export(state, arts, path):
@@ -355,14 +358,14 @@ def test_review_val_allows_only_accept_or_reject_and_requires_human_fields():
     st, recs, arts = _review_fixture("val")
     s0 = st["slots"][0]
     with pytest.raises(R.ReviewError) as e:
-        R.apply_sheet(st, [row(s0, decision="edit", edited_text="câu khác")], recs, arts)
+        R.apply_sheet(st, [row(s0, decision="edit", edited_text="câu khác")], recs, arts, **KWR)
     assert "không hợp lệ cho val" in str(e.value)
     with pytest.raises(R.ReviewError):
-        R.apply_sheet(st, [row(s0, reviewer="")], recs, arts)
+        R.apply_sheet(st, [row(s0, reviewer="")], recs, arts, **KWR)
     with pytest.raises(R.ReviewError):
-        R.apply_sheet(st, [row(s0, date="")], recs, arts)
+        R.apply_sheet(st, [row(s0, date="")], recs, arts, **KWR)
     with pytest.raises(R.ReviewError):
-        R.apply_sheet(st, [row(s0, decision="")], recs, arts)
+        R.apply_sheet(st, [row(s0, decision="")], recs, arts, **KWR)
     assert all(s["status"] == "pending" for s in st["slots"])  # trạng thái gốc không đổi
 
 
@@ -370,18 +373,18 @@ def test_review_apply_is_atomic_when_any_row_is_invalid():
     st, recs, arts = _review_fixture("val")
     good, bad = row(st["slots"][0]), row(st["slots"][1], decision="reject", reason="lý do tự bịa")
     with pytest.raises(R.ReviewError):
-        R.apply_sheet(st, [good, bad], recs, arts)
+        R.apply_sheet(st, [good, bad], recs, arts, **KWR)
     assert all(s["status"] == "pending" for s in st["slots"])
 
 
 def test_review_reject_requires_listed_reason_and_replaces_with_same_type_reserve():
     st, recs, arts = _review_fixture("test")
-    new = R.apply_sheet(st, [row(st["slots"][0], decision="reject", reason="chứa số hiệu Điều hoặc văn bản")], recs, arts)
+    new = R.apply_sheet(st, [row(st["slots"][0], decision="reject", reason="chứa số hiệu Điều hoặc văn bản")], recs, arts, **KWR)
     s0 = new["slots"][0]
     assert s0["article_id"] == "r0_001" and s0["type"] == "natural" and s0["status"] == "pending"
     assert s0["history"][0]["decision"] == "reject" and new["reserve_used"] == ["r0_001"]
     with pytest.raises(R.ReviewError):  # kiểu keyword còn r1; loại tiếp slot natural: hết dự phòng natural
-        R.apply_sheet(new, [row(new["slots"][0], decision="reject", reason="khó hiểu")], recs, arts)
+        R.apply_sheet(new, [row(new["slots"][0], decision="reject", reason="khó hiểu")], recs, arts, **KWR)
 
 
 def test_review_test_edit_logs_history_and_rechecks_verbatim_n8(tmp_path):
@@ -390,32 +393,33 @@ def test_review_test_edit_logs_history_and_rechecks_verbatim_n8(tmp_path):
     s = st["slots"][0]
     verbatim = "ai cũng biết người nộp thuế phải kê khai đầy đủ thông tin"  # chứa 8+ âm tiết liên tiếp của Điều
     with pytest.raises(R.ReviewError) as e:
-        R.apply_sheet(st, [row(s, decision="edit", edited_text=verbatim)], recs, arts, verbatim_n=8, edit_log=log)
+        R.apply_sheet(st, [row(s, decision="edit", edited_text=verbatim)], recs, arts, verbatim_n=8, edit_log=log, **KWR)
     assert "chép nguyên văn" in str(e.value) and not log.exists()
     with pytest.raises(R.ReviewError):
-        R.apply_sheet(st, [row(s, decision="edit", edited_text="theo Điều 5 thì sao")], recs, arts, edit_log=log)
+        R.apply_sheet(st, [row(s, decision="edit", edited_text="theo Điều 5 thì sao")], recs, arts, edit_log=log, **KWR)
     with pytest.raises(R.ReviewError):
-        R.apply_sheet(st, [row(s, decision="edit", edited_text=s["text"])], recs, arts, edit_log=log)
-    new = R.apply_sheet(st, [row(s, decision="edit", edited_text="hỏi lại bằng lời khác hẳn", reviewer="Thư Giả")], recs, arts, edit_log=log)
+        R.apply_sheet(st, [row(s, decision="edit", edited_text=s["text"])], recs, arts, edit_log=log, **KWR)
+    new = R.apply_sheet(st, [row(s, decision="edit", edited_text="hỏi lại bằng lời khác hẳn", reviewer="Thư Giả")], recs, arts, edit_log=log, **KWR)
     assert new["slots"][0]["status"] == "accepted" and new["slots"][0]["edited"] and new["slots"][0]["text"] == "hỏi lại bằng lời khác hẳn"
     entry = json.loads(log.read_text(encoding="utf-8").splitlines()[0])
     assert entry["original"] == s["text"] and entry["edited"] == "hỏi lại bằng lời khác hẳn" and entry["editor"] == "Thư Giả" and entry["split"] == "test"
     assert new["slots"][0]["history"][0]["original_text"] == s["text"]
 
 
-def test_review_edit_of_keyword_must_stay_within_four_syllables():
+def test_review_edit_of_keyword_must_stay_within_configured_syllables():
     st, recs, arts = _review_fixture("test")
     kw = st["slots"][2]
-    with pytest.raises(R.ReviewError):
-        R.apply_sheet(st, [row(kw, decision="edit", edited_text="một hai ba bốn năm sáu")], recs, arts)
-    assert R.apply_sheet(st, [row(kw, decision="edit", edited_text="mức phạt thuế")], recs, arts)["slots"][2]["status"] == "accepted"
+    with pytest.raises(R.ReviewError) as e:
+        R.apply_sheet(st, [row(kw, decision="edit", edited_text="một hai ba bốn năm sáu bảy")], recs, arts, **KWR)
+    assert "1-6 âm tiết" in str(e.value)
+    assert R.apply_sheet(st, [row(kw, decision="edit", edited_text="một hai ba bốn năm sáu")], recs, arts, **KWR)["slots"][2]["status"] == "accepted"
 
 
 def test_review_accept_refused_for_query_failing_automatic_filter():
     st, recs, arts = _review_fixture("val")
     next(q for q in recs[0]["queries"] if q["type"] == "natural")["verbatim_copy"] = True
     with pytest.raises(R.ReviewError) as e:
-        R.apply_sheet(st, [row(st["slots"][0])], recs, arts)
+        R.apply_sheet(st, [row(st["slots"][0])], recs, arts, **KWR)
     assert "không thể accept" in str(e.value)
 
 
@@ -423,7 +427,7 @@ def test_review_finalize_needs_every_slot_accepted_and_balanced_types():
     st, recs, arts = _review_fixture("val")
     with pytest.raises(R.ReviewError):
         R.finalize(st, recs, 1)
-    done = R.apply_sheet(st, [row(s) for s in st["slots"]], recs, arts)
+    done = R.apply_sheet(st, [row(s) for s in st["slots"]], recs, arts, **KWR)
     out = R.finalize(done, recs, 1)
     assert [q["type"] for q in out] == ["natural", "scenario", "keyword"] and all(q["review_history"] for q in out)
     with pytest.raises(R.ReviewError):

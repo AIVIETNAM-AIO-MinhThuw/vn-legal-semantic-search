@@ -70,7 +70,10 @@ def main(argv=None) -> None:
         sheet = rev / f"review_{args.split}_round{state['round']}.csv"
         print(f"đã xuất {R.export_sheet(state, arts, sheet)} dòng cần duyệt: {sheet} (người điền decision/reason/edited_text/reviewer/date)")
     elif args.cmd == "apply":
-        new = R.apply_sheet(state, R.read_sheet(args.sheet), records, arts, verbatim_n=q["lexical"]["verbatim_n"], edit_log=q["paths"]["test_edit_log"] if args.split == "test" else None)
+        lex = q["lexical"]
+        new = R.apply_sheet(state, R.read_sheet(args.sheet), records, arts, keyword_min_syllables=lex["keyword_min_syllables"],
+                            keyword_max_syllables=lex["keyword_max_syllables"], verbatim_n=lex["verbatim_n"],
+                            edit_log=q["paths"]["test_edit_log"] if args.split == "test" else None)
         state_path.write_text(json.dumps(new, ensure_ascii=False, indent=1), encoding="utf-8")
         print(f"đã áp dụng; còn {sum(1 for s in new['slots'] if s['status'] == 'pending')} slot chờ duyệt (vòng {new['round']})")
     elif args.cmd == "finalize":

@@ -91,3 +91,45 @@ def filter_stats(records: list[dict], split: str, threshold, inclusive) -> dict:
     return {"split": split, "by_type": {t: {"generated": v["generated"], "kept": v["kept"], "rejected": dict(v["rejected"])} for t, v in stats.items()},
             "articles_total": len(records), "articles_skipped": sum(1 for r in records if r["skip"]),
             "kept_total": sum(v["kept"] for v in stats.values()), "generated_total": sum(v["generated"] for v in stats.values())}
+
+
+def _usable_after_copy_filters(q: dict) -> bool:
+    return not (q["verbatim_copy"] or q["refers_to_article_or_document"])
+
+
+def kept_count_distribution(records: list[dict], split: str, threshold, inclusive) -> dict:
+    """Số Điều còn 0/1/2/3 query, tách theo tầng lọc (SPEC 5.3):
+    - `after_copy_filters`: sau lọc chép nguyên văn N âm tiết và nhắc số hiệu (áp dụng mọi split);
+    - `after_train_overlap`: sau thêm lọc overlap cao (chỉ train; val/test = None vì không lọc overlap).
+    Điều `skip` được tính vào 0 và đếm riêng ở `articles_skipped`."""
+    def dist(counts: list[int]) -> dict:
+        c = Counter(counts)
+        return {str(k): c.get(k, 0) for k in range(4)}
+
+    copy_counts, train_counts = [], []
+    for r in records:
+        qs = [] if r["skip"] else r["queries"]
+        copy_counts.append(sum(1 for q in qs if _usable_after_copy_filters(q)))
+        if split == "train":
+            train_counts.append(sum(1 for q in qs if reject_reason(q, split, threshold, inclusive) is None))
+    return {"split": split, "articles_total": len(records), "articles_skipped": sum(1 for r in records if r["skip"]),
+            "after_copy_filters": dist(copy_counts), "after_train_overlap": dist(train_counts) if split == "train" else None}
+
+
+def error_report(entries: list[dict], processed_ids: set[str], planned_ids: list[str] | None = None) -> dict:
+    """Tổng hợp log lỗi chỉ ghi thêm của `generate`. Điều chưa xử lý được = có trong log lỗi (cấp Điều hoặc thuộc batch
+    hỏng) nhưng chưa có bản ghi trong file query thô. `planned_ids` (kế hoạch val/test/pilot) thêm danh sách Điều chưa có."""
+    art = [e for e in entries if e.get("level") == "article"]
+    batch = [e for e in entries if e.get("level") == "batch"]
+    by_article: dict[str, list[dict]] = {}
+    for e in art:
+        by_article.setdefault(e["article_id"], []).append({"field": e["field"], "reason": e["reason"], "run_id": e.get("run_id")})
+    touched = set(by_article)
+    for e in batch:
+        touched.update(e.get("article_ids") or [])
+    out = {"article_errors_by_field": dict(Counter(e["field"] for e in art)), "article_errors": dict(sorted(by_article.items())),
+           "batch_errors_by_type": dict(Counter(e.get("error_type") for e in batch)), "batch_errors": batch,
+           "unresolved_article_ids": sorted(touched - processed_ids)}
+    if planned_ids is not None:
+        out["planned_not_processed"] = [a for a in planned_ids if a not in processed_ids]
+    return out

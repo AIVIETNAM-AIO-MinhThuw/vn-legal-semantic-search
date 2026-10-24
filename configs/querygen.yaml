@@ -1,6 +1,6 @@
 # Cấu hình công cụ sinh query (SPEC mục 5). Prompt vẫn là BẢN NHÁP, chưa freeze; chưa dùng để sinh query thật.
-# Các giá trị bên dưới do người dùng chốt trong phiên làm việc ngày 2026-10-23 (Q5, Q6). `null` = chưa có: lệnh sinh thật dừng với
-# lỗi rõ ràng. Seed dùng chung với configs/data.yaml (`seed`).
+# Các giá trị bên dưới do người dùng chốt trong phiên làm việc ngày 2026-10-23 (Q5, Q6) và nhóm duyệt 2026-10-24 (keyword).
+# `null` = chưa có: lệnh sinh thật dừng với lỗi rõ ràng; điền trực tiếp vào file này theo chú thích cạnh từng khóa. Seed dùng chung với configs/data.yaml (`seed`).
 
 llm:
   provider: gemini                 # gọi qua HTTP bằng httpx (đã có trong requirements.txt); không thêm SDK
@@ -16,8 +16,8 @@ llm:
   rate_limit_window_seconds: 60
 
 prompt:
-  path: prompts/query_generation.v0.draft.md   # bản nháp; sửa prompt = tăng version (SPEC 5.1). Chạy thử nhỏ trên Điều train trước khi freeze
-  version: v0-draft
+  path: prompts/query_generation.v0.1.draft.md   # bản nháp; sửa prompt = tăng version (SPEC 5.1). v0 giữ làm lịch sử. Chạy thử nhỏ trên Điều train trước khi freeze
+  version: v0.1-draft
 
 paths:
   articles: data/processed/articles_index.jsonl
@@ -30,6 +30,8 @@ lexical:
   verbatim_n: 8                    # SPEC 5.3
   train_overlap_threshold: 0.8     # SPEC 5.3
   train_overlap_inclusive: true    # chốt: loại khi overlap >= 0,8; áp dụng cho mọi kiểu query của train
+  keyword_min_syllables: 1         # SPEC 5.2 (nhóm duyệt 2026-10-24): keyword 1–6 âm tiết, tách âm tiết theo SPEC 5.3
+  keyword_max_syllables: 6         # prompt phải ghi đúng "từ <min> đến <max> âm tiết"; parser, duyệt và metadata đọc từ đây
 
 selection:
   excluded_titles:                 # SPEC 5.2: loại trước khi chọn

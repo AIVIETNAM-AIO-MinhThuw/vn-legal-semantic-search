@@ -238,7 +238,7 @@ Với mỗi Điều được chọn, bộ sinh tạo đúng ba query:
 
 - `natural`: câu hỏi của người dân, ngôn ngữ đời thường, không lặp thuật ngữ pháp lý của Điều khi có cách nói thông thường;
 - `scenario`: mô tả một tình huống cụ thể mà Điều trả lời được;
-- `keyword`: 1–4 từ, như gõ vào ô tìm kiếm.
+- `keyword`: 1–6 âm tiết (tách theo 5.3), như gõ vào ô tìm kiếm.
 
 Prompt cấm:
 
@@ -1366,3 +1366,4 @@ OI-1 đến OI-9 đã chốt; xem Changelog.
 | 2026-10-22 | Làm rõ ngoại lệ ID thiếu metadata: chỉ áp dụng cho `other_doc_id` khác null/rỗng; `doc_id` nguồn thiếu và ID null/rỗng vẫn là lỗi; mỗi ID là một nút riêng | Tránh code vô tình cho phép cả hai đầu hoặc gộp ID null thành một nút | Mục 3.6, 4.1 | Nhóm |
 | 2026-10-22 | Thêm API (FastAPI) và Docker cho phần app; sửa mục 7.2, 7.3, 7.4, 11.2, 13.1 đến 13.3, 14.1 đến 14.4, 15, 16, 17; thêm mục 14.5 đến 14.7 (gồm chế độ `hybrid` và `score_type` `rrf`); thêm OI-11 | Tách lớp rõ ràng, chống lệch âm thầm giữa app và đánh giá, ổn định khi demo | Chỉ phần app và đóng gói. Không ảnh hưởng split, query, pooling, qrels, huấn luyện hay số liệu đánh giá | Thành Vũ |
 | 2026-10-23 | Mục 5.3, 5.4, Limitations: overlap train loại khi `≥ 0,8` cho mọi kiểu; train khoảng 5.000 cặp sau lọc, bổ sung theo danh sách ngẫu nhiên phân tầng có seed; val/test chọn ngẫu nhiên phân tầng (seed 42), 150 chính + 75 dự phòng (25 mỗi kiểu), thay cùng split cùng kiểu, không lấy bù từ split khác; thêm giới hạn về lọc từ vựng | Q6 | Mục 1, 5.3, 5.4; `configs/querygen.yaml` | Người dùng xác nhận trong phiên làm việc ngày 2026-10-23 |
+| 2026-10-24 | Mục 5.2: query `keyword` đổi từ "1–4 từ" thành "1–6 âm tiết (tách theo 5.3)"; giới hạn đọc từ `lexical.keyword_min_syllables`/`keyword_max_syllables`, prompt `v0.1-draft` | Quyết định của nhóm; cách đếm dùng chung tokenizer âm tiết của 5.3. Quy tắc hiện hành | Mục 5.2; `configs/querygen.yaml`, `prompts/query_generation.v0.1.draft.md`. Chưa có query thật nên không artifact nào bị đổi | Nhóm, 2026-10-24 |

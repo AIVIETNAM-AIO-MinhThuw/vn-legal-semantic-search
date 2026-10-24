@@ -2,8 +2,12 @@
 
 Lệnh con:
   plan        chọn Điều theo split đã duyệt (đọc split từ config; không tạo/đổi split). `--pilot N` tạo kế hoạch thử nhỏ trên Điều train
-  generate    sinh query thô cho một kế hoạch; gọi Gemini qua httpx. Key chỉ lấy từ biến môi trường GEMINI_API_KEY
-  build-sets  lọc query thô, ghi thống kê trước/sau lọc theo từng kiểu; với val/test ghép tập ứng viên (thay thế cùng kiểu, cùng split)
+  generate    sinh query thô cho một kế hoạch; gọi Gemini qua httpx. Key chỉ lấy từ biến môi trường GEMINI_API_KEY.
+              Chạy lại đúng lệnh để resume. Mỗi lượt ghi một dòng tóm tắt vào queries_<split>[.tag].runs.jsonl; lỗi theo Điều/batch
+              ghi thêm vào queries_<split>[.tag].errors.jsonl. Hết retry 429 hoặc còn dưới 10 Điều chờ xử lý thì dừng (mã thoát khác 0)
+  build-sets  lọc query thô, ghi thống kê trước/sau lọc theo từng kiểu (filter_stats.json) và báo cáo build_report.json (số Điều
+              còn 0/1/2/3 query theo tầng lọc, lỗi theo Điều/trường, lỗi cấp batch, Điều chưa xử lý được); với val/test ghép tập
+              ứng viên (thay thế cùng kiểu, cùng split)
   variants    biến thể no_diacritic/typo CHỈ cho query test, xác định theo seed
   typo-sample xuất file mẫu 30 biến thể typo cho người đọc (không điền kết quả)
 
@@ -22,8 +26,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.querygen import select as sel  # noqa: E402
 from src.querygen import sets, variants  # noqa: E402
 from src.querygen.client import GeminiClient, MissingApiKeyError  # noqa: E402
-from src.querygen.generator import QueryGenerator, build_meta, load_prompt  # noqa: E402
-from src.querygen.io import JsonlStore, write_meta_once  # noqa: E402
+from src.querygen import generator as G  # noqa: E402
+from src.querygen.generator import QueryGenerator, build_meta, check_prompt_keyword_rule, load_prompt  # noqa: E402
+from src.querygen.io import AppendLog, JsonlStore, write_meta_once  # noqa: E402
 from src.querygen.limits import RateLimiter  # noqa: E402
 
 
@@ -34,7 +39,8 @@ def load_cfgs(data_cfg: str, qcfg: str) -> tuple[dict, dict]:
 def require(cfg_section: dict, keys: list[str], where: str) -> None:
     missing = [k for k in keys if cfg_section.get(k) is None]
     if missing:
-        raise SystemExit(f"{where}: {missing} chưa có giá trị (null). Xem reports/QUESTIONS_FOR_TEAM.md. Không tự chọn giá trị.")
+        raise SystemExit(f"{where}: {missing} chưa có giá trị (null). Điền giá trị vào configs/querygen.yaml theo chú thích cạnh "
+                         "từng khóa (vd. llm.rate_limit_calls lấy từ hạn mức AI Studio của tài khoản thật). Không tự chọn giá trị.")
 
 
 def name(split: str, kind: str, tag: str = "") -> str:
@@ -73,18 +79,37 @@ def _count_pairs(store: JsonlStore, qcfg: dict, split: str):
     return count
 
 
-def cmd_generate(dcfg: dict, qcfg: dict, split: str, plan: dict, *, client=None, mock: bool = False, sleep=None, clock=None, tag: str = "") -> dict:
+def check_meta(path: Path, meta: dict) -> None:
+    """Resume chỉ hợp lệ khi model/temperature/prompt/giới hạn keyword… giống lượt trước (trừ ngày sinh); lệch thì dừng."""
+    if not path.exists():
+        return
+    old = json.loads(path.read_text(encoding="utf-8"))
+    diff = sorted(k for k in set(old) | set(meta) if k != "generation_date" and old.get(k) != meta.get(k))
+    if diff:
+        raise SystemExit(f"{path}: metadata lượt trước khác cấu hình hiện tại ở {diff}; không ghi tiếp vào cùng file query thô. "
+                         "Dùng --tag khác cho cấu hình mới.")
+
+
+def cmd_generate(dcfg: dict, qcfg: dict, split: str, plan: dict, *, client=None, mock: bool = False, sleep=None, clock=None, tag: str = "",
+                 run_id: str | None = None) -> dict:
     out_dir = Path(qcfg["paths"]["out_dir"])
-    llm = qcfg["llm"]
+    llm, lex = qcfg["llm"], qcfg["lexical"]
+    require(lex, ["keyword_min_syllables", "keyword_max_syllables"], "configs/querygen.yaml: lexical")
+    template, phash = load_prompt(qcfg["prompt"]["path"])
+    try:
+        check_prompt_keyword_rule(template, lex["keyword_min_syllables"], lex["keyword_max_syllables"])
+    except ValueError as e:
+        raise SystemExit(f"{qcfg['prompt']['path']}: {e}")
     if client is None:
         require(llm, ["model", "temperature", "rate_limit_calls"], "configs/querygen.yaml: llm")
         try:
             client = GeminiClient(llm["model"], llm["temperature"], api_key_env=llm["api_key_env"])
         except MissingApiKeyError as e:
             raise SystemExit(str(e))
-    template, phash = load_prompt(qcfg["prompt"]["path"])
     meta = build_meta(qcfg, phash, split, dcfg["seed"], mock=mock)
-    write_meta_once(out_dir / name(split, "raw.meta.json", tag), meta)
+    meta_path = out_dir / name(split, "raw.meta.json", tag)
+    check_meta(meta_path, meta)
+    write_meta_once(meta_path, meta)
     doc_split = sel.load_doc_splits(dcfg["split"]["output"])
     arts = sel.read_jsonl(qcfg["paths"]["articles"])
     pool = {a["article_id"]: a for a in sel.eligible_articles(arts, sel.read_jsonl(qcfg["paths"]["docs"]), doc_split, split, qcfg["selection"]["excluded_titles"])}
@@ -95,11 +120,42 @@ def cmd_generate(dcfg: dict, qcfg: dict, split: str, plan: dict, *, client=None,
         limiter = RateLimiter(llm["rate_limit_calls"], llm["rate_limit_window_seconds"], **({"clock": clock, "sleep": sleep} if clock and sleep else {}))
     store = JsonlStore(out_dir / name(split, "raw.jsonl", tag))
     gen = QueryGenerator(client, store, prompt_template=template, batch_size=llm["batch_size"], max_attempts=llm["max_attempts"],
-                         base_delay=llm["retry_base_delay_seconds"], max_delay=llm["retry_max_delay_seconds"], verbatim_n=qcfg["lexical"]["verbatim_n"],
-                         limiter=limiter, errors_path=out_dir / name(split, "errors.jsonl", tag), split=split, **({"sleep": sleep} if sleep else {}))
-    if plan.get("target_pairs"):
-        return gen.run_until(articles, _count_pairs(store, qcfg, split), plan["target_pairs"])
-    return gen.run(articles)
+                         base_delay=llm["retry_base_delay_seconds"], max_delay=llm["retry_max_delay_seconds"], verbatim_n=lex["verbatim_n"],
+                         keyword_min=lex["keyword_min_syllables"], keyword_max=lex["keyword_max_syllables"], limiter=limiter,
+                         errors_path=out_dir / name(split, "errors.jsonl", tag), split=split, run_id=run_id, **({"sleep": sleep} if sleep else {}))
+    head = {"run_id": gen.run_id, "started_at": G._now(), "split": split, "tag": tag, "mock": mock, "prompt_version": meta["prompt_version"],
+            "prompt_sha256": phash, "batch_size": llm["batch_size"], "keyword_min_syllables": lex["keyword_min_syllables"],
+            "keyword_max_syllables": lex["keyword_max_syllables"], "articles_in_plan": len(articles)}
+    runs = AppendLog(out_dir / name(split, "runs.jsonl", tag))
+    try:
+        if plan.get("target_pairs"):
+            res = gen.run_until(articles, _count_pairs(store, qcfg, split), plan["target_pairs"])
+        else:
+            res = gen.run(articles)
+    except Exception as e:  # lỗi không retry được (vd. HTTP 4xx khác 429): vẫn ghi tóm tắt lượt chạy rồi báo lỗi
+        runs.append({**head, **gen.summary(), "stop_reason": f"exception:{type(e).__name__}", "finished_at": G._now()})
+        raise
+    runs.append({**head, **res, "finished_at": G._now()})
+    return res
+
+
+def stop_message(res: dict, split: str, tag: str, out_dir: Path) -> str | None:
+    """Thông báo cho CLI khi lượt chạy phải dừng giữa chừng; None nếu kết thúc bình thường."""
+    again = f"python scripts/generate_queries.py generate --split {split}" + (f" --tag {tag}" if tag else "")
+    logs = f"{out_dir / name(split, 'errors.jsonl', tag)} và {out_dir / name(split, 'runs.jsonl', tag)}"
+    n = len(res.get("pending_article_ids") or [])
+    if res.get("stop_reason") == G.STOP_RATE_LIMIT:
+        return (f"Dừng: hết số lần retry vì 429 (rate limit); không gửi thêm batch nào. Còn {n} Điều chưa gửi trong lượt này. "
+                f"Xem {logs}. Chờ hạn mức phục hồi rồi chạy lại đúng lệnh để resume (Điều đã ghi được bỏ qua): {again} "
+                "(thêm --plan nếu lượt trước dùng --plan)")
+    if res.get("stop_reason") == G.STOP_BELOW_MIN_BATCH:
+        return (f"Dừng: còn {n} Điều chờ xử lý, ít hơn {G.MIN_BATCH} Điều/request (SPEC 5.1: 10–20 Điều mỗi request); không gửi. "
+                f"Không tự đổi quy tắc; báo nhóm quyết định. Danh sách article_id ở dòng cuối {out_dir / name(split, 'runs.jsonl', tag)}.")
+    unproc = res.get("unprocessed_article_ids") or []
+    if unproc and res.get("stop_reason") != G.STOP_TARGET_REACHED:  # đủ mục tiêu train thì chỉ liệt kê trong runs.jsonl
+        return (f"Chưa hoàn tất: {len(unproc)} Điều đã gửi nhưng chưa ghi được ({unproc[:10]}{' …' if len(unproc) > 10 else ''}). "
+                f"Lý do theo Điều/trường trong {logs}. Chạy lại để resume ({again}) hoặc báo nhóm nếu lỗi lặp lại.")
+    return None
 
 
 def cmd_build_sets(qcfg: dict, split: str, plan: dict | None = None, tag: str = "") -> dict:
@@ -108,12 +164,19 @@ def cmd_build_sets(qcfg: dict, split: str, plan: dict | None = None, tag: str = 
     thr, inc = lex["train_overlap_threshold"], lex["train_overlap_inclusive"]
     stats = sets.filter_stats(recs, split, thr, inc)
     (out_dir / name(split, "filter_stats.json", tag)).write_text(json.dumps(stats, ensure_ascii=False, indent=1), encoding="utf-8")
+    errors = AppendLog(out_dir / name(split, "errors.jsonl", tag)).read_all()
+    planned = None
+    if plan is not None and not plan.get("target_pairs"):
+        planned = plan.get("ordered_article_ids") or (plan["article_ids"] + plan.get("reserve_ids", []))
+    report = {"kept_count_distribution": sets.kept_count_distribution(recs, split, thr, inc),
+              "errors": sets.error_report(errors, {r["article_id"] for r in recs}, planned)}
+    (out_dir / name(split, "build_report.json", tag)).write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     if split == "train":
         kept, _ = sets.filter_split(recs, split, thr, inc)
         store = JsonlStore(out_dir / name(split, "filtered.jsonl", tag), key="query_id")
         for q in kept:
             store.append(q)
-        return {"kept": len(kept), "stats": stats}
+        return {"kept": len(kept), "stats": stats, "report": report}
     if plan is None:
         raise SystemExit("val/test cần --plan để ghép tập ứng viên")
     out, replaced = sets.assemble_eval(recs, plan["article_ids"], plan["types"], plan["reserve_ids"], plan["reserve_types"])
@@ -121,7 +184,7 @@ def cmd_build_sets(qcfg: dict, split: str, plan: dict | None = None, tag: str = 
     for q in out:
         store.append(q)
     (out_dir / name(split, "replacements.json", tag)).write_text(json.dumps(replaced, ensure_ascii=False, indent=1), encoding="utf-8")
-    return {"candidates": len(out), "replaced": len(replaced), "stats": stats}
+    return {"candidates": len(out), "replaced": len(replaced), "stats": stats, "report": report}
 
 
 def main(argv=None, *, client=None) -> None:
@@ -154,7 +217,11 @@ def main(argv=None, *, client=None) -> None:
         print(f"đã ghi kế hoạch: {out}")
     elif args.cmd == "generate":
         plan = json.loads(Path(args.plan or out_dir / name(args.split, "plan.json", args.tag)).read_text(encoding="utf-8"))
-        print(json.dumps(cmd_generate(dcfg, qcfg, args.split, plan, client=client, tag=args.tag), ensure_ascii=False))
+        res = cmd_generate(dcfg, qcfg, args.split, plan, client=client, tag=args.tag)
+        print(json.dumps(res, ensure_ascii=False))
+        msg = stop_message(res, args.split, args.tag, out_dir)
+        if msg:
+            raise SystemExit(msg)
     elif args.cmd == "build-sets":
         plan = json.loads(Path(args.plan).read_text(encoding="utf-8")) if args.plan else None
         print(json.dumps(cmd_build_sets(qcfg, args.split, plan, args.tag), ensure_ascii=False))

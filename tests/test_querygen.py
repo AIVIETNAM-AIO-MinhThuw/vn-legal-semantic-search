@@ -19,10 +19,13 @@ from src.querygen import sets, variants as V  # noqa: E402
 from src.querygen import text as T  # noqa: E402
 from src.querygen.client import GeminiClient, GeminiRequestError, MissingApiKeyError  # noqa: E402
 from src.querygen.generator import InvalidResponse, QueryGenerator, build_meta, load_prompt, parse_response, render_prompt  # noqa: E402
-from src.querygen.io import JsonlStore, write_meta_once  # noqa: E402
+from src.querygen.io import AppendLog, JsonlStore, write_meta_once  # noqa: E402
 from src.querygen.limits import RateLimiter, RateLimitError, RetryableError, call_with_retry  # noqa: E402
 
-TEMPLATE = (ROOT / "prompts" / "query_generation.v0.draft.md").read_text(encoding="utf-8")
+QCFG = yaml.safe_load((ROOT / "configs" / "querygen.yaml").read_text(encoding="utf-8"))
+PROMPT_PATH = ROOT / QCFG["prompt"]["path"]
+TEMPLATE = PROMPT_PATH.read_text(encoding="utf-8")
+KW = {"keyword_min": QCFG["lexical"]["keyword_min_syllables"], "keyword_max": QCFG["lexical"]["keyword_max_syllables"]}
 
 
 @pytest.fixture(autouse=True)
@@ -158,24 +161,29 @@ def test_meta_written_once(tmp_path):
 
 # ---------------- generator với client giả ----------------
 class FakeClient:
-    """Trả về JSON hợp lệ cho các article_id trong prompt; có thể kịch bản hóa lỗi."""
+    """Trả về JSON hợp lệ cho các article_id trong prompt; có thể kịch bản hóa lỗi.
+    `overrides`: article_id -> queries thay thế (vd. keyword quá dài), chỉ áp dụng ở `override_calls` lần gọi đầu."""
 
-    def __init__(self, script=None, skip_ids=()):
+    def __init__(self, script=None, skip_ids=(), overrides=None, override_calls=1):
         self.script, self.calls, self.skip_ids = list(script or []), 0, set(skip_ids)
+        self.overrides, self.override_calls, self.requested = dict(overrides or {}), override_calls, []
 
     def generate(self, prompt: str) -> str:
         self.calls += 1
+        ids = [a["article_id"] for a in json.loads(prompt[prompt.rindex("[\n"):])]
+        self.requested.append(ids)
         if self.script:
             step = self.script.pop(0)
             if isinstance(step, Exception):
                 raise step
             if step is not None:
                 return step
-        ids = [a["article_id"] for a in json.loads(prompt[prompt.rindex("[\n"):])]
         results = []
         for i in ids:
             if i in self.skip_ids:
                 results.append({"article_id": i, "skip": True, "skip_reason": "không đặt được câu hỏi", "queries": None})
+            elif i in self.overrides and self.calls <= self.override_calls:
+                results.append({"article_id": i, "skip": False, "skip_reason": None, "queries": self.overrides[i]})
             else:
                 results.append({"article_id": i, "skip": False, "skip_reason": None,
                                 "queries": {"natural": f"câu hỏi đời thường về {i}", "scenario": f"tình huống liên quan {i}", "keyword": "từ khóa"}})
@@ -191,15 +199,15 @@ def make_gen(tmp_path, client, **kw):
     ft = kw.pop("ft", FakeTime())
     store = JsonlStore(tmp_path / "raw.jsonl")
     g = QueryGenerator(client, store, prompt_template=TEMPLATE, batch_size=kw.pop("batch_size", 10), max_attempts=kw.pop("max_attempts", 3),
-                       base_delay=2, max_delay=30, verbatim_n=8, sleep=ft.sleep, errors_path=tmp_path / "err.jsonl", split="train", **kw)
+                       base_delay=2, max_delay=30, verbatim_n=8, sleep=ft.sleep, errors_path=tmp_path / "err.jsonl", split="train", **KW, **kw)
     return g, store, ft
 
 
 def test_batches_of_requested_size_and_records_have_three_types(tmp_path):
     c = FakeClient(skip_ids={"d003_001"})
     g, store, _ = make_gen(tmp_path, c)
-    stats = g.run(make_articles(25))
-    assert c.calls == 3 and stats["written"] == 25 and stats["requests"] == 3
+    stats = g.run(make_articles(30))
+    assert c.calls == 3 and stats["written"] == 30 and stats["requests"] == 3 and stats["stop_reason"] == "completed"
     recs = store.read_all()
     r3 = next(r for r in recs if r["article_id"] == "d003_001")
     assert r3["skip"] and r3["queries"] == [] and r3["skip_reason"]
@@ -223,18 +231,21 @@ def test_rate_limit_then_success_uses_fake_sleep_and_no_real_wait(tmp_path):
 
 
 def test_invalid_json_is_retried_and_recovers(tmp_path):
-    c = FakeClient(script=["không phải JSON", json.dumps({"results": []}), None])
+    c = FakeClient(script=["không phải JSON", json.dumps({"results": []}), None])  # JSON hỏng; rồi không có Điều hợp lệ nào
     g, store, ft = make_gen(tmp_path, c, max_attempts=4)
-    g.run(make_articles(10))
+    stats = g.run(make_articles(10))
     assert c.calls == 3 and len(store.read_all()) == 10
+    assert stats["retries"] == {"invalid_response": 1, "no_valid_article": 1}
 
 
 def test_batch_failing_all_attempts_writes_error_not_records_and_resumes_later(tmp_path):
-    c = FakeClient(script=[RateLimitError("429")] * 3)
+    c = FakeClient(script=["không phải JSON"] * 3)
     g, store, _ = make_gen(tmp_path, c, max_attempts=3)
     stats = g.run(make_articles(10))
-    assert stats["failed_batches"] == 1 and store.read_all() == []
-    assert len(JsonlStore(tmp_path / "err.jsonl", key="batch_key").read_all()) == 1
+    assert stats["failed_batches"] == 1 and store.read_all() == [] and stats["stop_reason"] == "completed_with_unprocessed"
+    assert stats["unprocessed_article_ids"] == [a["article_id"] for a in make_articles(10)]
+    err = AppendLog(tmp_path / "err.jsonl").read_all()
+    assert len(err) == 1 and err[0]["level"] == "batch" and err[0]["error_type"] == "invalid_response" and len(err[0]["article_ids"]) == 10
     stats2 = g.run(make_articles(10))  # lần sau thử lại và thành công
     assert stats2["written"] == 10 and len(store.read_all()) == 10
 
@@ -243,15 +254,15 @@ def test_resume_does_not_request_or_duplicate_processed_articles(tmp_path):
     arts = make_articles(30)
     c1 = FakeClient()
     g1, store1, _ = make_gen(tmp_path, c1)
-    g1.run(arts[:15])
+    g1.run(arts[:20])
     c2 = FakeClient()
     g2, store2, _ = make_gen(tmp_path, c2)  # mở lại cùng file
     stats = g2.run(arts)
-    assert stats["skipped_existing"] == 15 and stats["written"] == 15 and c2.calls == 2
+    assert stats["skipped_existing"] == 20 and stats["written"] == 10 and c2.calls == 1
     ids = [r["article_id"] for r in JsonlStore(tmp_path / "raw.jsonl").read_all()]
     assert len(ids) == 30 == len(set(ids))
     g2.run(arts)
-    assert c2.calls <= 2  # lần chạy thứ ba không gọi client
+    assert c2.calls == 1  # lần chạy thứ ba không gọi client
     assert len(JsonlStore(tmp_path / "raw.jsonl").read_all()) == 30
 
 
@@ -265,27 +276,38 @@ def test_limiter_is_called_per_request(tmp_path):
 
 def test_flags_verbatim_overlap_and_reference_are_recorded(tmp_path):
     art = {"article_id": "x_001", "doc_id": "x", "title": "Kê khai", "body": "người nộp thuế phải kê khai đầy đủ thông tin theo quy định của pháp luật"}
-    raw = json.dumps({"results": [{"article_id": "x_001", "skip": False, "skip_reason": None, "queries": {
-        "natural": "người nộp thuế phải kê khai đầy đủ thông tin thì sao", "scenario": "theo Điều 5 tôi phải làm gì", "keyword": "kê khai"}}]})
-    g, store, _ = make_gen(tmp_path, FakeClient(script=[raw]))
-    g.run([art])
+    over = {"x_001": {"natural": "người nộp thuế phải kê khai đầy đủ thông tin thì sao", "scenario": "theo Điều 5 tôi phải làm gì", "keyword": "kê khai"}}
+    g, store, _ = make_gen(tmp_path, FakeClient(overrides=over))
+    g.run([art] + make_articles(9))
     r = next(r for r in store.read_all() if r["article_id"] == "x_001")
     nat, sc, kw = r["queries"]
     assert nat["verbatim_copy"] and sc["refers_to_article_or_document"] and not kw["verbatim_copy"]
     assert nat["overlap"] > 0.8 and kw["overlap"] == 1.0
 
 
-@pytest.mark.parametrize("payload,msg", [
-    ({"results": [{"article_id": "zzz", "skip": True}]}, "không được yêu cầu"),
-    ({"results": []}, "thiếu"),
-    ({"results": [{"article_id": "a", "skip": True}, {"article_id": "a", "skip": True}]}, "lặp"),
-    ({"results": [{"article_id": "a", "queries": {"natural": "x", "scenario": "y"}}]}, "ba query"),
-    ({"results": [{"article_id": "a", "queries": {"natural": "x", "scenario": "y", "keyword": "một hai ba bốn năm"}}]}, "1-4 từ"),
+@pytest.mark.parametrize("raw", ["không phải JSON", json.dumps({"x": []}), json.dumps({"results": {"a": 1}}), json.dumps([1])])
+def test_parse_response_raises_only_for_batch_level_schema_errors(raw):
+    with pytest.raises(InvalidResponse):
+        parse_response(raw, ["a"], **KW)
+
+
+@pytest.mark.parametrize("payload,field,msg", [
+    ({"results": []}, "article_id", "thiếu"),
+    ({"results": [{"article_id": "a", "skip": True}, {"article_id": "a", "skip": True}]}, "article_id", "lặp"),
+    ({"results": [{"article_id": "a", "queries": {"natural": "x", "scenario": "y"}}]}, "queries", "ba khóa"),
+    ({"results": [{"article_id": "a", "queries": {"natural": "x", "scenario": " ", "keyword": "k"}}]}, "queries.scenario", "rỗng"),
+    ({"results": [{"article_id": "a", "queries": {"natural": "x", "scenario": "y", "keyword": "một hai ba bốn năm sáu bảy"}}]}, "queries.keyword", "7 âm tiết"),
 ])
-def test_parse_response_rejects_bad_schema(payload, msg):
-    with pytest.raises(InvalidResponse) as e:
-        parse_response(json.dumps(payload), ["a"])
-    assert msg in str(e.value)
+def test_parse_response_reports_article_level_errors_with_field(payload, field, msg):
+    p = parse_response(json.dumps(payload), ["a"], **KW)
+    assert p.valid == {} and [e["article_id"] for e in p.article_errors] == ["a"]
+    assert p.article_errors[0]["field"] == field and msg in p.article_errors[0]["reason"]
+
+
+def test_parse_response_unassignable_results_are_batch_errors():
+    p = parse_response(json.dumps({"results": [{"article_id": "zzz", "skip": True}, {"skip": True}, {"article_id": "a", "skip": True}]}), ["a"], **KW)
+    assert set(p.valid) == {"a"} and p.article_errors == []
+    assert [e["field"] for e in p.batch_errors] == ["article_id", "article_id"] and "không được yêu cầu" in p.batch_errors[0]["reason"]
 
 
 def test_prompt_is_draft_and_has_no_examples_or_ood_content():
@@ -293,7 +315,7 @@ def test_prompt_is_draft_and_has_no_examples_or_ood_content():
     assert "OOD" not in TEMPLATE and "ví dụ query" not in TEMPLATE.lower()
     rendered = render_prompt(TEMPLATE, make_articles(2))
     assert "{{ARTICLES_JSON}}" not in rendered and "d000_001" in rendered
-    text, h = load_prompt(ROOT / "prompts" / "query_generation.v0.draft.md")
+    text, h = load_prompt(PROMPT_PATH)
     assert len(h) == 64 and text == TEMPLATE
 
 
@@ -431,35 +453,39 @@ def test_typo_sample_export_has_blank_reviewer_columns(tmp_path):
 
 
 # ---------------- CLI offline ----------------
+N_CLI = 30  # = 2 batch đầy đủ với batch_size 15 của config
+
+
 def _tmp_cfgs(tmp_path, *, with_split=True, pinned=True):
     qcfg = yaml.safe_load((ROOT / "configs" / "querygen.yaml").read_text(encoding="utf-8"))
     dcfg = {"seed": 42, "split": {"output": str(tmp_path / "data" / "splits.json")}}
-    arts = [{"article_id": f"d{i:02d}_001", "doc_id": f"d{i:02d}", "title": f"Tiêu đề {i}", "body": f"nội dung {i}"} for i in range(24)]
-    docs = [{"doc_id": f"d{i:02d}", "linh_vuc": "Thuế"} for i in range(24)]
+    arts = [{"article_id": f"d{i:02d}_001", "doc_id": f"d{i:02d}", "title": f"Tiêu đề {i}", "body": f"nội dung {i}"} for i in range(N_CLI)]
+    docs = [{"doc_id": f"d{i:02d}", "linh_vuc": "Thuế"} for i in range(N_CLI)]
     (tmp_path / "arts.jsonl").write_text("".join(json.dumps(a, ensure_ascii=False) + "\n" for a in arts), encoding="utf-8")
     (tmp_path / "docs.jsonl").write_text("".join(json.dumps(d, ensure_ascii=False) + "\n" for d in docs), encoding="utf-8")
     qcfg["paths"].update(articles=str(tmp_path / "arts.jsonl"), docs=str(tmp_path / "docs.jsonl"), out_dir=str(tmp_path / "runs"))
-    qcfg["prompt"]["path"] = str(ROOT / "prompts" / "query_generation.v0.draft.md")
+    qcfg["prompt"]["path"] = str(PROMPT_PATH)
     if pinned:
         qcfg["llm"].update(model="fake-model", temperature=0.2, generation_date="2000-01-01", rate_limit_calls=100)
     if with_split:
         (tmp_path / "data").mkdir()
-        write_split(Path(dcfg["split"]["output"]), {f"d{i:02d}": "train" for i in range(24)})
+        write_split(Path(dcfg["split"]["output"]), {f"d{i:02d}": "train" for i in range(N_CLI)})
     return dcfg, qcfg
 
 
 def test_cli_generate_with_injected_fake_client_end_to_end(tmp_path):
     gq = _script()
     dcfg, qcfg = _tmp_cfgs(tmp_path)
-    plan = {"split": "train", "article_ids": [f"d{i:02d}_001" for i in range(24)]}
+    plan = {"split": "train", "article_ids": [f"d{i:02d}_001" for i in range(N_CLI)]}
     ft = FakeTime()
     stats = gq.cmd_generate(dcfg, qcfg, "train", plan, client=FakeClient(), mock=True, sleep=ft.sleep, clock=ft.clock)
-    assert stats["written"] == 24 and stats["requests"] == 2
+    assert stats["written"] == N_CLI and stats["requests"] == 2
     out = tmp_path / "runs"
-    assert json.loads((out / "queries_train.raw.meta.json").read_text(encoding="utf-8"))["mock"] is True
-    assert len(JsonlStore(out / "queries_train.raw.jsonl").read_all()) == 24
+    meta = json.loads((out / "queries_train.raw.meta.json").read_text(encoding="utf-8"))
+    assert meta["mock"] is True and (meta["keyword_min_syllables"], meta["keyword_max_syllables"]) == (KW["keyword_min"], KW["keyword_max"])
+    assert len(JsonlStore(out / "queries_train.raw.jsonl").read_all()) == N_CLI
     again = gq.cmd_generate(dcfg, qcfg, "train", plan, client=FakeClient(), mock=True, sleep=ft.sleep, clock=ft.clock)
-    assert again["written"] == 0 and again["skipped_existing"] == 24
+    assert again["written"] == 0 and again["skipped_existing"] == N_CLI
 
 
 def test_cli_variants_subcommand_refuses_non_test_input(tmp_path):

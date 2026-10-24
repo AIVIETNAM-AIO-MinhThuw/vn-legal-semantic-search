@@ -46,6 +46,32 @@ class JsonlStore:
             return [json.loads(l) for l in f if l.strip()]
 
 
+class AppendLog:
+    """JSONL chỉ ghi thêm (log lỗi, tóm tắt từng lượt chạy): không khử trùng, lỗi lặp lại được ghi đủ. Dòng cuối bị ngắt giữa
+    chừng được cắt bỏ khi mở để dòng ghi tiếp theo không dính vào bản ghi hỏng."""
+
+    def __init__(self, path: Path | str):
+        self.path = Path(path)
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.truncated_partial_line = False
+        if self.path.exists():
+            raw = self.path.read_bytes()
+            if raw and not raw.endswith(b"\n"):
+                self.path.write_bytes(raw[:raw.rfind(b"\n") + 1])
+                self.truncated_partial_line = True
+
+    def append(self, record: dict) -> None:
+        with open(self.path, "a", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+            f.flush()
+
+    def read_all(self) -> list[dict]:
+        if not self.path.exists():
+            return []
+        with open(self.path, encoding="utf-8") as f:
+            return [json.loads(l) for l in f if l.strip()]
+
+
 def write_meta_once(path: Path | str, meta: dict) -> bool:
     """Ghi metadata (model, temperature, prompt, ngày sinh…) đúng một lần; không ghi đè."""
     p = Path(path)
