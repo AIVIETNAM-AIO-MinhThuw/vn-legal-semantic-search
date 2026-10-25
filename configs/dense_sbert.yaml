@@ -1,0 +1,9 @@
+# S-SBERT: Sentence-BERT đa ngôn ngữ (Reimers & Gurevych), không tiền tố, max 128 token (giới hạn huấn luyện của model).
+seed: 42
+paths:
+  model: data/raw/paraphrase-multilingual-MiniLM-L12-v2
+  chunks: data/processed/chunks_index.jsonl
+  index: indexes/sbert_mminilm
+encoding: {max_length: 128, batch_size: 64, fp16_inference: false, query_prefix: "", passage_prefix: ""}
+retrieval: {top_k: 10, chunk_top_k: 200, run_tag: sbert_mminilm}
+runtime: {device: cuda}

@@ -1,0 +1,73 @@
+{
+  "variant": "A",
+  "lr": 1e-05,
+  "config": {
+    "seed": 42,
+    "paths": {
+      "base_model": "data/raw/multilingual-e5-base",
+      "train_queries": "data/eval_v1/queries_train.csv",
+      "val_queries": "data/eval_v1/queries_val.csv",
+      "qrels": "data/interim/source_qrels_v1/qrels.jsonl",
+      "chunks": "data/processed/chunks_index.jsonl",
+      "articles": "data/processed/articles_index.jsonl",
+      "families": "data/splits.json",
+      "hard_negative_runs": [
+        "data/interim/full_v2/bm25_s10/run.trec",
+        "data/interim/full_v2/e5_s2/run.trec"
+      ],
+      "output_root": "models"
+    },
+    "train": {
+      "epochs": 2,
+      "batch_size": 32,
+      "max_query_length": 64,
+      "max_passage_length": 256,
+      "temperature": 0.05,
+      "weight_decay": 0.01,
+      "warmup_ratio": 0.1,
+      "freeze_embeddings": true,
+      "gradient_checkpointing": true,
+      "hard_negative_window": [
+        3,
+        10
+      ],
+      "lr_grid": [
+        1e-05,
+        3e-05
+      ]
+    },
+    "eval": {
+      "max_length": 512,
+      "batch_size": 32,
+      "chunk_top_k": 200,
+      "top_k": 10,
+      "select_metric": "NDCG@10"
+    }
+  },
+  "n_train_queries": 3718,
+  "n_examples": 3718,
+  "queries_without_hard_negative": 438,
+  "hard_negatives_sha256": "b35f5e255cd6ce7a0772b26f8adfbad45ff0324fd5c53ffb7183879a3c4ca690",
+  "inputs": {
+    "train_queries": "f540be094a56cb1ced79498e733a3de204583436dffb61fd12e83cfcb367cd93",
+    "val_queries": "ed17260979fedf981c45e6fbeded4799a608defcd31a27399fc105c1f29edf44",
+    "qrels": "099b7304bcb3ae1d9fe9446cdb5eb290a80b6b71aa0ac774f0db44dc20b338d3",
+    "chunks": "f82c95585e41dce541cd73d5e021067666a1652965393f9d5fe1f4a58e59387d",
+    "articles": "4597ae7a7f08129fa224cfd829845ed7df751ec747097b0e674b664bdb86e30e",
+    "families": "61475224522d78f2e4fa43389c66675d62d8c892d7e41a6b6430f0a0ab6ff519"
+  },
+  "base_model": {
+    "config.json": "9dab198f24c8c0879e481cf7822005d5ecbceedbacb390ffafa594e28d31bac4",
+    "download.json": "e560fe7cc1bbe25ab5858d629f2ab769e54ce77940fd10cfe82345d176c93f10",
+    "model.safetensors": "a18a44fad1d0b46ded15928144138cff1135d5cc8233bdd90be5f18822de09a7",
+    "sentencepiece.bpe.model": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865",
+    "special_tokens_map.json": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f",
+    "tokenizer.json": "62c24cdc13d4c9952d63718d6c9fa4c287974249e16b7ade6d5a85e7bbb75626",
+    "tokenizer_config.json": "efb5c0d09722e5fe59a462cd2a9976ee216d55b037597d997cd3fe833216da15"
+  },
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "torch": "2.5.1+cu121",
+  "python": "3.11.9",
+  "bf16": true,
+  "train_seconds": 427.80483984947205
+}
