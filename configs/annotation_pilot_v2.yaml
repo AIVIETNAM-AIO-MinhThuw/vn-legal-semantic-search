@@ -1,0 +1,47 @@
+# Pilot chính thức v2 (SPEC 10.4) — BẢN NHÁP chờ người tiếp quản đối chiếu trước khi chạy.
+# Chép vào configs/annotation_pilot_v2.yaml của repo (nhánh task/6-labeling-pipeline @ 355d826).
+# Khác configs/annotation.yaml ở: paths.queries, paths.baselines, paths.run, paths.examples,
+# paths.metadata, paths.exclusions và selection.query_ids. Prompt, guideline, model, generation giữ nguyên.
+schema_version: annotation-v1
+seed: 42
+paths:
+  queries: data/interim/pilot_v2/pilot_queries_v2.csv
+  articles: data/processed/articles_index.jsonl
+  docs: data/processed/docs_index.jsonl
+  baselines:
+    bm25: data/interim/pilot_v2/bm25_s10
+    e5: data/interim/pilot_v2/e5_s2
+  run: data/interim/annotation_pilot_v2
+  prompt: prompts/relevance_v1.txt
+  guideline: annotation/GUIDELINE.md
+  # File MỚI, chưa tồn tại; examples-import tạo từ calibration.csv do NGƯỜI chấm. Không dùng annotation/examples.jsonl cũ.
+  examples: annotation/examples_pilot_v2.jsonl
+  # Chỉ dùng ở finalize (chưa chạy trong pilot).
+  metadata: data/interim/pilot_v2/annotation_metadata.jsonl
+  exclusions: data/interim/pilot_v2/annotation_exclusions.jsonl
+pool_depth: 10
+hard_negative_rank: 3
+csv_field_size_limit: 10000000
+selection:
+  mode: pilot
+  query_count: 10
+  query_ids: [Q0618, Q1761, Q1056, Q5071, Q3094, Q5305, Q3135, Q3377, Q4412, Q4727]
+  approval: null
+api:
+  base_url: https://generativelanguage.googleapis.com/v1beta
+  model: gemini-3.5-flash-lite
+  key_env: GOOGLE_API_KEY
+  timeout_seconds: 120
+  attempts: 3
+  interval_seconds: 7
+  backoff_seconds: 10
+  max_input_tokens: 100000
+  retry_statuses: [429, 500, 502, 503, 504]
+  generation:
+    temperature: 1.0
+    maxOutputTokens: 8192
+    thinkingConfig:
+      thinkingLevel: minimal
+review:
+  per_label: 10
+  examples_per_label: 2

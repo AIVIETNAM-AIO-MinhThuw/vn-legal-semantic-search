@@ -182,3 +182,74 @@ SHA-256 dưới đây được đọc trực tiếp từ file khi lập báo cá
 | `data/interim/annotation_pilot_v1/manifest.json` | `b6dfaad1e5764e1d5f9ab872d9325a398c6f81528b378361feaaaac4b045bdb7` |
 | `data/interim/annotation_pilot_v1/validation_v1/report.json` | `230f7e14b2d50aafe74ddf0d0ddca73f86cafee9c044294c32437f2c01164947` |
 | `data/interim/annotation_pilot_v1/review_v1/selection.json` | `db77503bc386fb19a2616f9734962fa07685684bf2b4ff6719f4c231bd6f2c96` |
+
+## Tiếp quản query đã xử lý và pilot v2 — 2026-10-25
+
+Đây là bàn giao **chuẩn bị chạy**, chưa phải kết quả pilot v2 hoặc phê duyệt
+gán nhãn hàng loạt. Kết quả pilot v1 ở trên thuộc bộ 500 query thử cũ.
+
+### Phần nhận từ Git
+
+- Code BM25/E5/annotation, prompt và guideline hiện có.
+- `configs/annotation_pilot_v2.yaml`: đường dẫn và 10 query đề xuất của pilot mới;
+  giữ protocol/model của config annotation cũ, `selection.mode: pilot`, chưa có approval.
+- `scripts/check_query_keyword_length.py`: đếm từ keyword bằng đúng segmenter BM25,
+  chỉ gắn cờ trên 4 từ; không loại hoặc sửa query.
+
+Không cần nhận cả bản sao project bằng ZIP. Nhận commit chứa cập nhật này trên
+nhánh Task 6; kiểm tra thay đổi local trước khi pull, không reset công việc đang làm.
+
+### Phần gửi riêng, giữ nguyên byte
+
+1. Gói `handoff_task6_pilot_v2/`: `pilot/pilot_queries_v2.csv`, bộ query v1/v2,
+   báo cáo, decision log, merge manifest và provenance 61 lượt. Gói đang là dữ liệu
+   nháp: 4.776 dòng trước xử lý, 4.641 query được đánh dấu dùng được ở v2; còn các
+   đề xuất cần người xác nhận và `dup_group_id` chưa chốt.
+2. Ba file `data/processed/{articles,docs,chunks}_index.jsonl` nếu máy nhận chưa có
+   bản đúng checksum trong bảng phía trên. Không cần nhận lại nếu hash khớp.
+
+Sau giải nén vào đường dẫn ngắn như `C:/T6/`, từ **gốc repo của máy nhận**:
+
+```powershell
+# Chỉ chép khi file đích chưa có; nếu đã có thì đối chiếu hash trước.
+New-Item -ItemType Directory -Force data/interim/pilot_v2 | Out-Null
+# Thay đường dẫn nguồn bằng vị trí gói vừa giải nén trên máy nhận.
+if (Test-Path -LiteralPath 'data/interim/pilot_v2/pilot_queries_v2.csv') { throw 'File pilot đã có; kiểm tra hash trước khi chép.' }
+Copy-Item -LiteralPath 'C:/T6/handoff_task6_pilot_v2/pilot/pilot_queries_v2.csv' -Destination data/interim/pilot_v2/pilot_queries_v2.csv
+Get-FileHash -LiteralPath data/interim/pilot_v2/pilot_queries_v2.csv -Algorithm SHA256
+```
+
+Hash phải khớp dòng pilot CSV trong `CHECKSUMS.sha256` của gói. Không lưu lại CSV
+bằng Excel. Bộ 4.641 câu nằm trong
+`query_data/query_processing_v2/out/queries_usable_v2_DRAFT.csv` của gói; không
+dùng bộ đó thay file 10 câu để chạy pilot.
+
+### Chạy pilot trên máy tiếp quản
+
+Kiểm tra môi trường/model/index theo các phần trước của tài liệu và README trong
+gói. Nếu chưa có index thì thêm `--build` cho baseline tương ứng. Nếu loader báo
+manifest không khớp, dừng đối chiếu, không sửa manifest để chạy cho qua.
+
+```powershell
+.venv/Scripts/python.exe -X utf8 scripts/run_bm25.py --config configs/bm25.yaml --queries data/interim/pilot_v2/pilot_queries_v2.csv --output data/interim/pilot_v2/bm25_s10
+.venv/Scripts/python.exe -X utf8 scripts/run_e5.py --config configs/e5.yaml --queries data/interim/pilot_v2/pilot_queries_v2.csv --output data/interim/pilot_v2/e5_s2
+.venv/Scripts/python.exe -X utf8 scripts/build_labeled_dataset.py --config configs/annotation_pilot_v2.yaml prepare
+```
+
+Sau đó dùng quy trình examples-import → label → validate → review-export →
+review-import trong README của gói, luôn truyền config pilot v2. Người thật chấm
+few-shot, kiểm chứng blind và phân xử. Không tự điền nhãn người; chưa gọi API nếu
+người tiếp quản chưa xác nhận quota/chi phí. Chạy bulk phải có quyết định OI-13 và
+approval hợp lệ, không tự coi xong pilot là được chạy bulk. Metadata/exclusions
+và finalize cho bulk còn phải được chuẩn bị và kiểm tra; chưa split/train/freeze.
+
+Sau khi máy nhận có VNCoreNLP, có thể đếm keyword song song:
+
+```powershell
+.venv/Scripts/python.exe -X utf8 scripts/check_query_keyword_length.py --queries C:/T6/handoff_task6_pilot_v2/query_data/query_processing_v2/out/queries_usable_v2_DRAFT.csv --output data/interim/keyword_word_check_v2
+```
+
+Điều chỉnh đường dẫn gói cho máy nhận; output phải mới. Ba script xử lý v1/v2 và
+chọn mẫu hiện là hồ sơ tái lập theo riêng lượt dữ liệu, còn chứa đường dẫn local
+và đề xuất theo ID, nên giữ trong gói provenance; pipeline annotation không gọi
+chúng. Không force-add `.scratch/`, corpus, model hoặc index vào Git.
