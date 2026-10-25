@@ -1,0 +1,463 @@
+query_id,query,query_type,field,source_article_id,source_doc_id,source_group_id
+Q0531,Tổng giám đốc ngân hàng thương mại thành viên tại Trung tâm tài chính quốc tế ở Việt Nam có nhiệm kỳ tối đa bao lâu và do ai bổ nhiệm?,natural,"Lao động, tiền lương, tiền công",185119_028,185119,185119
+Q0532,Ngân hàng thương mại thành viên của chúng tôi hoạt động tại Trung tâm tài chính quốc tế ở Việt Nam vừa khuyết vị trí Tổng giám đốc. Chủ sở hữu phải bổ nhiệm người mới trong bao lâu?,scenario,"Lao động, tiền lương, tiền công",185119_028,185119,185119
+Q0533,quyền hạn tổng giám đốc ngân hàng thành viên,keyword,"Lao động, tiền lương, tiền công",185119_028,185119,185119
+Q0546,Cơ quan chủ quản phải quy định những gì để công tác kế toán kho hàng hóa vào nền nếp?,natural,Quản lý dịch vụ tài chính và các quỹ tài chính,75233_005,75233,75233
+Q0547,"Bộ chủ quản của chúng tôi muốn thống nhất cách quản lý các kho hàng hóa trực thuộc, trong đó có hàng dễ cháy và dễ ẩm mốc. Cần quy định riêng gì về bảo quản và thủ tục nhập xuất cho những hàng này?",scenario,Quản lý dịch vụ tài chính và các quỹ tài chính,75233_005,75233,75233
+Q0548,tỷ lệ hao hụt hàng hóa kho,keyword,Quản lý dịch vụ tài chính và các quỹ tài chính,75233_005,75233,75233
+Q0624,Ngân sách trung ương chỉ được cho chính phủ nước ngoài vay khi đáp ứng những nguyên tắc nào?,natural,Ngân sách nhà nước,7c66dce0-6967-11f1-b31b-e346c5a84510_004,7c66dce0-6967-11f1-b31b-e346c5a84510,7c66dce0-6967-11f1-b31b-e346c5a84510
+Q0625,"Một chính phủ có quan hệ hữu nghị đặc biệt với Việt Nam đề nghị vay vốn cho nhu cầu cấp bách; bên cho vay phải đánh giá những yếu tố nào về mục đích, khả năng ngân sách và rủi ro thu hồi nợ?",scenario,Ngân sách nhà nước,7c66dce0-6967-11f1-b31b-e346c5a84510_004,7c66dce0-6967-11f1-b31b-e346c5a84510,7c66dce0-6967-11f1-b31b-e346c5a84510
+Q0626,vay chính phủ nước ngoài,keyword,Ngân sách nhà nước,7c66dce0-6967-11f1-b31b-e346c5a84510_004,7c66dce0-6967-11f1-b31b-e346c5a84510,7c66dce0-6967-11f1-b31b-e346c5a84510
+Q0657,Bộ trưởng Bộ Khoa học và Công nghệ tiếp công dân định kỳ vào thời điểm nào trong tháng?,natural,"Lao động, tiền lương, tiền công",186149_007,186149,186149
+Q0658,"Có vụ việc cần Bộ trưởng Bộ Khoa học và Công nghệ tiếp công dân đột xuất; đơn vị nào chịu trách nhiệm bố trí lịch, chuẩn bị hồ sơ và phối hợp các đơn vị liên quan?",scenario,"Lao động, tiền lương, tiền công",186149_007,186149,186149
+Q0659,tiếp công dân Bộ trưởng,keyword,"Lao động, tiền lương, tiền công",186149_007,186149,186149
+Q0663,Kho bạc cấp huyện cần nhận những giấy tờ nào khi kiểm soát khoản chi hỗ trợ tiền điện dành cho các hộ thuộc diện nghèo hoặc diện chính sách xã hội?,natural,Quản lý ngân sách,46166_007,46166,46166
+Q0664,"Cuối năm, Ủy ban nhân dân xã phải lập báo cáo về số tiền đã hỗ trợ cho các hộ dùng điện; báo cáo cần gửi cơ quan nào và trước thời điểm nào để quyết toán?",scenario,Quản lý ngân sách,46166_007,46166,46166
+Q0665,quyết toán hỗ trợ tiền điện,keyword,Quản lý ngân sách,46166_007,46166,46166
+Q0678,Ai chịu trách nhiệm kiểm tra bộ hồ sơ và xem xét nội dung quy chuẩn quốc gia về kỹ thuật đối với hàng dự trữ trước khi trình ban hành?,natural,Quản lý ngân sách,35606_009,35606,35606
+Q0679,Một bộ gửi bộ tài liệu xây dựng quy chuẩn kỹ thuật về hàng dự trữ quốc gia nhưng tài liệu chưa hợp lệ; đơn vị thẩm tra phải xử lý theo hướng nào?,scenario,Quản lý ngân sách,35606_009,35606,35606
+Q0680,thẩm tra quy chuẩn dự trữ,keyword,Quản lý ngân sách,35606_009,35606,35606
+Q0681,Quy định về phí trong chăn nuôi bao gồm những loại phí thẩm định nào và áp dụng cho những chủ thể nào?,natural,Chính sách thuế,150992_001,150992,150992
+Q0682,Một tổ chức đề nghị thẩm định để được công nhận phòng thử nghiệm nông nghiệp; khoản phí này có thuộc phạm vi điều chỉnh của quy định về phí trong chăn nuôi không?,scenario,Chính sách thuế,150992_001,150992,150992
+Q0683,phí thẩm định chăn nuôi,keyword,Chính sách thuế,150992_001,150992,150992
+Q0699,Tờ khai hải quan đăng ký trước thời điểm quy định mới có hiệu lực thì áp dụng mức thuế nhập khẩu ngoài hạn ngạch nào?,natural,"Quản lý thuế, phí và lệ phí",46370_002,46370,46369
+Q0700,"Doanh nghiệp đã đăng ký tờ khai trước ngày quy định mới bắt đầu áp dụng, khi tính thuế ngoài hạn ngạch thì phải dùng mức thuế nào?",scenario,"Quản lý thuế, phí và lệ phí",46370_002,46370,46369
+Q0701,thuế ngoài hạn ngạch,keyword,"Quản lý thuế, phí và lệ phí",46370_002,46370,46369
+Q0735,Chi đầu tư xây dựng cơ sở thử nghiệm chuyên ngành phục vụ dán nhãn năng lượng phải tuân theo khung pháp lý nào?,natural,Tài chính hành chính sự nghiệp,135405_004,135405,135405
+Q0736,Một đơn vị dự kiến dùng nguồn đầu tư phát triển để xây cơ sở thử nghiệm phục vụ kiểm tra hiệu suất năng lượng; khoản chi này được quản lý theo lĩnh vực pháp luật nào?,scenario,Tài chính hành chính sự nghiệp,135405_004,135405,135405
+Q0737,cơ sở thử nghiệm,keyword,Tài chính hành chính sự nghiệp,135405_004,135405,135405
+Q0741,Ngân hàng thương mại muốn đổi hình thức pháp lý của ngân hàng con ở nước ngoài thì cần đáp ứng các điều kiện nào?,natural,"Lao động, tiền lương, tiền công",185599_024,185599,185599
+Q0742,Một ngân hàng thương mại định đổi công ty con tại nước ngoài từ mô hình trách nhiệm hữu hạn sang công ty cổ phần và đồng thời tăng vốn; cần đáp ứng thêm điều kiện gì?,scenario,"Lao động, tiền lương, tiền công",185599_024,185599,185599
+Q0743,ngân hàng con,keyword,"Lao động, tiền lương, tiền công",185599_024,185599,185599
+Q0744,Dự án đầu tư của EVN ở tỉnh khác nơi đặt trụ sở chính thì đơn vị nào thực hiện kê khai và lập hồ sơ hoàn thuế giá trị gia tăng?,natural,"Quản lý thuế, phí và lệ phí",26431_007,26431,26431
+Q0745,"Ban quản lý một dự án điện ở tỉnh khác đã đăng ký thuế, có tài khoản ngân hàng và phát sinh thuế đầu vào từ 200 triệu đồng; hồ sơ hoàn thuế nên nộp ở đâu?",scenario,"Quản lý thuế, phí và lệ phí",26431_007,26431,26431
+Q0746,hoàn thuế EVN,keyword,"Quản lý thuế, phí và lệ phí",26431_007,26431,26431
+Q0753,Các khoản chi ngân sách muốn chuyển sang năm sau phải được rà soát và thực hiện theo nguyên tắc nào?,natural,Ngân sách nhà nước,158710_010,158710,158710
+Q0754,Một cơ quan còn khoản kinh phí chưa sử dụng hết trong dự toán năm 2023 và muốn chuyển sang năm kế tiếp; việc chuyển nguồn có được thực hiện tùy ý không?,scenario,Ngân sách nhà nước,158710_010,158710,158710
+Q0755,chuyển nguồn ngân sách,keyword,Ngân sách nhà nước,158710_010,158710,158710
+Q0831,"Biểu mẫu dùng khi giải quyết thủ tục hành chính theo cơ chế một cửa được quy định thế nào, và cơ quan địa phương có thể bổ sung trường thông tin không?",natural,"Lao động, tiền lương, tiền công",184515_011,184515,184515
+Q0832,Một tỉnh muốn sửa mẫu điện tử để thu thập thêm thông tin phục vụ quy trình một cửa; cơ quan soạn mẫu cần kiểm tra quyền bổ sung trường và khả năng in ra giấy.,scenario,"Lao động, tiền lương, tiền công",184515_011,184515,184515
+Q0833,biểu mẫu một cửa,keyword,"Lao động, tiền lương, tiền công",184515_011,184515,184515
+Q0858,Người thuê vận tải đường sắt có thể yêu cầu hủy vận chuyển trong trường hợp nào và phải chịu khoản chi phí nào?,natural,"Lao động, tiền lương, tiền công",185676_152,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q0859,"Khi tàu vẫn chưa chạy khỏi ga gửi, khách hàng muốn dừng lô hàng đã thuê vận chuyển; cần xác định quyền yêu cầu hủy và việc xử lý chi phí phát sinh.",scenario,"Lao động, tiền lương, tiền công",185676_152,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q0860,hủy vận chuyển tàu,keyword,"Lao động, tiền lương, tiền công",185676_152,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q0870,"Các bộ, cơ quan trung ương và địa phương lập rồi giao kế hoạch hằng năm cho chương trình mục tiêu quốc gia theo trình tự nào?",natural,Ngân sách nhà nước,20e66500-6892-11f1-b351-6f15c9710a1a_007,20e66500-6892-11f1-b351-6f15c9710a1a,20e66500-6892-11f1-b351-6f15c9710a1a
+Q0871,Một tỉnh phải chia ngân sách hằng năm và kế hoạch đầu tư công cho từng nhiệm vụ của chương trình mục tiêu quốc gia; cần biết cách giao mục tiêu và phân bổ chi tiết xuống đơn vị trực thuộc.,scenario,Ngân sách nhà nước,20e66500-6892-11f1-b351-6f15c9710a1a_007,20e66500-6892-11f1-b351-6f15c9710a1a,20e66500-6892-11f1-b351-6f15c9710a1a
+Q0872,kế hoạch chương trình,keyword,Ngân sách nhà nước,20e66500-6892-11f1-b351-6f15c9710a1a_007,20e66500-6892-11f1-b351-6f15c9710a1a,20e66500-6892-11f1-b351-6f15c9710a1a
+Q0921,"Quỹ Trợ giúp pháp lý Việt Nam hỗ trợ những hoạt động nào, nhất là các chương trình, dự án nhà nước giao qua quỹ?",natural,Quản lý ngân sách,27984_004,27984,27984
+Q0922,"Đơn vị chúng tôi làm công tác trợ giúp pháp lý cho người nghèo ở huyện nghèo và đang xin kinh phí từ quỹ, khoản chi này có được trùng với nội dung đã được ngân sách hàng năm hay chương trình mục tiêu quốc gia cấp không?",scenario,Quản lý ngân sách,27984_004,27984,27984
+Q0923,quỹ trợ giúp pháp lý,keyword,Quản lý ngân sách,27984_004,27984,27984
+Q0924,Bảo hiểm bắt buộc cho tổ chức làm việc với bức xạ không chi trả trong những trường hợp nào?,natural,Quản lý dịch vụ tài chính và các quỹ tài chính,27534_027,27534,27534
+Q0925,"Cơ sở dùng thiết bị bức xạ của chúng tôi đã đổi cách vận hành làm rủi ro ô nhiễm tăng lên mà chưa báo công ty bảo hiểm, nếu xảy ra sự cố thì có được bồi thường không?",scenario,Quản lý dịch vụ tài chính và các quỹ tài chính,27534_027,27534,27534
+Q0926,loại trừ bảo hiểm bức xạ,keyword,Quản lý dịch vụ tài chính và các quỹ tài chính,27534_027,27534,27534
+Q0945,Nguyên liệu giao đi gia công chế biến bên ngoài rồi nhận thành phẩm về thì kho phải làm những thủ tục gì?,natural,Quản lý dịch vụ tài chính và các quỹ tài chính,75233_036,75233,75233
+Q0946,"Đơn vị tôi giao nguyên liệu cho cơ sở khác gia công, làm xong họ giao thẳng cho đơn vị khác chứ không nhập kho, vậy thủ kho và kế toán có phải ghi thẻ kho không?",scenario,Quản lý dịch vụ tài chính và các quỹ tài chính,75233_036,75233,75233
+Q0947,kế toán hàng gia công,keyword,Quản lý dịch vụ tài chính và các quỹ tài chính,75233_036,75233,75233
+Q0987,Thủ kho khi xuất hàng hóa theo phiếu xuất kho phải làm những việc gì sau khi giao hàng xong?,natural,Quản lý dịch vụ tài chính và các quỹ tài chính,75233_046,75233,75233
+Q0988,"Phiếu xuất kho ghi không sát với hàng thực tế trong kho, thủ kho có được tự sửa phiếu hoặc đổi sang hàng khác để giao cho người nhận không?",scenario,Quản lý dịch vụ tài chính và các quỹ tài chính,75233_046,75233,75233
+Q0989,thủ kho phiếu xuất kho,keyword,Quản lý dịch vụ tài chính và các quỹ tài chính,75233_046,75233,75233
+Q0990,"Quy chuẩn kỹ thuật quốc gia về hàng dự trữ quốc gia phải trình bày trên khổ giấy, phông chữ và cỡ chữ nào?",natural,Quản lý ngân sách,35606_015,35606,35606
+Q0991,"Tôi soạn dự thảo quy chuẩn kỹ thuật cho một loại hàng dự trữ quốc gia, cần đặt số trang và ký hiệu quy chuẩn ở vị trí nào trên trang giấy?",scenario,Quản lý ngân sách,35606_015,35606,35606
+Q0992,thể thức quy chuẩn kỹ thuật,keyword,Quản lý ngân sách,35606_015,35606,35606
+Q1023,"Kho bạc Nhà nước nhận giữ những loại tài sản hoặc giấy tờ có giá nào, và trường hợp nào bị từ chối?",natural,Quản lý ngân sách,27711_002,27711,27711
+Q1024,Một cá nhân muốn gửi chứng chỉ tiền gửi cho Kho bạc bảo quản; cần đối chiếu điều kiện nào để biết tài sản có thuộc nhóm được nhận?,scenario,Quản lý ngân sách,27711_002,27711,27711
+Q1025,tài sản gửi Kho bạc,keyword,Quản lý ngân sách,27711_002,27711,27711
+Q1038,Quyết định công nhận đăng kiểm viên có thời hạn bao lâu và khi nào cần đề nghị công nhận lại?,natural,"Lao động, tiền lương, tiền công",185676_018,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1039,"Đăng kiểm viên sắp hết hạn công nhận, hoặc quyết định bị thất lạc hay sai thông tin; cần làm gì để được xem xét cấp lại?",scenario,"Lao động, tiền lương, tiền công",185676_018,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1040,công nhận đăng kiểm viên,keyword,"Lao động, tiền lương, tiền công",185676_018,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1041,Cơ quan chứng khoán có thể kiểm tra hoạt động giao dịch trực tuyến trong những trường hợp nào?,natural,"TCNH và thị trường TC, trái phiếu, khác",57250_012,57250,57250
+Q1042,"Sau sự cố ảnh hưởng nghiêm trọng đến nhà đầu tư trên sàn, cơ quan nào có thể kiểm tra hoạt động giao dịch qua mạng của công ty chứng khoán?",scenario,"TCNH và thị trường TC, trái phiếu, khác",57250_012,57250,57250
+Q1043,kiểm tra giao dịch chứng khoán,keyword,"TCNH và thị trường TC, trái phiếu, khác",57250_012,57250,57250
+Q1068,Chi đón đoàn khách nước ngoài tại sân bay được thanh toán cho những khoản nào?,natural,Ngân sách nhà nước,035c1540-6007-11f1-ad9a-9502dcef9cad_005,035c1540-6007-11f1-ad9a-9502dcef9cad,035c1540-6007-11f1-ad9a-9502dcef9cad
+Q1069,Đoàn khách hạng A đến sân bay; đơn vị tiếp đón cần xác định khoản tặng hoa và tiền thuê phòng chờ theo căn cứ nào?,scenario,Ngân sách nhà nước,035c1540-6007-11f1-ad9a-9502dcef9cad_005,035c1540-6007-11f1-ad9a-9502dcef9cad,035c1540-6007-11f1-ad9a-9502dcef9cad
+Q1070,chi đón khách sân bay,keyword,Ngân sách nhà nước,035c1540-6007-11f1-ad9a-9502dcef9cad_005,035c1540-6007-11f1-ad9a-9502dcef9cad,035c1540-6007-11f1-ad9a-9502dcef9cad
+Q1095,"Kinh phí phối hợp tiếp công dân và giải quyết khiếu nại, tố cáo của nông dân được lấy từ những nguồn nào?",natural,Quản lý ngân sách,110904_002,110904,110904
+Q1096,Một địa phương tổ chức hoạt động phối hợp giữa chính quyền và Hội Nông dân để tiếp dân; có thể bố trí kinh phí từ những nguồn nào?,scenario,Quản lý ngân sách,110904_002,110904,110904
+Q1097,kinh phí tiếp dân,keyword,Quản lý ngân sách,110904_002,110904,110904
+Q1149,Dự án BT hoàn thành tại Nghệ An có bắt buộc kiểm toán báo cáo quyết toán không và quyết toán vốn đầu tư dựa vào những căn cứ nào?,natural,Ngân sách nhà nước,177580_012,177580,177580
+Q1150,"Nhà đầu tư của một dự án BT tại Nghệ An vừa hoàn thành công trình, còn khoản lãi vay phát sinh sau thời điểm kiểm toán. Khoản lãi vay đó được xác định theo văn bản nào khi quyết toán vốn đầu tư?",scenario,Ngân sách nhà nước,177580_012,177580,177580
+Q1151,quyết toán dự án BT,keyword,Ngân sách nhà nước,177580_012,177580,177580
+Q1179,Công ty quản lý quỹ có thể nhận tài sản không phải là tiền từ khách hàng để quản lý danh mục đầu tư khi tài sản đó đáp ứng những điều kiện nào?,natural,"TCNH và thị trường TC, trái phiếu, khác",28111_034,28111,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1180,Tôi muốn ủy thác cho một công ty quản lý quỹ số chứng khoán niêm yết đang lưu ký tập trung của mình. Việc chuyển quyền sở hữu thực hiện qua đâu và có phải chịu phí giao dịch không?,scenario,"TCNH và thị trường TC, trái phiếu, khác",28111_034,28111,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1181,ủy thác tài sản,keyword,"TCNH và thị trường TC, trái phiếu, khác",28111_034,28111,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1227,Thành viên lưu ký tạm thời thiếu tiền hoặc thiếu chứng khoán để thanh toán giao dịch thì được hỗ trợ bằng cách nào?,natural,"TCNH và thị trường TC, trái phiếu, khác",48808_041,48808,110925
+Q1228,"Công ty tôi là thành viên lưu ký, đến ngày thanh toán không vay được tiền từ quỹ hỗ trợ cũng không vay được ngân hàng thanh toán; giao dịch sẽ được xử lý thế nào?",scenario,"TCNH và thị trường TC, trái phiếu, khác",48808_041,48808,110925
+Q1229,lùi thời hạn thanh toán,keyword,"TCNH và thị trường TC, trái phiếu, khác",48808_041,48808,110925
+Q1233,"Bộ phận Một cửa muốn công khai bộ hồ sơ mẫu thì các mẫu giấy tờ phải trình bày ra sao, có phải in chữ gì trên mẫu không?",natural,"Lao động, tiền lương, tiền công",184515_010,184515,184515
+Q1234,"Tỉnh tôi có một thủ tục rất nhiều người làm, muốn hướng dẫn dân bằng video thay cho tờ rơi; ai quyết định chọn thủ tục áp dụng và video phải đăng ở những đâu?",scenario,"Lao động, tiền lương, tiền công",184515_010,184515,184515
+Q1235,video hướng dẫn thủ tục hành chính,keyword,"Lao động, tiền lương, tiền công",184515_010,184515,184515
+Q1254,Ngân hàng thương mại bị giải thể thì các chi nhánh và phòng giao dịch có tự động chấm dứt hoạt động không?,natural,"Lao động, tiền lương, tiền công",185599_028,185599,185599
+Q1255,"Ngân hàng thương mại chúng tôi quyết định giải thể; chi nhánh ở nước ngoài và văn phòng đại diện có phải xin giải thể riêng hay chấm dứt theo ngân hàng, thủ tục theo quy định nào?",scenario,"Lao động, tiền lương, tiền công",185599_028,185599,185599
+Q1256,giải thể chi nhánh ngân hàng,keyword,"Lao động, tiền lương, tiền công",185599_028,185599,185599
+Q1290,"Những quy định nào về quản lý chế phẩm diệt côn trùng, diệt khuẩn đã bị bãi bỏ hoặc thay bằng quy định mới?",natural,"Lao động, tiền lương, tiền công",170839_003,170839,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1291,Một cơ sở kinh doanh chế phẩm dùng trong gia dụng đang rà soát hồ sơ theo quy định sửa đổi năm 2024; cần xác định những phụ lục và quy định cũ nào không còn được giữ nguyên.,scenario,"Lao động, tiền lương, tiền công",170839_003,170839,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1292,bãi bỏ chế phẩm,keyword,"Lao động, tiền lương, tiền công",170839_003,170839,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1299,Doanh nghiệp nhà nước có thể xây dựng thêm những loại phụ cấp nào ngoài các khoản phụ cấp lương đã có?,natural,"Lao động, tiền lương, tiền công",66022_012,66022,66022
+Q1300,Một công ty TNHH một thành viên do Nhà nước sở hữu muốn thưởng khuyến khích người lao động gắn bó lâu dài; cần biết có thể thiết kế phụ cấp riêng và phải báo cáo ai trước khi áp dụng.,scenario,"Lao động, tiền lương, tiền công",66022_012,66022,66022
+Q1301,phụ cấp khác,keyword,"Lao động, tiền lương, tiền công",66022_012,66022,66022
+Q1302,"Phí duy tu hạ tầng ở Khu kinh tế Vũng Áng được hiểu thế nào, và tài sản tiện ích công cộng khác gì hạ tầng khu kinh tế?",natural,"Quản lý thuế, phí và lệ phí",25411_002,25411,25411
+Q1303,Một doanh nghiệp trong Khu kinh tế Vũng Áng muốn xác định khoản đóng góp hạ tầng áp dụng cho loại tài sản nào và cần hiểu các khái niệm liên quan.,scenario,"Quản lý thuế, phí và lệ phí",25411_002,25411,25411
+Q1304,phí hạ tầng,keyword,"Quản lý thuế, phí và lệ phí",25411_002,25411,25411
+Q1344,Một ngân hàng nội địa thuộc sở hữu hoàn toàn trong nước tại Trung tâm tài chính quốc tế được cung cấp những dịch vụ nào cho doanh nghiệp thành viên?,natural,"Lao động, tiền lương, tiền công",185119_058,185119,185119
+Q1345,"Một ngân hàng nội địa muốn cung cấp dịch vụ thanh toán, ngoại hối và mua bán trái phiếu cho doanh nghiệp thành viên; cần xác định phạm vi nghiệp vụ được nêu trong quy định.",scenario,"Lao động, tiền lương, tiền công",185119_058,185119,185119
+Q1346,hoạt động ngân hàng,keyword,"Lao động, tiền lương, tiền công",185119_058,185119,185119
+Q1347,"Dự toán thu chi hằng năm của ban quản lý dự án nhóm I cần được ai thẩm định, phê duyệt và gồm những hồ sơ nào?",natural,Ngân sách nhà nước,170885_009,170885,170885
+Q1348,Ban quản lý dự án nhóm I thuộc một cơ quan hành chính chuẩn bị dự toán năm tới; cần biết thời hạn xử lý hồ sơ và cách điều chỉnh khi thu không đạt dự toán.,scenario,Ngân sách nhà nước,170885_009,170885,170885
+Q1349,dự toán dự án,keyword,Ngân sách nhà nước,170885_009,170885,170885
+Q1362,"Khi điều hành dự toán chi ngân sách năm 2026, cơ quan trung ương và địa phương cần xử lý nguồn vốn, tiết kiệm chi và nhu cầu phát sinh như thế nào?",natural,Ngân sách nhà nước,f751bac0-5e71-11f1-9a00-4fc779ae0e98_007,f751bac0-5e71-11f1-9a00-4fc779ae0e98,f751bac0-5e71-11f1-9a00-4fc779ae0e98
+Q1363,"Một địa phương dự kiến hụt thu tiền sử dụng đất, đồng thời phát sinh chi phòng chống thiên tai ngoài dự toán; cần rà soát nguồn và điều chỉnh chi theo những nguyên tắc nào.",scenario,Ngân sách nhà nước,f751bac0-5e71-11f1-9a00-4fc779ae0e98_007,f751bac0-5e71-11f1-9a00-4fc779ae0e98,f751bac0-5e71-11f1-9a00-4fc779ae0e98
+Q1364,điều hành ngân sách,keyword,Ngân sách nhà nước,f751bac0-5e71-11f1-9a00-4fc779ae0e98_007,f751bac0-5e71-11f1-9a00-4fc779ae0e98,f751bac0-5e71-11f1-9a00-4fc779ae0e98
+Q1425,"Theo biểu thuế nhập khẩu ưu đãi năm 2015, thuế suất đối với máy gia công cơ khí mà trong nước chưa sản xuất được là bao nhiêu?",natural,"Quản lý thuế, phí và lệ phí",110918_004,110918,110918
+Q1426,"Doanh nghiệp mình định nhập máy gia công cơ khí thuộc chương 84 để lắp xưởng. Làm sao biết máy đó thuộc diện trong nước đã sản xuất được hay chưa để áp thuế nhập khẩu ưu đãi, và danh mục do cơ quan nào quy định?",scenario,"Quản lý thuế, phí và lệ phí",110918_004,110918,110918
+Q1427,thuế nhập khẩu máy gia công,keyword,"Quản lý thuế, phí và lệ phí",110918_004,110918,110918
+Q1434,"Những hội nghị quốc tế nào được xếp vào nhóm hội nghị luân phiên do Việt Nam đăng cai và lãnh đạo Đảng, Nhà nước chủ trì khi áp dụng chế độ chi tổ chức?",natural,Ngân sách nhà nước,035c1540-6007-11f1-ad9a-9502dcef9cad_018,035c1540-6007-11f1-ad9a-9502dcef9cad,035c1540-6007-11f1-ad9a-9502dcef9cad
+Q1435,"Cơ quan mình được giao phối hợp tổ chức một diễn đàn bên lề của hội nghị quốc tế mà Việt Nam đăng cai trong vòng luân phiên của nhiều nước. Chế độ, tiêu chuẩn chi cho sự kiện bên lề đó áp dụng theo phần quy định nào?",scenario,Ngân sách nhà nước,035c1540-6007-11f1-ad9a-9502dcef9cad_018,035c1540-6007-11f1-ad9a-9502dcef9cad,035c1540-6007-11f1-ad9a-9502dcef9cad
+Q1436,hội nghị quốc tế luân phiên,keyword,Ngân sách nhà nước,035c1540-6007-11f1-ad9a-9502dcef9cad_018,035c1540-6007-11f1-ad9a-9502dcef9cad,035c1540-6007-11f1-ad9a-9502dcef9cad
+Q1455,"Nhà thầu nước ngoài đưa máy móc, thiết bị vào Việt Nam thi công công trình ODA viện trợ không hoàn lại theo hình thức tạm nhập, tái xuất thì được miễn hoặc không chịu những loại thuế nào?",natural,"Quản lý thuế, phí và lệ phí",37942_006,37942,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1456,"Công ty mình là nhà thầu chính xây dựng công trình ODA viện trợ không hoàn lại, giá trúng thầu không bao gồm thuế giá trị gia tăng. Có được hoàn thuế giá trị gia tăng đầu vào không, và nếu ngân sách có dành vốn đối ứng trả thuế thì khác gì?",scenario,"Quản lý thuế, phí và lệ phí",37942_006,37942,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1457,thuế nhà thầu ODA không hoàn lại,keyword,"Quản lý thuế, phí và lệ phí",37942_006,37942,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1482,Cơ quan lao động cấp tỉnh cần lấy ý kiến đại diện người lao động và người sử dụng lao động về những vấn đề nào?,natural,"Lao động, tiền lương, tiền công",37344_004,37344,37344
+Q1483,Tỉnh đang xây dựng giải pháp hạn chế tranh chấp lao động và cách xử lý khi phát sinh; nội dung này có cần xin ý kiến các tổ chức đại diện không?,scenario,"Lao động, tiền lương, tiền công",37344_004,37344,37344
+Q1484,tham vấn lao động,keyword,"Lao động, tiền lương, tiền công",37344_004,37344,37344
+Q1492,Một đơn vị lập dự toán cho khóa bồi dưỡng ngắn hạn về an ninh thông tin thuộc Đề án 99; khoản kinh phí này có nằm trong phạm vi hướng dẫn quản lý không?,scenario,Quản lý ngân sách,110902_001,110902,110902
+Q1493,kinh phí ATANTT,keyword,Quản lý ngân sách,110902_001,110902,110902
+Q1548,Lãnh đạo ngân hàng thành viên tại trung tâm tài chính quốc tế phải khai báo những thông tin nào về phần vốn nắm giữ và người có liên quan?,natural,"Lao động, tiền lương, tiền công",185119_038,185119,185119
+Q1549,Một thành viên ban kiểm soát ngân hàng vừa thay đổi thông tin về doanh nghiệp mình có phần vốn góp; cần gửi thông tin cập nhật trong thời hạn nào?,scenario,"Lao động, tiền lương, tiền công",185119_038,185119,185119
+Q1550,thông tin ngân hàng,keyword,"Lao động, tiền lương, tiền công",185119_038,185119,185119
+Q1572,"Ngoài chủ tàu hoạt động thủy sản, những tổ chức hoặc cá nhân nào thuộc phạm vi chính sách phát triển thủy sản này?",natural,Quản lý ngân sách,44147_002,44147,110974
+Q1573,Một đơn vị chuẩn bị xây dựng công trình thiết yếu cho nghề khai thác thủy sản muốn biết mình có thuộc nhóm đối tượng được hướng dẫn cùng với chủ tàu hay không.,scenario,Quản lý ngân sách,44147_002,44147,110974
+Q1574,chính sách thủy sản,keyword,Quản lý ngân sách,44147_002,44147,110974
+Q1602,Người dân ở cấp xã có thể tham gia xây dựng kế hoạch chương trình mục tiêu quốc gia qua những bước nào?,natural,Ngân sách nhà nước,20e66500-6892-11f1-b351-6f15c9710a1a_008,20e66500-6892-11f1-b351-6f15c9710a1a,20e66500-6892-11f1-b351-6f15c9710a1a
+Q1603,Một thôn muốn đề xuất hỗ trợ vốn và dự án phát triển sản xuất vào kế hoạch của chương trình mục tiêu quốc gia hằng năm; đề xuất được tổng hợp và phê duyệt ra sao?,scenario,Ngân sách nhà nước,20e66500-6892-11f1-b351-6f15c9710a1a_008,20e66500-6892-11f1-b351-6f15c9710a1a,20e66500-6892-11f1-b351-6f15c9710a1a
+Q1604,kế hoạch cộng đồng,keyword,Ngân sách nhà nước,20e66500-6892-11f1-b351-6f15c9710a1a_008,20e66500-6892-11f1-b351-6f15c9710a1a,20e66500-6892-11f1-b351-6f15c9710a1a
+Q1617,"Khi các địa phương xây dựng dự toán 2012, thu nội địa từ thuế và phí phải tăng tối thiểu bao nhiêu so với ước thực hiện năm 2011?",natural,Quản lý ngân sách,26655_011,26655,26655
+Q1618,"Tỉnh tôi muốn huy động thêm vốn đầu tư phát triển trong dự toán 2012, dư nợ huy động bị khống chế ở mức nào so với khoản chi cho xây dựng cơ bản ở cấp tỉnh, và Hà Nội, TP. Hồ Chí Minh có khác không?",scenario,Quản lý ngân sách,26655_011,26655,26655
+Q1619,dự toán ngân sách địa phương 2012,keyword,Quản lý ngân sách,26655_011,26655,26655
+Q1629,"Dự án do bộ quản lý được Bộ Tài chính thẩm tra phân bổ vốn đầu tư trong bao lâu, và khi phân bổ sai thì Kho bạc xử lý thế nào?",natural,Quản lý ngân sách,26692_005,26692,26692
+Q1630,"Dự án của huyện tôi chưa đủ thủ tục đầu tư mà đã có kế hoạch vốn, Kho bạc Nhà nước có thanh toán không và thông báo cho cơ quan nào?",scenario,Quản lý ngân sách,26692_005,26692,26692
+Q1631,kiểm soát thanh toán vốn đầu tư,keyword,Quản lý ngân sách,26692_005,26692,26692
+Q1632,Tổ chức tài chính vi mô được tính những khoản nào vào chi phí và khoản nào không được tính?,natural,"TCNH và thị trường TC, trái phiếu, khác",46810_006,46810,46810
+Q1633,"Tổ chức tài chính vi mô chi hoa hồng cho môi giới việc bán tài sản thế chấp, mức chi tối đa tính theo cơ sở nào và những ai không được nhận hoa hồng này?",scenario,"TCNH và thị trường TC, trái phiếu, khác",46810_006,46810,46810
+Q1634,chi phí tổ chức tài chính vi mô,keyword,"TCNH và thị trường TC, trái phiếu, khác",46810_006,46810,46810
+Q1638,"Đơn vị nào được tự soạn định mức kinh tế - kỹ thuật cho dịch vụ sự nghiệp công thuộc ngành Công Thương, và ai là người ký ban hành?",natural,Tài chính hành chính sự nghiệp,133216_008,133216,133216
+Q1639,"Đơn vị sự nghiệp thuộc Bộ Công Thương của tôi muốn có định mức riêng cho đặc thù hoạt động, định mức cơ sở này có áp dụng cho đơn vị khác không?",scenario,Tài chính hành chính sự nghiệp,133216_008,133216,133216
+Q1640,định mức cơ sở kinh tế kỹ thuật,keyword,Tài chính hành chính sự nghiệp,133216_008,133216,133216
+Q1653,Bộ Tài chính có những nhiệm vụ gì trong việc cho chính phủ nước ngoài vay từ ngân sách trung ương?,natural,Ngân sách nhà nước,7c66dce0-6967-11f1-b31b-e346c5a84510_028,7c66dce0-6967-11f1-b31b-e346c5a84510,7c66dce0-6967-11f1-b31b-e346c5a84510
+Q1654,"Khoản cho chính phủ nước ngoài vay đã được phê duyệt nhưng vượt dự toán Quốc hội đã thông qua, báo cáo ai quyết định dùng dự phòng ngân sách trung ương?",scenario,Ngân sách nhà nước,7c66dce0-6967-11f1-b31b-e346c5a84510_028,7c66dce0-6967-11f1-b31b-e346c5a84510,7c66dce0-6967-11f1-b31b-e346c5a84510
+Q1655,cho vay chính phủ nước ngoài,keyword,Ngân sách nhà nước,7c66dce0-6967-11f1-b31b-e346c5a84510_028,7c66dce0-6967-11f1-b31b-e346c5a84510,7c66dce0-6967-11f1-b31b-e346c5a84510
+Q1668,Tàu cá dài từ 12 mét trở lên phải ghi và nộp nhật ký khai thác thủy sản như thế nào?,natural,"Lao động, tiền lương, tiền công",186332_005,186332,186303
+Q1669,"Tàu cá của tôi dài dưới 6 mét, lỡ bắt gặp loài thủy sản quý hiếm khi đánh bắt thì phải báo cáo cho ai?",scenario,"Lao động, tiền lương, tiền công",186332_005,186332,186303
+Q1670,nhật ký khai thác thủy sản,keyword,"Lao động, tiền lương, tiền công",186332_005,186332,186303
+Q1677,"Những loại thu nào của ngân sách địa phương nằm trong phạm vi tiêu thức phân cấp, ví dụ thuế, phí, viện trợ?",natural,Quản lý ngân sách,25843_001,25843,25843
+Q1678,"Xã tôi nhận khoản viện trợ và khoản đóng góp tự nguyện của các tổ chức, cá nhân, khoản này có thuộc nguồn thu của ngân sách địa phương cần phân cấp không?",scenario,Quản lý ngân sách,25843_001,25843,25843
+Q1679,nguồn thu ngân sách địa phương,keyword,Quản lý ngân sách,25843_001,25843,25843
+Q1698,Công ty chứng khoán và công ty quản lý quỹ được tính những khoản chi phí hoạt động nào?,natural,"TCNH và thị trường TC, trái phiếu, khác",67995_011,67995,67995
+Q1699,"Công ty quản lý quỹ của tôi trích lập quỹ dự phòng rủi ro để bồi thường cho nhà đầu tư do sơ suất nghiệp vụ, khoản này có được tính vào chi phí hoạt động kinh doanh không?",scenario,"TCNH và thị trường TC, trái phiếu, khác",67995_011,67995,67995
+Q1700,chi phí công ty chứng khoán,keyword,"TCNH và thị trường TC, trái phiếu, khác",67995_011,67995,67995
+Q1725,Sở giao dịch chứng khoán cần công khai những thông tin nào về công tác giám sát thị trường và hoạt động tham gia các tổ chức quốc tế?,natural,"TCNH và thị trường TC, trái phiếu, khác",91233_035,91233,110925
+Q1726,Sở giao dịch vừa gia nhập một hội nghề nghiệp quốc tế về chứng khoán. Thông tin này cần được thông báo khi nào và trong hạn bao lâu?,scenario,"TCNH và thị trường TC, trái phiếu, khác",91233_035,91233,110925
+Q1727,giám sát chứng khoán,keyword,"TCNH và thị trường TC, trái phiếu, khác",91233_035,91233,110925
+Q1740,"Với dự án đầu tư theo hợp đồng BT tại Nghệ An, những vấn đề nào về lãi vay sau xây dựng, lợi nhuận và thanh toán được điều chỉnh riêng?",natural,Ngân sách nhà nước,177580_001,177580,177580
+Q1741,"Nhà đầu tư triển khai dự án BT trên địa bàn Nghệ An và cần lập hồ sơ quyết toán sau giai đoạn thi công. Phạm vi quy định áp dụng đến đâu, và nội dung nào vẫn phải theo luật PPP?",scenario,Ngân sách nhà nước,177580_001,177580,177580
+Q1742,BT Nghệ An,keyword,Ngân sách nhà nước,177580_001,177580,177580
+Q1749,Hàng dự trữ quốc gia nào có thể được đưa ra bán trực tiếp rộng rãi thay vì tiếp tục tổ chức đấu giá?,natural,Quản lý ngân sách,76717_023,76717,76717
+Q1750,"Đơn vị dự trữ lên kế hoạch xuất bán luân phiên một mặt hàng, nhưng hai phiên đấu giá liên tiếp không thành. Cần kiểm tra điều kiện nào trước khi chuyển sang bán trực tiếp?",scenario,Quản lý ngân sách,76717_023,76717,76717
+Q1751,bán hàng dự trữ,keyword,Quản lý ngân sách,76717_023,76717,76717
+Q1827,Ai được coi là người đứng đầu doanh nghiệp cho thuê lại lao động và người này phải chứng minh kinh nghiệm bằng giấy tờ gì?,natural,"Lao động, tiền lương, tiền công",37502_005,37502,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1828,"Tôi là cổ đông đại diện theo ủy quyền của một công ty cổ phần đang xin cấp phép cho thuê lại lao động. Tôi có được xem là người đứng đầu doanh nghiệp không, và hợp đồng nào chứng minh được kinh nghiệm quản lý lĩnh vực này?",scenario,"Lao động, tiền lương, tiền công",37502_005,37502,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1829,cho thuê lại lao động,keyword,"Lao động, tiền lương, tiền công",37502_005,37502,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1893,Kinh phí chi thường xuyên của chương trình trọng điểm về Toán học lấy từ những nguồn nào?,natural,Tài chính hành chính sự nghiệp,155197_002,155197,155197
+Q1894,"Một doanh nghiệp muốn tài trợ cho hoạt động của chương trình phát triển Toán học; khoản tài trợ đó được sử dụng theo quy định nào, nhất là khi có thỏa thuận với nhà tài trợ?",scenario,Tài chính hành chính sự nghiệp,155197_002,155197,155197
+Q1895,chi sự nghiệp khoa học Toán học,keyword,Tài chính hành chính sự nghiệp,155197_002,155197,155197
+Q1917,Khi ghi nhận dự phòng giảm giá tài sản tài chính ở tài khoản riêng thì đơn vị phải đối chiếu và trình bày gì?,natural,Quản lý dịch vụ tài chính và các quỹ tài chính,23818_022,23818,23818
+Q1918,Đơn vị chúng tôi không trừ thẳng vào giá trị sổ sách của khoản cho vay mà lập tài khoản dự phòng riêng cho nhóm tài sản; cuối kỳ phải đối chiếu biến động của tài khoản dự phòng này như thế nào?,scenario,Quản lý dịch vụ tài chính và các quỹ tài chính,23818_022,23818,23818
+Q1919,đối chiếu tài khoản dự phòng,keyword,Quản lý dịch vụ tài chính và các quỹ tài chính,23818_022,23818,23818
+Q1968,"Việc giám sát thực hiện chế độ lao động, tiền lương trong tập đoàn kinh tế nhà nước gồm những nội dung chủ yếu nào?",natural,"Lao động, tiền lương, tiền công",66764_004,66764,66764
+Q1969,"Tổng công ty của tôi có Nhà nước nắm hơn một nửa vốn điều lệ; khi cơ quan giám sát kiểm tra hằng năm thì họ xem xét những nội dung nào về tiền lương, thù lao và quy chế lao động?",scenario,"Lao động, tiền lương, tiền công",66764_004,66764,66764
+Q1970,giám sát thỏa ước lao động tập thể,keyword,"Lao động, tiền lương, tiền công",66764_004,66764,66764
+Q1971,"Người làm công tác tiếp cận cộng đồng trong dự phòng HIV cần chuẩn bị giấy tờ gì để xin cấp mới thẻ, và hồ sơ xin cấp lại khác ra sao?",natural,"Lao động, tiền lương, tiền công",171156_007,171156,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1972,Một nhân viên đã tham gia tập huấn can thiệp giảm tác hại nay muốn làm thủ tục cấp lại thẻ; cần nộp những giấy tờ và ảnh nào?,scenario,"Lao động, tiền lương, tiền công",171156_007,171156,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1973,hồ sơ cấp thẻ,keyword,"Lao động, tiền lương, tiền công",171156_007,171156,0da53250-5d6b-11f1-807d-c70e99d85013
+Q1989,"Viên chức muốn xét thăng hạng lên kỹ sư chính hạng II cần đáp ứng những yêu cầu nào về trình độ, năng lực chuyên môn và kết quả công việc?",natural,"Lao động, tiền lương, tiền công",186114_011,186114,186114
+Q1990,Một kỹ sư hạng III có nhiều năm làm công việc tương đương nhưng mới gần đủ một năm trực tiếp giữ hạng III; khi đăng ký xét lên hạng II cần đối chiếu những tiêu chí nào về thời gian và thành tích chuyên môn?,scenario,"Lao động, tiền lương, tiền công",186114_011,186114,186114
+Q1991,thăng hạng kỹ sư chính,keyword,"Lao động, tiền lương, tiền công",186114_011,186114,186114
+Q1995,Quỹ Trợ giúp pháp lý Việt Nam có thể nhận kinh phí từ những nguồn hợp pháp nào ngoài ngân sách cấp hằng năm?,natural,Quản lý ngân sách,27984_003,27984,27984
+Q1996,Một tổ chức muốn tài trợ tiền hoặc tài sản cho hoạt động trợ giúp pháp lý; khoản đóng góp có thể được xếp vào những nhóm nguồn thu nào của Quỹ?,scenario,Quản lý ngân sách,27984_003,27984,27984
+Q1997,nguồn thu trợ giúp pháp lý,keyword,Quản lý ngân sách,27984_003,27984,27984
+Q2028,"Khi tổng kết ngân sách năm 2019, các tỉnh cần đánh giá những nội dung nào về cân đối thu chi, đầu tư và trả nợ?",natural,Ngân sách nhà nước,139962_008,139962,139962
+Q2029,Một địa phương dự kiến nguồn thu giảm so với kế hoạch năm 2019; hồ sơ đánh giá cần nêu những biện pháp cân đối và thông tin vay trả nợ nào?,scenario,Ngân sách nhà nước,139962_008,139962,139962
+Q2030,cân đối ngân sách địa phương,keyword,Ngân sách nhà nước,139962_008,139962,139962
+Q2073,"Khi một đoàn khách nước ngoài làm việc với nhiều cơ quan theo lịch đã duyệt, đơn vị nào chịu các khoản chi chung và từng đơn vị chi phần nào?",natural,Ngân sách nhà nước,035c1540-6007-11f1-ad9a-9502dcef9cad_014,035c1540-6007-11f1-ad9a-9502dcef9cad,035c1540-6007-11f1-ad9a-9502dcef9cad
+Q2074,"Đơn vị A chủ trì đón đoàn, còn đoàn tiếp tục làm việc tại B và C theo chương trình được phê duyệt; cách phân chia chi phí tiếp đón và chi phí tại từng buổi làm việc xác định ra sao?",scenario,Ngân sách nhà nước,035c1540-6007-11f1-ad9a-9502dcef9cad_014,035c1540-6007-11f1-ad9a-9502dcef9cad,035c1540-6007-11f1-ad9a-9502dcef9cad
+Q2075,chi phí tiếp đoàn,keyword,Ngân sách nhà nước,035c1540-6007-11f1-ad9a-9502dcef9cad_014,035c1540-6007-11f1-ad9a-9502dcef9cad,035c1540-6007-11f1-ad9a-9502dcef9cad
+Q2085,"Một cơ sở xét nghiệm muốn được cấp phép xác nhận HIV dương tính cần đáp ứng những yêu cầu gì về nhân lực, trang thiết bị và năng lực kiểm chuẩn?",natural,"Lao động, tiền lương, tiền công",171156_040,171156,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2086,"Phòng xét nghiệm mới thực hành kỹ thuật được hai tháng, chưa hoàn tất thử mẫu kiểm chuẩn; cần đối chiếu những điều kiện nào trước khi nộp hồ sơ xin cấp chứng nhận?",scenario,"Lao động, tiền lương, tiền công",171156_040,171156,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2087,Điều kiện xét nghiệm HIV,keyword,"Lao động, tiền lương, tiền công",171156_040,171156,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2097,Lô thuốc lá nhập lậu và hàng giả bị tịch thu thì việc tổ chức tiêu hủy cần có những bên nào tham gia chứng kiến?,natural,"Quản lý thuế, phí và lệ phí",67409_009,67409,67409
+Q2098,Cơ quan địa phương dự kiến tiêu hủy một đợt thuốc lá giả trong tháng; cần thông báo trước cho đơn vị liên quan khi nào và lập hồ sơ ra sao?,scenario,"Quản lý thuế, phí và lệ phí",67409_009,67409,67409
+Q2099,Tiêu hủy thuốc lá lậu,keyword,"Quản lý thuế, phí và lệ phí",67409_009,67409,67409
+Q2100,"Ngân hàng có thể xem xét chiết khấu những loại hối phiếu, séc và giấy tờ có giá nào của khách hàng?",natural,"Lao động, tiền lương, tiền công",185789_005,185789,185789
+Q2101,Doanh nghiệp đề nghị ngân hàng chiết khấu trái phiếu chính quyền địa phương và chứng chỉ tiền gửi; hai loại giấy tờ này có nằm trong danh mục được cân nhắc không?,scenario,"Lao động, tiền lương, tiền công",185789_005,185789,185789
+Q2102,Giấy tờ chiết khấu,keyword,"Lao động, tiền lương, tiền công",185789_005,185789,185789
+Q2130,"Trong phạm vi tỉnh Hà Tĩnh, cảng biển được phân chia thành những vùng hoạt động hàng hải nào?",natural,"Lao động, tiền lương, tiền công",185699_002,185699,185699
+Q2131,Đơn vị có hoạt động tàu biển ở Hà Tĩnh muốn xác định tên khu vực hàng hải liên quan trước khi liên hệ cơ quan cảng vụ; cần đối chiếu những khu vực nào?,scenario,"Lao động, tiền lương, tiền công",185699_002,185699,185699
+Q2132,Khu vực hàng hải Hà Tĩnh,keyword,"Lao động, tiền lương, tiền công",185699_002,185699,185699
+Q2193,"Quỹ Bảo vệ môi trường Việt Nam được tính những khoản nào vào chi phí hoạt động, và khoản chi vượt định mức thì xử lý ra sao?",natural,"TCNH và thị trường TC, trái phiếu, khác",86117_012,86117,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2194,"Tôi làm kế toán ở Quỹ Bảo vệ môi trường Việt Nam, năm nay quỹ phải trả lãi cho khoản ký quỹ của doanh nghiệp khai thác khoáng sản và có khoản công tác phí chi vượt chế độ. Hai khoản này có được tính vào chi phí không, chi sai thì phải làm gì?",scenario,"TCNH và thị trường TC, trái phiếu, khác",86117_012,86117,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2195,chi phí quỹ môi trường,keyword,"TCNH và thị trường TC, trái phiếu, khác",86117_012,86117,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2220,"Khi làm thủ tục liên quan đến thuốc và mỹ phẩm thì có những khoản phí nào, và ai là người phải nộp loại phí đó?",natural,Chính sách thuế,160865_001,160865,160865
+Q2221,"Công ty tôi chuẩn bị đăng ký công bố một sản phẩm mỹ phẩm và xin thẩm định điều kiện kinh doanh dược. Hai thủ tục này có thuộc nhóm phí chung của lĩnh vực dược, mỹ phẩm không, và công ty tôi có thuộc đối tượng phải nộp phí không?",scenario,Chính sách thuế,160865_001,160865,160865
+Q2222,phí thẩm định mỹ phẩm,keyword,Chính sách thuế,160865_001,160865,160865
+Q2232,Giao dịch chuyển nhượng phần vốn trong công ty quản lý quỹ ở mức nào thì bắt buộc phải có văn bản đồng ý của Ủy ban Chứng khoán Nhà nước?,natural,"TCNH và thị trường TC, trái phiếu, khác",28111_016,28111,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2233,"Công ty quản lý quỹ của chúng tôi muốn lập chi nhánh ở nước ngoài và đầu tư ra nước ngoài. Cần đáp ứng điều kiện về vốn nào, nộp hồ sơ gì và Ủy ban Chứng khoán Nhà nước trả lời trong bao lâu?",scenario,"TCNH và thị trường TC, trái phiếu, khác",28111_016,28111,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2234,hồ sơ chấp thuận giao dịch,keyword,"TCNH và thị trường TC, trái phiếu, khác",28111_016,28111,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2337,Cơ quan hành chính nhà nước lập dự toán kinh phí cho việc áp dụng hệ thống quản lý chất lượng ISO 9001 vào lúc nào và từ những nguồn nào?,natural,Quản lý ngân sách,110897_005,110897,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2338,"Mình phụ trách kế hoạch tài chính của cơ quan đang duy trì hệ thống quản lý chất lượng ISO 9001. Ngoài ngân sách, có được ghi nguồn tài trợ, viện trợ vào dự toán không và dự toán gửi cho ai phê duyệt?",scenario,Quản lý ngân sách,110897_005,110897,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2339,dự toán kinh phí ISO 9001,keyword,Quản lý ngân sách,110897_005,110897,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2373,Thiết bị và dụng cụ dùng để bảo quản hàng thuộc dự trữ quốc gia cần đáp ứng các yêu cầu nào?,natural,Quản lý ngân sách,46311_008,46311,46311
+Q2374,Một đơn vị nhận thuê lưu giữ hàng dự trữ quốc gia chuẩn bị kho nhưng chưa đủ dụng cụ theo yêu cầu kỹ thuật thì có đáp ứng điều kiện bảo quản không?,scenario,Quản lý ngân sách,46311_008,46311,46311
+Q2375,bảo quản dự trữ,keyword,Quản lý ngân sách,46311_008,46311,46311
+Q2394,"Các dự án về kiểm nghiệm, phòng chống ngộ độc và bảo đảm an toàn thực phẩm được bổ sung mã số ngân sách nào?",natural,Quản lý ngân sách,26297_008,26297,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2395,"Khi lập mã ngân sách cho dự án phòng ngừa ngộ độc và bệnh lây qua thực phẩm, đơn vị phải dùng mã nào?",scenario,Quản lý ngân sách,26297_008,26297,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2396,mã dự án ATTP,keyword,Quản lý ngân sách,26297_008,26297,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2424,Quỹ phát triển khoa học và công nghệ quốc gia phải lập báo cáo tài chính vào những kỳ nào?,natural,Quản lý dịch vụ tài chính và các quỹ tài chính,25851_007,25851,25851
+Q2425,Quỹ có quyết định sáp nhập giữa năm thì thời điểm nào phải chốt và lập báo cáo tài chính?,scenario,Quản lý dịch vụ tài chính và các quỹ tài chính,25851_007,25851,25851
+Q2426,kỳ báo cáo quỹ,keyword,Quản lý dịch vụ tài chính và các quỹ tài chính,25851_007,25851,25851
+Q2502,Những đơn vị và thuyền viên nào có thể được hỗ trợ chi phí đào tạo vận hành tàu cá vỏ thép hoặc vật liệu mới?,natural,Quản lý ngân sách,44147_005,44147,110974
+Q2503,Một tỉnh có kế hoạch đào tạo người vận hành tàu vỏ thép từ 400 CV trở lên về kỹ thuật khai thác và bảo quản sản phẩm; cơ quan địa phương xác định nhu cầu hỗ trợ hàng năm ra sao?,scenario,Quản lý ngân sách,44147_005,44147,110974
+Q2504,đào tạo thuyền viên,keyword,Quản lý ngân sách,44147_005,44147,110974
+Q2547,"Cơ sở đăng ký thuốc cổ truyền hoặc dược liệu nhập khẩu cần chuẩn bị giấy tờ pháp lý, giấy chứng nhận lưu hành và tài liệu ủy quyền như thế nào?",natural,"Lao động, tiền lương, tiền công",179744_005,179744,166468
+Q2548,Một doanh nghiệp nhận tài liệu pháp lý điện tử từ đối tác nước ngoài nhưng tài liệu không có chữ ký hoặc con dấu; hồ sơ đăng ký thuốc cổ truyền cần kèm căn cứ xác minh nào?,scenario,"Lao động, tiền lương, tiền công",179744_005,179744,166468
+Q2549,hồ sơ đăng ký thuốc cổ truyền,keyword,"Lao động, tiền lương, tiền công",179744_005,179744,166468
+Q2557,"Một đơn vị sự nghiệp công vừa sử dụng kinh phí ngân sách, vừa có khoản phí được để lại theo quy định; cần xác định yêu cầu tổng hợp quyết toán năm theo phạm vi nào?",scenario,Ngân sách nhà nước,7eb808d0-6646-11f1-92ee-5f5661c0d539_001,7eb808d0-6646-11f1-92ee-5f5661c0d539,7eb808d0-6646-11f1-92ee-5f5661c0d539
+Q2558,quyết toán ngân sách năm,keyword,Ngân sách nhà nước,7eb808d0-6646-11f1-92ee-5f5661c0d539_001,7eb808d0-6646-11f1-92ee-5f5661c0d539,7eb808d0-6646-11f1-92ee-5f5661c0d539
+Q2571,Quỹ bảo vệ môi trường phân bổ khoản chênh lệch thu chi dương cho các quỹ nội bộ như thế nào sau khi xử lý nghĩa vụ còn tồn?,natural,"TCNH và thị trường TC, trái phiếu, khác",86117_015,86117,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2572,Năm tài chính kết thúc với kết quả thu chi âm tại quỹ bảo vệ môi trường; đơn vị có thể chuyển khoản thiếu hụt sang các năm kế tiếp trong bao lâu và xử lý ra sao nếu vẫn còn thiếu?,scenario,"TCNH và thị trường TC, trái phiếu, khác",86117_015,86117,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2573,chênh lệch thu chi quỹ môi trường,keyword,"TCNH và thị trường TC, trái phiếu, khác",86117_015,86117,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2616,"Kinh phí chi cho tinh giản biên chế (lập dự toán, quyết toán) áp dụng với những cơ quan, đơn vị nào, từ Trung ương đến cấp xã?",natural,Tài chính hành chính sự nghiệp,166078_001,166078,166078
+Q2617,Đơn vị sự nghiệp công lập cấp huyện của chúng tôi chuẩn bị tinh giản biên chế; việc lập dự toán và quyết toán kinh phí cho chính sách này có thuộc phạm vi hướng dẫn của thông tư về tinh giản biên chế không?,scenario,Tài chính hành chính sự nghiệp,166078_001,166078,166078
+Q2618,nguồn kinh phí tinh giản biên chế,keyword,Tài chính hành chính sự nghiệp,166078_001,166078,166078
+Q2619,Khoản tiền doanh nghiệp nộp để được cấp quyền khai thác khoáng sản được hạch toán vào mục và tiểu mục nào của mục lục ngân sách nhà nước?,natural,Quản lý ngân sách,67428_001,67428,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2620,"Đơn vị tôi được giao khoán kinh phí cho đề tài nghiên cứu khoa học, kế toán cần biết phần kinh phí khoán này hạch toán vào tiểu mục nào và tiểu mục đó có gồm cả chi từ phần tiết kiệm không?",scenario,Quản lý ngân sách,67428_001,67428,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2621,hạch toán chương trình mục tiêu,keyword,Quản lý ngân sách,67428_001,67428,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2676,"Ai là người đứng tên tài khoản của quỹ dự trữ tài chính trung ương, và ai đứng tên với quỹ cấp tỉnh?",natural,Ngân sách nhà nước,5cb1afe0-5f05-11f1-9481-57487a853907_010,5cb1afe0-5f05-11f1-9481-57487a853907,5cb1afe0-5f05-11f1-9481-57487a853907
+Q2677,Ngân sách cấp xã của chúng tôi đang thiếu hụt tạm thời nên cần tạm ứng từ quỹ dự trữ tài chính của tỉnh; cơ quan nào trình và cấp nào có thẩm quyền quyết định việc tạm ứng này?,scenario,Ngân sách nhà nước,5cb1afe0-5f05-11f1-9481-57487a853907_010,5cb1afe0-5f05-11f1-9481-57487a853907,5cb1afe0-5f05-11f1-9481-57487a853907
+Q2678,tạm ứng quỹ dự trữ tài chính,keyword,Ngân sách nhà nước,5cb1afe0-5f05-11f1-9481-57487a853907_010,5cb1afe0-5f05-11f1-9481-57487a853907,5cb1afe0-5f05-11f1-9481-57487a853907
+Q2751,Quỹ tích lũy trả nợ dùng tài khoản phải thu để theo dõi những khoản tiền nào và ghi nhận thanh toán ra sao?,natural,Quản lý dịch vụ tài chính và các quỹ tài chính,38279_021,38279,38279
+Q2752,"Quỹ phát sinh lãi cho vay và phí phải thu trong kỳ, sau đó nhận tiền từ Kho bạc; kế toán cần theo dõi khoản còn phải thu và số đã thu thế nào?",scenario,Quản lý dịch vụ tài chính và các quỹ tài chính,38279_021,38279,38279
+Q2753,tài khoản phải thu quỹ,keyword,Quản lý dịch vụ tài chính và các quỹ tài chính,38279_021,38279,38279
+Q2787,"Người làm nhiệm vụ điều độ chạy tàu tại ga cần đáp ứng tiêu chuẩn đào tạo, sức khỏe, kinh nghiệm và kiểm tra nghiệp vụ nào?",natural,"Lao động, tiền lương, tiền công",185676_044,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2788,Một người đã có một năm kinh nghiệm trực ban tại ga muốn chuyển sang vai trò điều độ trên tuyến chuyên dùng độc lập với mạng ray quốc gia; cần rà soát các điều kiện nào?,scenario,"Lao động, tiền lương, tiền công",185676_044,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2789,điều độ chạy tàu ga,keyword,"Lao động, tiền lương, tiền công",185676_044,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q2790,"Tổ chức muốn nhận kinh phí từ Quỹ phòng chống tác hại thuốc lá cần thực hiện hồ sơ, cam kết và phê duyệt mức hỗ trợ thế nào?",natural,"Quản lý thuế, phí và lệ phí",45852_013,45852,139902
+Q2791,Một đề xuất tài trợ có mức cao hơn thẩm quyền của Giám đốc Quỹ và có nội dung chi đặc thù chưa có định mức nhà nước; ai quyết định và mức chi được xác lập theo căn cứ nào?,scenario,"Quản lý thuế, phí và lệ phí",45852_013,45852,139902
+Q2792,Quỹ thuốc lá hỗ trợ,keyword,"Quản lý thuế, phí và lệ phí",45852_013,45852,139902
+Q2829,Thương nhân tái xuất xăng dầu có nguồn từ Nhà máy lọc dầu Dung Quất phải thực hiện nghĩa vụ thủ tục nào?,natural,"Quản lý thuế, phí và lệ phí",27482_008,27482,27482
+Q2830,Một thương nhân xuất sang Lào lô xăng dầu lấy từ cơ sở lọc dầu Dung Quất theo phương thức tái xuất; doanh nghiệp cần tra cứu hướng dẫn nào để làm thủ tục hải quan?,scenario,"Quản lý thuế, phí và lệ phí",27482_008,27482,27482
+Q2831,thủ tục tái xuất xăng dầu,keyword,"Quản lý thuế, phí và lệ phí",27482_008,27482,27482
+Q2877,Ủy ban nhân dân cấp tỉnh có trách nhiệm phối hợp giám sát và hỗ trợ việc phân phối vé xổ số tự chọn điện toán tại địa phương ra sao?,natural,"TCNH và thị trường TC, trái phiếu, khác",44639_038,44639,44639
+Q2878,Một công ty xổ số điện toán muốn phát hành vé trong tỉnh đã có công ty xổ số kiến thiết; UBND tỉnh cần chỉ đạo phối hợp giữa hai doanh nghiệp và tham gia giám sát thế nào?,scenario,"TCNH và thị trường TC, trái phiếu, khác",44639_038,44639,44639
+Q2879,xổ số tự chọn điện toán,keyword,"TCNH và thị trường TC, trái phiếu, khác",44639_038,44639,44639
+Q2928,Đơn vị nào được dùng kinh phí sự nghiệp ngân sách theo thông tư hướng dẫn dự án hỗ trợ nạn nhân da cam ở Tây Nguyên và Tây Ninh?,natural,Quản lý ngân sách,27384_001,27384,27384
+Q2929,Một tổ chức nước ngoài tài trợ riêng cho dự án giúp nạn nhân da cam ở Gia Lai nhưng nhà tài trợ chưa có hướng dẫn quản lý kinh phí. Đơn vị thực hiện nên áp dụng quy định nào?,scenario,Quản lý ngân sách,27384_001,27384,27384
+Q2930,viện trợ không hoàn lại da cam,keyword,Quản lý ngân sách,27384_001,27384,27384
+Q2937,Người nước ngoài đi làm tại Trung tâm tài chính quốc tế ở Việt Nam thì có thuộc diện đóng bảo hiểm xã hội bắt buộc không?,natural,"Lao động, tiền lương, tiền công",185164_010,185164,185164
+Q2938,"Tôi là người nước ngoài làm việc ở Trung tâm tài chính quốc tế, không có hợp đồng lao động và không nhận lương nhưng vẫn muốn đóng bảo hiểm xã hội. Tôi chọn mức tiền lương làm căn cứ đóng thế nào và muốn dừng đóng thì khi nào được?",scenario,"Lao động, tiền lương, tiền công",185164_010,185164,185164
+Q2939,BHXH một lần người nước ngoài,keyword,"Lao động, tiền lương, tiền công",185164_010,185164,185164
+Q3108,"Chức danh y học dự phòng hạng III đòi hỏi những điều kiện nào về bằng cấp, chứng chỉ hành nghề và năng lực chuyên môn?",natural,"Lao động, tiền lương, tiền công",183370_009,183370,183370
+Q3109,"Một bác sĩ nhóm ngành Y học muốn được xem xét chức danh y học dự phòng hạng III thì cần đối chiếu những tiêu chuẩn nào về trình độ, kỹ năng và nhiệm vụ chuyên môn?",scenario,"Lao động, tiền lương, tiền công",183370_009,183370,183370
+Q3110,y học dự phòng,keyword,"Lao động, tiền lương, tiền công",183370_009,183370,183370
+Q3123,"Khi lập kế hoạch tài chính cho giai đoạn 5 năm, cơ quan nhà nước cần cân nhắc những định hướng và giới hạn ngân sách nào?",natural,Ngân sách nhà nước,5cb1afe0-5f05-11f1-9481-57487a853907_046,5cb1afe0-5f05-11f1-9481-57487a853907,5cb1afe0-5f05-11f1-9481-57487a853907
+Q3124,Một địa phương xây dựng kế hoạch tài chính trung hạn trong bối cảnh nguồn thu và khả năng vay nợ có thể thay đổi; cần căn cứ những nhóm dự báo và nguyên tắc nào?,scenario,Ngân sách nhà nước,5cb1afe0-5f05-11f1-9481-57487a853907_046,5cb1afe0-5f05-11f1-9481-57487a853907,5cb1afe0-5f05-11f1-9481-57487a853907
+Q3144,"Bội chi ở cấp trung ương và cấp tỉnh có thể được bù đắp bằng những nguồn nào, và ngân sách tỉnh phải đáp ứng điều kiện gì để vay?",natural,Ngân sách nhà nước,5cb1afe0-5f05-11f1-9481-57487a853907_003,5cb1afe0-5f05-11f1-9481-57487a853907,5cb1afe0-5f05-11f1-9481-57487a853907
+Q3145,Một tỉnh muốn vay để đầu tư dự án công nhưng đang rà soát tình trạng nợ đến hạn; các điều kiện nào cần được kiểm tra khi xác định giới hạn bội chi?,scenario,Ngân sách nhà nước,5cb1afe0-5f05-11f1-9481-57487a853907_003,5cb1afe0-5f05-11f1-9481-57487a853907,5cb1afe0-5f05-11f1-9481-57487a853907
+Q3146,bội chi ngân sách,keyword,Ngân sách nhà nước,5cb1afe0-5f05-11f1-9481-57487a853907_003,5cb1afe0-5f05-11f1-9481-57487a853907,5cb1afe0-5f05-11f1-9481-57487a853907
+Q3159,"Việc xác minh bệnh nghề nghiệp có thời hạn bao lâu, và trường hợp phức tạp thì xin kéo dài thời gian theo cách nào?",natural,"Lao động, tiền lương, tiền công",185610_012,185610,185610
+Q3160,Đoàn điều tra bệnh nghề nghiệp sắp hết thời hạn nhưng vụ việc còn phức tạp; trưởng đoàn cần báo cáo trước mốc nào và thời gian gia hạn được giới hạn ra sao?,scenario,"Lao động, tiền lương, tiền công",185610_012,185610,185610
+Q3161,điều tra bệnh nghề nghiệp,keyword,"Lao động, tiền lương, tiền công",185610_012,185610,185610
+Q3201,"Quỹ tích lũy trả nợ xác định kỳ kế toán năm và kỳ kế toán quý theo các mốc đầu, cuối kỳ nào?",natural,Quản lý dịch vụ tài chính và các quỹ tài chính,38279_006,38279,38279
+Q3202,"Khi chốt sổ của Quỹ tích lũy trả nợ, kế toán cần xác định ngày bắt đầu và kết thúc kỳ năm cũng như từng quý ra sao?",scenario,Quản lý dịch vụ tài chính và các quỹ tài chính,38279_006,38279,38279
+Q3203,kỳ kế toán quỹ nợ,keyword,Quản lý dịch vụ tài chính và các quỹ tài chính,38279_006,38279,38279
+Q3234,"Ngoài kinh phí tự chủ, Cục Quản lý, giám sát bảo hiểm có thể được bố trí kinh phí cho những nhiệm vụ đặc thù nào?",natural,Quản lý ngân sách,72377_007,72377,72377
+Q3235,Một đơn vị thuộc cơ quan giám sát bảo hiểm dự kiến sửa chữa tài sản hoặc triển khai nghiên cứu khoa học; cần kiểm tra phạm vi khoản chi được bố trí riêng ra sao?,scenario,Quản lý ngân sách,72377_007,72377,72377
+Q3236,chi ngoài tự chủ,keyword,Quản lý ngân sách,72377_007,72377,72377
+Q3258,"Khi hoàn tất thủ tục kỹ thuật với phương tiện đường sắt, kết quả được cấp dưới dạng nào?",natural,"Lao động, tiền lương, tiền công",185676_009,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3259,Doanh nghiệp làm thủ tục về phương tiện đường sắt nhưng hệ thống trực tuyến gặp lỗi chưa khắc phục được ngay; cần xem trường hợp nào có thể nhận chứng nhận bản giấy?,scenario,"Lao động, tiền lương, tiền công",185676_009,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3260,an toàn kỹ thuật,keyword,"Lao động, tiền lương, tiền công",185676_009,185676,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3384,"Những cấp ngân sách, đơn vị nhận hỗ trợ và tổ chức quản lý quỹ phải công khai tài chính theo các cách thức nào?",natural,Ngân sách nhà nước,153023_012,153023,153023
+Q3385,Một tỉnh muốn đăng tải ngân sách địa phương trên cổng thông tin và gửi báo cáo điện tử; cần tuân theo hướng dẫn công khai nào?,scenario,Ngân sách nhà nước,153023_012,153023,153023
+Q3408,Nhà đầu tư nước ngoài cần thông báo cho cơ quan thuế trước bao lâu khi chuyển lợi nhuận từ khoản đầu tư trực tiếp tại Việt Nam ra nước ngoài?,natural,"Quản lý thuế, phí và lệ phí",25845_005,25845,25845
+Q3409,Một nhà đầu tư dự định chuyển lợi nhuận ra nước ngoài và muốn ủy quyền cho doanh nghiệp mình tham gia đầu tư gửi thông báo; cần làm việc này vào thời điểm nào?,scenario,"Quản lý thuế, phí và lệ phí",25845_005,25845,25845
+Q3410,chuyển lợi nhuận,keyword,"Quản lý thuế, phí và lệ phí",25845_005,25845,25845
+Q3429,Các loại chi tiêu nào có thể thanh toán khi Việt Nam đăng cai kỳ họp IPU lần thứ 132?,natural,Quản lý ngân sách,37131_002,37131,37131
+Q3430,"Ban tổ chức sự kiện nghị viện quốc tế cần thuê địa điểm, phiên dịch, bảo đảm an ninh và hỗ trợ người khuyết tật; những khoản phục vụ nào được liệt kê cho IPU-132?",scenario,Quản lý ngân sách,37131_002,37131,37131
+Q3431,chi IPU-132,keyword,Quản lý ngân sách,37131_002,37131,37131
+Q3456,Ngân hàng thành viên ở Trung tâm tài chính quốc tế rơi vào tình trạng nào thì bị coi là gặp sự cố?,natural,"Lao động, tiền lương, tiền công",185119_074,185119,185119
+Q3457,"Ngân hàng thành viên của chúng tôi tại Trung tâm tài chính quốc tế đang bị khách hàng đến rút tiền ồ ạt, lo ngại không đủ khả năng chi trả. Ngân hàng phải báo cho những ai và tình huống này có được coi là sự cố không?",scenario,"Lao động, tiền lương, tiền công",185119_074,185119,185119
+Q3458,lỗ lũy kế vốn điều lệ ngân hàng,keyword,"Lao động, tiền lương, tiền công",185119_074,185119,185119
+Q3477,Họp giao ban giữa Chủ tịch với các Phó Chủ tịch UBND tỉnh do ai chủ trì và ai quyết định nội dung họp?,natural,"Lao động, tiền lương, tiền công",185179_032,185179,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3478,Văn phòng Ủy ban nhân dân tỉnh muốn mời thêm sở chủ trì một dự thảo văn bản dự họp giao ban của lãnh đạo tỉnh. Văn phòng có được mời không và cần căn cứ vào chỉ đạo của ai?,scenario,"Lao động, tiền lương, tiền công",185179_032,185179,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3479,họp giao ban lãnh đạo tỉnh,keyword,"Lao động, tiền lương, tiền công",185179_032,185179,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3501,Sau khi hồ sơ đăng ký an toàn sinh học biến đổi gen được xác nhận hợp lệ thì người nộp phí phải nộp phí trong bao lâu?,natural,Chính sách thuế,166076_005,166076,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3502,Chúng tôi là tổ chức được giao thu phí thẩm định hồ sơ an toàn sinh học biến đổi gen. Số phí thu được của tháng trước phải nộp vào đâu và chậm nhất ngày nào hằng tháng?,scenario,Chính sách thuế,166076_005,166076,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3503,tổ chức thu phí nộp Kho bạc,keyword,Chính sách thuế,166076_005,166076,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3537,Những loại tổ chức tín dụng nào được thực hiện chiết khấu công cụ chuyển nhượng hoặc giấy tờ có giá cho khách hàng?,natural,"Lao động, tiền lương, tiền công",185789_002,185789,185789
+Q3538,Một pháp nhân nước ngoài đang hoạt động hợp pháp tại Việt Nam sở hữu giấy tờ có giá phát hành trong nước có thể là khách hàng chiết khấu không?,scenario,"Lao động, tiền lương, tiền công",185789_002,185789,185789
+Q3539,khách hàng chiết khấu,keyword,"Lao động, tiền lương, tiền công",185789_002,185789,185789
+Q3570,Vùng nước cảng biển thuộc địa phận Đà Nẵng gồm những khu vực nào và được xác định ranh giới theo cơ sở nào?,natural,"Lao động, tiền lương, tiền công",185691_001,185691,185691
+Q3571,Đơn vị hàng hải cần xác định một vị trí ở khu vực Kỳ Hà có nằm trong vùng nước cảng biển Đà Nẵng hay không thì phải đối chiếu ranh giới và hệ tọa độ nào?,scenario,"Lao động, tiền lương, tiền công",185691_001,185691,185691
+Q3572,vùng nước Đà Nẵng,keyword,"Lao động, tiền lương, tiền công",185691_001,185691,185691
+Q3588,Dự án thuộc ngành công nghiệp hỗ trợ có thể được hưởng những ưu đãi nào về thuế và đất đai?,natural,"Quản lý thuế, phí và lệ phí",26712_007,26712,26712
+Q3589,Doanh nghiệp nhập máy móc chưa sản xuất được trong nước để tạo tài sản cố định cho dự án công nghiệp hỗ trợ muốn gia hạn hoặc hoàn thuế giá trị gia tăng thì cần xem điều kiện nào?,scenario,"Quản lý thuế, phí và lệ phí",26712_007,26712,26712
+Q3590,ưu đãi đất đai,keyword,"Quản lý thuế, phí và lệ phí",26712_007,26712,26712
+Q3672,Phí thẩm định giấy phép phát điện ở cấp trung ương được xác định dựa trên công suất và loại nhà máy ra sao?,natural,Chính sách thuế,142708_001,142708,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3673,Một dự án điện mặt trời có công suất đặt 25 MW xin giấy phép hoạt động điện lực; cần đối chiếu mức phí thuộc nhóm công suất nào?,scenario,Chính sách thuế,142708_001,142708,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3674,phí phát điện,keyword,Chính sách thuế,142708_001,142708,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3681,Kinh phí của chương trình phát triển học tập cộng đồng giai đoạn 2021–2030 áp dụng cho hoạt động nào và loại trừ những chương trình nào?,natural,Tài chính hành chính sự nghiệp,155195_001,155195,155195
+Q3682,Một cơ quan chuẩn bị dự toán cho hoạt động học tập suốt đời tại thư viện; cần xác định hoạt động đó thuộc phạm vi chương trình chung hay theo quyết định riêng?,scenario,Tài chính hành chính sự nghiệp,155195_001,155195,155195
+Q3683,xã hội học tập,keyword,Tài chính hành chính sự nghiệp,155195_001,155195,155195
+Q3714,Người sử dụng lao động có thể bị xử phạt thế nào nếu từ chối thương lượng tập thể hoặc không công bố thỏa ước đã ký?,natural,"Lao động, tiền lương, tiền công",153913_016,153913,153913
+Q3715,Đại diện người lao động yêu cầu doanh nghiệp cung cấp thông tin để thương lượng tập thể nhưng doanh nghiệp không cung cấp và cũng không bố trí phiên họp; hành vi này bị xử lý ra sao?,scenario,"Lao động, tiền lương, tiền công",153913_016,153913,153913
+Q3716,phạt thương lượng,keyword,"Lao động, tiền lương, tiền công",153913_016,153913,153913
+Q3738,Hồ sơ đề nghị hoàn thuế thu nhập cá nhân gồm những chứng từ nào đối với người thuộc diện phải quyết toán hoặc được giảm thuế?,natural,"Quản lý thuế, phí và lệ phí",25012_002,25012,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3739,"Một cá nhân được giảm thuế do hoàn cảnh thuộc diện xem xét, sau giảm vẫn còn số thuế đã nộp lớn hơn nghĩa vụ và muốn hoàn lại; hồ sơ cần kèm những giấy tờ gì?",scenario,"Quản lý thuế, phí và lệ phí",25012_002,25012,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3740,hồ sơ hoàn TNCN,keyword,"Quản lý thuế, phí và lệ phí",25012_002,25012,0da53250-5d6b-11f1-807d-c70e99d85013
+Q3750,"Ở cơ quan hải quan, bộ phận phụ trách hạch toán các khoản thuế xuất nhập khẩu cần được tổ chức theo cách nào?",natural,"Quản lý thuế, phí và lệ phí",48433_012,48433,48433
+Q3751,Một đơn vị hải quan cấp Chi cục đang sắp xếp nhân sự kế toán thuế xuất nhập khẩu; đơn vị có cần bố trí bộ phận chuyên trách và việc tổng hợp báo cáo được thực hiện ra sao?,scenario,"Quản lý thuế, phí và lệ phí",48433_012,48433,48433
+Q3752,kế toán hải quan,keyword,"Quản lý thuế, phí và lệ phí",48433_012,48433,48433
+Q3768,Mỗi cấp thanh tra lao động được phạt tối đa bao nhiêu và có quyền áp dụng những biện pháp xử lý bổ sung nào?,natural,"Lao động, tiền lương, tiền công",153913_049,153913,153913
+Q3769,Một đoàn thanh tra lao động cấp Sở phát hiện vi phạm trong lĩnh vực lao động và bảo hiểm xã hội; trưởng đoàn có thể phạt đến mức nào và được áp dụng thêm biện pháp gì?,scenario,"Lao động, tiền lương, tiền công",153913_049,153913,153913
+Q3770,thẩm quyền thanh tra,keyword,"Lao động, tiền lương, tiền công",153913_049,153913,153913
+Q3804,"Trong trường hợp tổ chức tín dụng Việt Nam có cổ đông đến từ nước ngoài, những mức sở hữu nào làm phát sinh yêu cầu chấp thuận?",natural,"Lao động, tiền lương, tiền công",184832_001,184832,184674
+Q3805,Một nhà đầu tư nước ngoài dự tính nắm 10% vốn điều lệ hoặc trở thành nhà đầu tư chiến lược tại tổ chức tín dụng; cần xác định trường hợp chấp thuận nào được đặt ra?,scenario,"Lao động, tiền lương, tiền công",184832_001,184832,184674
+Q3806,cổ phần tín dụng,keyword,"Lao động, tiền lương, tiền công",184832_001,184832,184674
+Q3831,Những nhóm người nào thuộc phạm vi hướng dẫn về chế độ ưu đãi người có công do Bộ Công an thực hiện?,natural,"Lao động, tiền lương, tiền công",187278_002,187278,187278
+Q3832,Một cán bộ công an đã nghỉ hưu và thân nhân của người có công muốn xác định có thuộc phạm vi hướng dẫn không; cần đối chiếu những nhóm đối tượng nào?,scenario,"Lao động, tiền lương, tiền công",187278_002,187278,187278
+Q3833,ưu đãi,keyword,"Lao động, tiền lương, tiền công",187278_002,187278,187278
+Q3840,Người nộp hồ sơ xin mới hoặc xin lại giấy phép cho cơ sở cai nghiện bằng thuốc thay thế phải đóng khoản nào?,natural,"Quản lý thuế, phí và lệ phí",110858_001,110858,110858
+Q3841,"Một cơ sở điều trị bằng thuốc thay thế gửi hồ sơ xin cấp lại giấy phép; khoản thẩm định được thu ở giai đoạn nào và cơ quan nào thu phí, lệ phí?",scenario,"Quản lý thuế, phí và lệ phí",110858_001,110858,110858
+Q3842,phí cấp phép,keyword,"Quản lý thuế, phí và lệ phí",110858_001,110858,110858
+Q3882,"Trong cơ chế tự chủ của Ủy ban Chứng khoán Nhà nước, việc sử dụng nhân sự được giới hạn theo căn cứ nào?",natural,Quản lý ngân sách,12022_003,12022,12022
+Q3883,"Ủy ban được giao thêm nhiệm vụ nhưng số nhân sự hiện có không đủ; việc sắp xếp trong chỉ tiêu, đề nghị tăng chỉ tiêu và ký hợp đồng được thực hiện ra sao?",scenario,Quản lý ngân sách,12022_003,12022,12022
+Q3884,biên chế chứng khoán,keyword,Quản lý ngân sách,12022_003,12022,12022
+Q3921,Địa phương vay vốn tín dụng đầu tư của Nhà nước cho công trình nông thôn bắt đầu trả nợ khi nào và thời gian trả kéo dài bao lâu?,natural,Quản lý ngân sách,11666_010,11666,107898
+Q3922,"Một tỉnh miền núi có nguồn thu nội địa thấp đang vay vốn cho chương trình kiên cố hóa kênh mương; nếu địa phương còn khoản vay quá hạn, việc chuyển tiếp vốn mới được xử lý thế nào?",scenario,Quản lý ngân sách,11666_010,11666,107898
+Q3923,thời hạn trả nợ,keyword,Quản lý ngân sách,11666_010,11666,107898
+Q3975,Người đang hưởng trợ cấp hàng tháng theo chính sách cho người có từ 15 đến dưới 20 năm công tác đã hết hạn hưởng mất sức lao động thì có được hưởng bảo hiểm y tế không?,natural,"Lao động, tiền lương, tiền công",25379_004,25379,25379
+Q3976,"Bác tôi đang nhận trợ cấp hàng tháng dành cho người có 15 đến dưới 20 năm công tác đã hết thời gian hưởng mất sức lao động, nay bác mất; ai lo mai táng thì được hưởng khoản nào và theo quy định nào?",scenario,"Lao động, tiền lương, tiền công",25379_004,25379,25379
+Q3977,trợ cấp mai táng mất sức lao động,keyword,"Lao động, tiền lương, tiền công",25379_004,25379,25379
+Q3999,Người hiến máu tình nguyện được tặng quà và hỗ trợ tiền đi lại ở mức nào cho mỗi lần hiến?,natural,"Lao động, tiền lương, tiền công",162133_004,162133,162133
+Q4000,"Em chọn nhận quà bằng dịch vụ khám bệnh khi hiến máu tình nguyện, nhưng các dịch vụ em chọn có tổng giá cao hơn giá trị quà tặng; em phải trả thêm không và nếu phần vượt dưới 10% thì ai chi?",scenario,"Lao động, tiền lương, tiền công",162133_004,162133,162133
+Q4001,chi phí hủy đơn vị máu,keyword,"Lao động, tiền lương, tiền công",162133_004,162133,162133
+Q4008,Việc quản lý các buổi hội thảo và tọa đàm khoa học trong ngành công an áp dụng cho những đơn vị và đối tượng nào?,natural,"Lao động, tiền lương, tiền công",185093_002,185093,185093
+Q4009,"Công an tỉnh chúng tôi định phối hợp với một đơn vị bên ngoài ngành để tổ chức hội thảo khoa học; tổ chức, cá nhân bên ngoài như vậy có thuộc đối tượng áp dụng của quy định về quản lý hội thảo của Bộ Công an không?",scenario,"Lao động, tiền lương, tiền công",185093_002,185093,185093
+Q4010,hội thảo khoa học Bộ Công an,keyword,"Lao động, tiền lương, tiền công",185093_002,185093,185093
+Q4026,Cơ quan giám sát tại Trung tâm tài chính cần thu thập và đánh giá những thông tin nào để nhận diện rủi ro ở ngân hàng thành viên?,natural,"Lao động, tiền lương, tiền công",185119_104,185119,185119
+Q4027,Một ngân hàng thành viên có dấu hiệu mất an toàn và chưa thực hiện khuyến nghị giám sát; cơ quan có thể đề xuất biện pháp xử lý ra sao?,scenario,"Lao động, tiền lương, tiền công",185119_104,185119,185119
+Q4028,giám sát ngân hàng,keyword,"Lao động, tiền lương, tiền công",185119_104,185119,185119
+Q4068,"Với ngân hàng tại Trung tâm tài chính, tiêu chí nào được dùng để nhận diện nợ xấu khi chế độ kế toán áp dụng khác nhau?",natural,"Lao động, tiền lương, tiền công",185119_071,185119,185119
+Q4069,Một ngân hàng đã dùng dự phòng rủi ro để xử lý khoản nợ nhưng vẫn chưa thu hồi được; khoản đó được theo dõi và xác định thế nào?,scenario,"Lao động, tiền lương, tiền công",185119_071,185119,185119
+Q4070,nợ xấu ngân hàng,keyword,"Lao động, tiền lương, tiền công",185119_071,185119,185119
+Q4098,"Khoản chi cho đoàn học tập, trao đổi kinh nghiệm và hội nghị thuộc chương trình phát triển văn hóa áp dụng mức chi theo căn cứ nào?",natural,Ngân sách nhà nước,e88ba540-80c3-11f1-a804-7d0fce5830fd_012,e88ba540-80c3-11f1-a804-7d0fce5830fd,e88ba540-80c3-11f1-a804-7d0fce5830fd
+Q4099,Đơn vị tổ chức đoàn học tập ở nước ngoài và đồng thời đón khách quốc tế trong chương trình văn hóa; cần xác định chế độ chi từ đâu?,scenario,Ngân sách nhà nước,e88ba540-80c3-11f1-a804-7d0fce5830fd_012,e88ba540-80c3-11f1-a804-7d0fce5830fd,e88ba540-80c3-11f1-a804-7d0fce5830fd
+Q4100,chi tiếp khách,keyword,Ngân sách nhà nước,e88ba540-80c3-11f1-a804-7d0fce5830fd_012,e88ba540-80c3-11f1-a804-7d0fce5830fd,e88ba540-80c3-11f1-a804-7d0fce5830fd
+Q4140,"Trong đăng ký thuốc cổ truyền, cơ sở đứng tên hồ sơ khác gì với cơ sở trực tiếp sản xuất?",natural,"Lao động, tiền lương, tiền công",179744_002,179744,166468
+Q4141,Đơn vị đăng ký lưu hành dược liệu muốn điều chỉnh hồ sơ và đang phân vân thay đổi nào được xem là lớn hay nhỏ; cần căn cứ vào tác động gì?,scenario,"Lao động, tiền lương, tiền công",179744_002,179744,166468
+Q4142,thay đổi thuốc cổ truyền,keyword,"Lao động, tiền lương, tiền công",179744_002,179744,166468
+Q4206,"Khi tổng hợp nhu cầu kinh phí điều chỉnh tiền lương cho năm kế tiếp, đơn vị phải đối chiếu những nguồn thu và khoản tiết kiệm nào?",natural,Quản lý ngân sách,27738_007,27738,27738
+Q4207,Một địa phương còn phần tăng thu và nguồn thu để lại chưa dùng hết sau khi đã cân đối mức lương tối thiểu năm 2012; các khoản này nên được tính vào nguồn chi cho năm 2013 thế nào?,scenario,Quản lý ngân sách,27738_007,27738,27738
+Q4245,"Ban vận động cứu trợ có thể dùng kinh phí cho những hoạt động tổ chức quyên góp và tiếp nhận, phân phối tiền hàng nào?",natural,Quản lý ngân sách,37951_004,37951,37951
+Q4246,"Một ban vận động cần thuê kho, đóng gói và vận chuyển hàng ủng hộ sau thiên tai; các khoản này thuộc nhóm chi nào và còn có khoản nhân sự nào được nêu?",scenario,Quản lý ngân sách,37951_004,37951,37951
+Q4247,chi phí tiếp nhận cứu trợ,keyword,Quản lý ngân sách,37951_004,37951,37951
+Q4338,Người làm dược lâm sàng tại cơ sở khám chữa bệnh cần có văn bằng chuyên môn nào theo từng mô hình điều trị?,natural,"Lao động, tiền lương, tiền công",145013_004,145013,145013
+Q4339,Một cơ sở khám chữa bệnh bằng y học cổ truyền muốn bố trí người có bằng chuyên môn phù hợp làm dược lâm sàng; cần đối chiếu những loại văn bằng nào để đáp ứng điều kiện?,scenario,"Lao động, tiền lương, tiền công",145013_004,145013,145013
+Q4340,điều kiện dược lâm sàng,keyword,"Lao động, tiền lương, tiền công",145013_004,145013,145013
+Q4350,Những tài liệu ngân sách nào phải công khai và hạn công khai được tính từ sự kiện nào?,natural,Ngân sách nhà nước,5cb1afe0-5f05-11f1-9481-57487a853907_037,5cb1afe0-5f05-11f1-9481-57487a853907,5cb1afe0-5f05-11f1-9481-57487a853907
+Q4351,"Ủy ban nhân dân cấp xã vừa nhận văn bản về chính sách hỗ trợ trực tiếp, sau đó phê duyệt chi trả cho người dân; cần đối chiếu những mốc công khai nào cho từng thông tin?",scenario,Ngân sách nhà nước,5cb1afe0-5f05-11f1-9481-57487a853907_037,5cb1afe0-5f05-11f1-9481-57487a853907,5cb1afe0-5f05-11f1-9481-57487a853907
+Q4356,"Với các dạng quỹ đại chúng khác nhau, những báo cáo nào cần được công khai theo chu kỳ tuần, tháng, quý, bán niên và năm?",natural,"TCNH và thị trường TC, trái phiếu, khác",91233_021,91233,110925
+Q4357,"Cuối quý, công ty quản lý quỹ cần công bố báo cáo đầu tư cùng thông tin biến động tài sản ròng; thời hạn công bố từng loại được xác định ra sao?",scenario,"TCNH và thị trường TC, trái phiếu, khác",91233_021,91233,110925
+Q4358,báo cáo quỹ đại chúng,keyword,"TCNH và thị trường TC, trái phiếu, khác",91233_021,91233,110925
+Q4362,"Khoản chi hội nghị, hội thảo khác phục vụ sự kiện IPU-132 cần đối chiếu theo chế độ chi nào?",natural,Quản lý ngân sách,37131_004,37131,37131
+Q4363,Ban tổ chức sự kiện IPU-132 phát sinh chi phí tiếp khách và hội thảo chưa nêu cụ thể trong tài liệu nội bộ; cần tra cứu khung hướng dẫn chi nào?,scenario,Quản lý ngân sách,37131_004,37131,37131
+Q4364,chi hội thảo IPU,keyword,Quản lý ngân sách,37131_004,37131,37131
+Q4446,"Ngoài tiêu chí chung, người được thu hút vào biên chế Quân đội hoặc ký hợp đồng cho nhiệm vụ chiến lược còn phải đáp ứng yêu cầu nào?",natural,"Lao động, tiền lương, tiền công",8089b220-7aab-11f1-9652-f1d90219607e_003,8089b220-7aab-11f1-9652-f1d90219607e,8089b220-7aab-11f1-9652-f1d90219607e
+Q4447,Một đơn vị đề xuất tuyển chuyên gia vào biên chế hoặc ký hợp đồng làm nhiệm vụ quan trọng; ai quyết định các tiêu chí bổ sung cho từng người?,scenario,"Lao động, tiền lương, tiền công",8089b220-7aab-11f1-9652-f1d90219607e_003,8089b220-7aab-11f1-9652-f1d90219607e,8089b220-7aab-11f1-9652-f1d90219607e
+Q4455,"Để biết khoản phí cho khâu kiểm dịch và bảo vệ cây trồng trong nông nghiệp, cần mở tài liệu nào?",natural,Chính sách thuế,150999_004,150999,150999
+Q4456,Đơn vị chuẩn bị thủ tục kiểm dịch thực vật cần dự trù khoản phí nhưng nội dung hiện có chỉ dẫn đến bảng phí kèm thông tư; cần mở phần nào để xác định mức thu?,scenario,Chính sách thuế,150999_004,150999,150999
+Q4457,kiểm dịch thực vật,keyword,Chính sách thuế,150999_004,150999,150999
+Q4476,"Trong hợp đồng mua bán điện đã ký, trường hợp nào dẫn đến việc hai bên cần thương lượng lại giá dịch vụ phát điện?",natural,"Lao động, tiền lương, tiền công",184620_024,184620,184620
+Q4477,Bên mua đề nghị điều chỉnh đơn giá dịch vụ phát điện sau khi hợp đồng đã có hiệu lực; hai bên cần xác định căn cứ nào để đàm phán lại?,scenario,"Lao động, tiền lương, tiền công",184620_024,184620,184620
+Q4478,giá dịch vụ phát điện,keyword,"Lao động, tiền lương, tiền công",184620_024,184620,184620
+Q4515,Các quỹ của Ngân hàng Chính sách xã hội được sử dụng cho những nhóm mục tiêu khác nhau như thế nào?,natural,"TCNH và thị trường TC, trái phiếu, khác",104313_015,104313,104313
+Q4516,"Ngân hàng cần sửa chữa công trình phúc lợi cho nhân viên, đồng thời đang cân nhắc bổ sung vốn và bù đắp tổn thất tài sản; cần đối chiếu mục đích của những quỹ nào?",scenario,"TCNH và thị trường TC, trái phiếu, khác",104313_015,104313,104313
+Q4517,mục đích các quỹ,keyword,"TCNH và thị trường TC, trái phiếu, khác",104313_015,104313,104313
+Q4536,Bộ hồ sơ xin phép bán chứng khoán rộng rãi cho công chúng phải lập bằng thứ tiếng nào và nộp mấy bộ cho cơ quan nào?,natural,"TCNH và thị trường TC, trái phiếu, khác",110900_019,110900,110900
+Q4537,Công ty tôi chuẩn bị chào bán chứng khoán ra công chúng nhưng một số tài liệu gốc viết bằng tiếng nước ngoài và một số là bản sao; cần dịch và chứng thực thế nào?,scenario,"TCNH và thị trường TC, trái phiếu, khác",110900_019,110900,110900
+Q4538,bản dịch tiếng Việt hồ sơ chứng khoán,keyword,"TCNH và thị trường TC, trái phiếu, khác",110900_019,110900,110900
+Q4554,Tiền thuế bảo vệ môi trường thu được sẽ chia cho các cấp ngân sách theo quy định của cơ quan nào?,natural,"Quản lý thuế, phí và lệ phí",27128_009,27128,27128
+Q4555,Địa phương tôi có nhiều doanh nghiệp nộp thuế bảo vệ môi trường và đang tính phần ngân sách tỉnh được hưởng; việc phân bổ khoản thu này căn cứ vào văn bản của cơ quan nào?,scenario,"Quản lý thuế, phí và lệ phí",27128_009,27128,27128
+Q4556,phân bổ thu thuế bảo vệ môi trường,keyword,"Quản lý thuế, phí và lệ phí",27128_009,27128,27128
+Q4635,Vốn của quỹ bảo lãnh tín dụng có thể được hình thành bằng những nguồn nào?,natural,"TCNH và thị trường TC, trái phiếu, khác",37527_007,37527,0da53250-5d6b-11f1-807d-c70e99d85013
+Q4636,"Một địa phương xem xét tăng vốn cho Quỹ bảo lãnh tín dụng; ngoài vốn ngân sách, còn có thể tính những khoản góp vốn hoặc tài trợ nào?",scenario,"TCNH và thị trường TC, trái phiếu, khác",37527_007,37527,0da53250-5d6b-11f1-807d-c70e99d85013
+Q4637,Vốn quỹ bảo lãnh,keyword,"TCNH và thị trường TC, trái phiếu, khác",37527_007,37527,0da53250-5d6b-11f1-807d-c70e99d85013
+Q4680,Nguồn thu từ quỹ đất của dự án mở rộng đường Láng–Hòa Lạc được hạch toán và chuyển tiếp vốn cuối năm ra sao?,natural,Quản lý ngân sách,24853_006,24853,24853
+Q4681,"Với dự án đường Láng–Hòa Lạc, giá trị quỹ đất tạm ứng cho tổng thầu lớn hơn phần công trình được thanh toán; khoản chênh lệch phải được xử lý thế nào?",scenario,Quản lý ngân sách,24853_006,24853,24853
+Q4689,"Tổ, nhóm cộng đồng cần chuẩn bị hồ sơ và trải qua những bước nào để được lựa chọn dự án hỗ trợ phát triển sản xuất?",natural,Ngân sách nhà nước,20e66500-6892-11f1-b351-6f15c9710a1a_032,20e66500-6892-11f1-b351-6f15c9710a1a,20e66500-6892-11f1-b351-6f15c9710a1a
+Q4690,"Sau khi nộp đề xuất dự án, một nhóm cộng đồng chưa đồng ý với kết quả đánh giá; các mốc công khai, phản hồi kiến nghị và trình duyệt tiếp theo cần được tính ra sao?",scenario,Ngân sách nhà nước,20e66500-6892-11f1-b351-6f15c9710a1a_032,20e66500-6892-11f1-b351-6f15c9710a1a,20e66500-6892-11f1-b351-6f15c9710a1a
+Q4691,Dự án cộng đồng,keyword,Ngân sách nhà nước,20e66500-6892-11f1-b351-6f15c9710a1a_032,20e66500-6892-11f1-b351-6f15c9710a1a,20e66500-6892-11f1-b351-6f15c9710a1a
+Q4692,"Khi lập dự toán cho nhiệm vụ quốc phòng ở địa phương, những nhóm chi nào được nêu trong căn cứ này?",natural,Quản lý ngân sách,25051_004,25051,25051
+Q4693,"Địa phương tổ chức khảo sát, kiểm tra và diễn tập khu vực phòng thủ, đồng thời thanh toán nhiên liệu, công tác phí và cuộc họp; các nhóm chi này dựa vào căn cứ nào?",scenario,Quản lý ngân sách,25051_004,25051,25051
+Q4694,Chi phòng thủ,keyword,Quản lý ngân sách,25051_004,25051,25051
+Q4728,Văn phòng đại diện của tổ chức kinh doanh chứng khoán nước ngoài tại Việt Nam hoạt động trong phạm vi quyền và nghĩa vụ nào?,natural,"TCNH và thị trường TC, trái phiếu, khác",57351_009,57351,0da53250-5d6b-11f1-807d-c70e99d85013
+Q4729,Một nhân viên làm việc tại văn phòng đại diện chứng khoán nước ngoài ở Việt Nam có nghĩa vụ thuế theo pháp luật Việt Nam không?,scenario,"TCNH và thị trường TC, trái phiếu, khác",57351_009,57351,0da53250-5d6b-11f1-807d-c70e99d85013
+Q4730,văn phòng chứng khoán,keyword,"TCNH và thị trường TC, trái phiếu, khác",57351_009,57351,0da53250-5d6b-11f1-807d-c70e99d85013
+Q4758,"Kinh phí chuẩn bị, tổ chức và tham dự các kỳ thi giáo dục phổ thông có thể hình thành từ những nguồn nào?",natural,Tài chính hành chính sự nghiệp,150679_003,150679,150679
+Q4759,Một kỳ thi do địa phương chủ trì có thêm tài trợ hợp pháp từ tổ chức bên ngoài thì kinh phí ngân sách và tài trợ được xác định như thế nào?,scenario,Tài chính hành chính sự nghiệp,150679_003,150679,150679
+Q4803,"Những thành tích nghiên cứu và sản phẩm kỹ thuật nào có thể được quy đổi điểm khi xét chức danh khoa học, công nghệ?",natural,"Lao động, tiền lương, tiền công",186114_003,186114,186114
+Q4804,"Hai đồng tác giả cùng công bố một bài báo, hoặc một tác giả có nội dung lặp lại đáng kể với công trình trước; việc tính điểm được xem xét theo tiêu chí nào?",scenario,"Lao động, tiền lương, tiền công",186114_003,186114,186114
+Q4805,điểm quy đổi nghiên cứu,keyword,"Lao động, tiền lương, tiền công",186114_003,186114,186114
+Q4875,Cơ sở ở nước ngoài muốn xuất khẩu thực phẩm có nguồn gốc động vật hoặc thủy sản vào Việt Nam cần đăng ký và được thẩm tra ra sao?,natural,"Lao động, tiền lương, tiền công",128513_022,128513,0da53250-5d6b-11f1-807d-c70e99d85013
+Q4876,Một quốc gia đề nghị bổ sung một cơ sở sản xuất thủy sản vào danh sách được phép xuất khẩu; cần nộp thông tin nào và cơ quan Việt Nam xử lý trong giai đoạn nào?,scenario,"Lao động, tiền lương, tiền công",128513_022,128513,0da53250-5d6b-11f1-807d-c70e99d85013
+Q4877,cơ sở xuất khẩu thực phẩm,keyword,"Lao động, tiền lương, tiền công",128513_022,128513,0da53250-5d6b-11f1-807d-c70e99d85013
+Q4890,Tiền lương do Chính phủ nước ngoài trả cho người được cử sang Việt Nam làm việc cho cơ quan của chính phủ đó có phải nộp thuế thu nhập tại Việt Nam không?,natural,"Quản lý thuế, phí và lệ phí",38001_039,38001,38001
+Q4891,"Tôi mang quốc tịch Việt Nam và đang làm cho văn phòng của một cơ quan viện trợ thuộc chính phủ nước ngoài ở Việt Nam, lương do chính phủ đó trả; thu nhập này có bị tính thuế thu nhập cá nhân ở Việt Nam không?",scenario,"Quản lý thuế, phí và lệ phí",38001_039,38001,38001
+Q4892,miễn thuế lương chính phủ nước ngoài,keyword,"Quản lý thuế, phí và lệ phí",38001_039,38001,38001
+Q4923,"Những người nào được miễn lệ phí quốc tịch, hộ tịch và đăng ký cư trú theo thỏa thuận về người di cư tự do và kết hôn không giá thú với Lào?",natural,"Quản lý thuế, phí và lệ phí",122845_001,122845,122845
+Q4924,"Tôi là người Lào kết hôn không giá thú với người Việt ở vùng biên giới, đã được phía Việt Nam đồng ý cho ở lại sinh sống; khi làm thủ tục đăng ký hộ tịch và cư trú tôi có phải nộp lệ phí không?",scenario,"Quản lý thuế, phí và lệ phí",122845_001,122845,122845
+Q4925,miễn lệ phí người di cư Lào,keyword,"Quản lý thuế, phí và lệ phí",122845_001,122845,122845
+Q4932,Chủ tàu cá nào được miễn thuế nhập khẩu khi nhập máy thu trực canh để lắp trên tàu?,natural,"Quản lý thuế, phí và lệ phí",25311_001,25311,25311
+Q4933,"Tàu cá của gia đình tôi bị chìm do thiên tai, nay tôi muốn khôi phục sản xuất và nhập máy thu trực canh để lắp lên tàu; tôi có thuộc diện được miễn thuế nhập khẩu không?",scenario,"Quản lý thuế, phí và lệ phí",25311_001,25311,25311
+Q4934,máy thu trực canh ngư dân,keyword,"Quản lý thuế, phí và lệ phí",25311_001,25311,25311
+Q4980,Trường hợp nào bị coi là không tuân thủ quy trình kiểm tra cam kết chi khi làm việc với Kho bạc Nhà nước?,natural,Quản lý ngân sách,67433_009,67433,67433
+Q4981,Đơn vị dự toán gửi đề nghị cam kết chi trễ hạn rồi chuẩn bị xin Kho bạc chi trả; cần khắc phục việc thiếu thủ tục trước khi thanh toán ra sao?,scenario,Quản lý ngân sách,67433_009,67433,67433
+Q4982,cam kết chi,keyword,Quản lý ngân sách,67433_009,67433,67433
+Q5022,Người đã hết thời gian hưởng trợ cấp mất sức lao động thì khi nào bắt đầu được nhận trợ cấp hằng tháng?,natural,"Lao động, tiền lương, tiền công",25379_003,25379,25379
+Q5023,"Hồ sơ của một người chỉ ghi năm sinh, người này đã hết tuổi lao động và trước đây đã hết thời gian hưởng trợ cấp mất sức; lấy mốc nào để tính tháng bắt đầu nhận trợ cấp?",scenario,"Lao động, tiền lương, tiền công",25379_003,25379,25379
+Q5024,trợ cấp mất sức,keyword,"Lao động, tiền lương, tiền công",25379_003,25379,25379
+Q5136,"Nguồn ngân sách cho nhiệm vụ tư vấn, phản biện, giám định xã hội của hệ thống Liên hiệp Hội được phân bổ và quyết toán ra sao?",natural,Quản lý dịch vụ tài chính và các quỹ tài chính,56423_008,56423,56423
+Q5137,"Khi cơ quan trung ương giao một Liên hiệp hội ở địa phương thực hiện nhiệm vụ theo hợp đồng, kinh phí chuyển giao được lấy từ nguồn nào?",scenario,Quản lý dịch vụ tài chính và các quỹ tài chính,56423_008,56423,56423
+Q5138,kinh phí phản biện,keyword,Quản lý dịch vụ tài chính và các quỹ tài chính,56423_008,56423,56423
+Q5226,Người điều hành dầu khí cần ghi nhận khoản thuế thu nhập doanh nghiệp phát sinh trong kỳ vào sổ kế toán như thế nào?,natural,Quản lý dịch vụ tài chính và các quỹ tài chính,46353_011,46353,46353
+Q5227,Nhà điều hành dầu khí có khoản thu theo hợp đồng được xem xét ghi giảm chi phí thăm dò; việc nộp thuế thu nhập doanh nghiệp liên quan cần được xử lý trước khi ghi giảm ra sao?,scenario,Quản lý dịch vụ tài chính và các quỹ tài chính,46353_011,46353,46353
+Q5228,kế toán thuế dầu khí,keyword,Quản lý dịch vụ tài chính và các quỹ tài chính,46353_011,46353,46353
+Q5238,Người được mời phối hợp nghiên cứu trong chương trình khoa học đổi mới cần có nền tảng chuyên môn và kinh nghiệm ra sao?,natural,"Lao động, tiền lương, tiền công",186134_002,186134,186134
+Q5239,"Tổ chức chủ trì nhiệm vụ khoa học dự định thuê tư vấn chuyển giao công nghệ; ngoài trình độ và kinh nghiệm phù hợp, cần xem xét thêm bằng chứng chuyên môn nào của chuyên gia?",scenario,"Lao động, tiền lương, tiền công",186134_002,186134,186134
+Q5240,chức danh nghiên cứu khoa học,keyword,"Lao động, tiền lương, tiền công",186134_002,186134,186134
+Q5247,"Công ty chứng khoán và công ty quản lý quỹ căn cứ vào đâu để ghi nhận doanh thu, thu nhập khác trong kỳ kế toán?",natural,"TCNH và thị trường TC, trái phiếu, khác",67995_010,67995,67995
+Q5248,"Công ty quản lý quỹ phát sinh doanh thu nhưng chứng từ chưa đầy đủ, đồng thời có khoản chênh lệch khi quy đổi ngoại tệ; cần rà soát những nguyên tắc nào trước khi ghi sổ?",scenario,"TCNH và thị trường TC, trái phiếu, khác",67995_010,67995,67995
+Q5249,ghi nhận doanh thu chứng khoán,keyword,"TCNH và thị trường TC, trái phiếu, khác",67995_010,67995,67995
+Q5352,"Ai chịu trách nhiệm xem xét định mức kinh tế - kỹ thuật mà các bộ, ngành xây dựng cho hàng dự trữ quốc gia?",natural,Quản lý ngân sách,46208_006,46208,46208
+Q5353,Một bộ đã xây dựng định mức cho hàng dự trữ quốc gia; hồ sơ phải qua cơ quan nào thẩm định trước khi trình Bộ trưởng Bộ Tài chính?,scenario,Quản lý ngân sách,46208_006,46208,46208
+Q5354,thẩm định định mức,keyword,Quản lý ngân sách,46208_006,46208,46208
+Q5367,"Mục và Tiểu mục trong mục lục ngân sách được phân loại, mã hóa và hạch toán theo nguyên tắc nào?",natural,"Lao động, tiền lương, tiền công",185874_004,185874,185874
+Q5368,Kế toán ngân sách có khoản thu chưa được chi tiết thành Tiểu mục; khi hạch toán cần chọn mã nào và xác định Mục tương ứng ra sao?,scenario,"Lao động, tiền lương, tiền công",185874_004,185874,185874
+Q5369,mã tiểu mục,keyword,"Lao động, tiền lương, tiền công",185874_004,185874,185874
+Q5376,"Trong kế hoạch tài chính ba năm, giới hạn chi cho chương trình mục tiêu và mức bổ sung ngân sách trung ương dành cho địa phương được hiểu thế nào?",natural,Ngân sách nhà nước,130757_004,130757,130757
+Q5377,Một tỉnh lập kế hoạch tài chính ba năm và nhận thông báo giới hạn bổ sung từ ngân sách trung ương; giới hạn này gồm những loại bổ sung nào và được chi tiết ra sao?,scenario,Ngân sách nhà nước,130757_004,130757,130757
+Q5378,trần chi ngân sách,keyword,Ngân sách nhà nước,130757_004,130757,130757
+Q5388,Cán bộ từng đi làm chuyên gia cho nước bạn Lào hoặc Campuchia thì thuộc diện nào và cần hồ sơ gì để xét trợ cấp một lần?,natural,"Lao động, tiền lương, tiền công",153989_001,153989,153989
+Q5389,"Bố tôi là công nhân viên đi phục vụ chuyên gia ở Lào nhiều năm trước, nay gia đình muốn làm thủ tục xin trợ cấp một lần; bố tôi có thuộc đối tượng được xét hưởng không và hồ sơ gồm những gì?",scenario,"Lao động, tiền lương, tiền công",153989_001,153989,153989
+Q5390,trợ cấp một lần chuyên gia Lào,keyword,"Lao động, tiền lương, tiền công",153989_001,153989,153989
+Q5418,Với dự án mà quyết định thu hồi đất và phương án bồi thường đều có từ trước khi nghị định mới có hiệu lực thì áp dụng quy định nào?,natural,"Lao động, tiền lương, tiền công",187157_019,187157,0da53250-5d6b-11f1-807d-c70e99d85013
+Q5419,"Dự án của tỉnh chúng tôi còn một phần đất mà phương án đền bù, hỗ trợ, tái định cư chưa được duyệt khi nghị định mới có hiệu lực; Ủy ban nhân dân tỉnh được chọn áp dụng những quy định pháp luật nào cho phần đó?",scenario,"Lao động, tiền lương, tiền công",187157_019,187157,0da53250-5d6b-11f1-807d-c70e99d85013
+Q5420,chuyển tiếp bồi thường tái định cư,keyword,"Lao động, tiền lương, tiền công",187157_019,187157,0da53250-5d6b-11f1-807d-c70e99d85013

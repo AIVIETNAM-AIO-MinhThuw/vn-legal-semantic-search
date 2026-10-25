@@ -1,0 +1,34 @@
+{
+  "version": "source-qrels-v1",
+  "created": "2026-10-25T16:46:09.450423+00:00",
+  "params": {
+    "hard_depth": 10,
+    "n_random": 5,
+    "seed": 42
+  },
+  "inputs": {
+    "data/interim/full_v2/queries_v2.csv": "43b0c6fa2451bcd25309762ab58a4386f258dfbb5980e3cd06a10e9fc73caa98",
+    "data/processed/articles_index.jsonl": "4597ae7a7f08129fa224cfd829845ed7df751ec747097b0e674b664bdb86e30e",
+    "data/splits.json": "61475224522d78f2e4fa43389c66675d62d8c892d7e41a6b6430f0a0ab6ff519",
+    "data/interim/full_v2/bm25_s10/run.trec": "3046f9bbd14db043e37584c1aa9606871058f7c2aa558ff8fe95876c852d53d0",
+    "data/interim/full_v2/e5_s2/run.trec": "cd4d220901f14df0ab9293a519bb306ba0ca121ad19dddd68b1d8812e16d4497"
+  },
+  "n_input_queries": 4641,
+  "stats": {
+    "positives": 4641,
+    "queries_with_dup_positive": 0,
+    "bm25_s10_source_in_top10": 4174,
+    "e5_s2_source_in_top10": 4077,
+    "hard_negatives": 34879,
+    "queries_without_hard_negative": 533,
+    "random_negatives": 23205,
+    "queries": 4641
+  },
+  "n_errors": 0,
+  "outputs": {
+    "qrels.jsonl": "099b7304bcb3ae1d9fe9446cdb5eb290a80b6b71aa0ac774f0db44dc20b338d3",
+    "qrels.trec": "efe8e7273e262a4659ac3000cc66a1a4b4e43c271858457868de96837cadcd9b",
+    "negatives.jsonl": "6796114f7abcb797a8995b07aefa1b405502f026862d83c7bef3722bd098b421",
+    "errors.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

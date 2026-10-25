@@ -24,3 +24,8 @@
 *.npz binary
 *.faiss binary
 *.index binary
+
+# Artifact dữ liệu và kết quả: giữ nguyên byte vì SHA-256 được ghi trong summary/manifest/FROZEN.md
+data/** -text
+runs/** -text
+reports/results/** -text
