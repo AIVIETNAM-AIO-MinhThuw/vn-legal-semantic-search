@@ -1,0 +1,18 @@
+# Đánh giá cuối (SPEC 11). runs/<query_set>/<system>/{run.trec,summary.json}
+qrels: data/interim/source_qrels_v1/qrels.jsonl
+articles: data/processed/articles_index.jsonl
+query_sets:
+  test: data/eval_v1/queries_test.csv
+  test_no_diacritic: data/eval_v1/queries_test_no_diacritic.csv
+  test_typo: data/eval_v1/queries_test_typo.csv
+  val: data/eval_v1/queries_val.csv
+systems:            # tên hiển thị: thư mục run, thư mục index (đo kích thước)
+  BM25 (S1₀):            {run: bm25_s10, index: indexes/bm25_s10}
+  SBERT đa ngôn ngữ:     {run: sbert_mminilm, index: indexes/sbert_mminilm}
+  E5 zero-shot (S2):     {run: e5_s2, index: indexes/e5_s2}
+  E5 fine-tune A:        {run: e5_ft_A, index: indexes/e5_ft_A}
+  E5 fine-tune B (+HN):  {run: e5_ft_B, index: indexes/e5_ft_B}
+baseline: BM25 (S1₀)
+zero_shot: E5 zero-shot (S2)
+bootstrap: {n: 10000, seed: 42, metrics: [NDCG@10, MRR@10, R@10]}
+output: reports/results
