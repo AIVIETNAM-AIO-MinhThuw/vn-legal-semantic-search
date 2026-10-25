@@ -1,0 +1,9 @@
+# E5 fine-tune (S3 = cấu hình A, S4 = cấu hình B). paths.model/index/run_tag ghi đè bằng CLI.
+seed: 42
+paths:
+  model: models/REPLACE/model
+  chunks: data/processed/chunks_index.jsonl
+  index: indexes/REPLACE
+encoding: {max_length: 512, batch_size: 32, fp16_inference: false, query_prefix: "query: ", passage_prefix: "passage: "}
+retrieval: {top_k: 10, chunk_top_k: 200, run_tag: e5_ft}
+runtime: {device: cuda}

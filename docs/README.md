@@ -4,18 +4,18 @@ Tài liệu này dẫn từ từng phase đến bằng chứng và nội dung tr
 
 ## Tiến độ và nội dung cần bàn giao
 
-Trạng thái được ghi nhận ngày **2026-10-22**, dựa trên repo và lần review gần nhất. Đây là ảnh chụp tiến độ, không tự đồng bộ khi code hoặc artifact thay đổi.
+Trạng thái ngày **2026-10-26** (bản nộp). Luồng cuối theo Changelog SPEC ngày 2026-10-26.
 
-| Mốc tài liệu | Trạng thái quan sát | Phần trình bày cần hoàn thiện | Bằng chứng hiện có / còn chờ |
-|---|---|---|---|
-| 01 — Nguồn dữ liệu, EDA và phạm vi | Có kết quả EDA và notebook trình bày; OI-10 đã ghi trong SPEC/config. | Nguồn/revision/schema, phân bố, dữ liệu thiếu, bất thường, căn cứ và hạn chế của phạm vi được nhóm chọn. | [Notebook](../notebooks/01_eda.ipynb), [EDA](../reports/data_stats/eda_summary.md), [schema](../reports/data_stats/schema.md), [config](../configs/data.yaml), SPEC mục 17. |
-| 02 — Chuẩn bị corpus | WIP, chưa duyệt. Review gần nhất còn ba lỗi: nhận diện chữ ký, xử lý ngoặc không cân bằng và validation đầu vào rỗng. | Sơ đồ xử lý, bảng trước/sau, ví dụ Điều/chunk, lý do loại, dedup, test và giới hạn parser. | Code trong `scripts/`/`src/data/`; output local trong `data/processed/`, `logs/`, `reports/data_stats/after_filter/`. Chờ bản sửa được kiểm chứng. |
-| 03 — Gom họ, split và leakage | Chưa có bằng chứng hoàn tất; chưa có `data/splits.json` khi kiểm kê. | Minh họa họ và nút trung gian, phân bố kích thước họ, số họ/văn bản/Điều theo split, kết quả kiểm tra leakage và phê duyệt. | Chờ artifact và quyết định tại điểm chờ trước split. |
-| 04 — Query và chuẩn bị đánh giá | Chưa có artifact được bàn giao. | Nguồn query theo split, thống kê kiểu query và lọc/duyệt, version prompt/model, lịch sử sửa và freeze. | Chờ file query, cấu hình và log; OOD do người viết, không để LLM tạo/gợi ý/sửa. |
-| 05 — Retrieval và training | Mới có helper tiền tố E5; chưa có bằng chứng các hệ thống được chạy. | Sơ đồ hệ thống, cấu hình, dữ liệu đầu vào, manifest, log train và căn cứ chọn cấu hình trên val. | Chờ run/config/log/checkpoint theo phase; không dùng test/OOD để lựa chọn. |
-| 06 — Pooling và annotation | Chưa có artifact được bàn giao. | Quy trình pooling tăng dần, protocol người chấm, calibration/agreement, kiểm tra và freeze qrels. | Chờ dữ liệu thực; giữ blind và final label do người gán. Phase này phối hợp với các vòng hệ thống theo SPEC. |
-| 07 — Evaluation và phân tích lỗi | Chưa thực hiện chính thức. | Bảng metric, per-query results, kiểm định và phân tích lỗi/giới hạn có bằng chứng. | Chỉ tạo kết quả test/OOD sau khi đủ điều kiện freeze theo SPEC. Trước đó chỉ integrity và phân tích được phép. |
-| 08 — Demo và tổng hợp báo cáo | App hiện là khung; báo cáo/slide cuối chưa được bàn giao. | Kịch bản demo, hướng dẫn CPU/artifact, ảnh ứng dụng thật, kết luận và hạn chế; tổng hợp các mốc đã duyệt. | Chờ ứng dụng chạy được và bằng chứng các phase trước. |
+| Mốc | Trạng thái | Bằng chứng |
+|---|---|---|
+| 01 — Nguồn dữ liệu, EDA, phạm vi | Xong | [Notebook](../notebooks/01_eda.ipynb), [EDA](../reports/data_stats/eda_summary.md), [config](../configs/data.yaml), SPEC mục 17 (OI-10) |
+| 02 — Chuẩn bị corpus | Xong (7.340 Điều, 14.281 chunk) | `scripts/prepare_data.py`, `scripts/validate_data.py`, `reports/data_stats/after_filter/` |
+| 03 — Query | 4.641 query (natural/scenario/keyword) sau lọc trùng, chép nguyên văn | `data/interim/full_v2/queries_v2.csv`; provenance trong gói handoff Task 6 |
+| 04 — Nhãn | Pseudo-qrels Điều nguồn; pilot gán nhãn LLM đã dừng | `data/interim/source_qrels_v1/`, [annotation.md](phases/annotation.md) |
+| 05 — Split | 3.718 / 461 / 462, không chung Điều positive giữa các split | `data/splits_v2/overlap_report.json` |
+| 06 — Retrieval và training | BM25 S1₀, SBERT, E5 zero-shot, E5 fine-tune A/B; LR 3e-5 chọn trên val | `models/*/val_metrics.json`, `models/lr_selection.json`, [bm25](phases/bm25.md), [e5](phases/e5.md) |
+| 07 — Evaluation và phân tích lỗi | Xong trên test + biến thể không dấu/lỗi gõ; không có OOD | [results.md](../reports/results/results.md), `runs/` |
+| 08 — Demo | Chạy được (API + Streamlit), hướng dẫn cho người clone | [README](../README.md), `scripts/run_demo.ps1` |
 
 Không dùng bảng này để ghi “hoàn tất” chỉ vì có code, một file output hoặc một lần test đạt. Người cập nhật phải nêu artifact và kết quả kiểm chứng, đồng thời ghi các giới hạn còn lại.
 
@@ -50,3 +50,7 @@ Sau mỗi phase, lưu bản bàn giao ở `docs/phases/NN_ten_phase.md` theo m�
 | Phê duyệt và Git | Quyết định tại điểm chờ, xác nhận nội dung bàn giao và commit/push theo phân công. | Nhóm chưa ghi tên. |
 
 Một người có thể đảm nhiệm nhiều vai trò; ghi nhận đóng góp thực tế, không tạo lịch sử đóng góp hoặc kết quả kiểm chứng giả.
+
+## Lịch sử
+
+[Báo cáo baseline và pilot gán nhãn ngày 2026-10-25](phases/annotation.md): pilot gán nhãn LLM, đã dừng và thay bằng nhãn Điều nguồn ngày 2026-10-26.

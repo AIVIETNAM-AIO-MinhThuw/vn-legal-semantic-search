@@ -1,0 +1,184 @@
+{
+  "search_id": "00000000-0000-0000-0000-000000000078",
+  "query_normalized": "đề nghị hỗ trợ tiền lương (câu hỏi mẫu)",
+  "warnings": [
+    {
+      "code": "QUERY_TRUNCATED",
+      "message": "Thông báo mẫu không được hiển thị trực tiếp."
+    }
+  ],
+  "timing_ms": 42.6,
+  "lists": [
+    {
+      "system": "semantic",
+      "score_type": "cosine",
+      "items": [
+        {
+          "rank": 1,
+          "article_id": "mau_dieu_01",
+          "doc_title": "Quy chế hư cấu số 01/DEMO về hoạt động cộng đồng (dữ liệu mẫu)",
+          "article_number": "1",
+          "article_title": "Trình tự tiếp nhận, đối chiếu và giải quyết đề nghị hỗ trợ tiền lương cho người làm việc tại xưởng đèn giấy trong thời gian tạm nghỉ",
+          "effect_status": "Còn hiệu lực (giả lập)",
+          "content": "1. Người làm việc có thể gửi đề nghị hỗ trợ tiền lương trong thời gian xưởng tạm nghỉ.\n2. Người gửi đề nghị giữ một bản sao để đối chiếu khi cần.\na) Ghi rõ tên người liên hệ và thời gian đề nghị.\nb) Bổ sung tài liệu minh họa theo hướng dẫn của đơn vị tiếp nhận.\n3. Ví dụ minh họa trong dữ liệu mẫu: mức A < mức B & khoản C được ghi riêng.\nNội dung này hoàn toàn hư cấu, chỉ dùng để trình bày giao diện.\n4. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n5. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n6. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n7. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n8. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n9. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n10. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n11. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n12. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n13. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n14. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n15. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n16. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n17. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n18. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.\n19. Nhóm điều phối ghi nhận từng lần trao đổi trong sổ theo dõi. Người làm việc có thể đề nghị kiểm tra lại thông tin về thời gian tạm nghỉ.\na) Đối chiếu bản sao đã nhận với thông tin do người liên hệ cung cấp.\nb) Ghi rõ nội dung cần bổ sung để các bên cùng theo dõi tiến độ xử lý.",
+          "score": 0.88,
+          "in_both": false,
+          "highlights": [
+            {
+              "start": 3,
+              "end": 86
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "article_id": "mau_dieu_02",
+          "doc_title": "Quy chế hư cấu số 02/DEMO về hoạt động cộng đồng (dữ liệu mẫu)",
+          "article_number": "2",
+          "article_title": "Công khai kế hoạch sử dụng quỹ hoạt động của khu vườn chung",
+          "effect_status": "Còn hiệu lực (giả lập)",
+          "content": "1. Ban quản lý phải công khai kế hoạch sử dụng quỹ trước ngày tổ chức hoạt động.\n2. Người gửi đề nghị giữ một bản sao để đối chiếu khi cần.\na) Ghi rõ tên người liên hệ và thời gian đề nghị.\nb) Bổ sung tài liệu minh họa theo hướng dẫn của đơn vị tiếp nhận.\n3. Ví dụ minh họa trong dữ liệu mẫu: mức A < mức B & khoản C được ghi riêng.\nNội dung này hoàn toàn hư cấu, chỉ dùng để trình bày giao diện.",
+          "score": 0.848,
+          "in_both": false,
+          "highlights": [
+            {
+              "start": 3,
+              "end": 80
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "article_id": "mau_dieu_03",
+          "doc_title": "Quy chế hư cấu số 03/DEMO về hoạt động cộng đồng (dữ liệu mẫu)",
+          "article_number": "3",
+          "article_title": "Đăng ký lịch làm việc linh hoạt cho nhóm chăm sóc thư viện",
+          "effect_status": "Còn hiệu lực (giả lập)",
+          "content": "1. Người phụ trách thỏa thuận lịch làm việc với từng thành viên của nhóm.\n2. Người gửi đề nghị giữ một bản sao để đối chiếu khi cần.\na) Ghi rõ tên người liên hệ và thời gian đề nghị.\nb) Bổ sung tài liệu minh họa theo hướng dẫn của đơn vị tiếp nhận.\n3. Ví dụ minh họa trong dữ liệu mẫu: mức A < mức B & khoản C được ghi riêng.\nNội dung này hoàn toàn hư cấu, chỉ dùng để trình bày giao diện.",
+          "score": 0.816,
+          "in_both": false,
+          "highlights": [
+            {
+              "start": 3,
+              "end": 73
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "article_id": "mau_dieu_04",
+          "doc_title": "Quy chế hư cấu số 04/DEMO về hoạt động cộng đồng (dữ liệu mẫu)",
+          "article_number": "4",
+          "article_title": "Lập bảng dự toán cho hoạt động sửa chữa phòng đọc",
+          "effect_status": "Còn hiệu lực (giả lập)",
+          "content": "1. Khoản kinh phí dự kiến được ghi riêng cho vật liệu và công việc sửa chữa.\n2. Người gửi đề nghị giữ một bản sao để đối chiếu khi cần.\na) Ghi rõ tên người liên hệ và thời gian đề nghị.\nb) Bổ sung tài liệu minh họa theo hướng dẫn của đơn vị tiếp nhận.\n3. Ví dụ minh họa trong dữ liệu mẫu: mức A < mức B & khoản C được ghi riêng.\nNội dung này hoàn toàn hư cấu, chỉ dùng để trình bày giao diện.",
+          "score": 0.784,
+          "in_both": false,
+          "highlights": [
+            {
+              "start": 3,
+              "end": 76
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "article_id": "mau_dieu_05",
+          "doc_title": "Quy chế hư cấu số 05/DEMO về hoạt động cộng đồng (dữ liệu mẫu)",
+          "article_number": "5",
+          "article_title": "Tiếp nhận hồ sơ thanh toán chi phí tham gia ngày hội",
+          "effect_status": "Còn hiệu lực (giả lập)",
+          "content": "1. Hồ sơ thanh toán gồm phiếu đề nghị và bảng kê chi phí thực tế.\n2. Người gửi đề nghị giữ một bản sao để đối chiếu khi cần.\na) Ghi rõ tên người liên hệ và thời gian đề nghị.\nb) Bổ sung tài liệu minh họa theo hướng dẫn của đơn vị tiếp nhận.\n3. Ví dụ minh họa trong dữ liệu mẫu: mức A < mức B & khoản C được ghi riêng.\nNội dung này hoàn toàn hư cấu, chỉ dùng để trình bày giao diện.",
+          "score": 0.752,
+          "in_both": false,
+          "highlights": [
+            {
+              "start": 3,
+              "end": 65
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "article_id": "mau_dieu_06",
+          "doc_title": "Quy chế hư cấu số 06/DEMO về hoạt động cộng đồng (dữ liệu mẫu)",
+          "article_number": "6",
+          "article_title": "Lưu giữ thông tin về khoản đóng góp tự nguyện",
+          "effect_status": "Còn hiệu lực (giả lập)",
+          "content": "1. Mỗi khoản đóng góp được ghi nhận vào sổ theo dõi chung của chương trình.\n2. Người gửi đề nghị giữ một bản sao để đối chiếu khi cần.\na) Ghi rõ tên người liên hệ và thời gian đề nghị.\nb) Bổ sung tài liệu minh họa theo hướng dẫn của đơn vị tiếp nhận.\n3. Ví dụ minh họa trong dữ liệu mẫu: mức A < mức B & khoản C được ghi riêng.\nNội dung này hoàn toàn hư cấu, chỉ dùng để trình bày giao diện.",
+          "score": 0.72,
+          "in_both": false,
+          "highlights": [
+            {
+              "start": 3,
+              "end": 75
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "article_id": "mau_dieu_07",
+          "doc_title": "Quy chế hư cấu số 07/DEMO về hoạt động cộng đồng (dữ liệu mẫu)",
+          "article_number": "7",
+          "article_title": "Thủ tục thông báo thay đổi người phụ trách kế toán",
+          "effect_status": "Còn hiệu lực (giả lập)",
+          "content": "1. Đơn vị gửi thông báo thay đổi người phụ trách trong vòng ba ngày làm việc.\n2. Người gửi đề nghị giữ một bản sao để đối chiếu khi cần.\na) Ghi rõ tên người liên hệ và thời gian đề nghị.\nb) Bổ sung tài liệu minh họa theo hướng dẫn của đơn vị tiếp nhận.\n3. Ví dụ minh họa trong dữ liệu mẫu: mức A < mức B & khoản C được ghi riêng.\nNội dung này hoàn toàn hư cấu, chỉ dùng để trình bày giao diện.",
+          "score": 0.688,
+          "in_both": false,
+          "highlights": [
+            {
+              "start": 3,
+              "end": 77
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "article_id": "mau_dieu_08",
+          "doc_title": "Quy chế hư cấu số 08/DEMO về hoạt động cộng đồng (dữ liệu mẫu)",
+          "article_number": "8",
+          "article_title": "Sắp xếp thời gian nghỉ bù khi tổ chức hoạt động vào cuối tuần",
+          "effect_status": "Còn hiệu lực (giả lập)",
+          "content": "1. Thành viên được thỏa thuận thời gian nghỉ bù sau khi hoàn thành hoạt động.\n2. Người gửi đề nghị giữ một bản sao để đối chiếu khi cần.\na) Ghi rõ tên người liên hệ và thời gian đề nghị.\nb) Bổ sung tài liệu minh họa theo hướng dẫn của đơn vị tiếp nhận.\n3. Ví dụ minh họa trong dữ liệu mẫu: mức A < mức B & khoản C được ghi riêng.\nNội dung này hoàn toàn hư cấu, chỉ dùng để trình bày giao diện.",
+          "score": 0.656,
+          "in_both": false,
+          "highlights": [
+            {
+              "start": 3,
+              "end": 77
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "article_id": "mau_dieu_09",
+          "doc_title": "Quy chế hư cấu số 09/DEMO về hoạt động cộng đồng (dữ liệu mẫu)",
+          "article_number": "9",
+          "article_title": "Kiểm tra chứng từ mua vật dụng cho phòng sinh hoạt",
+          "effect_status": "Còn hiệu lực (giả lập)",
+          "content": "1. Người kiểm tra đối chiếu tên vật dụng với bảng kê trước khi xác nhận chứng từ.\n2. Người gửi đề nghị giữ một bản sao để đối chiếu khi cần.\na) Ghi rõ tên người liên hệ và thời gian đề nghị.\nb) Bổ sung tài liệu minh họa theo hướng dẫn của đơn vị tiếp nhận.\n3. Ví dụ minh họa trong dữ liệu mẫu: mức A < mức B & khoản C được ghi riêng.\nNội dung này hoàn toàn hư cấu, chỉ dùng để trình bày giao diện.",
+          "score": 0.624,
+          "in_both": false,
+          "highlights": [
+            {
+              "start": 3,
+              "end": 81
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "article_id": "mau_dieu_10",
+          "doc_title": "Quy chế hư cấu số 10/DEMO về hoạt động cộng đồng (dữ liệu mẫu)",
+          "article_number": "10",
+          "article_title": "Hướng dẫn bàn giao công cụ dùng chung sau mỗi kỳ hoạt động",
+          "effect_status": "Còn hiệu lực (giả lập)",
+          "content": "1. Bên bàn giao lập danh sách công cụ và ghi nhận tình trạng của từng vật dụng.\n2. Người gửi đề nghị giữ một bản sao để đối chiếu khi cần.\na) Ghi rõ tên người liên hệ và thời gian đề nghị.\nb) Bổ sung tài liệu minh họa theo hướng dẫn của đơn vị tiếp nhận.\n3. Ví dụ minh họa trong dữ liệu mẫu: mức A < mức B & khoản C được ghi riêng.\nNội dung này hoàn toàn hư cấu, chỉ dùng để trình bày giao diện.",
+          "score": 0.592,
+          "in_both": false,
+          "highlights": []
+        }
+      ]
+    }
+  ]
+}

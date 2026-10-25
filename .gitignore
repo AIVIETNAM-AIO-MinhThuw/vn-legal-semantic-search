@@ -9,7 +9,21 @@ venv/
 # Dữ liệu thô / đã xử lý (tải lại bằng script)
 data/raw/
 data/processed/
-data/interim/
+data/interim/*
+# Artifact nhỏ của bản nộp: commit để tái lập đánh giá không cần chạy lại (xem README)
+!data/interim/full_v2/
+data/interim/full_v2/*
+!data/interim/full_v2/queries_v2.csv
+!data/interim/full_v2/bm25_s10/
+!data/interim/full_v2/e5_s2/
+data/interim/full_v2/*/candidates.jsonl
+!data/interim/source_qrels_v1/
+# negatives.jsonl: sinh lại bằng build_source_qrels.py, không bước nào đọc
+data/interim/source_qrels_v1/negatives.jsonl
+!data/interim/pilot_v2/
+data/interim/pilot_v2/*
+!data/interim/pilot_v2/pilot_queries_v2.csv
+!data/interim/query_processing_v2/
 *.parquet
 *.arrow
 
@@ -17,7 +31,7 @@ data/interim/
 reports/data_stats/samples/*.html
 
 # Model, index, file lớn
-models/
+models/*/model/
 checkpoints/
 indexes/
 *.bin
@@ -50,3 +64,12 @@ Thumbs.db
 
 # Log từng văn bản bị loại ở bước lọc 1-3 (~10 MB); tái tạo bằng scripts/prepare_data.py
 logs/filtered_out.tsv
+
+# Bản nộp: chỉ giữ run.trec + summary.json của runs; bỏ candidates (lớn, tái tạo được)
+runs/**/candidates.jsonl
+# Dữ liệu runtime của demo và log pipeline
+data/app/
+logs/pipeline/
+# Gói artifact lớn (phát hành ngoài git)
+release/
+scratch/

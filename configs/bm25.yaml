@@ -1,0 +1,40 @@
+# S1₀: fixed before labels; no validation/test tuning.
+seed: 42
+paths:
+  chunks: data/processed/chunks_index.jsonl
+  articles: data/processed/articles_index.jsonl
+  docs: data/processed/docs_index.jsonl
+  queries: data/interim/semantic_queries_500.csv
+  index: indexes/bm25_s10
+  output: data/interim/bm25_s10
+bm25:
+  k1: 1.2
+  b: 0.75
+  method: lucene
+  ngram_range: [1, 1]
+  chunk_top_k: 200
+  log_every_chunks: 500
+retrieval:
+  top_k: 10
+  run_tag: bm25_s10
+segmenter:
+  model_dir: data/raw/vncorenlp
+  revision: 62bbc58fe5d113c898eae112656be97dcf50b3a0
+  annotators: [wseg]
+  max_heap_size: -Xmx2g
+  java_executable: java.exe
+  java_timeout_seconds: 15
+  files:
+    - VnCoreNLP-1.2.jar
+    - models/wordsegmenter/vi-vocab
+    - models/wordsegmenter/wordsegmenter.rdr
+versions:
+  bm25s: 0.2.14
+  py-vncorenlp: 0.1.4
+preprocessing:
+  version: vncorenlp-word-unigram-v2
+  unicode: NFC
+  lowercase_after_segmentation: true
+  remove_punctuation_only: true
+  remove_stopwords: false
+  stemming: false

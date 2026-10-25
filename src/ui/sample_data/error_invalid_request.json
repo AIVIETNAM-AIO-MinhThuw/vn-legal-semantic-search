@@ -1,0 +1,6 @@
+{
+  "error": {
+    "code": "INVALID_REQUEST",
+    "message": "Thông báo nội bộ mẫu; UI phải ánh xạ theo code."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "error": {
+    "code": "MODEL_NOT_READY",
+    "message": "Thông báo nội bộ mẫu; UI phải ánh xạ theo code."
+  }
+}

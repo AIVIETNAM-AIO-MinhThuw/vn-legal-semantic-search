@@ -1,0 +1,46 @@
+{
+  "contract_version": "1.0.0",
+  "semantic_system": "S2 (mẫu)",
+  "model_name": "intfloat/multilingual-e5-base",
+  "model_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "manifest_hashes": {
+    "bm25": "mau-khong-phai-index-that",
+    "semantic": "mau-khong-phai-index-that"
+  },
+  "git_commit": "SAMPLE-khong-phai-ban-trien-khai",
+  "limits": {
+    "top_k_min": 1,
+    "top_k_max": 20,
+    "query_max_tokens": 512
+  },
+  "filter_values": {
+    "doc_types": [
+      "Luật",
+      "Nghị định",
+      "Thông tư"
+    ],
+    "domains": [
+      "Quản lý ngân sách",
+      "Quản lý thuế, phí và lệ phí",
+      "Lao động, tiền lương, tiền công",
+      "Chính sách thuế",
+      "Ngân sách nhà nước",
+      "Tài chính hành chính sự nghiệp",
+      "TCNH và thị trường TC, trái phiếu, khác",
+      "Quản lý dịch vụ tài chính và các quỹ tài chính"
+    ],
+    "issuers": [
+      "Hội đồng Mây Trắng (mẫu)",
+      "Ban điều phối Đảo Sao (mẫu)",
+      "Cơ quan Vườn Sáng (mẫu)"
+    ],
+    "year_min": 2000,
+    "year_max": 2026
+  },
+  "modes": [
+    "semantic",
+    "bm25",
+    "hybrid",
+    "compare"
+  ]
+}

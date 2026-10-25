@@ -25,10 +25,10 @@ Theo [SPEC mục 13](../SPEC.md), số trong paper phải tái lập bằng lệ
 
 | Phase | Bằng chứng cần người code cung cấp | Phần trình bày tạo từ bằng chứng |
 |---|---|---|
-| Gom họ/split | Mapping họ, kích thước, split đã duyệt, báo cáo leakage, seed/config và quyết định điểm chờ. | Sơ đồ minh họa, bảng phân bố và giải thích giới hạn; không tự split lại. |
-| Query | File query đã lưu, prompt/model/version, nguồn split, log lọc/duyệt/sửa và hash theo SPEC. | Thống kê kiểu query, overlap, lý do loại và các ví dụ được phép dùng. Không để LLM viết/sửa OOD. |
-| Retrieval/training | Config/manifest, log, checkpoint/revision, run val và căn cứ chọn cấu hình. | Sơ đồ phương pháp, bảng cấu hình, diễn biến train và kết quả val được phép báo. |
-| Pooling/annotation | Phiên bản pool, protocol blind, raw annotations được phép chia sẻ, qrels và bằng chứng freeze. | Sơ đồ quy trình, thống kê gán nhãn, agreement và giới hạn; không lộ thông tin bị cấm cho annotator. |
+| Split dataset | Mapping họ, đơn vị chia theo OI-12, split dataset đã duyệt, báo cáo chồng lấn, seed/config/hash. `data/splits.json` chỉ là lịch sử. | Sơ đồ minh họa, bảng phân bố và giải thích giới hạn; không tự split lại. |
+| Query | File query đã lưu, đầu vào/đầu ra thô, prompt/model/version, log loại/đánh dấu và hash theo SPEC. | Thống kê kiểu query, overlap (chỉ phân tích), lý do loại và các ví dụ được phép dùng. Không để LLM viết/sửa OOD. |
+| Retrieval/training | Config/manifest, log, checkpoint/revision, run val và căn cứ chọn cấu hình. BM25: `bm25s`, VNCoreNLP + unigram; S1₀ `k1 = 1.2`, `b = 0.75`, ghi phiên bản/checksum segmenter và biến thể công thức. E5: tokenizer riêng trên văn bản tự nhiên. BM25 và E5 đã chạy local; xem [BM25](phases/bm25.md), [E5](phases/e5.md). Chưa có nhãn hoặc metric chất lượng. | Sơ đồ phương pháp, bảng cấu hình, diễn biến train và kết quả val được phép báo. |
+| Pooling/gán nhãn | Pool tạo dataset và các phiên bản pool bổ sung, protocol blind, judgment LLM thô, nhãn người kiểm chứng pilot, lịch sử nhãn, dataset có nhãn, qrels và bằng chứng freeze. | Sơ đồ quy trình, thống kê nhãn, đồng thuận người–LLM trên mẫu và giới hạn; không gọi nhãn là human gold. |
 | Final evaluation | Run file, per-query metrics, script xuất bảng, kiểm định, qrels/query/split đã freeze. | Bảng/hình kết quả chính thức và phân tích lỗi; chỉ thực hiện khi SPEC cho phép. |
 | Demo | App dùng loader/retriever chung, artifact/revision, lệnh chạy CPU đã kiểm chứng và ví dụ thật. | Kịch bản, ảnh/video thực chạy và hướng dẫn người xem tái lập. |
 

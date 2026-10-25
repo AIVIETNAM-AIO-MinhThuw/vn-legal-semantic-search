@@ -1,0 +1,32 @@
+# Fine-tune multilingual-e5-base (SPEC 8). Cấu hình A: in-batch negatives; B: thêm 1 hard negative/query.
+seed: 42
+paths:
+  base_model: data/raw/multilingual-e5-base
+  train_queries: data/eval_v1/queries_train.csv
+  val_queries: data/eval_v1/queries_val.csv
+  qrels: data/interim/source_qrels_v1/qrels.jsonl
+  chunks: data/processed/chunks_index.jsonl
+  articles: data/processed/articles_index.jsonl
+  families: data/splits.json
+  hard_negative_runs:
+    - data/interim/full_v2/bm25_s10/run.trec
+    - data/interim/full_v2/e5_s2/run.trec
+  output_root: models
+train:
+  epochs: 2
+  batch_size: 32
+  max_query_length: 64
+  max_passage_length: 256
+  temperature: 0.05
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  freeze_embeddings: true      # vừa VRAM 6 GB (RTX 4050)
+  gradient_checkpointing: true
+  hard_negative_window: [3, 10]  # SPEC 8.3 dùng 3–30; run hiện có chỉ tới top-10
+  lr_grid: [1.0e-5, 3.0e-5]      # chọn trên val bằng cấu hình A, rồi dùng cho B (SPEC 8.4)
+eval:
+  max_length: 512
+  batch_size: 32
+  chunk_top_k: 200
+  top_k: 10
+  select_metric: NDCG@10

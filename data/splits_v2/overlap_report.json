@@ -1,0 +1,143 @@
+{
+  "rule": "unit = source_article ∪ exact_group ∪ likely_same_intent; stratify by field; 80/10/10 by queries",
+  "seed": 42,
+  "n_queries": 4641,
+  "n_units": 1579,
+  "near_dup_pairs_merged": 12,
+  "counts": {
+    "train": 3718,
+    "test": 462,
+    "val": 461
+  },
+  "ratios": {
+    "train": 0.8011,
+    "test": 0.0995,
+    "val": 0.0993
+  },
+  "by_field": {
+    "Chính sách thuế": {
+      "train": 125,
+      "test": 15,
+      "val": 15
+    },
+    "Lao động, tiền lương, tiền công": {
+      "train": 1209,
+      "test": 152,
+      "val": 150
+    },
+    "Ngân sách nhà nước": {
+      "train": 503,
+      "test": 62,
+      "val": 63
+    },
+    "Quản lý dịch vụ tài chính và các quỹ tài chính": {
+      "train": 238,
+      "test": 30,
+      "val": 30
+    },
+    "Quản lý ngân sách": {
+      "train": 693,
+      "test": 87,
+      "val": 86
+    },
+    "Quản lý thuế, phí và lệ phí": {
+      "train": 417,
+      "test": 51,
+      "val": 51
+    },
+    "TCNH và thị trường TC, trái phiếu, khác": {
+      "train": 390,
+      "val": 48,
+      "test": 48
+    },
+    "Tài chính hành chính sự nghiệp": {
+      "train": 143,
+      "test": 17,
+      "val": 18
+    }
+  },
+  "by_type": {
+    "natural": {
+      "train": 1266,
+      "test": 155,
+      "val": 155
+    },
+    "scenario": {
+      "train": 1262,
+      "test": 157,
+      "val": 155
+    },
+    "keyword": {
+      "train": 1190,
+      "test": 150,
+      "val": 151
+    }
+  },
+  "pilot_in_train": 10,
+  "overlap": {
+    "train-val": {
+      "source_doc": {
+        "shared": 99,
+        "rate_of_val": 0.8319
+      },
+      "source_group": {
+        "shared": 81,
+        "rate_of_val": 0.8438
+      },
+      "positive_article": {
+        "shared": 0,
+        "rate_of_val": 0.0
+      },
+      "positive_hash": {
+        "shared": 0,
+        "rate_of_val": 0.0
+      }
+    },
+    "train-test": {
+      "source_doc": {
+        "shared": 100,
+        "rate_of_test": 0.8264
+      },
+      "source_group": {
+        "shared": 85,
+        "rate_of_test": 0.8252
+      },
+      "positive_article": {
+        "shared": 0,
+        "rate_of_test": 0.0
+      },
+      "positive_hash": {
+        "shared": 0,
+        "rate_of_test": 0.0
+      }
+    },
+    "val-test": {
+      "source_doc": {
+        "shared": 39,
+        "rate_of_test": 0.3223
+      },
+      "source_group": {
+        "shared": 33,
+        "rate_of_test": 0.3204
+      },
+      "positive_article": {
+        "shared": 0,
+        "rate_of_test": 0.0
+      },
+      "positive_hash": {
+        "shared": 0,
+        "rate_of_test": 0.0
+      }
+    }
+  },
+  "errors": [],
+  "inputs": {
+    "data/interim/full_v2/queries_v2.csv": "43b0c6fa2451bcd25309762ab58a4386f258dfbb5980e3cd06a10e9fc73caa98",
+    "scratch/handoff_task6_pilot_v2/query_data/query_processing_v2/out/near_duplicate_review_v2_DRAFT.csv": "8d8ef7505d6256536a039950feb8b5a658cab83297fc14847e4ff5b37b8fbe66",
+    "data/interim/pilot_v2/pilot_queries_v2.csv": "bed11ea324c460aa6be95e25fdd7a86e6910d33742e997890a3341636d8a72af",
+    "data/interim/source_qrels_v1/qrels.jsonl": "099b7304bcb3ae1d9fe9446cdb5eb290a80b6b71aa0ac774f0db44dc20b338d3",
+    "data/processed/articles_index.jsonl": "4597ae7a7f08129fa224cfd829845ed7df751ec747097b0e674b664bdb86e30e",
+    "data/splits.json": "61475224522d78f2e4fa43389c66675d62d8c892d7e41a6b6430f0a0ab6ff519"
+  },
+  "query_splits_sha256": "3187f92aeba68047dd4d500e16f183ca3fb2445aed73f65cc8e82b6ebe9fdddb"
+}
