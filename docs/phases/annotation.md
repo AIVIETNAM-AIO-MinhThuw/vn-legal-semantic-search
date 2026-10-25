@@ -1,5 +1,7 @@
 # Bàn giao baseline và pilot gán nhãn — 2026-10-25
 
+> **Đã dừng (2026-10-26).** Luồng gán nhãn bằng LLM trong tài liệu này không dùng cho bản nộp; dataset dùng nhãn Điều nguồn (`scripts/build_source_qrels.py`). Xem Changelog SPEC ngày 2026-10-26. Code (`src/annotation/`, `scripts/build_labeled_dataset.py`) giữ lại làm lịch sử.
+
 ## Trạng thái bàn giao
 
 **ĐÃ XÁC MINH:** BM25 S1₀ và E5 zero-shot S2 đã chạy trên cùng 500 query và 14.281 chunk; mỗi hệ thống xuất 5.000 cặp query–Điều. Pipeline đã hợp nhất top-10 Điều mỗi hệ thống theo `(query_id, article_id)`, không cộng điểm hoặc dùng RRF, rồi gọi Gemini API thật cho pilot 10 query, 171 cặp.
