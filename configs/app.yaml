@@ -1,0 +1,12 @@
+# Cấu hình service demo (API → service → retrieval). semantic_system chọn sau đánh giá test.
+semantic_system: e5_ft_B          # e5_ft_B | e5_ft_A | e5_s2 | sbert_mminilm
+systems:
+  e5_s2:        {kind: e5, config: configs/e5.yaml, label: "E5 zero-shot (S2)"}
+  e5_ft_A:      {kind: dense, config: configs/dense_e5_ft.yaml, model: "models/e5_ft_A_lr{lr}/model", index: indexes/e5_ft_A, label: "E5 fine-tune A"}
+  e5_ft_B:      {kind: dense, config: configs/dense_e5_ft.yaml, model: "models/e5_ft_B_lr{lr}/model", index: indexes/e5_ft_B, label: "E5 fine-tune B (+HN)"}
+  sbert_mminilm: {kind: dense, config: configs/dense_sbert.yaml, label: "SBERT đa ngôn ngữ"}
+bm25_config: configs/bm25.yaml
+device: auto                      # auto: cuda nếu có, ngược lại cpu
+query_max_tokens: 64              # vượt thì cắt và cảnh báo QUERY_TRUNCATED (giống max_query_length khi train)
+rrf_k: 60
+feedback_db: data/app/feedback.sqlite

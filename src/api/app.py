@@ -1,9 +1,12 @@
-"""Ứng dụng FastAPI — bản khung của schema (SPEC 14.5).
+"""Ứng dụng FastAPI (SPEC 14.5). Chữ ký endpoint giữ nguyên hợp đồng `openapi.json`.
 
-Chưa có SearchService: mọi endpoint cần model trả 503 MODEL_NOT_READY. Logic thật được
-gắn vào sau (gói app), không được đổi chữ ký endpoint mà không qua quy trình SPEC mục 0.
+`create_app(service)`: service=None → mọi endpoint cần model trả 503 MODEL_NOT_READY (dùng cho test hợp đồng).
+Chạy thật: `APP_CONFIG=configs/app.yaml uvicorn src.api.app:app` — nạp SearchService (src/app/service.py).
 """
 from __future__ import annotations
+
+import logging
+import os
 
 from fastapi import FastAPI
 from fastapi.responses import Response
@@ -30,7 +33,7 @@ def _not_ready() -> ApiError:
     return ApiError(ErrorCode.MODEL_NOT_READY, "Model hoặc index chưa được nạp.")
 
 
-def create_app() -> FastAPI:
+def create_app(service=None) -> FastAPI:
     app = FastAPI(
         title="VN Legal Semantic Search API",
         version=CONTRACT_VERSION,
@@ -40,20 +43,28 @@ def create_app() -> FastAPI:
 
     @app.get("/health", response_model=HealthResponse,
              responses={503: {"model": ErrorResponse, "description": "MODEL_NOT_READY"}}, tags=["system"])
-    def health() -> HealthResponse:
-        raise _not_ready()
+    async def health() -> HealthResponse:
+        if service is None:
+            raise _not_ready()
+        return HealthResponse()
 
     @app.get("/v1/info", response_model=InfoResponse, responses=ERR_503, tags=["system"])
-    def info() -> InfoResponse:
-        raise _not_ready()
+    async def info() -> InfoResponse:
+        if service is None:
+            raise _not_ready()
+        return service.info()
 
     @app.post("/v1/search", response_model=SearchResponse, responses={**ERR_422, **ERR_503}, tags=["search"])
-    def search(req: SearchRequest) -> SearchResponse:
-        raise _not_ready()
+    async def search(req: SearchRequest) -> SearchResponse:
+        if service is None:
+            raise _not_ready()
+        return service.search(req)
 
     @app.post("/v1/feedback", response_model=FeedbackAck, responses={**ERR_422_REQ, **ERR_503}, tags=["feedback"])
-    def feedback(req: FeedbackRequest) -> FeedbackAck:
-        raise _not_ready()
+    async def feedback(req: FeedbackRequest) -> FeedbackAck:
+        if service is None:
+            raise _not_ready()
+        return service.feedback(req)
 
     @app.get(
         "/v1/feedback/export",
@@ -61,7 +72,26 @@ def create_app() -> FastAPI:
         responses={200: {"content": {"text/csv": {}}, "description": "CSV UTF-8 có BOM"}, **ERR_503},
         tags=["feedback"],
     )
-    def feedback_export() -> Response:
-        raise _not_ready()
+    async def feedback_export() -> Response:
+        if service is None:
+            raise _not_ready()
+        return Response(service.export_csv(), media_type="text/csv; charset=utf-8",
+                        headers={"Content-Disposition": "attachment; filename=feedback.csv"})
 
     return app
+
+
+def _app_from_env() -> FastAPI:
+    cfg = os.environ.get("APP_CONFIG")
+    if not cfg:
+        return create_app()
+    from src.app.service import SearchService
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+    try:
+        return create_app(SearchService(cfg))
+    except Exception:  # model/index chưa sẵn sàng: API vẫn lên, trả 503 rõ ràng
+        logging.exception("Không nạp được SearchService")
+        return create_app()
+
+
+app = _app_from_env()
