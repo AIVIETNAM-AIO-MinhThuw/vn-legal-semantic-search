@@ -71,7 +71,7 @@ D2 bổ sung `artifacts/` vào `.gitignore`; D4 loại nó khỏi build context 
 
 ## 4. Config chung và quy tắc giải quyết đường dẫn
 
-Đây là hợp đồng cần triển khai ở D2, **chưa phải hành vi hiện có**:
+Đây là hợp đồng triển khai ở D2 (kết quả kiểm chứng ghi tại mục 10):
 
 1. Giữ entry config là `configs/app.yaml` cho Docker và demo-local. D2 bổ sung khóa `artifact_root: artifacts`, giải quyết tương đối với gốc code (`/app` trong container, gốc checkout ở local).
 2. Trong SearchService, đường dẫn corpus, index, model và `segmenter.model_dir` được giải quyết từ `artifact_root` rồi nối đường dẫn tương đối hiện có. Ví dụ `data/processed/chunks_index.jsonl` → `/app/artifacts/data/processed/chunks_index.jsonl` trong Docker.
@@ -186,6 +186,44 @@ Kiểm chứng ngày 2026-10-27, Docker Desktop 4.94.0, Engine 29.8.2, Linux/amd
 Image local: `vnlegal-api:d1`, ID `sha256:484f202161b7dfe1ee0d2c1c0c80167c8ef4926322c184ca2705787d03fa1fca`. `docker image inspect` ghi Size = 2068021408 byte; đây là giá trị CLI báo cho image, không gồm model/index/corpus mount ngoài. User mặc định `10001:10001`, CMD đúng một worker như mục 2. Chưa publish image lên registry.
 
 Bộ VNCoreNLP kiểm thử được tải riêng từ `https://raw.githubusercontent.com/vncorenlp/VnCoreNLP/{revision}/{file}`, với revision và ba tên file trong `configs/bm25.yaml`, đặt tại `.scratch/d1/vncorenlp`. Đã tính SHA-256 các file tải. Kiểm thử dùng lệnh VNCoreNLP ở mục 9.2 nhưng thay nguồn bind bằng đường dẫn tuyệt đối tới thư mục local đó; đích vẫn là `/app/artifacts/data/raw/vncorenlp`, chỉ đọc. Bộ này kiểm chứng wrapper/JVM/wseg, chưa thay thế việc xác minh toàn gói demo và manifest index ở D2/D3.
+
+## 10. D2 — Chuẩn bị artifact và đường dẫn runtime
+
+### 10.1 Lệnh bàn giao cho D4/D5
+
+Chạy từ gốc checkout, dùng Python đã cài dependency của dự án. Tải ZIP gốc từ [thư mục phát hành](https://drive.google.com/drive/folders/1wTvyZm74OFUHFgUwGDfhE6u2H034BoAr?usp=sharing), rồi chạy (thay đường dẫn ZIP theo máy):
+
+```sh
+python -X utf8 scripts/fetch_artifacts.py --zip /path/to/vnlegal-demo-v1.zip --sha256 059a6a1101721ec497fb22d82d33a4194e8f1158150037897fd2ef0b43783096 --output-dir ./artifacts
+```
+
+Trên Windows có thể dùng đường dẫn Python/ZIP của máy trong cùng lệnh. Mặc định `--output-dir` là `artifacts` ở gốc code; đích tương đối được chỉ định trên CLI tính từ thư mục chạy lệnh. Script kiểm tra hash ZIP, đường dẫn an toàn, danh sách file, file runtime bắt buộc (kể cả file nhị phân khai trong manifest BM25), kích thước và hash từng file trước khi ghi. Chạy lại bỏ qua file cùng hash; file khác nội dung bị từ chối nếu không có `--force`. Không dùng `--force` để thay frozen artifact.
+
+Không cần đóng gói lại: `scripts/package_artifacts.py` hiện đã chứa đủ corpus, VNCoreNLP, index BM25, index dense B, model/tokenizer B và manifest. Metadata nhỏ `models/lr_selection.json` thuộc checkout/image theo mục 3.1; không lấy từ thư mục artifact và không chọn lại LR. D1 đã copy riêng metadata này vào image.
+
+### 10.2 File và hành vi
+
+- `scripts/fetch_artifacts.py`: chuẩn bị gói đã kiểm tra vào đích riêng, giữ nguyên byte. File mới có quyền `0644`; bổ sung quyền đọc/đi qua cho thư mục trong đích và quyền đọc cho file cùng hash để UID API đọc được, kể cả thư mục có sẵn với umask `077`. Không đổi quyền các thư mục nằm ngoài đích.
+- `src/app/artifacts.py`: dùng chung kiểm tra SHA-256, manifest và đường dẫn cho fetch/service.
+- `src/app/service.py`: giải quyết đường dẫn artifact từ `artifact_root`, kiểm tra đủ file/hash trước khi nạp; config và LR metadata từ gốc code; SQLite từ gốc code ngoài artifact. Không fallback sang dữ liệu legacy khi đã có `artifact_root`.
+- `configs/app.yaml`: cùng `artifact_root: artifacts`, `device: cpu`, model B và tham số truy hồi cho Docker/local. `configs/bm25.yaml`, `configs/dense_e5_ft.yaml` giữ nguyên để không đổi cấu hình pipeline; service truyền đường dẫn đã giải quyết và device từ app config.
+- `src/retrieval/text.py`: ánh xạ executable Java mặc định theo Windows/Linux, giữ các đường dẫn executable tùy chỉnh.
+- `.gitignore`: bỏ qua `artifacts/`.
+- `tests/test_artifacts.py`: bảo vệ checksum, kiểm kê, đường dẫn ZIP, xung đột đích, metadata LR và SQLite nằm ngoài artifact.
+
+D4 mount `./artifacts` → `/app/artifacts:ro`, volume ghi feedback → `/app/data/app`; không mount artifact vào UI. D5 dùng cùng `configs/app.yaml`. Các đường dẫn và cờ offline giữ theo mục 4–5. D2 không sửa/rebuild corpus, model, index hay manifest đã freeze.
+
+### 10.3 Kiểm chứng ngày 2026-10-27
+
+- Gói gốc giải nén vào `./artifacts`: SHA-256 ZIP khớp giá trị README; cả 23 file khớp kích thước/hash trong `MANIFEST.json`. Chạy lại sau sửa code thành công, không thay file cùng hash.
+- `python -m pytest tests/test_artifacts.py tests/test_api_contract.py -q`: **47 passed, 2 skipped**, một cảnh báo deprecation từ Starlette/AnyIO trong môi trường test host Python 3.12. Hai trường hợp test quyền POSIX được skip trên Windows; kiểm thử riêng trong Linux xác nhận file/thư mục đọc được với umask `077`, gồm thư mục đích có sẵn quyền `0700`. Đã tái hiện lỗi quyền file và thiếu file nhị phân BM25 trước sửa; test S2 thiếu đường dẫn provenance cũng fail trước sửa và pass sau sửa.
+- Đã thử `python -m pytest -q` trên host: dừng ở collection của `test_bm25.py`, `test_data_pipeline.py`, `test_e5.py`, `test_review_tables.py` do môi trường thiếu `bm25s`, `transformers`, `torch`, `pyarrow`; chưa coi toàn bộ suite đạt.
+
+Kiểm thử runtime Linux dùng image `vnlegal-api:d1` và code D2, user UID 10001, `--network none`, bind mount `./artifacts` chỉ đọc, SQLite trên tmpfs riêng tại `/app/data/app`: service nạp thành công; `/health`, `/v1/info`, tìm kiếm đủ bốn mode, ghi feedback và export CSV đều HTTP 200. Gửi lặp feedback vẫn một dòng; đóng/mở lại SQLite đọc được bản ghi. Cả 23 hash artifact vẫn đúng sau tìm kiếm/feedback. Lần nạp qua bind mount Windows mất khoảng **598 giây**; tiến trình chờ I/O `p9_client_rpc` khi Java đọc vocabulary. Đây là số đo của lần kiểm thử này, không phải yêu cầu RAM hay thời gian khởi động đã chốt cho D4/D6.
+
+Đây không thay thế nghiệm thu Compose D6, nhất là volume feedback mới/tái sử dụng qua restart và thời gian healthcheck trên máy triển khai. D2 không thay đổi hành vi fail-fast startup hoặc chính sách đối chiếu môi trường manifest thuộc D3.
+
+Kiểm thử lại với bản code cuối và cùng byte artifact được sao chép sang volume Linux, mount chỉ đọc: nạp service **19,6 giây**, toàn bộ kiểm tra HTTP/feedback/hash nêu trên đạt. Chênh lệch với Windows bind mount cần được D6 xét khi chọn vị trí lưu artifact và thời gian healthcheck. Không dùng số đo này để mặc định thời gian khởi động cho mọi máy.
 
 Resolver có thể tái hiện bằng `uv pip compile <requirements-api.txt hoặc requirements-train.txt> --python-version 3.11 --python-platform x86_64-manylinux_2_28 --index-strategy unsafe-best-match --output-file <file local trong .scratch/d1/>` (cần interpreter Python 3.11 và mạng). Chiến lược index ở đây theo cách pip chọn phiên bản giữa PyPI và index Torch. Các source tải, output resolver, script kiểm tra tạm và log JSON nằm local trong `.scratch/d1/`, không commit và không là đầu vào của pipeline chính thức.
 
