@@ -27,6 +27,8 @@ Hai tiến trình dùng cổng cố định ở mốc đóng gói. Nếu máy ho
 
 Healthcheck gọi `http://127.0.0.1:8000/health` từ bên trong container API. D4/D6 đo thời gian nạp thực tế để đặt `start_period`, timeout và số lần thử; D0 chưa có số đo để chốt các giá trị này. Sai manifest phải làm tiến trình chạy thật thoát với mã khác 0 theo SPEC; không chạy với index sai hoặc chỉ dựa vào thông báo tiến trình còn sống.
 
+D4 đã thêm healthcheck Compose với `API_HEALTH_START_PERIOD` có thể cấu hình, mặc định tạm 5 phút. Giá trị này chưa dựa trên phép đo nạp model/index trong container; phải thay hoặc xác nhận sau khi D2 có artifact và D6 đo trên máy nghiệm thu. Chưa coi Compose tích hợp hoặc thời gian chờ này là đã nghiệm thu.
+
 ## 3. Artifact và filesystem
 
 ### 3.1 Cấu trúc trên máy host
@@ -190,3 +192,9 @@ Bộ VNCoreNLP kiểm thử được tải riêng từ `https://raw.githubuserco
 Resolver có thể tái hiện bằng `uv pip compile <requirements-api.txt hoặc requirements-train.txt> --python-version 3.11 --python-platform x86_64-manylinux_2_28 --index-strategy unsafe-best-match --output-file <file local trong .scratch/d1/>` (cần interpreter Python 3.11 và mạng). Chiến lược index ở đây theo cách pip chọn phiên bản giữa PyPI và index Torch. Các source tải, output resolver, script kiểm tra tạm và log JSON nằm local trong `.scratch/d1/`, không commit và không là đầu vào của pipeline chính thức.
 
 D1 hoàn thành kiểm chứng kỹ thuật theo tiêu chí đã giao: build Linux, import, Torch CPU, non-root, JVM và tách từ thật đều đạt. Chưa chạy training, chưa nạp index/model semantic thật, chưa đối chiếu đủ manifest index, chưa nghiệm thu `/health` của service tìm kiếm, Compose hay persistence qua volume. Các phần này tiếp tục ở D2–D6; không dùng kết quả D1 để tuyên bố ứng dụng đã sẵn sàng deploy.
+
+## 10. D4 — UI và Compose (đang triển khai)
+
+Đã tạo `Dockerfile.ui`, `docker-compose.yml` và `.dockerignore`. `requirements-ui.txt` hiện chỉ ghim Streamlit, HTTPX và Pydantic; không cần chỉnh. Image UI chỉ copy contracts, UI, cấu hình Streamlit và dependency UI; build có bước tự kiểm tra import, user non-root và không có Torch. Compose cấu hình API/UI, cổng loopback theo D0, UI gọi `http://api:8000` với `UI_SAMPLE=0`, artifact chỉ đọc, volume feedback riêng và UI đợi API healthy. `.dockerignore` loại dữ liệu/artifact, nội dung đánh giá, secret, cache và môi trường local; Dockerfile API vẫn chỉ copy các cây source được chọn.
+
+Chưa thể xác nhận điều kiện hoàn thành D4 trong môi trường ghi nhận này: Docker CLI không khả dụng, thư mục `artifacts/` chưa có, và thời gian nạp thật chưa đo. Vì vậy `docker compose config`, build hai image, kiểm tra nội dung image, truy vấn API thật và healthcheck chưa chạy được. Bước tiếp theo là chạy các kiểm tra đó sau khi Docker khả dụng và D2/D3 cung cấp artifact cùng hành vi startup; khi đó cập nhật giá trị healthcheck từ số đo D6.
