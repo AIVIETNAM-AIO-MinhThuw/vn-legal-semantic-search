@@ -1,0 +1,7 @@
+# Existing training environment, collected without changing its versions.
+# Install in a separate venv from requirements-api.txt (CUDA 12.1 vs CPU).
+-r requirements.txt
+-r requirements-e5.txt
+
+# No sentence-transformers: train_e5.py uses AutoModel/AutoTokenizer directly.
+# scripts/run_e5.py records its version as null when absent, for both runtimes.

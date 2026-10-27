@@ -6,8 +6,8 @@
 - D0 chỉ xác lập quy ước kỹ thuật cho hai người đóng gói. Tài liệu này là đầu vào chung cho D1–D7 và người tiếp nhận deploy; không phải ghi chú phiên hay báo cáo chạy Docker thành công.
 - Căn cứ: [SPEC mục 7.4, 13 và 14](../../SPEC.md), [quy tắc file/commit](../../CLAUDE.md), [quy trình bàn giao](../workflow.md).
 - Người 1 phụ trách API, dependency, artifact và runtime; người 2 phụ trách UI, Compose, lệnh chạy, kiểm thử tích hợp và tổng hợp bàn giao. Chưa gán tên cá nhân.
-- D0: đã soạn quy ước, chờ hai người phụ trách review/xác nhận. Chưa có bằng chứng đồng thuận của hai người.
-- D1–D7: chưa thực hiện trong mốc D0. Chưa build image, chạy Compose, đo tài nguyên hay kiểm chứng Linux/offline.
+- D0: đã được hai người thống nhất theo xác nhận của người giao việc trong chat ngày 2026-10-27; chưa cung cấp tên cá nhân/liên kết review.
+- D1: đã build và kiểm chứng image API CPU trên Linux/amd64; kết quả và giới hạn ghi tại mục 9. D2–D7 chưa triển khai trong thay đổi này.
 - Phạm vi bàn giao cuối: hai image và bộ chạy local đã kiểm chứng. Registry, server, domain, HTTPS, reverse proxy và vận hành thuộc người deploy.
 
 ## 2. Service, kết nối và cổng
@@ -126,9 +126,67 @@ D2 sở hữu `.gitignore` và đường dẫn runtime; D4 sở hữu `.dockerig
 - [x] Xác định service, cổng, config, bố trí artifact và feedback.
 - [x] Xác định biến môi trường, kiến trúc mục tiêu và việc chưa kiểm chứng.
 - [x] Chỉ rõ người sở hữu và task bị phụ thuộc.
-- [ ] Người 1 review/xác nhận quy ước API, đường dẫn và artifact.
-- [ ] Người 2 review/xác nhận quy ước UI, Compose và lệnh chạy.
+- [x] Người 1 review/xác nhận quy ước API, đường dẫn và artifact (theo xác nhận của người giao việc trong chat ngày 2026-10-27).
+- [x] Người 2 review/xác nhận quy ước UI, Compose và lệnh chạy (cùng nguồn xác nhận trên).
 
-D0 hoàn tất về nội dung tài liệu khi bốn mục đầu đủ rõ; chỉ đóng mốc phối hợp khi hai xác nhận cuối được ghi bằng tên/ngày hoặc liên kết review thật. Không tự điền người duyệt. Sau đó D1–D5 triển khai theo hợp đồng này; không coi D0 là bằng chứng bộ đóng gói đã chạy.
+D0 được đóng theo xác nhận của người giao việc nêu trên; không tự điền tên người duyệt chưa được cung cấp. D1–D5 triển khai theo hợp đồng này; không coi D0 là bằng chứng bộ đóng gói đã chạy.
 
 Kiểm chứng D0 chỉ gồm đọc/đối chiếu tài liệu, đường dẫn tham chiếu, diff và nội dung file định commit. Không áp dụng test runtime cho thay đổi chỉ có tài liệu. Khi có kết quả D1–D7, cập nhật cùng tài liệu này bằng lệnh, môi trường và kết quả thực tế; không tạo báo cáo trùng nội dung.
+
+## 9. D1 — Image API và dependency CPU
+
+### 9.1 File bàn giao và lựa chọn dependency
+
+| File | Chức năng |
+|---|---|
+| `Dockerfile.api` | Python 3.11 trên Debian Bookworm, OpenJDK 17 headless, libgomp, user UID/GID 10001, một worker Uvicorn; chỉ copy module/config runtime và metadata chọn LR |
+| `requirements-api.txt` | Dependency trực tiếp cho API, BM25/VNCoreNLP và encoder; Torch `2.5.1+cpu` từ index CPU chính thức |
+| `requirements-train.txt` | Gom `requirements.txt` và `requirements-e5.txt` bằng `-r`, giữ nguyên pin training hiện tại, gồm Torch `2.5.1+cu121`; cài ở venv riêng |
+
+API giữ Transformers 4.46.3, tokenizers 0.20.3 và các phiên bản số học theo requirements/config hiện có. Không thêm `sentence-transformers`: encoder/training hiện gọi AutoModel trực tiếp, `scripts/run_e5.py` ghi phiên bản gói này là null khi không cài. D3 vẫn phải đối chiếu manifest index thật; manifest training trong Git chỉ ghi Torch 2.5.1+cu121, không đủ để kết luận toàn bộ phiên bản index khớp.
+
+Nguồn kiểm tra biến thể CPU: [hướng dẫn chính thức PyTorch 2.5.1](https://docs.pytorch.org/get-started/previous-versions/). Metadata/source PyPI của py-vncorenlp 0.1.4 xác nhận dependency pyjnius; pyjnius 1.9.0 có wheel CPython 3.11 Linux x86_64. Dockerfile yêu cầu wheel cho pyjnius, không cài compiler vào runtime.
+
+Không sửa các file requirements gốc, code API/retrieval hay config runtime trong D1. Image có thư mục `/app/artifacts` trống và `/app/data/app` thuộc user app để chuẩn bị mount ở D4. Chỉ copy `models/lr_selection.json`, không copy trọng số. Chỉ copy `scripts/run_e5.py` vì SearchService có loader động cho E5 S2; không copy script training hay pipeline dữ liệu.
+
+### 9.2 Lệnh kiểm chứng
+
+Chạy từ gốc repo trên Docker Engine hỗ trợ Linux containers. Các lệnh này kiểm tra image độc lập, không thay thế smoke Compose của D5/D6.
+
+```powershell
+docker build --platform linux/amd64 --progress plain -f Dockerfile.api -t vnlegal-api:d1 .
+docker run --rm --network none --entrypoint python vnlegal-api:d1 -c "import os, numpy as np, torch; from src.app.service import SearchService; from src.retrieval.bm25 import BM25Retriever; from src.retrieval.dense import DenseEncoder; from jnius import autoclass; assert os.getuid() == 10001; assert torch.__version__ == '2.5.1+cpu' and torch.version.cuda is None; assert torch.from_numpy(np.ones(1, dtype=np.float32)).numpy()[0] == 1; print('JVM:', autoclass('java.lang.System').getProperty('java.version')); print('CPU/imports/non-root: OK')"
+docker run --rm --network none --entrypoint python vnlegal-api:d1 -c "from pathlib import Path; assert not any(Path('/app/artifacts').iterdir()); assert not Path('/app/runs').exists(); assert not Path('/app/src/ui').exists(); assert not Path('/app/scripts/train_e5.py').exists(); assert not list(Path('/app').rglob('*.safetensors')); assert not list(Path('/app').rglob('*.sqlite')); assert not list(Path('/app').rglob('*.jsonl')); print('App payload excludes artifacts/training/UI: OK')"
+docker image inspect vnlegal-api:d1 --format '{{.Config.User}} {{json .Config.Cmd}}'
+```
+
+Dockerfile đã có self-check import, Torch–NumPy, non-root và JVM ngay trong build; bước này không nạp model. APP_CONFIG chỉ được xóa trong RUN self-check, vẫn là `configs/app.yaml` khi chạy container thật.
+
+Sau khi có artifact đúng hash ở `./artifacts`, kiểm tra VNCoreNLP thật bằng một tiến trình mới (không gọi `autoclass` trước khi wrapper cấu hình JVM):
+
+```powershell
+docker run --rm --network none --mount "type=bind,source=$((Get-Location).Path)/artifacts,target=/app/artifacts,readonly" --entrypoint python vnlegal-api:d1 -c "from src.retrieval.text import load_segmenter; s = load_segmenter({'model_dir': '/app/artifacts/data/raw/vncorenlp', 'annotators': ['wseg'], 'max_heap_size': '-Xmx2g'}); words = s.word_segment('Tôi đang kiểm tra hệ thống tìm kiếm pháp luật.'); assert words and any(line.strip() for line in words); print(words)"
+```
+
+Lệnh mount ở trên là PowerShell; trên Linux dùng đường dẫn host tuyệt đối tương ứng. Không gọi hàm tải model của wrapper trong runtime. D1 không khởi động app tìm kiếm thật: cách giải quyết `artifact_root` và hành vi lỗi startup vẫn lần lượt thuộc D2/D3.
+
+### 9.3 Kết quả và điều kiện đóng
+
+Kiểm chứng ngày 2026-10-27, Docker Desktop 4.94.0, Engine 29.8.2, Linux/amd64 trên host Windows. Python trong image 3.11.18, Java 17.0.21. Đây là bằng chứng kỹ thuật của D1; chưa có xác nhận review chéo của người 2.
+
+| Kiểm tra thực chạy | Kết quả |
+|---|---|
+| Resolve `requirements-api.txt` và `requirements-train.txt` cho Python 3.11/Linux x86_64 bằng uv | Exit 0 cho cả hai; giữ nguyên pin training gốc và phiên bản chính trùng API |
+| `docker build --platform linux/amd64 --progress plain -f Dockerfile.api -t vnlegal-api:d1 .` | Exit 0; `pip check` báo không có dependency hỏng; self-check import, CPU Torch–NumPy, non-root và JVM đạt |
+| Container `--network none`, import service/BM25/dense/E5, kiểm tra môi trường và JVM | Exit 0; Torch 2.5.1+cpu, Transformers 4.46.3, tokenizers 0.20.3; Java hoạt động, hai cờ offline bằng 1 |
+| Kiểm tra payload và quyền ghi feedback | Exit 0; artifact rỗng, không có UI/training script, corpus, trọng số hay SQLite đóng sẵn; UID 10001 tạo/ghi SQLite được trong `/app/data/app` |
+| VNCoreNLP wseg, `--network none`, bind model chỉ đọc | Exit 0; trả `['Tôi đang kiểm_tra hệ_thống tìm_kiếm pháp_luật .']` |
+| Diff, link nội bộ, whitespace, pin requirements và danh sách COPY | Đạt; không có file bàn giao lớn hơn 1 MB, không phát hiện mẫu secret đã quét |
+
+Image local: `vnlegal-api:d1`, ID `sha256:484f202161b7dfe1ee0d2c1c0c80167c8ef4926322c184ca2705787d03fa1fca`. `docker image inspect` ghi Size = 2068021408 byte; đây là giá trị CLI báo cho image, không gồm model/index/corpus mount ngoài. User mặc định `10001:10001`, CMD đúng một worker như mục 2. Chưa publish image lên registry.
+
+Bộ VNCoreNLP kiểm thử được tải riêng từ `https://raw.githubusercontent.com/vncorenlp/VnCoreNLP/{revision}/{file}`, với revision và ba tên file trong `configs/bm25.yaml`, đặt tại `.scratch/d1/vncorenlp`. Đã tính SHA-256 các file tải. Kiểm thử dùng lệnh VNCoreNLP ở mục 9.2 nhưng thay nguồn bind bằng đường dẫn tuyệt đối tới thư mục local đó; đích vẫn là `/app/artifacts/data/raw/vncorenlp`, chỉ đọc. Bộ này kiểm chứng wrapper/JVM/wseg, chưa thay thế việc xác minh toàn gói demo và manifest index ở D2/D3.
+
+Resolver có thể tái hiện bằng `uv pip compile <requirements-api.txt hoặc requirements-train.txt> --python-version 3.11 --python-platform x86_64-manylinux_2_28 --index-strategy unsafe-best-match --output-file <file local trong .scratch/d1/>` (cần interpreter Python 3.11 và mạng). Chiến lược index ở đây theo cách pip chọn phiên bản giữa PyPI và index Torch. Các source tải, output resolver, script kiểm tra tạm và log JSON nằm local trong `.scratch/d1/`, không commit và không là đầu vào của pipeline chính thức.
+
+D1 hoàn thành kiểm chứng kỹ thuật theo tiêu chí đã giao: build Linux, import, Torch CPU, non-root, JVM và tách từ thật đều đạt. Chưa chạy training, chưa nạp index/model semantic thật, chưa đối chiếu đủ manifest index, chưa nghiệm thu `/health` của service tìm kiếm, Compose hay persistence qua volume. Các phần này tiếp tục ở D2–D6; không dùng kết quả D1 để tuyên bố ứng dụng đã sẵn sàng deploy.
