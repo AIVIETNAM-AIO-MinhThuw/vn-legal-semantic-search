@@ -227,6 +227,48 @@ Kiểm thử runtime Linux dùng image `vnlegal-api:d1` và code D2, user UID 10
 
 Kiểm thử lại với bản code cuối và cùng byte artifact được sao chép sang volume Linux, mount chỉ đọc: nạp service **19,6 giây**, toàn bộ kiểm tra HTTP/feedback/hash nêu trên đạt. Chênh lệch với Windows bind mount cần được D6 xét khi chọn vị trí lưu artifact và thời gian healthcheck. Không dùng số đo này để mặc định thời gian khởi động cho mọi máy.
 
+Các kết quả chạy gói thật ở D2 ghi nhận hành vi trước D3. Sau khi áp dụng kiểm tra manifest nghiêm ngặt ở mục 11, gói hiện tại bị từ chối; không dùng kết quả D2 để kết luận gói đã đạt D6.
+
+## 11. D3 — Startup và manifest API
+
+### 11.1 Hành vi và phạm vi file
+
+- `src/api/app.py`: khi có `APP_CONFIG`, lỗi nạp `SearchService` truyền ra ngoài làm tiến trình thoát khác 0. Chỉ tạo app có service sau khi constructor nạp model/index và warm-up thành công. `create_app(None)` và chế độ không có `APP_CONFIG` vẫn là app 503 dùng cho test hợp đồng; không phải lệnh vận hành thật.
+- `src/app/service.py`: BM25 tính provenance của môi trường thực thay vì dùng lại provenance lưu trong index làm giá trị kỳ vọng; từ chối index sai trước khi khởi động JVM. Dense truyền file chunk nguồn và độ sâu từ config vào loader chung.
+- `src/retrieval/bm25.py`, `scripts/run_bm25.py`: dùng chung hàm `provenance`; giữ đường dẫn logic trong config, dùng đường dẫn đã giải quyết cho IO khi mount. Kiểm tra manifest/file index hiện có của loader được giữ nguyên.
+- `src/retrieval/dense.py`: kiểm tra đủ metadata, phiên bản bốn dependency, fingerprint model/tokenizer, thiết lập encoder, pooling/normalization/dimension/dtype/preprocessing, config encoding/depth, hash chunk nguồn, thứ tự/số chunk, hash/shape/dtype/finite/norm của vectors. Phiên bản Torch bỏ hậu tố biến thể; ba dependency còn lại so chính xác. Thiếu dependency hoặc metadata đều dừng; không có chế độ bỏ qua cho manifest cũ.
+- `scripts/run_dense.py`: dùng cùng loader với API và truyền file chunk nguồn. Hàm save ghi đủ metadata cho index được tạo mới sau này; không nâng cấp manifest đã có hay tự build lại index.
+- `requirements-api.txt`, `requirements-train.txt`: ghim cùng `sentence-transformers==5.6.0`, giữ `transformers==4.46.3`, `tokenizers==0.20.3`, Torch `2.5.1` với biến thể CPU/CUDA tương ứng. Theo [metadata phát hành chính thức](https://pypi.org/pypi/sentence-transformers/5.6.0/json), bản này chấp nhận Transformers từ 4.41 đến trước 6 và Torch từ 1.11. Đây là bổ sung dependency theo SPEC 7.4; encoder vẫn dùng AutoModel/AutoTokenizer, không đổi cách truy hồi.
+- `tests/test_api_startup.py`, `tests/test_dense_manifest.py`, `tests/test_bm25.py`: fixture startup/process/health; thiếu/sai metadata/config/dependency/file; Torch suffix; checksum và cấu trúc index; provenance BM25; model BERT nhỏ tạo local và relocation đường dẫn qua service. Không cần tải model từ mạng hoặc sửa artifact gốc.
+
+Không sửa `openapi.json`, schema endpoint, tham số truy hồi, artifact freeze hoặc SPEC. D4 tiếp tục dùng `APP_CONFIG=configs/app.yaml`; lỗi startup phải được thấy qua mã thoát và log, không qua một API vẫn chạy với 503. Image API cần build lại để nhận code/dependency mới.
+
+### 11.2 Kiểm chứng ngày 2026-10-27
+
+Lệnh chuẩn sau khi cài dependency cho môi trường test:
+
+```sh
+python -m pytest -q
+python -m pip check
+```
+
+- Toàn bộ suite trên Linux/Python 3.11 trong image D1 với code D3 và dependency test bổ sung: **198 passed, 10 skipped**, một cảnh báo deprecation Starlette/AnyIO. Mười trường hợp skip cần tokenizer E5 local không có trong container test; không tải tokenizer để ép các test này chạy. Các test POSIX về quyền artifact chạy và đạt trên Linux.
+- `pip check`: không có dependency hỏng trong môi trường kiểm thử. API/training đã ghim cùng bốn phiên bản theo quy tắc Torch nêu trên; chưa build lại image API sản xuất hoặc chạy training.
+- Test startup/API riêng trên host: **40 passed**; snapshot schema vẫn khớp. Đã thấy các test nuốt lỗi startup, thiếu metadata dense, provenance BM25 sai và thiếu dependency thất bại trước sửa, đạt sau sửa.
+- Tiến trình import entry module API với code D3, UID 10001, `--network none`, artifact thật bind mount chỉ đọc: **exit 1**, lỗi `BM25 manifest mismatch`; không khởi động VNCoreNLP hay phục vụ index sai.
+- Bản sao local của `indexes/e5_ft_B/manifest.json`: loader dừng với `Dense manifest missing required metadata`, **exit 1**, trước khi cần nạp model/vectors. Fixture đủ metadata và model BERT nhỏ tạo local nạp thành công cả khi đổi vị trí model.
+
+Dependency test/wheel, bản sao manifest và kế hoạch phiên chỉ nằm trong `.scratch/d3/`, không phải đầu vào pipeline chính thức. Container kiểm thử không chứa dữ liệu test/OOD và không tính lại metric trên dữ liệu thật.
+
+### 11.3 Phần còn chặn D6: gói artifact hiện có
+
+Gói `vnlegal-demo-v1.zip` vẫn giữ nguyên byte/hash. Nhưng kiểm tra checksum đúng không đồng nghĩa đủ provenance theo SPEC 7.4:
+
+1. Manifest dense B chưa có `versions` và metadata encoder/tokenizer/pooling/dtype/preprocessing đầy đủ. Không được lấy phiên bản môi trường hiện tại rồi điền ngược thành provenance của lần dựng index.
+2. Manifest BM25 ghi Java 8 (`1.8.0_471`) và Python `3.11.9`; image D1 đã kiểm chứng dùng Java 17 và Python `3.11.18`. App trước D3 bỏ qua khác biệt bằng cách truyền provenance lưu sẵn vào loader; D3 đã loại bỏ cách này.
+
+Code và test D3 hoàn tất; **chưa nghiệm thu gói thật/Compose D6**. Nhóm cần duyệt phương án xử lý metadata/môi trường và artifact theo mục 0 của SPEC trước khi có thể công bố gói chạy được với kiểm tra mới. Không tự sửa manifest, hash trong `data/FROZEN.md`, đóng gói lại, build lại index hoặc nới chính sách kiểm tra để làm app lên healthy.
+
 Resolver có thể tái hiện bằng `uv pip compile <requirements-api.txt hoặc requirements-train.txt> --python-version 3.11 --python-platform x86_64-manylinux_2_28 --index-strategy unsafe-best-match --output-file <file local trong .scratch/d1/>` (cần interpreter Python 3.11 và mạng). Chiến lược index ở đây theo cách pip chọn phiên bản giữa PyPI và index Torch. Các source tải, output resolver, script kiểm tra tạm và log JSON nằm local trong `.scratch/d1/`, không commit và không là đầu vào của pipeline chính thức.
 
 D1 hoàn thành kiểm chứng kỹ thuật theo tiêu chí đã giao: build Linux, import, Torch CPU, non-root, JVM và tách từ thật đều đạt. Chưa chạy training, chưa nạp index/model semantic thật, chưa đối chiếu đủ manifest index, chưa nghiệm thu `/health` của service tìm kiếm, Compose hay persistence qua volume. Các phần này tiếp tục ở D2–D6; không dùng kết quả D1 để tuyên bố ứng dụng đã sẵn sàng deploy.

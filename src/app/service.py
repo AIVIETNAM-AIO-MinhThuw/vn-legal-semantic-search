@@ -139,18 +139,14 @@ class SearchService:
         self.docs = {d["doc_id"]: d for d in read_jsonl(p["docs"])}
 
     def _load_bm25(self):
-        from src.retrieval.bm25 import BM25Retriever
+        from src.retrieval.bm25 import BM25Retriever, provenance
         from src.retrieval.text import load_segmenter
         paths = dict(self.bpaths)
-        # Demo trên máy khác: phiên bản Java/Python có thể khác máy dựng index. Chỉ bắt buộc khớp hash corpus
-        # và hash từng file index (BM25Retriever.load kiểm tra); provenance môi trường lấy từ manifest của index.
-        manifest = json.loads((paths["index"] / "manifest.json").read_text(encoding="utf-8"))
-        source = manifest["provenance"]
-        for name in ("chunks", "articles", "docs"):
-            if _sha(paths[name]) != source["sources"][name]:
-                raise ApiError(ErrorCode.INDEX_MANIFEST_MISMATCH, f"Corpus {name} khác corpus dựng index BM25")
+        source = provenance(self.bcfg, paths, model_dir=Path(self.segmenter_settings["model_dir"]))
+        # Reject invalid persisted state before starting the JVM.
+        self.bm25 = BM25Retriever.load(paths["index"], self.bcfg["bm25"], None, source)
         self.segmenter = load_segmenter(self.segmenter_settings)
-        self.bm25 = BM25Retriever.load(paths["index"], self.bcfg["bm25"], self.segmenter, source)
+        self.bm25.segmenter = self.segmenter
         self.manifests = {"bm25_s10": _sha(paths["index"] / "manifest.json")}
 
     def _load_semantic(self):
@@ -176,7 +172,8 @@ class SearchService:
             from src.retrieval.dense import DenseEncoder, DenseRetriever
             model, index = self.spaths["model"], self.spaths["index"]
             enc = DenseEncoder(model, cfg["encoding"], self.device)
-            r = DenseRetriever.load(index, read_jsonl(self.spaths["chunks"]), enc)
+            r = DenseRetriever.load(index, read_jsonl(self.spaths["chunks"]), enc,
+                                    cfg["retrieval"]["chunk_top_k"], chunks_path=self.spaths["chunks"])
             self.sem_chunks, self.sem_vectors = r.chunks, r.vectors
             self.sem_encode = lambda q: enc.encode([q], "query")[0]
             self.sem_encode_passages = lambda ts: enc.encode(ts, "passage")

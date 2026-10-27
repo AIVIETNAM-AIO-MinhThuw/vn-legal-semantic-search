@@ -3,5 +3,5 @@
 -r requirements.txt
 -r requirements-e5.txt
 
-# No sentence-transformers: train_e5.py uses AutoModel/AutoTokenizer directly.
-# scripts/run_e5.py records its version as null when absent, for both runtimes.
+# SPEC 7.4 requires the same recorded dependency version as the API runtime.
+sentence-transformers==5.6.0
