@@ -25,9 +25,9 @@ Thư mục làm việc của cả hai image là `/app`. Đường chạy chính 
 
 Hai tiến trình dùng cổng cố định ở mốc đóng gói. Nếu máy host đã chiếm cổng thì báo rõ và giải phóng/đổi ánh xạ host khi chạy; không đổi cổng nội bộ hoặc tự bỏ kiểm tra readiness. Không dùng `localhost` để UI trong container gọi API.
 
-Healthcheck gọi `http://127.0.0.1:8000/health` từ bên trong container API. D4/D6 đo thời gian nạp thực tế để đặt `start_period`, timeout và số lần thử; D0 chưa có số đo để chốt các giá trị này. Sai manifest phải làm tiến trình chạy thật thoát với mã khác 0 theo SPEC; không chạy với index sai hoặc chỉ dựa vào thông báo tiến trình còn sống.
+Healthcheck gọi `http://127.0.0.1:8000/health` từ bên trong container API. D2 đo được 598 giây khi đọc artifact qua Windows bind mount và 19,6 giây trên volume Linux. Compose dùng `start_period` mặc định 12 phút, lớn hơn số đo chậm nhất khoảng 122 giây; D6 phải xác nhận hoặc điều chỉnh theo máy nghiệm thu. Sai manifest phải làm tiến trình chạy thật thoát với mã khác 0 theo SPEC; không chạy với index sai hoặc chỉ dựa vào thông báo tiến trình còn sống.
 
-D4 đã thêm healthcheck Compose với `API_HEALTH_START_PERIOD` có thể cấu hình, mặc định tạm 5 phút. Giá trị này chưa dựa trên phép đo nạp model/index trong container; phải thay hoặc xác nhận sau khi D2 có artifact và D6 đo trên máy nghiệm thu. Chưa coi Compose tích hợp hoặc thời gian chờ này là đã nghiệm thu.
+D4 đã thêm healthcheck Compose với `API_HEALTH_START_PERIOD` có thể cấu hình, mặc định 12 phút theo số đo D2. Chưa coi Compose tích hợp hoặc thời gian chờ này là đã nghiệm thu.
 
 ## 3. Artifact và filesystem
 
@@ -235,4 +235,10 @@ D1 hoàn thành kiểm chứng kỹ thuật theo tiêu chí đã giao: build Lin
 
 Đã tạo `Dockerfile.ui`, `docker-compose.yml` và `.dockerignore`. `requirements-ui.txt` hiện chỉ ghim Streamlit, HTTPX và Pydantic; không cần chỉnh. Image UI chỉ copy contracts, UI, cấu hình Streamlit và dependency UI; build có bước tự kiểm tra import, user non-root và không có Torch. Compose cấu hình API/UI, cổng loopback theo D0, UI gọi `http://api:8000` với `UI_SAMPLE=0`, artifact chỉ đọc, volume feedback riêng và UI đợi API healthy. `.dockerignore` loại dữ liệu/artifact, nội dung đánh giá, secret, cache và môi trường local; Dockerfile API vẫn chỉ copy các cây source được chọn.
 
-Chưa thể xác nhận điều kiện hoàn thành D4 trong môi trường ghi nhận này: Docker CLI không khả dụng, thư mục `artifacts/` chưa có, và thời gian nạp thật chưa đo. Vì vậy `docker compose config`, build hai image, kiểm tra nội dung image, truy vấn API thật và healthcheck chưa chạy được. Bước tiếp theo là chạy các kiểm tra đó sau khi Docker khả dụng và D2/D3 cung cấp artifact cùng hành vi startup; khi đó cập nhật giá trị healthcheck từ số đo D6.
+Chưa thể xác nhận điều kiện hoàn thành D4 trong môi trường ghi nhận này: Docker CLI không khả dụng và thư mục `artifacts/` chưa có trong checkout. Vì vậy `docker compose config`, build hai image, kiểm tra nội dung image, truy vấn API thật và healthcheck chưa chạy được tại đây. D2 đã có phép đo nạp ở hai môi trường; D6 cần xác nhận giá trị healthcheck trên máy nghiệm thu.
+
+## 11. D5 — Lệnh chạy và smoke test (đang triển khai)
+
+Đã tạo `Makefile` với `fetch-artifacts`, `up`, `smoke` và `demo-local`. `fetch-artifacts` gọi script D2 với SHA-256 gói đã ghi ở README và mặc định tìm ZIP trong `.scratch/`; có thể đổi `ARTIFACT_ZIP`/`PYTHON`. Smoke dùng project Compose riêng có tên ngẫu nhiên, chờ API healthy với timeout 900 giây, gửi `POST /v1/search` ở chế độ semantic và kiểm tra schema response. Cleanup chỉ chạy `docker compose down` trên project riêng, không xóa volume feedback. Hai script demo-local dùng cùng `configs/app.yaml`, `artifacts/`, offline flags, và chờ health hữu hạn trước khi mở UI.
+
+Chưa chạy được lệnh Make, Compose hay query thật trong checkout này: Docker CLI và Make không có trên PATH, Python hệ thống trỏ tới Windows Store alias không chạy được, và `artifacts/` chưa được tải vào checkout. D5 còn cần xác nhận trên môi trường đã cài Make/Python dependency/Docker và có ZIP artifact; không coi lệnh là đã nghiệm thu chỉ từ việc tạo file.
