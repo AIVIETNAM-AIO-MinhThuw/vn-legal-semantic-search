@@ -6,7 +6,27 @@ Methodology và các quyết định đã duyệt nằm trong [SPEC.md](SPEC.md)
 
 ## Hướng dẫn chạy (cho người clone repo)
 
-Có 4 mức, chọn mức cần dùng. **Không cần Docker.** Mức 1–2 không cần GPU.
+### Đóng gói nguyên ứng dụng main cho máy CPU
+
+Deploy web dùng chung cho người dùng Windows/macOS: [các bước chuyển bundle, chạy server và tạo link HTTPS](docs/deploy_cpu.md). Người dùng chỉ cần trình duyệt; Docker chạy trên server Linux/amd64.
+
+Trên nhánh `task/TestCheckErrorDocker`, dùng ZIP và file checksum đã tải ở thư mục cha:
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 scripts/package_deploy.py --zip ..\vnlegal-demo-v1.zip --checksum ..\vnlegal-demo-v1.sha256
+cd release\deploy-cpu
+docker compose up --build -d --wait --wait-timeout 900
+```
+
+Script đọc commit `main` bằng Git archive, giữ nguyên byte source/config của main, chỉ bổ sung Docker/dependency CPU và symlink đường dẫn trong image. `main` và artifact không bị sửa. `RELEASE.json` ghi commit, checksum ZIP và hash từng file; `DEPLOY.md` nằm trong bundle. Script từ chối ghi đè bundle có sẵn. Chép cả thư mục bundle, gồm `artifacts/`, sang máy deploy có Docker Linux/amd64. Windows dùng Docker Desktop Linux containers; không cần GPU hoặc Java trên host.
+
+Hai file `.zip` và `.sha256` không ghép với nhau: checksum kiểm tra ZIP, sau đó 23 file được giải nén và kiểm tra hash vào `artifacts/`, mount chỉ đọc. SQLite dùng volume riêng. UI ở `http://127.0.0.1:8501`, API ở `http://127.0.0.1:8000/docs`. Dừng bằng `docker compose down`, giữ volume khi không thêm `-v`.
+
+Bundle này đóng gói hành vi hiện có trên main; main kiểm tra manifest theo loader cũ, không có đầy đủ kiểm tra provenance/fail-fast của D3. Vì vậy kết quả chạy bundle không phải xác nhận D3/D6 nghiêm ngặt đã đạt. Các mục tiếp theo mô tả checkout tích hợp D1–D6; khi chạy bundle, dùng lệnh trong `release/deploy-cpu/DEPLOY.md`.
+
+Có 4 mức, chọn mức cần dùng. Demo dùng Docker Compose làm đường chạy chính; môi trường Python local là dự phòng. Mức 1–2 không cần GPU.
+
+**Trạng thái nghiệm thu:** gói `vnlegal-demo-v1.zip` đúng checksum nhưng bị loader từ chối do manifest BM25 không khớp môi trường và dense B thiếu provenance. D6 chưa đạt; chưa bàn giao deploy. Xem [kết quả và các chặn D6](docs/phases/docker.md#12-d6--kiểm-thử-tích-hợp-trên-máy-windows-chưa-đạt).
 
 | Mức | Mục đích | Cần | Thời gian |
 |---|---|---|---|
@@ -27,16 +47,25 @@ Có 4 mức, chọn mức cần dùng. **Không cần Docker.** Mức 1–2 khô
 | Corpus đã xử lý, VNCoreNLP, index BM25, index + model E5 fine-tune B | `data/processed/`, `data/raw/vncorenlp/`, `indexes/`, `models/e5_ft_B_lr3e-05/model/` | **gói artifact** `vnlegal-demo-v1.zip` ([Google Drive](https://drive.google.com/drive/folders/1wTvyZm74OFUHFgUwGDfhE6u2H034BoAr?usp=sharing), 1,28 GB) |
 | Model gốc E5, SBERT | `data/raw/` | tải bằng script (mức 3) |
 
-### Cài môi trường (mọi mức)
+### Cài môi trường demo CPU và test
 
 ```powershell
 git clone https://github.com/AIVIETNAM-AIO-MinhThuw/vn-legal-semantic-search.git
 cd vn-legal-semantic-search
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt -r requirements-bm25.txt -r requirements-e5.txt -r requirements-ui.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements-api.txt -r requirements-ui.txt -r requirements.txt
+.\.venv\Scripts\python.exe -m pip check
 ```
 
-Linux/macOS: dùng `python3 -m venv .venv && source .venv/bin/activate` và `python` thay cho `.\.venv\Scripts\python.exe`. Không có GPU NVIDIA: cài `torch==2.5.1` bản CPU thay cho dòng `+cu121` trong `requirements-e5.txt`.
+Linux: dùng `python3.11 -m venv .venv && source .venv/bin/activate` và `python` thay cho `.\.venv\Scripts\python.exe`. Image hiện nghiệm thu trên Linux/amd64; macOS/ARM chưa được kiểm chứng. Bộ API ghim Torch CPU và cả `sentence-transformers` mà loader manifest yêu cầu. Training mức 3–4 dùng venv riêng và `requirements-train.txt` (Torch CUDA); không cài vào venv demo CPU.
+
+Nếu `python` trỏ tới Windows Store, dùng đường dẫn Python 3.11 đã cài. Nếu dùng `uv`, có thể tạo venv bằng `uv venv --python 3.11 --seed .venv`.
+
+Chạy test không tính lại metric trên test/OOD:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest --basetemp=.scratch/pytest -q
+```
 
 ### Mức 1 — tính lại bảng kết quả từ run có sẵn
 
@@ -48,19 +77,37 @@ Ghi ra `reports/results/results.md`. Số liệu phải trùng bản đã commit
 
 ### Mức 2 — chạy demo
 
-1. Cài **Java 64-bit** (JDK/JRE 8+), đặt biến `JAVA_HOME` (VNCoreNLP tách từ cho BM25 chạy trên Java).
+1. Chạy Docker Desktop ở chế độ Linux containers. Dockerfile API có sẵn Java; chỉ đường chạy Python local mới cần Java 64-bit và `JAVA_HOME`. Phiên bản phải khớp manifest BM25; cài Java tùy ý không giải quyết được lỗi provenance.
 2. Tải `vnlegal-demo-v1.zip` từ [thư mục Google Drive](https://drive.google.com/drive/folders/1wTvyZm74OFUHFgUwGDfhE6u2H034BoAr?usp=sharing) (SHA-256 của zip: `059a6a1101721ec497fb22d82d33a4194e8f1158150037897fd2ef0b43783096`), rồi giải nén vào repo (script kiểm tra SHA-256 từng file):
    ```powershell
    .\.venv\Scripts\python.exe -X utf8 scripts/fetch_artifacts.py --zip <đường dẫn>\vnlegal-demo-v1.zip --sha256 059a6a1101721ec497fb22d82d33a4194e8f1158150037897fd2ef0b43783096
    ```
-3. Chạy:
+3. Từ gốc repo, chạy Compose:
    ```powershell
-   powershell -ExecutionPolicy Bypass -File scripts\run_demo.ps1      # Windows
-   bash scripts/run_demo.sh                                           # Linux/macOS
+   docker compose up --build -d --wait --wait-timeout 900
    ```
 4. Mở `http://localhost:8501`. API và tài liệu endpoint: `http://127.0.0.1:8000/docs`.
 
-Demo chạy được trên CPU (tự chọn `cuda` nếu có). Lần đầu nạp mất 1–2 phút. Hệ thống semantic chọn trong `configs/app.yaml` (`semantic_system`, mặc định E5 fine-tune B — cấu hình tốt nhất trên val). Phản hồi hữu ích/không hữu ích lưu ở `data/app/feedback.sqlite`, xuất CSV từ giao diện.
+Config demo hiện ghim CPU cho cả Docker/local, dùng `./artifacts` chỉ đọc và cùng tham số truy hồi. SQLite Docker ở volume `feedback_data` riêng; local ở `data/app/feedback.sqlite`. Khởi động phụ thuộc storage; chờ tối đa 900 giây, xem lỗi bằng `docker compose logs --tail 80 api`.
+
+Chạy smoke với project riêng (bốn mode và health UI), dừng stack trước để tránh trùng cổng 8000/8501:
+
+```powershell
+docker compose down
+.\.venv\Scripts\python.exe -X utf8 scripts/smoke_demo.py
+```
+
+Smoke tự dừng container của nó và giữ volume feedback. Không thêm `-v` vào lệnh dừng nếu cần giữ feedback. Hai cờ Hugging Face offline ngăn tải model trong runtime; bài kiểm tra chặn mạng ra ngoài riêng được ghi trong tài liệu D6.
+
+Chạy local dự phòng sau khi đặt `JAVA_HOME` tới thư mục runtime tương thích (không trỏ tới `bin`):
+
+```powershell
+$env:JAVA_HOME = 'C:\duong-dan\java-runtime'
+& "$env:JAVA_HOME\bin\java.exe" -version
+powershell -ExecutionPolicy Bypass -File scripts\run_demo.ps1
+```
+
+Linux dùng `export JAVA_HOME=/path/to/java-runtime` rồi `bash scripts/run_demo.sh`. Các script chọn `.venv` mặc định; có thể đặt `PYTHON` để chỉ định interpreter khác. Khi thiếu file/sai manifest, API thoát lỗi, UI không được khởi động; không sửa artifact để ép lên healthy.
 
 ### Mức 3 — chạy lại toàn bộ thực nghiệm
 

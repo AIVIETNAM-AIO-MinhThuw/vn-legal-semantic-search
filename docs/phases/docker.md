@@ -284,3 +284,134 @@ Chưa thể xác nhận điều kiện hoàn thành D4 trong môi trường ghi 
 Đã tạo `Makefile` với `fetch-artifacts`, `up`, `smoke` và `demo-local`. `fetch-artifacts` gọi script D2 với SHA-256 gói đã ghi ở README và mặc định tìm ZIP trong `.scratch/`; có thể đổi `ARTIFACT_ZIP`/`PYTHON`. Smoke dùng project Compose riêng có tên ngẫu nhiên, chờ API healthy với timeout 900 giây, gửi `POST /v1/search` ở chế độ semantic và kiểm tra schema response. Cleanup chỉ chạy `docker compose down` trên project riêng, không xóa volume feedback. Hai script demo-local dùng cùng `configs/app.yaml`, `artifacts/`, offline flags, và chờ health hữu hạn trước khi mở UI.
 
 Chưa chạy được lệnh Make, Compose hay query thật trong checkout này: Docker CLI và Make không có trên PATH, Python hệ thống trỏ tới Windows Store alias không chạy được, và `artifacts/` chưa được tải vào checkout. D5 còn cần xác nhận trên môi trường đã cài Make/Python dependency/Docker và có ZIP artifact; không coi lệnh là đã nghiệm thu chỉ từ việc tạo file.
+
+## 12. D6 — Kiểm thử tích hợp trên máy Windows (chưa đạt)
+
+### 12.1 Môi trường và đầu vào
+
+Kiểm tra ngày 2026-10-27 trên checkout `task/TestDocker1`, commit `8c77bdb80ce2f02aa4a2c9247e39a8f3a762b8b3`; trước khi chạy, working tree sạch. Host Windows 11 Home Single Language, build 26300, Intel Core i7-1355U (10 core/12 luồng), RAM khả dụng 15.7 GiB; lúc build còn khoảng 0.34 GiB trống. Docker Engine 29.8.2, context `desktop-linux`, Linux/amd64; Docker Compose 5.5.1. Python host là Windows Store alias không khởi chạy được; Make và Python launcher `py` không có trên PATH. Runtime image D1 có Python 3.11.18 và OpenJDK 17.0.21.
+
+Artifact local đã đối chiếu trực tiếp với manifest, không ghi hoặc sửa file: **23/23 file khớp kích thước và SHA-256**. SHA-256 ZIP `vnlegal-demo-v1.zip` là `059a6a1101721ec497fb22d82d33a4194e8f1158150037897fd2ef0b43783096`; tổng kích thước file artifact là 1,283,644,825 byte (khoảng 1.20 GiB). Log và script kiểm tra chỉ nằm trong `.scratch/d6/`.
+
+### 12.2 Kết quả chạy
+
+| Kiểm tra | Kết quả thực tế |
+|---|---|
+| `docker compose config --quiet` | Đạt, exit 0. |
+| Build UI bằng `docker compose build --progress plain` | Đạt. `vnlegal-ui:local`, 836,690,257 byte; self-check import đạt, user `10002:10002`, không có Torch. Kiểm tra image với `--network none` xác nhận không có Torch, artifact, corpus, index, model hoặc SQLite. |
+| Build API mới | Chưa xác minh. Build dừng ở bước cài `requirements-api.txt`, đang tải wheel SciPy 35.3 MB từ PyPI mà không có log tiến triển khoảng 15 phút; dừng thủ công. Không có lỗi Dockerfile được báo trước khi dừng. `vnlegal-api:local` chưa được tạo; image sẵn có `vnlegal-api:d1` là image cũ, 2,068,021,408 byte, UID `10001:10001`. |
+| Test API/artifact/BM25 | Đạt: **91 passed**, 1 cảnh báo deprecation Starlette/AnyIO, 20.86 giây. Chạy trong container Linux offline với source/config/tests hiện tại mount read-only; gồm `test_api_contract.py`, `test_api_startup.py`, `test_dense_manifest.py`, `test_artifacts.py`, `test_bm25.py`. |
+| Khởi động API với artifact thật, không mạng | Không healthy theo đúng hành vi fail-fast: process dùng source hiện tại, artifact bind `:ro`, `--network none` thoát mã 1 với `ValueError: BM25 manifest mismatch`; chưa mở server và chưa phục vụ kết quả. Lượt này dùng image D1 làm test harness, bổ sung wheel test từ `.scratch/d3/wheels`; không phải image API mới build từ Dockerfile. |
+| UI image không chứa dữ liệu bị cấm | Đạt cho image UI vừa build: non-root, không Torch, không có đường dẫn artifact/corpus/index/model/feedback. |
+| Read-only artifact và feedback qua restart | Đạt ở mức mount/SQLite: Docker báo `RW=false` cho artifact. Dùng `SearchService._init_db()` và `feedback()` ghi một bản ghi giả vào volume probe riêng; sau `docker restart`, đọc lại được đúng bản ghi. Đã xóa container và volume probe. Đây không phải kiểm thử endpoint `/v1/feedback` trên service đã nạp model. |
+
+### 12.3 Kết luận và phần chưa nghiệm thu
+
+Không thể chốt D6. Mặc dù checksum đúng, API hiện từ chối artifact theo manifest: BM25 manifest không khớp môi trường runtime và dense B thiếu metadata bắt buộc (chi tiết ở mục 11.3). Không sửa manifest, hash freeze, index hay model để lách kiểm tra. Cần nhóm quyết định theo SPEC mục 0 cách xử lý provenance/artifact trước khi chạy lại luồng thật.
+
+Vì API không healthy và image API mới chưa build xong, chưa có bằng chứng chạy Compose hoàn chỉnh; chưa kiểm tra BM25/semantic/hybrid/compare trên dữ liệu thật, UI hiển thị response, tìm kiếm offline thành công, feedback qua endpoint sau khi tạo lại container, thời gian nạp/RAM của model thật, hoặc audit image API mới. Smoke hiện chỉ gửi một truy vấn semantic nên cũng chưa bao phủ đủ bốn chế độ D6. Không dùng các mục chưa chạy để tuyên bố D6 đạt.
+
+Các log kiểm chứng cục bộ ở `.scratch/d6/`: `artifact-check.txt`, `api-tests.log`, `startup-manifest.log`, `feedback-persistence*.log`, `api-d1-image-audit*` và `compose-build.log`. Không chạy metric hiệu năng test/OOD.
+
+### 12.4 Chạy lại trên nhánh `task/Docker-Compose` bằng môi trường README
+
+Sau khi chuyển nhánh theo yêu cầu, checkout vẫn ở commit `8c77bdb` và `origin/task/Docker-Compose` báo up to date. Tạo `.venv` bằng Python 3.11.16 (dùng `uv` vì alias `python` của Windows Store không chạy); cài Torch CPU 2.5.1 theo hướng dẫn không có NVIDIA. `pip check` đạt. Không có Java cài trên host, `JAVA_HOME` rỗng.
+
+- Chạy bộ test API/artifact/BM25 với đúng các nhóm dependency README liệt kê: **66 passed, 2 skipped, 20 errors, 3 failed**. Hai skip là kiểm tra quyền POSIX trên Windows. Hai mươi error và hai failure dense liên quan đều do thiếu metadata `sentence-transformers`; README không cài `requirements-api.txt`, trong khi loader D3 bắt buộc package này. Failure `test_missing_runtime_dependency_rejected[torch]` là lỗi dây chuyền: loader dừng ở package `sentence-transformers` trước khi kiểm tra trường hợp Torch.
+- Failure còn lại là `test_cli_exports_blind_candidates_and_refuses_overwrite`: Windows trả `PermissionError [WinError 5]` khi đổi tên thư mục tạm dưới `.pytest_tmp`. Chạy lại cùng bộ test với `--basetemp=.scratch/d6/pytest-tmp` không tái hiện lỗi này.
+- Khi không có quyền loopback, `TestClient` treo trong tạo socket nội bộ của AnyIO/asyncio trên Windows (`socket.accept` trong `_fallback_socketpair`). Lượt test cần quyền tiến trình nâng cao để dùng loopback; traceback lưu ở `health-test.log`.
+- Cài thêm `requirements-api.txt`, chạy lại với temp dir trong `.scratch` và quyền loopback: **89 passed, 2 skipped**, 1 cảnh báo deprecation Starlette/AnyIO, 27.74 giây. `pip check` vẫn đạt.
+- Khởi động API native từ venv với artifact thật thoát mã 1 trước khi nạp index: `ValueError: Set JAVA_HOME to the Java runtime used by pyjnius`. Máy này chưa có Java trong PATH hoặc các thư mục cài đặt thường dùng. Sau khi cài Java và đặt `JAVA_HOME`, cần chạy lại; trong Docker Linux, cùng artifact đã được xác nhận lỗi tiếp theo là `BM25 manifest mismatch`.
+
+Log lượt chạy README và lần chạy có `requirements-api.txt` nằm trong `.scratch/d6/venv-*.log`; lỗi khởi động native trong `windows-startup.log`. Kết quả test đạt sau khi cài `requirements-api.txt` không xóa phát hiện README thiếu dependency này.
+
+### 12.5 Sửa lỗi và kiểm chứng lại ngày 2026-10-27–28
+
+Nhánh thực hiện `task/TestCheckErrorDocker`, rẽ từ `8c77bdb`; các thay đổi dưới đây chưa commit. Kết quả mục này cập nhật các trạng thái build/test cũ ở trên; D6 vẫn chưa đạt với gói v1.
+
+**Các lỗi kỹ thuật đã sửa**
+
+- README dùng `requirements-api.txt` + `requirements-ui.txt` + `requirements.txt` cho venv demo CPU/test, hướng dẫn venv training riêng, Compose chính/local dự phòng, `JAVA_HOME`, vòng đời smoke và trạng thái artifact hiện có. Không còn thiếu `sentence-transformers` khi làm theo cách cài này.
+- Make mặc định chọn Python trong `.venv` và export `PYTHON` cho script local. Script Bash cũng chọn `.venv` mặc định; cả Bash/PowerShell dừng rõ ràng khi thiếu Java, trước khi tạo tiến trình API. PowerShell dùng UTF-8 BOM để Windows PowerShell 5 đọc đúng thông báo tiếng Việt; đã chạy ca thiếu Java, exit 1 với thông báo rõ ràng. Cú pháp Bash/PowerShell đã kiểm tra.
+- Smoke kiểm tra BM25/semantic/hybrid/compare và health UI; kiểm tra schema, tên các danh sách và kết quả không rỗng. Build có timeout riêng với thời gian chờ khởi động; `up --wait` đợi đúng project smoke sẵn sàng. Khi lỗi, in `ps`/log trước cleanup; cleanup chỉ dừng project riêng và không xóa volume.
+- Loader chung giữ nguyên kiểm tra nghiêm ngặt, bổ sung thông báo liệt kê trường manifest sai/thiếu. Không đổi schema API, model, tham số truy hồi hoặc byte artifact.
+
+**Bằng chứng chạy sau sửa**
+
+| Hạng mục | Kết quả |
+|---|---|
+| Toàn bộ unit test Windows/Python 3.11.16, cờ HF offline | **200 passed, 12 skipped**, 100.62 giây, 1 cảnh báo deprecation. Hai skip quyền POSIX, mười skip cần tokenizer E5 local. Không tính metric từ dữ liệu test/OOD thật. |
+| Regression API/startup/artifact/manifest/BM25/smoke trong Linux, `--network none` | **95 passed**, 144.38 giây, 1 cảnh báo; hai kiểm tra quyền POSIX chạy đạt. Source/config/test mount read-only, dependency test bổ sung trong `/tmp` từ wheel local. |
+| `docker compose --progress plain build` trên bản code cuối | **Exit 0 cả hai image**. API self-check Torch CPU/NumPy/non-root/JVM và `pip check` đạt. Lỗi tải SciPy của lần trước không còn chặn build lần này. |
+| Audit image final, `--network none` | API UID 10001, Torch `2.5.1+cpu`, Transformers `4.46.3`, tokenizers `0.20.3`, sentence-transformers `5.6.0`, OpenJDK `17.0.21`; UI UID 10002, không Torch. Cả hai không có corpus/index/model weights/query/qrels/run/SQLite/secret ở các đường dẫn hoặc phần mở rộng đã quét. API chỉ có placeholder artifact rỗng. Hash source BM25/dense trong image khớp working tree. |
+| API với artifact thật read-only và không mạng | **Exit 1**, `BM25 manifest mismatch: provenance.java, provenance.python`. Thời gian tiến trình probe tới lúc bị từ chối 65.90 giây, peak RSS 268,056 KiB. Đây không phải thời gian nạp/RAM của model đã healthy. |
+| Thiếu artifact trong image final, không mạng | **Exit 1**, thiếu `/app/artifacts/MANIFEST.json`; probe 5.42 giây, peak RSS 227,268 KiB. |
+| Manifest dense B nguyên bản, loader chung | **Exit 1**, `Dense manifest missing required metadata: encoder, versions`. Dừng trước khi cần model/vectors. |
+| Artifact sau sửa/test | **23/23 hash còn đúng**, không sửa hay rebuild gói gốc. |
+| Volume Compose | UID 10001 gọi `_init_db()`/`feedback()` với lượt tìm fixture, ghi được SQLite trên volume `vnlegal-d6-fixed_feedback_data`; đọc lại đúng bản ghi sau restart và sau xóa/tạo lại container dùng cùng volume. Artifact `RW=false`, SQLite volume `RW=true`. Chưa phải nghiệm thu endpoint trên service nạp model thật. |
+| UI và quyền filesystem | Container UI rootfs chỉ đọc; `/_stcore/health` HTTP 200 trong container và qua host `127.0.0.1:8501` với mạng Compose mặc định. RAM UI idle đo được 36.21 MiB; chưa có phiên browser tìm kiếm. |
+| Smoke thật trên Compose mặc định | Với `SMOKE_TIMEOUT_S=120`, giữ nguyên `start_period=12m`, **exit 1**; log ghi API restart do `BM25 manifest mismatch: provenance.java, provenance.python`, UI chưa được khởi động. Script in log rồi dọn container/network của project riêng, giữ feedback volume. Lượt thử tăng tốc riêng (`start_period=0s`, timeout 60s) chỉ kiểm chứng nhánh unhealthy/cleanup, không dùng để chốt thời gian nạp mặc định. |
+| Mạng chặn outbound | Override local đặt network `internal: true`: cả API probe và UI probe không kết nối được `1.1.1.1:443` (`ENETUNREACH`); UI health nội bộ vẫn 200. Trên Docker Desktop máy này, host published port không truy cập được với mạng internal đó. Override chỉ dùng cho nghiệm thu local, Compose chính giữ nguyên mạng mặc định. Chưa nghiệm thu tìm kiếm thật trong mạng cô lập vì manifest không hợp lệ. |
+
+Kích thước CLI báo cho image final: API **2,153,899,976 byte**, UI **836,690,876 byte**. Docker VM giới hạn RAM khoảng 7.604 GiB trên host 16 GiB ở mục 12.1. Image ID đo được: API `sha256:10d5f6d912037a0742ba44064b3d57dcca915c29024f4071b8fea90a49155cdd`, UI `sha256:2836fb9209620c71f61bc46bb300b78bcaa5d24546f1e5794409a7cbbd3f5fe5`. Chưa publish registry.
+
+Lệnh tái hiện từ gốc repo sau cài môi trường theo README:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe -m pytest --basetemp=.scratch/d6/recheck -q
+docker compose config --quiet
+docker compose --progress plain build
+# Dừng stack đang chạy trước smoke để giải phóng cổng, giữ volume.
+docker compose down
+.\.venv\Scripts\python.exe -X utf8 scripts/smoke_demo.py
+```
+
+Log final trong `.scratch/d6/`: `full-fix-tests.log`, `linux-fix-tests.log`, `compose-build-final.log`, `api-image-final-audit.log`, `ui-image-final-audit.log`, `artifact-after.txt`, `startup-real-final.log`, `startup-missing-final.log`, `dense-real-final.log`, `feedback-recreated.log`, `ui-internal-audit.log` và `smoke-*-final.log`. Script probe/override trong cùng thư mục là công cụ local, không là đầu vào runtime chính thức.
+
+**Chặn còn lại và quyết định cần nhóm duyệt**
+
+1. BM25 yêu cầu provenance Java 8 `1.8.0_471`/Python `3.11.9`; image final là OpenJDK 17/Python `3.11.18`. Các trường cấu hình khác không bị báo lệch trong lần nạp vừa chạy.
+2. Dense B thiếu `encoder`/`versions`. Manifest training và summary cũ chỉ chứng minh Torch/Python; config model ghi Transformers, không có đủ bằng chứng lịch sử cho cả bốn dependency và metadata index. Không được lấy môi trường hôm nay điền ngược thành provenance cũ.
+3. Người giao việc ngày 2026-10-28 xác nhận phạm vi chỉ đóng gói nguyên ứng dụng main và dùng artifact hiện có. Rút đề xuất dựng lại artifact; không triển khai ngoại lệ bỏ kiểm tra trong loader D3. Bundle main riêng ở mục 12.6 giữ nguyên hành vi của main và không phải kết quả nghiệm thu D3.
+
+Chỉ sau quyết định và gói hợp lệ mới có thể nghiệm thu bốn mode với model thật, UI hiển thị kết quả, offline search, feedback qua endpoint/recreate container và tài nguyên khi model healthy. Chưa chốt D6 hoặc D7 từ các fixture/probe đã đạt.
+
+### 12.6 Bundle CPU đóng gói nguyên main (phạm vi ngày 2026-10-28)
+
+Quy trình deploy server và tạo đường link cho người dùng Windows/macOS: [deploy_cpu.md](../deploy_cpu.md). File này được `package_deploy.py` đưa vào bundle dưới tên `DEPLOY.md`. Chưa có thông tin SSH/domain nên chưa thực hiện thao tác trên server bên ngoài.
+
+Theo yêu cầu mới, chỉ đọc main, không sửa source ứng dụng; thực hiện công cụ đóng gói trên `task/TestCheckErrorDocker`. Đã bỏ các sửa thông báo lỗi chưa commit của lượt trước tại `src/retrieval/bm25.py`, `src/retrieval/dense.py` và test tương ứng; patch lưu local trong `.scratch/d6/diagnostic-only-changes.patch`. Main không được checkout hoặc thay đổi.
+
+`scripts/package_deploy.py` dùng `git archive` commit main `4a83ee616084f43f220ab4c73ee77ece9b54469c`, xuất source/config nguyên byte sang `release/deploy-cpu` (Git ignore). Bundle gồm Docker/Compose, dependency CPU, `RELEASE.json`, `DEPLOY.md` và thư mục artifact đã kiểm tra. Runtime dùng symlink trong image để trỏ các đường dẫn cũ của main sang mount artifact chỉ đọc; SQLite giữ volume riêng. Các file source/config được kiểm hash sau khi tạo bundle và ghi vào `RELEASE.json`. Không dùng source D3 trong bundle này.
+
+Nguồn local theo người giao việc: `C:/Users/nhatm/Downloads/NLP/Project/vnlegal-demo-v1.zip` (1,283,648,449 byte) và `vnlegal-demo-v1.sha256`. File checksum ghi `059a6a1101721ec497fb22d82d33a4194e8f1158150037897fd2ef0b43783096`, khớp SHA-256 tính lại và hash đã công bố. Cả 23 file sau giải nén khớp manifest. ZIP và checksum là hai file phối hợp kiểm tra, không ghép/chèn vào image.
+
+Lệnh tạo bundle (cần Python 3.11; venv demo đã cài theo README):
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 scripts/package_deploy.py --zip ..\vnlegal-demo-v1.zip --checksum ..\vnlegal-demo-v1.sha256
+cd release\deploy-cpu
+docker compose up --build -d --wait --wait-timeout 900
+```
+
+Script từ chối ghi đè bundle đã có. Chuyển cả thư mục bundle, gồm artifact, sang server; source snapshot/packaging nhỏ và artifact lớn vẫn tách rõ trong thư mục. Windows host cần Docker Desktop Linux containers; runtime Linux/amd64, Torch `2.5.1+cpu`, không cần GPU/Java host. Không train, encode lại index hoặc sửa trọng số.
+
+**Giới hạn phạm vi:** main giữ cách kiểm tra manifest cũ và bắt lỗi startup rồi trả 503 khi service thiếu; không có đầy đủ kiểm tra provenance/fail-fast D3. Bundle đóng gói nguyên hành vi này theo yêu cầu người giao việc. Không dùng việc bundle chạy được để kết luận bộ D3/D6 nghiêm ngặt ở mục 11–12.5 đã đạt.
+
+**Kết quả chạy bundle nguyên main trên Windows/CPU ngày 2026-10-28**
+
+| Kiểm tra | Bằng chứng thực chạy |
+|---|---|
+| Source/code chính | 53 file source/config trong bundle so với Git blob của commit main: khớp từng byte. `git diff -- src` trong checkout không có thay đổi chưa commit; ref main vẫn `4a83ee6`. |
+| Build hai image | `docker compose -p vnlegal-main-cpu --progress plain build`: exit 0. API image `sha256:7089d6d756e8fca3ad64cec231b0ef90f1a00d926941c3c8415973e1cc6edcdf`, 2,153,909,434 byte; UI `sha256:30872de84aade1143dd1d1d2093672a1975485999a3ad7ca449dc8bc88d6d938`, 836,690,249 byte. |
+| Startup thật từ bind mount Windows | `up --no-build -d --wait --wait-timeout 900` exit 0, API/UI healthy sau khoảng 86 giây ở lần đo này. Warm-up log khoảng 37.2 giây; không phải cam kết thời gian trên server khác. |
+| CPU | Torch `2.5.1+cpu`, `torch.cuda.is_available() == False`; API UID 10001, UI UID 10002. UI không có Torch. Host không cần GPU hay Java; Java 17 có sẵn trong image. |
+| Search và feedback endpoint | Health/info HTTP 200; BM25/semantic/hybrid/compare đều trả kết quả không rỗng, đúng schema. Feedback qua `POST /v1/feedback` và CSV export đạt. Không tính metric từ query test/OOD. |
+| Offline | Ngắt API khỏi network Compose, kết nối TCP tới `1.1.1.1:443` trả `ENETUNREACH`; gọi search từ localhost trong container vẫn đạt cả bốn mode. Sau thử nối lại network và alias `api`. |
+| Persistence | Ghi feedback từ lượt tìm thật, force-recreate API giữ cùng named volume; sau khi API healthy lại, export vẫn chứa đúng search_id đã ghi. |
+| UI kết nối/render | UI container truy cập `http://api:8000/health` HTTP 200; host UI health HTTP 200. Streamlit AppTest render được card semantic từ API thật, không exception. AppTest interaction ban đầu bị lỗi hỗ trợ widget `_widget_state`; xác minh lại bằng state query trước lần render đầu đạt, không sửa code UI. Chưa kiểm tra bố cục trực quan bằng browser. |
+| Quyền/data payload | Artifact bind `read_only`, API xác nhận filesystem chỉ đọc; SQLite ở volume ghi riêng. Audit image không có artifact, weights/corpus/index/SQLite đóng sẵn. 23 file artifact vẫn khớp manifest sau tìm kiếm. |
+| RAM thực đo | Snapshot sau chạy query: API khoảng 807.8 MiB, UI 36.58 MiB trên Docker VM giới hạn 7.604 GiB/host 16 GiB. Đây là snapshot CLI, chưa phải peak hay cấu hình RAM tối thiểu. |
+
+Log riêng của bundle: `.scratch/d6/main-cpu-build.log`, `main-cpu-up.log`, `main-cpu-up-result.txt`, `main-cpu-endpoints.log`, `main-cpu-offline.log`, `main-cpu-recreate.log`, `main-cpu-persistence.log`, `main-cpu-ui-render-final.log`, `main-cpu-image-audit.log`, `main-cpu-artifact-final.log`. Kết quả là nghiệm thu việc đóng gói **nguyên ứng dụng main** theo phạm vi mới; không thay đổi tuyên bố hạn chế D3 phía trên.

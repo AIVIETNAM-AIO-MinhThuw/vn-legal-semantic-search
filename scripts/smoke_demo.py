@@ -53,7 +53,14 @@ def send_smoke_query() -> None:
     query = os.environ.get(
         "SMOKE_QUERY", "Người lao động có những quyền và nghĩa vụ gì theo quy định pháp luật?"
     )
-    request_model = SearchRequest(query=query, mode="semantic", top_k=1)
+    for mode, systems in (
+        ("bm25", ["bm25"]), ("semantic", ["semantic"]),
+        ("hybrid", ["hybrid"]), ("compare", ["bm25", "semantic"]),
+    ):
+        send_query(SearchRequest(query=query, mode=mode, top_k=1), systems)
+
+
+def send_query(request_model: SearchRequest, systems: list[str]) -> None:
     payload = json.dumps(request_model.model_dump(mode="json", exclude_none=True)).encode("utf-8")
     request = Request(
         f"{API_BASE_URL}/v1/search",
@@ -69,11 +76,13 @@ def send_smoke_query() -> None:
     except HTTPError as error:
         body = error.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"API /v1/search trả HTTP {error.code}: {body}") from error
-    if len(result.lists) != 1 or result.lists[0].system != "semantic":
-        raise RuntimeError("Response smoke không có đúng một danh sách semantic")
+    if [group.system for group in result.lists] != systems:
+        raise RuntimeError(f"Response smoke sai danh sách hệ thống: {request_model.mode}")
+    if any(not group.items for group in result.lists):
+        raise RuntimeError(f"Response smoke không có kết quả: {request_model.mode}")
     print(
         "API query: OK "
-        f"(semantic, {len(result.lists[0].items)} kết quả, {result.timing_ms:.1f} ms)"
+        f"({request_model.mode}, {result.timing_ms:.1f} ms)"
     )
 
 
@@ -90,18 +99,30 @@ def main() -> int:
         )
         if version.returncode:
             raise RuntimeError("Docker Compose không khả dụng")
-        deadline = time.monotonic() + TIMEOUT_S
+        result = compose(project, "build", timeout=TIMEOUT_S)
+        if result.returncode:
+            raise RuntimeError(f"docker compose build thất bại (mã {result.returncode})")
         print(f"Khởi động stack smoke riêng: {project}")
         up_started = True
-        result = compose(project, "up", "--detach", "--build", timeout=TIMEOUT_S)
+        result = compose(project, "up", "--detach", "--wait", "--wait-timeout", str(TIMEOUT_S),
+                         timeout=TIMEOUT_S + 30)
         if result.returncode:
             raise RuntimeError(f"docker compose up thất bại (mã {result.returncode})")
-        check_health(deadline)
+        check_health(time.monotonic() + TIMEOUT_S)
         send_smoke_query()
+        with urlopen("http://127.0.0.1:8501/_stcore/health", timeout=10) as response:
+            if response.status != 200:
+                raise RuntimeError(f"UI health trả HTTP {response.status}")
         print("SMOKE PASS")
     except (OSError, subprocess.SubprocessError, RuntimeError, TimeoutError, ValueError) as error:
         print(f"SMOKE FAIL: {error}", file=sys.stderr)
         exit_code = 1
+        if up_started:
+            try:
+                compose(project, "ps", "--all", timeout=15)
+                compose(project, "logs", "--no-color", "--tail", "80", timeout=15)
+            except (OSError, subprocess.SubprocessError) as diagnostic_error:
+                print(f"Không đọc được log Compose: {diagnostic_error}", file=sys.stderr)
     finally:
         if up_started:
             print(f"Dừng containers do smoke tạo ({project}); giữ nguyên volume feedback.")

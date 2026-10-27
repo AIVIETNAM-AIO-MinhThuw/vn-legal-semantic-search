@@ -4,7 +4,7 @@ set -Eeuo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
-PYTHON=${PYTHON:-python}
+PYTHON=${PYTHON:-$ROOT/.venv/bin/python}
 STARTUP_TIMEOUT_S=${STARTUP_TIMEOUT_S:-900}
 
 if ! [[ "$STARTUP_TIMEOUT_S" =~ ^[1-9][0-9]*$ ]]; then
@@ -16,6 +16,11 @@ export PYTHONUTF8=1
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 export APP_CONFIG=${APP_CONFIG:-configs/app.yaml}
+
+if [[ -z "${JAVA_HOME:-}" || ! -x "$JAVA_HOME/bin/java" ]]; then
+  echo 'Cần JAVA_HOME trỏ tới Java 64-bit tương thích manifest. Xem README hoặc dùng Docker Compose.' >&2
+  exit 1
+fi
 
 "$PYTHON" -m uvicorn src.api.app:app --host 127.0.0.1 --port 8000 --workers 1 &
 API_PID=$!

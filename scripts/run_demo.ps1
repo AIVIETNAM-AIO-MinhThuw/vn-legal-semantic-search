@@ -1,4 +1,4 @@
-# Demo trên Windows: API (8000) + Streamlit (8501), dùng artifacts/ và configs/app.yaml.
+﻿# Demo trên Windows: API (8000) + Streamlit (8501), dùng artifacts/ và configs/app.yaml.
 param([int]$StartupTimeoutSeconds = 900)
 $ErrorActionPreference = 'Stop'
 
@@ -18,6 +18,10 @@ $env:PYTHONUTF8 = '1'
 $env:HF_HUB_OFFLINE = '1'
 $env:TRANSFORMERS_OFFLINE = '1'
 if (-not $env:APP_CONFIG) { $env:APP_CONFIG = 'configs/app.yaml' }
+
+if (-not $env:JAVA_HOME -or -not (Test-Path (Join-Path $env:JAVA_HOME 'bin\java.exe'))) {
+  throw 'Cần JAVA_HOME trỏ tới Java 64-bit tương thích manifest. Xem README hoặc dùng Docker Compose.'
+}
 
 $api = $null
 $uiExitCode = 0
