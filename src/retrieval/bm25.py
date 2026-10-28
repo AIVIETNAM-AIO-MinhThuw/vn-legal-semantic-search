@@ -7,13 +7,14 @@ import json
 import logging
 import math
 import os
+import platform
 import shutil
 import tempfile
 from pathlib import Path
 
 import bm25s
 
-from src.retrieval.text import word_tokens
+from src.retrieval.text import java_version, word_tokens
 from src.retrieval.common import (
     file_hash as file_hash,
     read_jsonl as read_jsonl,
@@ -24,6 +25,32 @@ from src.retrieval.common import (
 )
 
 LOG = logging.getLogger(__name__)
+
+
+def provenance(cfg: dict, paths: dict[str, Path], *, model_dir: Path | None = None) -> dict:
+    """Actual runtime identity, shared by evaluation and app; paths are IO locations only."""
+    for package, expected in cfg["versions"].items():
+        if importlib.metadata.version(package) != str(expected):
+            raise ValueError(f"Version mismatch: {package}")
+    settings = cfg["segmenter"]
+    if settings["annotators"] != ["wseg"]:
+        raise ValueError("Only wseg is supported")
+    prep = cfg["preprocessing"]
+    if (prep["unicode"] != "NFC" or not prep["lowercase_after_segmentation"]
+            or not prep["remove_punctuation_only"] or prep["remove_stopwords"] or prep["stemming"]):
+        raise ValueError("Unsupported preprocessing config")
+    model = Path(model_dir) if model_dir is not None else Path(settings["model_dir"])
+    if (model / "revision.txt").read_text(encoding="utf-8").strip() != settings["revision"]:
+        raise ValueError("VNCoreNLP revision mismatch")
+    return {
+        "sources": {name: file_hash(paths[name]) for name in ("chunks", "articles", "docs")},
+        "segmenter": settings,
+        "segmenter_files": {name: file_hash(model / name) for name in settings["files"]},
+        "java": java_version(settings), "preprocessing": prep,
+        "versions": {p: importlib.metadata.version(p) for p in cfg["versions"]},
+        "numerics": {p: importlib.metadata.version(p) for p in ("numpy", "scipy")},
+        "python": platform.python_version(),
+    }
 
 
 def validate_settings(settings: dict) -> None:

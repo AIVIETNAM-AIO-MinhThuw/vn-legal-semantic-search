@@ -6,7 +6,8 @@ systems:
   e5_ft_B:      {kind: dense, config: configs/dense_e5_ft.yaml, model: "models/e5_ft_B_lr{lr}/model", index: indexes/e5_ft_B, label: "E5 fine-tune B (+HN)"}
   sbert_mminilm: {kind: dense, config: configs/dense_sbert.yaml, label: "SBERT đa ngôn ngữ"}
 bm25_config: configs/bm25.yaml
-device: auto                      # auto: cuda nếu có, ngược lại cpu
+artifact_root: artifacts          # so với gốc repo; bỏ khóa để dùng bố trí legacy
+device: cpu                       # cùng runtime CPU cho Docker và demo-local
 query_max_tokens: 64              # vượt thì cắt và cảnh báo QUERY_TRUNCATED (giống max_query_length khi train)
 rrf_k: 60
 feedback_db: data/app/feedback.sqlite

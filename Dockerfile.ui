@@ -1,0 +1,32 @@
+FROM python:3.11-slim-bookworm
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONUTF8=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    HOME=/tmp
+
+WORKDIR /app
+
+COPY requirements-ui.txt ./requirements-ui.txt
+RUN python -m pip install --no-cache-dir -r requirements-ui.txt \
+    && python -m pip check
+
+# The UI imports only shared API contracts and its own presentation code.
+COPY src/__init__.py ./src/__init__.py
+COPY src/contracts/ ./src/contracts/
+COPY src/ui/ ./src/ui/
+COPY .streamlit/config.toml ./.streamlit/config.toml
+
+RUN groupadd --gid 10002 ui \
+    && useradd --uid 10002 --gid 10002 --create-home --home-dir /home/ui --shell /usr/sbin/nologin ui \
+    && mkdir -p /tmp/.streamlit \
+    && chown -R ui:ui /tmp/.streamlit
+
+USER 10002:10002
+
+# Keep the UI dependency set separate from the inference image.
+RUN python -c "import importlib.util, os, streamlit, httpx, pydantic; assert os.getuid() != 0; assert importlib.util.find_spec('torch') is None; print('UI imports, no Torch and non-root: OK')"
+
+EXPOSE 8501
+CMD ["python", "-m", "streamlit", "run", "src/ui/app.py", "--server.address", "0.0.0.0", "--server.port", "8501"]

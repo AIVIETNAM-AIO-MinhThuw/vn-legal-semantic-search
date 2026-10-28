@@ -1,0 +1,7 @@
+# Existing training environment, collected without changing its versions.
+# Install in a separate venv from requirements-api.txt (CUDA 12.1 vs CPU).
+-r requirements.txt
+-r requirements-e5.txt
+
+# SPEC 7.4 requires the same recorded dependency version as the API runtime.
+sentence-transformers==5.6.0

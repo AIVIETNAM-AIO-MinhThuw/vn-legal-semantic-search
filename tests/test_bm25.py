@@ -22,6 +22,51 @@ class Segmenter:
         ]
 
 
+def test_service_compares_actual_bm25_provenance(tmp_path, monkeypatch):
+    from src.app.service import SearchService
+    from src.retrieval import bm25, text
+    from src.retrieval.common import file_hash, write_jsonl
+
+    paths = {name: tmp_path / name for name in ("chunks", "articles", "docs", "index")}
+    for name in ("chunks", "articles", "docs"):
+        write_jsonl(paths[name], chunks())
+    sources = {name: file_hash(paths[name]) for name in ("chunks", "articles", "docs")}
+    BM25Retriever.build(chunks(), config(), Segmenter()).save(
+        paths["index"], {"sources": sources, "java": "old-runtime"})
+    monkeypatch.setattr(bm25, "provenance", lambda *a, **k: {"sources": sources, "java": "actual-runtime"}, raising=False)
+    def unexpected_jvm(_):
+        raise AssertionError("Invalid manifest must fail before starting the JVM")
+    monkeypatch.setattr(text, "load_segmenter", unexpected_jvm)
+    service = SearchService.__new__(SearchService)
+    service.bpaths = paths
+    service.bcfg = {"bm25": config()}
+    service.segmenter_settings = {"model_dir": str(tmp_path)}
+    with pytest.raises(ValueError, match="BM25 manifest mismatch"):
+        service._load_bm25()
+
+
+def test_provenance_relocates_io_without_changing_config_identity(tmp_path, monkeypatch):
+    import yaml
+    from src.retrieval import bm25
+    from src.retrieval.common import file_hash
+
+    cfg = yaml.safe_load((Path(__file__).resolve().parents[1] / "configs/bm25.yaml").read_text())
+    model = tmp_path / "mounted-vncorenlp"
+    model.mkdir()
+    (model / "revision.txt").write_text(cfg["segmenter"]["revision"])
+    for name in cfg["segmenter"]["files"]:
+        path = model / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"fixture segmentation files")
+    paths = {name: tmp_path / name for name in ("chunks", "articles", "docs")}
+    for path in paths.values():
+        path.write_bytes(b"fixture corpus")
+    monkeypatch.setattr(bm25, "java_version", lambda _: "fixture-java")
+    source = bm25.provenance(cfg, paths, model_dir=model)
+    assert source["segmenter"]["model_dir"] == "data/raw/vncorenlp"
+    assert source["segmenter_files"]["VnCoreNLP-1.2.jar"] == file_hash(model / "VnCoreNLP-1.2.jar")
+
+
 def chunks():
     return [
         dict(

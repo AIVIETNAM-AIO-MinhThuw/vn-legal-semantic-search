@@ -3,10 +3,8 @@
 from __future__ import annotations
 
 import argparse
-import importlib.metadata
 import json
 import logging
-import platform
 import sys
 import time
 from pathlib import Path
@@ -15,7 +13,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.retrieval.bm25 import BM25Retriever, validate_settings  # noqa: E402
+from src.retrieval.bm25 import BM25Retriever, provenance, validate_settings  # noqa: E402
 from src.retrieval.common import (  # noqa: E402
     file_hash,
     read_jsonl,
@@ -24,46 +22,9 @@ from src.retrieval.common import (  # noqa: E402
     validate_corpus as validate_corpus,
     export_run,
 )
-from src.retrieval.text import java_version, load_segmenter  # noqa: E402
+from src.retrieval.text import load_segmenter  # noqa: E402
 
 LOG = logging.getLogger(__name__)
-
-
-def provenance(cfg: dict, paths: dict[str, Path]) -> dict:
-    for package, expected in cfg["versions"].items():
-        if importlib.metadata.version(package) != str(expected):
-            raise ValueError(f"Version mismatch: {package}")
-    settings = cfg["segmenter"]
-    if settings["annotators"] != ["wseg"]:
-        raise ValueError("Only wseg is supported")
-    prep = cfg["preprocessing"]
-    if (
-        prep["unicode"] != "NFC"
-        or not prep["lowercase_after_segmentation"]
-        or not prep["remove_punctuation_only"]
-        or prep["remove_stopwords"]
-        or prep["stemming"]
-    ):
-        raise ValueError("Unsupported preprocessing config")
-    model = Path(settings["model_dir"])
-    if (model / "revision.txt").read_text(encoding="utf-8").strip() != settings[
-        "revision"
-    ]:
-        raise ValueError("VNCoreNLP revision mismatch")
-    return {
-        "sources": {
-            name: file_hash(paths[name]) for name in ("chunks", "articles", "docs")
-        },
-        "segmenter": settings,
-        "segmenter_files": {
-            name: file_hash(model / name) for name in settings["files"]
-        },
-        "java": java_version(settings),
-        "preprocessing": prep,
-        "versions": {p: importlib.metadata.version(p) for p in cfg["versions"]},
-        "numerics": {p: importlib.metadata.version(p) for p in ("numpy", "scipy")},
-        "python": platform.python_version(),
-    }
 
 
 def run(

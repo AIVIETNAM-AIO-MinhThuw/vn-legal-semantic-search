@@ -1,0 +1,60 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: vnlegal-api:local
+    environment:
+      APP_CONFIG: configs/app.yaml
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+      PYTHONUTF8: "1"
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - type: bind
+        source: ./artifacts
+        target: /app/artifacts
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: volume
+        source: feedback_data
+        target: /app/data/app
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2).read()"
+      # D2 measured up to 598s; D6 must confirm this margin on the deploy host.
+      start_period: ${API_HEALTH_START_PERIOD:-12m}
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    init: true
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    image: vnlegal-ui:local
+    environment:
+      API_BASE_URL: http://api:8000
+      UI_SAMPLE: "0"
+      UI_TIMEOUT_S: "30"
+      PYTHONUTF8: "1"
+    ports:
+      - "127.0.0.1:8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    restart: unless-stopped
+
+volumes:
+  feedback_data:

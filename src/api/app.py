@@ -87,11 +87,8 @@ def _app_from_env() -> FastAPI:
         return create_app()
     from src.app.service import SearchService
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
-    try:
-        return create_app(SearchService(cfg))
-    except Exception:  # model/index chưa sẵn sàng: API vẫn lên, trả 503 rõ ràng
-        logging.exception("Không nạp được SearchService")
-        return create_app()
+    # Let startup errors reach Uvicorn so an invalid index cannot stay serving.
+    return create_app(SearchService(cfg))
 
 
 app = _app_from_env()

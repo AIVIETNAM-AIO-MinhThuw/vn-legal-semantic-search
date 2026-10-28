@@ -4,6 +4,8 @@ Thay đổi methodology được duyệt ghi ở bảng Changelog cuối `SPEC.m
 
 | Ngày | Thay đổi | File |
 |---|---|---|
+| 2026-10-28 | Thêm đóng gói CPU từ snapshot commit main nguyên byte, ZIP/SHA-256 đã tải ngoài repo, ghi RELEASE.json để truy nguồn và symlink/mount artifact read-only trong image. Không sửa code ứng dụng/main hoặc rebuild artifact. Bundle giữ hành vi loader của main, chưa tuyên bố D3/D6 nghiêm ngặt đạt. Bỏ các sửa thông báo lỗi loader/test chưa commit từ lượt trước. | `scripts/package_deploy.py`, `Makefile`, `README.md`, `docs/phases/docker.md` |
+| 2026-10-28 | Sửa công cụ đóng gói/nghiệm thu: README cài đúng bộ API CPU, script local chọn venv và kiểm tra Java, Make truyền interpreter; smoke kiểm tra bốn mode và health UI, chờ đúng project healthy, xuất log khi lỗi, giữ volume khi cleanup. Giữ nguyên artifact; kết quả bundle main ghi riêng với checkout D3. | `README.md`, `Makefile`, `scripts/{run_demo.ps1,run_demo.sh,smoke_demo.py}`, `tests/test_smoke_demo.py`, `docs/phases/docker.md` |
 | 2026-10-23 | Sửa review PR #2: kiểm tra cặp system/score_type và danh sách highlights; đồng bộ mô tả lỗi với OpenAPI; ghim dependencies API/test. Giữ nguyên schema v1, chưa freeze. | `src/contracts/schemas.py`, `src/api/app.py`, `openapi.json`, `requirements.txt` |
 | 2026-10-22 | Bổ sung notebook trình bày EDA và bộ biểu đồ dẫn xuất từ CSV thống kê | `notebooks/01_eda.ipynb`, `requirements-notebooks.txt`, `reports/figures/eda/`, tài liệu liên quan |
 | 2026-10-22 | Bổ sung cấu trúc trình bày/bàn giao xuyên suốt các phase, danh mục bằng chứng và hướng dẫn notebook/hình; chưa tạo notebook hoặc kết quả thực nghiệm mới | `README.md`, `docs/`, `notebooks/README.md`, `reports/figures/README.md`, `.evidence-loop/` |

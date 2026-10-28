@@ -1,0 +1,23 @@
+# API inference only (Python 3.11). Training keeps the same core versions.
+# Exact +cpu pin prevents pip from selecting a CUDA build from PyPI.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.5.1+cpu
+transformers==4.46.3
+tokenizers==0.20.3
+sentence-transformers==5.6.0
+huggingface_hub==0.36.0
+safetensors==0.8.0
+sentencepiece==0.2.0
+
+# Shared retrieval and VNCoreNLP (Java is installed by Dockerfile.api).
+numpy==2.4.6
+scipy==1.17.1
+bm25s==0.2.14
+py-vncorenlp==0.1.4
+pyjnius==1.9.0
+PyYAML==6.0.2
+
+# HTTP server and contracts. UI/test dependencies are installed separately.
+fastapi==0.115.6
+pydantic==2.10.4
+uvicorn==0.34.0

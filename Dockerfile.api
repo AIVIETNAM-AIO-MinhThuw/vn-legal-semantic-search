@@ -1,0 +1,46 @@
+FROM python:3.11-slim-bookworm
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONUTF8=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    JAVA_HOME=/opt/java \
+    HF_HUB_OFFLINE=1 \
+    TRANSFORMERS_OFFLINE=1 \
+    APP_CONFIG=configs/app.yaml
+
+WORKDIR /app
+
+# pyjnius uses a Linux wheel; the runtime only needs Java and native libraries.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        ca-certificates libgomp1 openjdk-17-jre-headless \
+    && ln -s "$(dirname "$(dirname "$(readlink -f /usr/bin/java)")")" /opt/java \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements-api.txt ./requirements-api.txt
+RUN python -m pip install --no-cache-dir --only-binary=pyjnius -r requirements-api.txt \
+    && python -m pip check
+
+COPY src/__init__.py ./src/__init__.py
+COPY src/api/ ./src/api/
+COPY src/app/ ./src/app/
+COPY src/contracts/ ./src/contracts/
+COPY src/retrieval/ ./src/retrieval/
+COPY configs/app.yaml configs/bm25.yaml configs/e5.yaml configs/dense_e5_ft.yaml configs/dense_sbert.yaml ./configs/
+# SearchService dynamically loads this module for the optional E5 S2 loader.
+COPY scripts/run_e5.py ./scripts/run_e5.py
+COPY models/lr_selection.json ./models/lr_selection.json
+
+RUN groupadd --gid 10001 app \
+    && useradd --uid 10001 --gid 10001 --create-home --shell /usr/sbin/nologin app \
+    && mkdir -p /app/artifacts /app/data/app \
+    && chown app:app /app/data/app
+
+USER 10001:10001
+
+# Build-time check without artifacts; APP_CONFIG is only cleared for this RUN.
+RUN APP_CONFIG= python -c "import os, numpy as np, torch, py_vncorenlp; import src.api.app, src.app.service, src.retrieval.bm25, src.retrieval.dense, src.retrieval.e5; from jnius import autoclass; assert os.getuid() != 0; assert torch.__version__ == '2.5.1+cpu' and torch.version.cuda is None; assert torch.from_numpy(np.ones(1, dtype=np.float32)).numpy()[0] == 1; assert autoclass('java.lang.System').getProperty('java.version'); print('API imports, CPU Torch/NumPy, non-root and JVM: OK')"
+
+EXPOSE 8000
+CMD ["python", "-m", "uvicorn", "src.api.app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]

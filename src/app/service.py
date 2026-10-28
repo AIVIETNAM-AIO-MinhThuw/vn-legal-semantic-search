@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import csv
-import hashlib
 import importlib.util
 import io
 import json
@@ -20,6 +19,7 @@ import numpy as np
 import yaml
 
 from src.api.errors import ApiError
+from src.app.artifacts import artifact_path, bm25_index_files, sha_file as _sha, verify_artifacts
 from src.contracts import (
     ErrorCode, FeedbackAck, FeedbackRequest, FilterValues, Highlight, InfoLimits, InfoResponse,
     ResultItem, ResultList, SearchRequest, SearchResponse, SearchWarning, WarningCode,
@@ -37,10 +37,6 @@ def _load_script(name: str):
     spec = importlib.util.spec_from_file_location(f"_script_{name}", ROOT / "scripts" / f"{name}.py")
     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
     return mod
-
-
-def _sha(p: Path) -> str:
-    return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
 def normalize(q: str) -> str:
@@ -79,10 +75,11 @@ def segments(content: str, max_len: int = 400) -> list[tuple[int, int]]:
 class SearchService:
     def __init__(self, config_path: Path):
         import torch
-        self.cfg = yaml.safe_load(Path(config_path).read_text(encoding="utf-8"))
+        self.cfg = yaml.safe_load((ROOT / config_path).read_text(encoding="utf-8"))
         dev = self.cfg["device"]
         self.device = ("cuda" if torch.cuda.is_available() else "cpu") if dev == "auto" else dev
         self.lock = threading.Lock()
+        self._prepare_artifacts()
         self._load_corpus()
         self._load_bm25()
         self._load_semantic()
@@ -93,37 +90,74 @@ class SearchService:
         LOG.info("Warm-up %.1fs", time.perf_counter() - t)
 
     # ---------- nạp ----------
+    def _prepare_artifacts(self):
+        self.artifact_root = (ROOT / self.cfg.get("artifact_root", ".")).resolve()
+        feedback = (ROOT / self.cfg["feedback_db"]).resolve()
+        if "artifact_root" in self.cfg and feedback.is_relative_to(self.artifact_root):
+            raise ValueError("feedback_db phải nằm ngoài artifact_root chỉ đọc")
+        covered = verify_artifacts(self.artifact_root) if "artifact_root" in self.cfg else None
+        self.bcfg = yaml.safe_load((ROOT / self.cfg["bm25_config"]).read_text(encoding="utf-8"))
+        self.bpaths = {k: artifact_path(self.artifact_root, self.bcfg["paths"][k])
+                       for k in ("chunks", "articles", "docs", "index")}
+        self.segmenter_settings = {**self.bcfg["segmenter"], "model_dir": str(
+            artifact_path(self.artifact_root, self.bcfg["segmenter"]["model_dir"]))}
+        s = self.cfg["systems"][self.cfg["semantic_system"]]
+        self.scfg = yaml.safe_load((ROOT / s["config"]).read_text(encoding="utf-8"))
+        model = s.get("model", self.scfg["paths"]["model"])
+        if "{lr}" in model:
+            selection = json.loads((ROOT / "models/lr_selection.json").read_text(encoding="utf-8-sig"))
+            model = model.replace("{lr}", selection["selected_lr"])
+        self.spaths = {
+            "model": artifact_path(self.artifact_root, model),
+            "index": artifact_path(self.artifact_root, s.get("index", self.scfg["paths"]["index"])),
+            "chunks": artifact_path(self.artifact_root, self.scfg["paths"]["chunks"]),
+        }
+        if s["kind"] == "e5":
+            self.spaths.update({k: artifact_path(self.artifact_root, self.scfg["paths"][k])
+                                for k in ("articles", "docs")})
+        required = [self.bpaths[k] for k in ("chunks", "articles", "docs")]
+        required += [self.bpaths["index"] / "manifest.json", self.spaths["index"] / "manifest.json",
+                     self.spaths["chunks"], self.spaths["index"] / "vectors.npy"]
+        required += [self.spaths["index"] / ("chunks.jsonl" if s["kind"] == "e5" else "chunk_ids.json")]
+        if s["kind"] == "e5":
+            required += [self.spaths[k] for k in ("articles", "docs")]
+        required += [self.spaths["model"] / name for name in (
+            "config.json", "model.safetensors", "tokenizer.json", "tokenizer_config.json")]
+        required += [Path(self.segmenter_settings["model_dir"]) / name
+                     for name in [*self.bcfg["segmenter"]["files"], "revision.txt"]]
+        bm25_manifest = json.loads((self.bpaths["index"] / "manifest.json").read_text(encoding="utf-8"))
+        required += [self.bpaths["index"] / name for name in bm25_index_files(bm25_manifest)]
+        for path in required:
+            if not path.is_file():
+                raise FileNotFoundError(f"Thiếu file runtime: {path}")
+            if covered is not None and path.relative_to(self.artifact_root).as_posix() not in covered:
+                raise ValueError(f"File runtime không có trong MANIFEST.json: {path}")
+
     def _load_corpus(self):
-        bcfg = yaml.safe_load((ROOT / self.cfg["bm25_config"]).read_text(encoding="utf-8"))
-        p = {k: ROOT / v for k, v in bcfg["paths"].items()}
+        p = self.bpaths
         self.arts = {a["article_id"]: a for a in read_jsonl(p["articles"])}
         self.docs = {d["doc_id"]: d for d in read_jsonl(p["docs"])}
-        self.bcfg, self.bpaths = bcfg, p
 
     def _load_bm25(self):
-        from src.retrieval.bm25 import BM25Retriever
+        from src.retrieval.bm25 import BM25Retriever, provenance
         from src.retrieval.text import load_segmenter
         paths = dict(self.bpaths)
-        # Demo trên máy khác: phiên bản Java/Python có thể khác máy dựng index. Chỉ bắt buộc khớp hash corpus
-        # và hash từng file index (BM25Retriever.load kiểm tra); provenance môi trường lấy từ manifest của index.
-        manifest = json.loads((paths["index"] / "manifest.json").read_text(encoding="utf-8"))
-        source = manifest["provenance"]
-        for name in ("chunks", "articles", "docs"):
-            if _sha(paths[name]) != source["sources"][name]:
-                raise ApiError(ErrorCode.INDEX_MANIFEST_MISMATCH, f"Corpus {name} khác corpus dựng index BM25")
-        self.segmenter = load_segmenter(self.bcfg["segmenter"])
-        self.bm25 = BM25Retriever.load(paths["index"], self.bcfg["bm25"], self.segmenter, source)
+        source = provenance(self.bcfg, paths, model_dir=Path(self.segmenter_settings["model_dir"]))
+        # Reject invalid persisted state before starting the JVM.
+        self.bm25 = BM25Retriever.load(paths["index"], self.bcfg["bm25"], None, source)
+        self.segmenter = load_segmenter(self.segmenter_settings)
+        self.bm25.segmenter = self.segmenter
         self.manifests = {"bm25_s10": _sha(paths["index"] / "manifest.json")}
 
     def _load_semantic(self):
         name = self.cfg["semantic_system"]
         s = self.cfg["systems"][name]
-        cfg = yaml.safe_load((ROOT / s["config"]).read_text(encoding="utf-8"))
+        cfg = self.scfg
         self.sem_name, self.sem_label = name, s["label"]
         if s["kind"] == "e5":
             from src.retrieval.e5 import E5Encoder, E5Retriever
             mod = _load_script("run_e5")
-            paths = {k: ROOT / v for k, v in cfg["paths"].items()}
+            paths = dict(self.spaths)
             paths["queries"] = paths["chunks"]
             source = mod.provenance(cfg, paths)
             enc = E5Encoder.load(paths["model"], cfg["encoding"], self.device)
@@ -136,18 +170,15 @@ class SearchService:
             index = paths["index"]
         else:
             from src.retrieval.dense import DenseEncoder, DenseRetriever
-            mpath = s.get("model", cfg["paths"]["model"])
-            if "{lr}" in mpath:  # LR chọn trên val do run_pipeline.ps1 ghi
-                sel = json.loads((ROOT / "models/lr_selection.json").read_text(encoding="utf-8-sig"))
-                mpath = mpath.replace("{lr}", sel["selected_lr"])
-            model = ROOT / mpath; index = ROOT / s.get("index", cfg["paths"]["index"])
+            model, index = self.spaths["model"], self.spaths["index"]
             enc = DenseEncoder(model, cfg["encoding"], self.device)
-            r = DenseRetriever.load(index, read_jsonl(ROOT / cfg["paths"]["chunks"]), enc)
+            r = DenseRetriever.load(index, read_jsonl(self.spaths["chunks"]), enc,
+                                    cfg["retrieval"]["chunk_top_k"], chunks_path=self.spaths["chunks"])
             self.sem_chunks, self.sem_vectors = r.chunks, r.vectors
             self.sem_encode = lambda q: enc.encode([q], "query")[0]
             self.sem_encode_passages = lambda ts: enc.encode(ts, "passage")
             self.tokenizer = enc.tok
-            self.model_name = str(model.relative_to(ROOT)).replace("\\", "/")
+            self.model_name = model.relative_to(self.artifact_root).as_posix()
             mf = model / "model.safetensors"
             self.model_rev = _sha(mf)[:12] if mf.exists() else "unknown"
         self.manifests[name] = _sha(index / "manifest.json")
