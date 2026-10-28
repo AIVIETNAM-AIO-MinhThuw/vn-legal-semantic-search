@@ -6,7 +6,7 @@ Methodology và các quyết định đã duyệt nằm trong [SPEC.md](SPEC.md)
 
 ## Truy cập demo nhanh
 
-**[Mở demo tra cứu pháp luật trên Streamlit Cloud](https://vn-legal-semantic-search-sdkyugnfhmapjrj68brnc6.streamlit.app/)**
+**[Mở demo tra cứu pháp luật trên Streamlit Cloud](https://vn-legal-semantic-search-jqxydgjrta2e54c3ldqv2l.streamlit.app/)**
 
 Người xem chỉ cần trình duyệt trên Windows, macOS hoặc điện thoại; không cần clone repo hay cài Python, Java, Docker.
 
