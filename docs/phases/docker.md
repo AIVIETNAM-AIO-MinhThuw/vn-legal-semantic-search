@@ -415,3 +415,29 @@ Script từ chối ghi đè bundle đã có. Chuyển cả thư mục bundle, g�
 | RAM thực đo | Snapshot sau chạy query: API khoảng 807.8 MiB, UI 36.58 MiB trên Docker VM giới hạn 7.604 GiB/host 16 GiB. Đây là snapshot CLI, chưa phải peak hay cấu hình RAM tối thiểu. |
 
 Log riêng của bundle: `.scratch/d6/main-cpu-build.log`, `main-cpu-up.log`, `main-cpu-up-result.txt`, `main-cpu-endpoints.log`, `main-cpu-offline.log`, `main-cpu-recreate.log`, `main-cpu-persistence.log`, `main-cpu-ui-render-final.log`, `main-cpu-image-audit.log`, `main-cpu-artifact-final.log`. Kết quả là nghiệm thu việc đóng gói **nguyên ứng dụng main** theo phạm vi mới; không thay đổi tuyên bố hạn chế D3 phía trên.
+
+### 12.7 Kiểm tra integration trước khi hợp nhất main (2026-10-28)
+
+Nhánh `task/integrate-docker`, merge commit `d249fe0`. Người dùng tự thao tác Git;
+lượt kiểm tra này không checkout, stage, commit, push, merge hoặc áp dụng stash.
+
+| Kiểm tra | Kết quả và giới hạn |
+|---|---|
+| Unit test Windows | Người dùng cung cấp kết quả `206 passed, 12 skipped`, 67.45 giây; một cảnh báo deprecation Starlette/AnyIO. `pip check` không phát hiện dependency hỏng. |
+| Compose config | Chạy lại `docker compose config --quiet`: exit 0. |
+| Artifact gốc | Kiểm SHA-256/kích thước: 23/23 file khớp `artifacts/MANIFEST.json`. Không sửa artifact. |
+| Dense manifest với loader integration | Probe trực tiếp `DenseRetriever.load` bị từ chối: `Dense manifest missing required metadata; frozen artifacts must not be patched at runtime`, exit 1. Manifest v1 thiếu `encoder`, `versions`. Không nạp model/vectors để lách ca này. |
+| Startup source integration trong Linux | Mount `src/`, `configs/`, artifact chỉ đọc lên runtime CPU sẵn có; `--network none`, SQLite tmpfs riêng. API thoát mã 1 với `BM25 manifest mismatch`, không phục vụ tìm kiếm. Không công khai cổng probe. |
+| Runtime probe và provenance | Runtime `vnlegal-api:local` là image bundle main cũ `7089d6d756e8`, nhưng source/config được thay bằng bind mount integration. Python 3.11.18 so với manifest 3.11.9; Java 17.0.21 so với Java 8u471. Đây là probe source, không phải kết quả image integration mới. |
+| Build integration mới | Đã chạy build API/UI với tag `:integration`. API qua cài Java/tải Torch CPU; cả hai vẫn tải dependency PyPI chậm. Chủ động dừng sau khi xác nhận lỗi runtime/manifest: build mới chưa hoàn tất, không ghi nhận đạt. |
+
+Log local tại `.scratch/integration/`: `api-build.log`, `ui-build.log`,
+`source-startup-probe.log`, `dense-manifest.log`. Container
+`vnlegal-integration-probe` đã thoát và giữ lại để đọc log.
+
+**Kết luận:** chưa đủ điều kiện hợp nhất toàn bộ integration vào main. Unit test
+đạt không thay thế startup với artifact thật. Cần xử lý provenance theo SPEC trước
+khi nghiệm thu API/UI, offline search và feedback trên source integration.
+Không sửa frozen manifest, không suy đoán phiên bản thiếu và không dùng bundle
+main cũ làm bằng chứng integration đã chạy được. Sau khi gỡ chặn, build lại hai
+image integration và chạy lại các phép thử runtime bị ảnh hưởng.
