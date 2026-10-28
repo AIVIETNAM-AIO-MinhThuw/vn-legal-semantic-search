@@ -8,6 +8,8 @@ Methodology và các quyết định đã duyệt nằm trong [SPEC.md](SPEC.md)
 
 ### Đóng gói nguyên ứng dụng main cho máy CPU
 
+Deploy miễn phí toàn bộ UI + API/model trên Streamlit Community Cloud: [hướng dẫn và entrypoint](deploy/streamlit/README.md). Bản thử dùng nguyên source main đã ghim commit; cần nghiệm thu thực tế trên Cloud, chưa bảo đảm lưu bền feedback.
+
 Deploy web dùng chung cho người dùng Windows/macOS: [các bước chuyển bundle, chạy server và tạo link HTTPS](docs/deploy_cpu.md). Người dùng chỉ cần trình duyệt; Docker chạy trên server Linux/amd64.
 
 Trên nhánh `task/TestCheckErrorDocker`, dùng ZIP và file checksum đã tải ở thư mục cha:
