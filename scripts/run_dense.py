@@ -14,15 +14,11 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.retrieval.common import read_jsonl, read_queries  # noqa: E402
-from src.retrieval.dense import DenseEncoder, DenseRetriever  # noqa: E402
+from src.retrieval.dense import DenseEncoder, DenseRetriever, model_fingerprint  # noqa: E402
 
 
 def sha(p: Path) -> str:
     return hashlib.sha256(Path(p).read_bytes()).hexdigest()
-
-
-def model_fingerprint(path: Path) -> dict:
-    return {p.name: sha(p) for p in sorted(Path(path).iterdir()) if p.is_file() and p.suffix in {".json", ".safetensors", ".model", ".txt"}}
 
 
 def main():
@@ -57,7 +53,7 @@ def main():
         r.save(paths["index"], {"config": cfg, "model_files": model_fingerprint(paths["model"]),
                                 "chunks_sha256": sha(paths["chunks"]), "truncated_passages": enc.truncated})
     else:
-        r = DenseRetriever.load(paths["index"], chunks, enc, cfg["retrieval"]["chunk_top_k"])
+        r = DenseRetriever.load(paths["index"], chunks, enc, cfg["retrieval"]["chunk_top_k"], chunks_path=paths["chunks"])
     index_seconds = time.perf_counter() - t0
     trunc_passages = enc.truncated
     enc.truncated = 0

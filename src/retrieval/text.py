@@ -45,7 +45,10 @@ def java_version(settings: dict) -> str:
     java_home = os.environ.get("JAVA_HOME")
     if not java_home:
         raise ValueError("Set JAVA_HOME to the Java runtime used by pyjnius")
-    java = Path(java_home) / "bin" / settings["java_executable"]
+    executable = settings["java_executable"]
+    if executable in ("java", "java.exe"):
+        executable = "java.exe" if os.name == "nt" else "java"
+    java = Path(java_home) / "bin" / executable
     result = subprocess.run(
         [str(java), "-version"],
         capture_output=True,

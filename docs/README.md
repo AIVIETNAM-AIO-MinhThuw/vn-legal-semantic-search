@@ -24,6 +24,7 @@ Không dùng bảng này để ghi “hoàn tất” chỉ vì có code, một f
 - [Quy trình phối hợp theo phase](workflow.md).
 - [Mẫu bàn giao code, review và trình bày](templates/phase_handoff.md).
 - [Danh mục artifact và nguồn số liệu](artifacts.md).
+- [Quy ước đóng gói Docker và bàn giao](phases/docker.md) — D0 đã thống nhất; file, lệnh kiểm chứng và trạng thái D1 ghi trong hồ sơ; chưa nghiệm thu Compose.
 - [Tổ chức notebook](../notebooks/README.md).
 - [Tổ chức hình xuất](../reports/figures/README.md).
 
